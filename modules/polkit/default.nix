@@ -1,6 +1,6 @@
 { ... }:
 {
-  imports = [ ./gnome-polkit.nix ];
+  imports = [ ../gnome-polkit.nix ];
   security.polkit = {
     enable = true;
   };
