@@ -29,11 +29,12 @@
     ...
     } @ inputs: {
       nixosConfigurations = let
-        mkSystem = name: system: nixpkgs.lib.nixosSystem {
-          specialArgs = {
+        # Global configuration, so applies to *all* hosts 
+        mkSystem = name: arch: nixpkgs.lib.nixosSystem {
+          specialArgs = { # See: https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
             flakeInputs = inputs;
             inherit inputs;
-            system = system;
+            system = arch;
           };
           modules = [
             { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
@@ -48,9 +49,11 @@
           ];
         };
       in {
-        desktop-nixos = mkSystem "desktop-nixos" "x86_64-linux";
-        server-nixos = mkSystem "server-nixos" "x86_64-linux";
-        pi-nixos = mkSystem "pi-nixos" "aarch64-linux";
+        # Hosts: "name" "arch"
+        desktop = mkSystem "desktop-nixos" "x86_64-linux";
+        server = mkSystem "server-nixos" "x86_64-linux";
+        pi = mkSystem "pi-nixos" "aarch64-linux";
+        # TODO: phone 
       };
     };
 }
