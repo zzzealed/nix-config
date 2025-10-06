@@ -1,0 +1,6 @@
+{ ... }:
+{
+  services.radicale = {
+    enable = true;
+  };
+}

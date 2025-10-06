@@ -1,0 +1,12 @@
+services:
+  gpt4free:
+    container_name: "gpt4free"
+    image: hlohaus789/g4f:0.6.3.4
+    ports:
+      - "9090:8080"
+      - "7900:7900"
+    volumes:
+      - "/var/lib/gpt4free/har_and_cookies:/app/har_and_cookies"
+      - "/var/lib/gpt4free/generated_images:/app/generated_images"
+    shm_size: "2g"
+    restart: unless-stopped

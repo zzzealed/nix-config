@@ -1,0 +1,34 @@
+#theme = "modus_vivendi_tinted"
+#theme = "carbonfox"
+#theme = "doom_acario_dark"
+#theme = "base16_default"
+#theme = "modus_vivendi"
+theme = "modus_vivendi_tinted"
+#theme = "naysayer"
+#theme = "onedark"
+#theme = "ttox"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "read-only-indicator", "version-control"]
+center = ["file-name", "file-modification-indicator"]
+right = ["spinner", "position"]
+
+[editor.gutters]
+layout = ["line-numbers", "spacer", "diff"]
+
+## ~/.config/helix/config.toml
+#[keys.normal]
+#C-y = ":sh zellij run -n Yazi -c -f -x 10% -y 10% --width 80% --height 80% -- bash ~/.config/helix/yazi-picker.sh open"

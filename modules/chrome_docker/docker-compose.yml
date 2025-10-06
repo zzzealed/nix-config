@@ -1,0 +1,11 @@
+services:
+  chrome:
+    container_name: "chrome"
+    image: lscr.io/chrome:141.0.7390.54-1-ls44
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - "/var/lib/chrome:/config"
+    shm_size: "2g"
+    restart: unless-stopped
