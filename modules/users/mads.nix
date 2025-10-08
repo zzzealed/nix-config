@@ -27,6 +27,7 @@
       ../git/home.nix
       ../helix/home.nix
       ../navi/home.nix
+      ../niri/home.nix
     ];
   };
 }
