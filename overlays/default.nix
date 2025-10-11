@@ -1,4 +1,7 @@
 { ... }:
 {
-  imports = [ ./nixpkgs-unstable.nix ];
+  imports = [
+    ./nixpkgs-unstable.nix
+    ./pkgs.nix
+  ];
 }
