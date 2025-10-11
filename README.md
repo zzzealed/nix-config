@@ -37,13 +37,13 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 # To-do
 [ ] Init: `services.nginx` (reverse-proxy) \
 [ ] Init: `services.wireguard` (wireguard-server) \
-[ ] Fix multi-keyboard layout \
+[x] Fix multi-keyboard layout \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
 [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
 [ ] `services.*`: Unique ports? \
-[~] Init: `pkgs.glide-browser` (overlay?) \
-[~] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
+[x] Init: `pkgs.glide-browser` (overlay?) \
+[ ] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
 [?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
 [?] Switch to SOPS-nix \
 [?] Set up 3rd-party caches (Cachix etc.) \
