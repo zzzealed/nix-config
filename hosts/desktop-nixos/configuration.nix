@@ -2,7 +2,6 @@
 {
   # Nix modules
   imports = [
-    ../../secrets/default.nix
     ../../modules/yt-dlp.nix
     ../../modules/libreoffice.nix
     ../../modules/legcord.nix
