@@ -38,7 +38,7 @@
     ../../modules/bitwarden
     ../../modules/samba-mounts
     ../../modules/openssh
-    #../../modules/glide-browser
+    ../../modules/glide-browser
   ];
 
   # Home manager modules

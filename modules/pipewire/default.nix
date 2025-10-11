@@ -11,7 +11,7 @@
       # enable this module
       enable = true;
       # defaults (no need to be set unless modified)
-      quantum = 64;
+      quantum = 128;
       rate = 48000;
     };
   };
