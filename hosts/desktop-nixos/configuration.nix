@@ -38,6 +38,7 @@
     ../../modules/samba-mounts
     ../../modules/openssh
     ../../modules/glide-browser
+    ../../modules/locale
   ];
 
   # Home manager modules
