@@ -6,7 +6,8 @@
   };
   environment.systemPackages = with pkgs; [
     unstable.xwayland-satellite # X-compatibility
-    unstable.walker # App launcher
+    #walker # App launcher
+    fuzzel
     swaynotificationcenter # Notification
     swaylock # Lockscreen, TODO: Get another one
     unstable.swww # Wallpaper
