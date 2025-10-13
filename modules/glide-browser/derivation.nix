@@ -12,13 +12,13 @@
 }:
 
 let
-  glideVersion = "0.1.52a";
-  glideRevision = "62d62511f6fa";
-  firefoxVersion = "144.0b9";
+  glideVersion = "0.1.51a";
+  glideRevision = "a710ac4a5865";
+  firefoxVersion = "144.0b8";
 
   firefoxSrc = fetchurl {
     url = "mirror://mozilla/firefox/releases/${firefoxVersion}/source/firefox-${firefoxVersion}.source.tar.xz";
-    hash = "sha512-daF3vgtGLsDmaLv9cYI0FJnz63taegZ6sgf/jo9VFnLQzsPGqRi6wLlnXYMVv7WRacGuQRD0mgF0F8KHEGNmxw";
+    hash = "sha512-8/hkzJZqrNa6MqIwbejFFGyVZgQ3W5at4CJzNW8rkQb2XdsHMu0kAj4rD3y3kbqoywQBWAmUbBi48UnB2l5k3A==";
   };
 
   patchedSrc = stdenv.mkDerivation (finalAttrs: {
