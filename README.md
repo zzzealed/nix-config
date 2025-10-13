@@ -44,8 +44,10 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [ ] `services.*`: Unique ports? \
 [x] Init: `pkgs.glide-browser` (overlay?) \
 [ ] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
+[ ] Init: Rsync-hbd cron job \
 [?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
 [?] Switch to SOPS-nix \
 [?] Set up 3rd-party caches (Cachix etc.) \
 [?] Switch to ZSH \
-[?] Init: `services.nitter`
+[?] Init: `services.nitter` \
+[?] Jujutsu-vcs
