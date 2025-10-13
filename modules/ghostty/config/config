@@ -9,7 +9,7 @@ font-family = CodeNewRoman Nerd Font
 font-feature = -calt -liga -dlig
 
 shell-integration = detect
-shell-integration-features = cursor, sudo, title
+shell-integration-features = cursor, sudo, title, ssh-env
 
 copy-on-select = false
 
