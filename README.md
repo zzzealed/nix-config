@@ -1,18 +1,16 @@
 # nix-config
 My "monorepo" for my [Nix](https://github.com/NixOS/nix) hosts.
 
-# Where is everything?
-* `hosts/`:
-Host-specific modules and configuration.
+# File structure
+* [`hosts/`](./hosts/): Here you'll find any Nix modules that are host-specific and imports for the shared `modules/`-modules.
 
-* `modules/`:
-Shared modules and configuration.
+* [`modules/`](./modules/): Shared Nix modules and configuration that are imported individually per `hosts/foo/configuration.nix`.
 
-* `overlays/`:
-Shared [overlays](https://wiki.nixos.org/wiki/Overlays).
+* [`overlays/`](./overlays/): Shared [Nix overlays](https://wiki.nixos.org/wiki/Overlays) that are used globally if imported in `overlays/default.nix`.
 
-* `secrets/`:
-My [agenix](https://github.com/ryantm/agenix) secrets.
+* [`secrets/`](./secrets/): My [agenix](https://github.com/ryantm/agenix) secrets which are used in various modules, unlocked at rebuild with my host's SSH-keys in `/etc/ssh/`.
+
+* [`flake.nix`](./flake.nix): My [flake](https://wiki.nixos.org/wiki/NixOS_system_configuration#Defining_NixOS_as_a_flake) that essentially acts as blueprint for my hosts. Taking in `inputs` like nixpkgs and passing everything on as the global configuration for my hosts.
 
 # Using
 1. Clone, or download the repository:
@@ -27,8 +25,8 @@ tar -xz main.tar.gz
 ```sh
 cd nix-config-main && nix-shell
 ```
-4. Rebuild with a host's (eg `desktop-nixos`) configuration:
-```nix
+4. Rebuild and switch with a host's (eg. "desktop-nixos") configuration:
+```sh
 sudo nixos-rebuild switch --flake .#desktop-nixos
 ```
 
