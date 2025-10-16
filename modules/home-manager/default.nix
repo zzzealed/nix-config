@@ -2,7 +2,7 @@
 {
   environment.systemPackages = [ pkgs.home-manager ];
   home-manager = {
-    useGlobalPkgs = true;
+    #useGlobalPkgs = true; # Apparently deprecated?
     extraSpecialArgs = { inherit flakeInputs flakeOutputs; };
     backupFileExtension = "bak";
     users.mads.home.stateVersion = "24.11";
