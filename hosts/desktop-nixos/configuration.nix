@@ -31,7 +31,6 @@
     ../../modules/ffmpeg
     ../../modules/helix
     ../../modules/pipewire
-    ../../modules/xdg-icons
     ../../modules/bat
     ../../modules/nvidia
     ../../modules/bitwarden
@@ -39,6 +38,7 @@
     ../../modules/openssh
     ../../modules/glide-browser
     ../../modules/locale
+    ../../modules/stylix
   ];
 
   # Home manager modules
