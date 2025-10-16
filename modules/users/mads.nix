@@ -28,6 +28,7 @@
       ../helix/home.nix
       ../navi/home.nix
       ../niri/home.nix
+      ../stylix/home.nix
     ];
   };
 }

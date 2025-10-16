@@ -16,6 +16,7 @@
     #nur.url = "github:nix-community/NUR";
     nix-gaming.url = "github:fufexan/nix-gaming";
     agenix.url = "github:ryantm/agenix";
+    stylix.url = "github:nix-community/stylix/release-25.05";
   };
 
   outputs = {
@@ -26,6 +27,7 @@
     steam-config-nix,
     nix-gaming,
     agenix,
+    stylix,
     ...
     } @ inputs: {
       nixosConfigurations = let
@@ -46,6 +48,7 @@
             (./hosts + "/${name}/hardware-configuration.nix")
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
+            stylix.nixosModules.stylix
           ];
         };
       in {
