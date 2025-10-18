@@ -6,7 +6,6 @@
     ../../modules/libreoffice.nix
     ../../modules/legcord.nix
     ../../modules/users/mads.nix
-    ../../modules/nerd-fonts/code-new-roman.nix
     ../../modules/cli-tools
     ../../modules/fish
     ../../modules/mpv
@@ -39,6 +38,7 @@
     ../../modules/glide-browser
     ../../modules/locale
     ../../modules/stylix
+    ../../modules/navi
   ];
 
   # Home manager modules
