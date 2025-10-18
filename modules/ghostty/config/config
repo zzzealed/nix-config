@@ -3,6 +3,7 @@ gtk-single-instance = true
 quit-after-last-window-closed = true
 wait-after-command = true
 
+font-family = CodeNewRoman Nerd Font
 font-size = 15
 font-feature = -calt -liga -dlig
 
