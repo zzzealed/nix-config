@@ -7,12 +7,12 @@
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.code-new-roman;
-        name = "";
+        name = "CodeNewRoman Nerd Font";
       };
     };
     cursor = {
-      name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
       size = 24;
     };
     icons.enable = true;
