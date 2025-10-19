@@ -10,7 +10,7 @@
     fuzzel
     swaynotificationcenter # Notification
     swaylock # Lockscreen, TODO: Get another one
-    unstable.swww # Wallpaper
+    wpaperd # Wallpaper
     wl-clipboard-rs # Clipboard, I am NOT beating the allegations
   ];
 }
