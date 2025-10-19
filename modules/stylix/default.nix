@@ -3,7 +3,7 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    #image = lib.mkDefault ./config/black.png; # Not implemented yet for Niri. See: https://github.com/nix-community/stylix/issues/799
+    image = ./config/black.png; # Not implemented yet for Niri's background. See: https://github.com/nix-community/stylix/issues/799
     base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/danqing.yaml";
     fonts = {
       monospace = {
