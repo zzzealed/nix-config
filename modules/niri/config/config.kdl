@@ -63,7 +63,7 @@ output "HDMI-A-1" {
     position x=3840 y=0
 }
 
-// Let something like swaybg, or in my case swww, place a wallpaper
+// Let something like swaybg, or in my case wpaperd, place a wallpaper
 layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
@@ -109,15 +109,12 @@ layout {
 
 // Startup spawns.
 spawn-at-startup "swaync"
-spawn-at-startup "swww-daemon"
-//spawn-at-startup "walker --gapplication-service"
+spawn-at-startup "wpaperd" // TODO: Does it actually start???
 
 // Misc.
 prefer-no-csd // No application-side decoration. I think?
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 cursor {
-    xcursor-theme "Bibata-Modern-Ice" // TODO: Install declaratively
-    xcursor-size 24
     hide-when-typing
     hide-after-inactive-ms 1000
 }

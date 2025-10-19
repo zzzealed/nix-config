@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   stylix = {
     enable = true;
     autoEnable = true;
-    image = ./config/wallhaven-rr5rq7_1920x1080.png;
+    #image = lib.mkDefault ./config/black.png; # Not implemented yet for Niri. See: https://github.com/nix-community/stylix/issues/799
+    base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/danqing.yaml";
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.code-new-roman;
@@ -23,12 +24,14 @@
  specialisation = {
    light-theme.configuration = {
      stylix = {
+       #image = ./config/wallhaven-d6m68g_1920x1080.png;
        base16Scheme = "${pkgs.base16-schemes}/share/themes/danqing-light.yaml";
        polarity = "light";
      };
    };
    dark-theme.configuration = {
      stylix = {
+       #image = ./config/wallhaven-rr5rq7_1920x1080.png;
        base16Scheme = "${pkgs.base16-schemes}/share/themes/danqing.yaml";
        polarity = "dark";
      };
