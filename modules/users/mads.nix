@@ -21,7 +21,7 @@
     imports = [
       ../fish/home.nix
       ../mpv/home.nix
-      ../firefox/home.nix
+      #../firefox/home.nix
       #../steam/home.nix TODO: Fix
       ../ghostty/home.nix
       ../git/home.nix
