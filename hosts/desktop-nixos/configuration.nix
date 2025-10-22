@@ -39,6 +39,7 @@
     ../../modules/locale
     ../../modules/stylix
     ../../modules/navi
+    ../../modules/networkmanager
   ];
 
   # Home manager modules
