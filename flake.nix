@@ -17,6 +17,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:nix-community/stylix/release-25.05";
+    glance-ical-events.url = "github:AWildLeon/Glance-iCal-Events";
   };
 
   outputs = {
@@ -28,6 +29,7 @@
     nix-gaming,
     agenix,
     stylix,
+    glance-ical-events,
     ...
     } @ inputs: {
       nixosConfigurations = let
