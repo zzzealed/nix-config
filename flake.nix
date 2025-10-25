@@ -18,6 +18,10 @@
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:nix-community/stylix/release-25.05";
     glance-ical-events.url = "github:AWildLeon/Glance-iCal-Events";
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -30,6 +34,7 @@
     agenix,
     stylix,
     glance-ical-events,
+    nix-on-droid,
     ...
     } @ inputs: {
       nixosConfigurations = let
@@ -48,9 +53,6 @@
             ./overlays
             (./hosts + "/${name}/configuration.nix")
             (./hosts + "/${name}/hardware-configuration.nix")
-            home-manager.nixosModules.home-manager
-            agenix.nixosModules.default
-            stylix.nixosModules.stylix
           ];
         };
       in {
@@ -58,7 +60,28 @@
         desktop-nixos = mkSystem "desktop-nixos" "x86_64-linux";
         server-nixos = mkSystem "server-nixos" "x86_64-linux";
         pi-nixos = mkSystem "pi-nixos" "aarch64-linux";
-        # TODO: phone 
+        phone-nix = mkSystem "phone-nix" "aarch64-linux";
       };
+      # Same ordeal for nix-on-droid
+      nixOnDroidConfigurations = let
+        mkSystem = name: arch: nix-on-droid.lib.nixOnDroidConfiguration {
+          specialArgs = {
+            flakeInputs = inputs;
+            inherit inputs;
+            system = arch;
+          };
+          modules = [
+            { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
+            { nixpkgs.config.allowUnfree = true; }
+            { networking.hostName = name; }
+            ./secrets
+            ./overlays
+            (./hosts + "/${name}/configuration.nix")
+            (./hosts + "/${name}/hardware-configuration.nix")
+          ];
+        };
+      in {
+        phone-nix = mkSystem "phone-nix" "aarch64-linux";  
+    };
     };
 }
