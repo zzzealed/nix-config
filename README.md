@@ -43,9 +43,11 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [x] Init: `pkgs.glide-browser` (overlay?) \
 [ ] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
 [ ] Init: Rsync-hbd cron job \
+[ ] Replace IPs with DNS \
 [?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
 [?] Switch to SOPS-nix \
 [?] Set up 3rd-party caches (Cachix etc.) \
 [?] Switch to ZSH \
 [?] Init: `services.nitter` \
-[?] Jujutsu-vcs
+[?] Jujutsu-vcs \
+[?] Init: Karakeep | Linkwarden
