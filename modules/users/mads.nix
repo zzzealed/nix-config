@@ -5,7 +5,7 @@
     description = "Mads";
     home = "/home/mads";
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "adbusers" "gamemode" ];
+    extraGroups = [ "wheel" "docker" "adbusers" "gamemode" "networkmanager" ];
     hashedPasswordFile = config.age.secrets.mads-password.path;
     linger = true;
     openssh.authorizedKeys.keys = [
@@ -22,7 +22,7 @@
       ../fish/home.nix
       ../mpv/home.nix
       #../firefox/home.nix
-      #../steam/home.nix TODO: Fix
+      ../steam/home.nix #TODO: Fix
       ../ghostty/home.nix
       ../git/home.nix
       ../helix/home.nix
