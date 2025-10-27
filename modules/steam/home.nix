@@ -4,14 +4,13 @@
   programs.steam.config = {
     enable = true;
     closeSteam = true; # See 'Important' note at beginning of this readme
-    platformOptimizations.enable = true; # https://github.com/fufexan/nix-gaming#platform-optimizations
     # Configuration for apps across all users
     apps = {
       # App IDs can be found through the game's store URL
-      "252950".compatTool = "GE-Proton"; # Rocket League
-      "252490".compatTool = "Proton 9.0-4"; # Rust
-      "2379780".compatTool = "GE-Proton"; # Balatro
-      "504230".compatTool = ""; # Celeste (works natively)
+      #"252950".compatTool = "GE-Proton"; # Rocket League
+      #"252490".compatTool = "Proton 9.0-4"; # Rust
+      #"2379780".compatTool = "GE-Proton"; # Balatro
+      #"504230".compatTool = ""; # Celeste (works natively)
       #
       #??? wtf "option does not exist"
       # 
