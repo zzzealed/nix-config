@@ -16,4 +16,12 @@ in
     publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
     armor = true;
   };
+  "glance-weather_location.age" = {
+    publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
+    armor = true;
+  };
+  "glance-custom-api_kredslob_skrald.age" = {
+    publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
+    armor = true;
+  };
 }
