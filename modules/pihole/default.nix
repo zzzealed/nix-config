@@ -1,17 +1,24 @@
-{ pkgs, ... }:
+{ pkgs, ... } @ args:
 {
-  services.unstable.pihole-web = {
+  imports = [
+    "${args.inputs.nixpkgs-unstable}/nixos/modules/services/networking/pihole-ftl.nix"
+    "${args.inputs.nixpkgs-unstable}/nixos/modules/services/web-apps/pihole-web.nix"
+  ];
+  documentation.nixos.enable = false;
+  services.pihole-web = {
     enable = true;
     package = pkgs.unstable.pihole-web;
+    ports = [ 8181 ];
   };
-  services.unstable.pihole-ftl = {
+  services.pihole-ftl = {
     enable = true;
     package = pkgs.unstable.pihole-ftl;
+    piholePackage = pkgs.unstable.pihole;
     openFirewallWebserver = true;
     openFirewallDNS = true;
     settings = { # From: https://github.com/pi-hole/FTL/blob/master/test/pihole.toml
       dns = {
-        upstreams = [ "0.0.0.0:5335" ]; # Unbound instance
+        upstreams = [ "0.0.0.0#5335" ]; # Unbound instance
         hosts = [
           "192.168.0.118 server.l.zzzealed.com"
           "192.168.0.151 pi.l.zzzealed.com"
@@ -38,7 +45,7 @@
         ];
       };
       webserver.api = {
-        pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI="; ### CHANGED, default = ""
+        pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI="; ### CHANGED, default = "" # TODO: age
       };
     };
     lists = [ # From: https://firebog.net
