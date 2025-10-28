@@ -12,13 +12,13 @@
 }:
 
 let
-  glideVersion = "0.1.53a";
-  glideRevision = "c29060a18ddc";
-  firefoxVersion = "145.0b6";
+  glideVersion = "0.1.51a";
+  glideRevision = "a710ac4a5865";
+  firefoxVersion = "144.0b8";
 
   firefoxSrc = fetchurl {
     url = "mirror://mozilla/firefox/releases/${firefoxVersion}/source/firefox-${firefoxVersion}.source.tar.xz";
-    hash = "";
+    hash = "sha512-8/hkzJZqrNa6MqIwbejFFGyVZgQ3W5at4CJzNW8rkQb2XdsHMu0kAj4rD3y3kbqoywQBWAmUbBi48UnB2l5k3A==";
   };
 
   patchedSrc = stdenv.mkDerivation (finalAttrs: {
@@ -30,7 +30,7 @@ let
       owner = "glide-browser";
       repo = "glide";
       tag = glideVersion;
-      hash = "";
+      hash = "sha256-NsMgVQZiydlYHZCvPZdRtopMqmihD4E06JVqNftJ5oM=";
     };
 
     postUnpack = ''
