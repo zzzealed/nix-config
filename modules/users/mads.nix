@@ -1,12 +1,12 @@
 { config, ... }:
 {
-  age.secrets.mads-password.file = ../../secrets/mads-password.age;
+  age.secrets."mads-password".file = ../../secrets/mads-password.age;
   users.users.mads = {
     description = "Mads";
     home = "/home/mads";
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "adbusers" "gamemode" "networkmanager" ];
-    hashedPasswordFile = config.age.secrets.mads-password.path;
+    hashedPasswordFile = config.age.secrets."mads-password".path;
     linger = true;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos"
