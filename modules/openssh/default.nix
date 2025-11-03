@@ -5,6 +5,7 @@
     settings = {
       PasswordAuthentication = true;
       PermitRootLogin = "prohibit-password";
+      X11Forwarding = true;
     };
     hostKeys = [
       {
