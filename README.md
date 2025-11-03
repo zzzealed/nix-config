@@ -34,13 +34,12 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 
 # To-do
 [ ] Init: `services.nginx` (reverse-proxy) \
+[ ] compose2nix: clear port 53 (disable DNS)? \
 [ ] Init: `services.wireguard` (wireguard-server) \
-[x] Fix multi-keyboard layout \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
 [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
 [ ] `services.*`: Unique ports? \
-[x] Init: `pkgs.glide-browser` (overlay?) \
 [ ] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
 [ ] Init: Rsync-hbd cron job \
 [ ] Replace IPs with DNS \
