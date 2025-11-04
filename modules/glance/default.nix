@@ -282,20 +282,16 @@
                         title = "unixdigest";
                       }
                       {
-                        url = "https://xcancel.com/RLDailyShop/rss";
+                        url = "https://nitter.privacyredirect.com/RLDailyShop/rss";
                         title = "RLDailyShop";
                       }
                       {
-                        url = "https://xcancel.com/ShiftRLE/rss";
+                        url = "https://nitter.privacyredirect.com/ShiftRLE/rss";
                         title = "ShiftRLE";
                       }
                       {
                         url = "https://determinate.systems/rss.xml";
                         title = "Determinate Systems";
-                      }
-                      {
-                        url = "https://www.hltv.org/rss/news";
-                        title = "HLTV";
                       }
                     ];
                   }
