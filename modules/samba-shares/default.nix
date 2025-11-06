@@ -37,16 +37,6 @@
         "force user" = "mads";
         #"force group" = "samba";
       };
-      "vault-public" = {
-        "path" = "/vault/Videos";
-        "browseable" = "yes";
-        "read only" = "yes";
-        "guest ok" = "no";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        #"force user" = "mads";
-        #"force group" = "samba";
-      };      
       "vault2" = {
         "path" = "/vault2";
         "browseable" = "yes";
