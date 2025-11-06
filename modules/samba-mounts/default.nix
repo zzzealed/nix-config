@@ -1,4 +1,8 @@
 { ... }:
 {
-  imports = [ ./vault.nix ./vault2.nix ./home.nix ];
+  imports = [
+    ./mnt-vault.nix
+    ./mnt-vault2.nix
+    ./mnt-home.nix
+  ];
 }
