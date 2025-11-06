@@ -54,7 +54,6 @@ in
     };
     cursor = {
       package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
       size = 24;
     };
     icons = {
@@ -68,6 +67,7 @@ in
     base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/${dark-scheme}.yaml";
     polarity = lib.mkDefault "dark";
     icons.dark = lib.mkDefault "Papirus-Dark";
+    cursor.name = lib.mkDefault "Bibata-Modern-Classic";
  };
  # A specialisation you can use when rebuild with `--specialistation light-theme`
  # See: https://wiki.nixos.org/wiki/Specialisation
@@ -78,6 +78,7 @@ in
        base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/${light-scheme}.yaml";
        polarity = lib.mkForce "light";
        icons.light = lib.mkForce "Papirus-Light";
+       cursor.name = lib.mkForce "Bibata-Modern-Ice";
      };
    };
  };
