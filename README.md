@@ -33,7 +33,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-[ ] Init: `services.nginx` (reverse-proxy) \
+[x] Init: `services.nginx` (reverse-proxy) \
 [ ] compose2nix: clear port 53 (disable DNS)? \
 [ ] Init: `services.wireguard` (wireguard-server) \
 [ ] Better `README.md` \
