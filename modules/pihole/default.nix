@@ -1,4 +1,4 @@
-{ pkgs, ... } @ args:
+{ config, pkgs, ... } @ args:
 {
   imports = [
     "${args.inputs.nixpkgs-unstable}/nixos/modules/services/networking/pihole-ftl.nix"
@@ -18,7 +18,7 @@
     openFirewallDNS = true;
     settings = { # From: https://github.com/pi-hole/FTL/blob/master/test/pihole.toml
       dns = {
-        upstreams = [ "0.0.0.0#5335" ]; # Unbound instance
+        upstreams = [ "127.0.0.1#5335" ]; # Unbound instance
         hosts = [
           "192.168.0.118 server.l.zzzealed.com"
           "192.168.0.151 pi.l.zzzealed.com"
@@ -29,23 +29,25 @@
         dnssec = true; ### CHANGED, default = false
         listeningMode = "ALL"; ### CHANGED, default = "LOCAL"
         cnameRecords = [
-          "\ttraefik.l.zzzealed.com,server.l.zzzealed.com"
           "vault.l.zzzealed.com,server.l.zzzealed.com"
           "glance.l.zzzealed.com,server.l.zzzealed.com"
           "wg.l.zzzealed.com,server.l.zzzealed.com"
           "pihole.l.zzzealed.com,server.l.zzzealed.com"
           "ha.l.zzzealed.com,server.l.zzzealed.com"
           "scrutiny.l.zzzealed.com,server.l.zzzealed.com"
-          "g4f.l.zzzealed.com,server.l.zzzealed.com"
           "chat.l.zzzealed.com,server.l.zzzealed.com"
           "searx.l.zzzealed.com,server.l.zzzealed.com"
           "mc.l.zzzealed.com,server.l.zzzealed.com"
-          "changedetection.l.zzzealed.com,server.l.zzzealed.com"
+          "change.l.zzzealed.com,server.l.zzzealed.com"
           "chrome.l.zzzealed.com,server.l.zzzealed.com"
+          "karakeep.l.zzzealed.com,server.l.zzzealed.com"
+          "n8n.l.zzzealed.com,server.l.zzzealed.com"
+          "calibre.l.zzzealed.com,server.l.zzzealed.com"
         ];
       };
       webserver.api = {
-        pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI="; ### CHANGED, default = "" # TODO: age
+        pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI="; ### CHANGED, default = ""
+        app_pwhash = "$y$j9T$prNoZbsUINAbYT7PRKTZI0$45A8g.u3tv6EYmamrhkqgIK.dOvTJecAe5MavAS8VC4";
       };
     };
     lists = [ # From: https://firebog.net
@@ -102,5 +104,12 @@
       # Other Lists
       { url = "https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt"; }
     ];
+  };
+  services.nginx = {
+    virtualHosts."pihole.l.zzzealed.com" = {
+      useACMEHost = "zzzealed.com";
+      forceSSL = true;
+      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.pihole-web.ports}";
+    };
   };
 }

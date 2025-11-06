@@ -4,6 +4,8 @@
 
   age.secrets."glance-weather_location".file = ../../secrets/glance-weather_location.age;
   age.secrets."glance-custom-api_kredslob_skrald".file = ../../secrets/glance-custom-api_kredslob_skrald.age;
+  age.secrets."changedetection-io_api_key".file = ../../secrets/changedetection-io_api_key.age;
+  age.secrets."pihole-app_password".file = ../../secrets/pihole-app_password.age;
 
   services.glance = {
     enable = true;
@@ -61,42 +63,52 @@
                       }
                       {
                         title = "Vaultwarden";
-                        url = "http://192.168.0.118:8000";
+                        url = "https://vault.l.zzzealed.com";
                         icon = "sh:vaultwarden";
                       }
                       {
                         title = "SearXNG";
-                        url = "http://192.168.0.118:8609";
+                        url = "https://searx.l.zzzealed.com";
                         icon = "sh:searxng";
                       }
                       {
                         title = "Open WebUI";
-                        url = "http://192.168.0.118:11111";
+                        url = "https://chat.l.zzzealed.com";
                         icon = "sh:open-webui";
                       }
                       {
                         title = "Karakeep";
-                        url = "http://192.168.0.118:7890";
+                        url = "https://karakeep.l.zzzealed.com";
                         icon = "sh:karakeep";
                       }
                       {
                         title = "PiHole";
-                        url = "http://192.168.0.118:8181";
+                        url = "https://pihole.l.zzzealed.com";
                         icon = "sh:pi-hole";
                       }
                       {
                         title = "Home Assistant";
-                        url = "http://192.168.0.118:8123";
+                        url = "https://ha.l.zzzealed.com";
                         icon = "sh:home-assistant";
                       }
                       {
                         title = "ChangeDetection";
-                        url = "http://192.168.0.118:5000";
+                        url = "https://change.l.zzzealed.com";
                         icon = "sh:changedetection";
                       }
                       {
+                        title = "Calibre Web";
+                        url = "https://calibre.l.zzzealed.com";
+                        icon = "sh:calibre-web";
+                      }
+                      {
+                        title = "n8n";
+                        url = "https://n8n.l.zzzealed.com";
+                        icon = "sh:n8n";
+                      }
+                      {
                         title = "Scrutiny";
-                        url = "http://192.168.0.118:50236";
+                        url = "https://scrutiny.l.zzzealed.com";
                         icon = "sh:scrutiny";
                       }
                     ];
@@ -340,6 +352,18 @@
                     ];
                   }
                   {
+                    type = "change-detection";
+                    instance-url = "https://change.l.zzzealed.com";
+                    token = { _secret = config.age.secrets."changedetection-io_api_key".path; };
+                  }
+                  {
+                    type = "dns-stats";
+                    service = "pihole";
+                    url = "pihole.l.zzzealed.com";
+                    password = { _secret = config.age.secrets."pihole-app_password".path; };
+                    hour-format = "24h";
+                  }
+                  {
                     type = "custom-api";
                     title = "CompApex calendar";
                     cache = "15m";
@@ -420,5 +444,12 @@
     host = "0.0.0.0";  # Bind to all interfaces
     port = 8076;
     workers = 4;
+  };
+  services.nginx = {
+    virtualHosts."glance.l.zzzealed.com" = {
+      useACMEHost = "zzzealed.com";
+      forceSSL = true;
+      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.glance.settings.server.port}";
+    };
   };
 }
