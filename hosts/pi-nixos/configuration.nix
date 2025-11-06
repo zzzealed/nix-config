@@ -8,6 +8,7 @@
     ../../modules/git
     ../../modules/home-manager
     ../../modules/helix
+    ../../modules/bash
     # Services
     ../../modules/pihole
     ../../modules/unbound
