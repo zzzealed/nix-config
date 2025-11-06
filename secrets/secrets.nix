@@ -24,4 +24,24 @@ in
     publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
     armor = true;
   };
+  "hbd-wireguard_config.age" = {
+    publicKeys = decodingKeys ++ interactiveKeys;
+    armor = true;
+  };
+  "porkbun-nginx_api_key.age" = {
+    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    armor = true;
+  };
+  "porkbun-nginx_api_secret.age" = {
+    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    armor = true;
+  };
+  "changedetection-io_api_key.age" = {
+    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    armor = true;
+  };
+  "pihole-app_password.age" = {
+    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    armor = true;
+  };
 }
