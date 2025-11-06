@@ -2,6 +2,6 @@
 {
   environment.systemPackages = [
     #pkgs.unstable.tidal-hifi
-    inputs.tidaLuna.packages.${system}.default
+    inputs.tidaluna.packages.${system}.default
   ];
 }
