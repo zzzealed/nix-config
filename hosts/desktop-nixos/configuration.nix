@@ -39,6 +39,9 @@
     ../../modules/locale
     ../../modules/stylix
     ../../modules/navi
+    ../../modules/bash
+    #../../modules/wg-quick
+    ../../modules/qbittorrent
     ../../modules/networkmanager
   ];
 
