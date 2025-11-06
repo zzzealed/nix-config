@@ -10,17 +10,23 @@
     };
     #yazi.url = "github:sxyazi/yazi";
     #tagstudio.url = "github:TagStudioDev/TagStudio";
-    tidaLuna.url = "github:Inrixia/TidaLuna";
+    tidaluna = {
+     url = "github:Inrixia/TidaLuna";
+     inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     steam-config-nix.url = "github:different-name/steam-config-nix";
     #niri.url = "github:YaLTeR/niri";
     #nur.url = "github:nix-community/NUR";
     nix-gaming.url = "github:fufexan/nix-gaming";
     agenix.url = "github:ryantm/agenix";
-    stylix.url = "github:nix-community/stylix/release-25.05";
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     glance-ical-events.url = "github:AWildLeon/Glance-iCal-Events";
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -28,7 +34,7 @@
     self,
     nixpkgs,
     home-manager,
-    tidaLuna,
+    tidaluna,
     steam-config-nix,
     nix-gaming,
     agenix,
@@ -81,7 +87,7 @@
           ];
         };
       in {
-        phone-nix = mkSystem "phone-nix" "aarch64-linux";  
-    };
+        phone-nix = mkSystem "phone-nix" "aarch64-linux";
+      };
     };
 }
