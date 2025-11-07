@@ -10,7 +10,7 @@
       server.secret_key = config.age.secrets."searx-secret_key".path;
     };
   };
-  networking.firewall = { allowedTCPPorts = [ config.services.searx.settings.server.port ]; };
+  #networking.firewall = { allowedTCPPorts = [ config.services.searx.settings.server.port ]; };
   services.nginx = {
     virtualHosts."searx.l.zzzealed.com" = {
       useACMEHost = "zzzealed.com";

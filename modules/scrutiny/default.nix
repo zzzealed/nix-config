@@ -2,7 +2,7 @@
 {
   services.scrutiny = {
     enable = true;
-    openFirewall = true;
+    #openFirewall = true;
     settings.web.listen.port = 50236;
   };
   services.nginx = {
