@@ -8,7 +8,7 @@
       DISABLE_NEW_RELEASE_CHECK = "true";
     };
   };
-  networking.firewall = { allowedTCPPorts = [ 7890 ]; };
+  #networking.firewall = { allowedTCPPorts = [ 7890 ]; };
   services.nginx = {
     virtualHosts."karakeep.l.zzzealed.com" = {
       useACMEHost = "zzzealed.com";

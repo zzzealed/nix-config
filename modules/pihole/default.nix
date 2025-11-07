@@ -14,7 +14,7 @@
     enable = true;
     package = pkgs.unstable.pihole-ftl;
     piholePackage = pkgs.unstable.pihole;
-    openFirewallWebserver = true;
+    #openFirewallWebserver = true;
     openFirewallDNS = true;
     settings = { # From: https://github.com/pi-hole/FTL/blob/master/test/pihole.toml
       dns = {

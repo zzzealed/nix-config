@@ -2,7 +2,7 @@
 {
   services.n8n = {
     enable = true;
-    openFirewall = true;
+    #openFirewall = true;
     webhookUrl = "";
     settings = {
       port = 5678;

@@ -7,7 +7,7 @@
     listenAddress = "0.0.0.0";
     port = 5000;
   };
-  networking.firewall = { allowedTCPPorts = [ config.services.changedetection-io.port ]; };
+  #networking.firewall = { allowedTCPPorts = [ config.services.changedetection-io.port ]; };
   services.nginx = {
     virtualHosts."change.l.zzzealed.com" = {
       useACMEHost = "zzzealed.com";
