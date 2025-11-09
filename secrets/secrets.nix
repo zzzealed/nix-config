@@ -44,4 +44,12 @@ in
     publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     armor = true;
   };
+  "changedetection-io_rss.age" = {
+    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    armor = true;
+  };
+  "glance-releases-token_github.age" = {
+    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    armor = true;
+  };
 }
