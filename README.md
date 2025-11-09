@@ -36,13 +36,14 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [x] Init: `services.nginx` (reverse-proxy) \
 [ ] compose2nix: clear port 53 (disable DNS)? \
 [ ] Init: `services.wireguard` (wireguard-server) \
+[ ] Manually define `services.glance` colorscheme or fix Stylix scheme \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
 [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
 [ ] `services.*`: Unique ports? \
-[ ] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
+[x] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
 [ ] Init: Rsync-hbd cron job \
-[ ] Replace IPs with DNS \
+[x] Replace IPs with DNS \
 [x] Init: Karakeep \
 [?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
 [?] Switch to SOPS-nix \
