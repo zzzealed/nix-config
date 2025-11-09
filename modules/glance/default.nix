@@ -111,6 +111,16 @@
                         url = "https://scrutiny.l.zzzealed.com";
                         icon = "sh:scrutiny";
                       }
+                      {
+                        title = "Chrome";
+                        url = "https://server.l.zzzealed.com:3001";
+                        icon = "sh:google-chrome";
+                      }
+                      {
+                        title = "GPT4Free";
+                        url = "http://server.l.zzzealed.com:9090/chat";
+                        icon = "sh:openai";
+                      }
                     ];
                   }
                   {
