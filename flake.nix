@@ -28,6 +28,7 @@
       url = "github:nix-community/nix-on-droid/release-24.05";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = {
@@ -41,6 +42,7 @@
     stylix,
     glance-ical-events,
     nix-on-droid,
+    nix-minecraft,
     ...
     } @ inputs: {
       nixosConfigurations = let
