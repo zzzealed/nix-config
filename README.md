@@ -43,10 +43,10 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [ ] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
 [ ] Init: Rsync-hbd cron job \
 [ ] Replace IPs with DNS \
+[x] Init: Karakeep \
 [?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
 [?] Switch to SOPS-nix \
 [?] Set up 3rd-party caches (Cachix etc.) \
 [?] Switch to ZSH \
 [?] Init: `services.nitter` \
 [?] Jujutsu-vcs \
-[?] Init: Karakeep | Linkwarden
