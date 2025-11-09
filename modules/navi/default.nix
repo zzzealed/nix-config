@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.navi ];
+  environment.systemPackages = [ pkgs.navi pkgs.jq ];
 }
