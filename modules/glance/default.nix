@@ -4,8 +4,9 @@
 
   age.secrets."glance-weather_location".file = ../../secrets/glance-weather_location.age;
   age.secrets."glance-custom-api_kredslob_skrald".file = ../../secrets/glance-custom-api_kredslob_skrald.age;
-  age.secrets."changedetection-io_api_key".file = ../../secrets/changedetection-io_api_key.age;
   age.secrets."pihole-app_password".file = ../../secrets/pihole-app_password.age;
+  age.secrets."changedetection-io_rss".file = ../../secrets/changedetection-io_rss.age;
+  age.secrets."glance-releases-token_github".file = ../../secrets/glance-releases-token_github.age;
 
   services.glance = {
     enable = true;
@@ -50,6 +51,7 @@
                   {
                     type = "monitor";
                     cache = "5m";
+                    style = "compact";
                     sites = [
                       {
                         title = "Router";
@@ -173,16 +175,8 @@
                             url = "https://esports.clashofclans.com/news";
                           }
                           {
-                            title = "r/Piracy megathread";
-                            url = "https://www.reddit.com/r/Piracy/wiki/megathread";
-                          }
-                          {
                             title = "r/Piracy Lemmy instance";
                             url = "https://lemmy.dbzer0.com/c/piracy";
-                          }
-                          {
-                            title = "FMHY posts";
-                            url = "https://fmhy.net/posts";
                           }
                         ];
                       }
@@ -260,6 +254,7 @@
                       "UCRcgy6GzDeccI7dkbbBna3Q"
                       "UCsnGwSIHyoYN0kiINAGUKxg"
                       "UCYGDiVemmhY_Q1M-hKp4fvw"
+                      "UCKNWJMaiiBSPOH0qiWdO0lQ"
                     ];
                   }
                   {
@@ -304,16 +299,20 @@
                         title = "unixdigest";
                       }
                       {
-                        url = "https://nitter.privacyredirect.com/RLDailyShop/rss";
-                        title = "RLDailyShop";
-                      }
-                      {
-                        url = "https://nitter.privacyredirect.com/ShiftRLE/rss";
-                        title = "ShiftRLE";
-                      }
-                      {
                         url = "https://determinate.systems/rss.xml";
                         title = "Determinate Systems";
+                      }
+                      {
+                        url = { _secret = config.age.secrets."changedetection-io_rss".path; };
+                        title = "ChangeDetection";
+                      }
+                      {
+                        url = "https://nixos.org/blog/newsletters-rss.xml";
+                        title = "NixOS newsletter";
+                      }
+                      {
+                        url = "https://nixos.org/blog/announcements-rss.xml";
+                        title = "NixOS announcements";
                       }
                     ];
                   }
@@ -362,16 +361,12 @@
                     ];
                   }
                   {
-                    type = "change-detection";
-                    instance-url = "https://change.l.zzzealed.com";
-                    token = { _secret = config.age.secrets."changedetection-io_api_key".path; };
-                  }
-                  {
                     type = "dns-stats";
-                    service = "pihole";
-                    url = "pihole.l.zzzealed.com";
+                    service = "pihole-v6";
+                    url = "https://pihole.l.zzzealed.com";
                     password = { _secret = config.age.secrets."pihole-app_password".path; };
                     hour-format = "24h";
+                    hide-top-domains = true;
                   }
                   {
                     type = "custom-api";
@@ -410,6 +405,7 @@
                     type = "releases";
                     show-sources-icon = true;
                     limit = 5;
+                    token = { _secret = config.age.secrets."glance-releases-token_github".path; };
                     repositories = [
                       "pi-hole/pi-hole"
                       "analogj/scrutiny"
@@ -431,6 +427,9 @@
                       "sharkdp/bat"
                       "localsend/localsend"
                       "yt-dlp/yt-dlp"
+                      "nekename/opendeck"
+                      "inrixia/tidaluna"
+                      "linuxserver/docker-chrome"
                     ];
                   }
 #                  {

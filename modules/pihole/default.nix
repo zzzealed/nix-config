@@ -47,7 +47,8 @@
       };
       webserver.api = {
         pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI="; ### CHANGED, default = ""
-        app_pwhash = "$y$j9T$prNoZbsUINAbYT7PRKTZI0$45A8g.u3tv6EYmamrhkqgIK.dOvTJecAe5MavAS8VC4";
+        app_pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI=";
+        #totp_secret = "";
       };
     };
     lists = [ # From: https://firebog.net
