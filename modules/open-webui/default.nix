@@ -9,9 +9,9 @@
       ANONYMIZED_TELEMETRY = "False";
       DO_NOT_TRACK = "True";
       SCARF_NO_ANALYTICS = "True";
-      OPENAI_API_BASE_URL = "http://server.l.zzzealed.com:9090/v1"; # GPT4Free instance, shhh
+      OPENAI_API_BASE_URL = "http://server.l.zzzealed.com:9090/api/Perplexity"; # GPT4Free instance, shhh
       ENABLE_SIGNUP = "False";
-      DEFAULT_MODELS = "deepseek-v3";
+      DEFAULT_MODELS = "claude45sonnetthinking";
       ENABLE_PERSISTENT_CONFIG = "True"; # We need this I guess?
       ENABLE_VERSION_UPDATE_CHECK = "False";
       ENABLE_WEB_SEARCH = "True";
