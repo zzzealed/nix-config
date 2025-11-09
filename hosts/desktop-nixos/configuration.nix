@@ -62,7 +62,7 @@
     rpcs3
     unstable.ryubing
     gparted
-    ungoogled-chromium
+    unstable.ungoogled-chromium
   ];
 
   # Boot
