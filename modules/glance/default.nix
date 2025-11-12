@@ -314,6 +314,10 @@
                         url = "https://nixos.org/blog/announcements-rss.xml";
                         title = "NixOS announcements";
                       }
+                      {
+                        url = "https://servo.org/blog/feed.xml";
+                        title = "Servo";
+                      }
                     ];
                   }
                   {
