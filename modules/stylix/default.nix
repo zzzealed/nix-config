@@ -45,6 +45,7 @@ in
     autoEnable = true;
     targets = {
       #grub.enable = false;
+      glance.enable = false;
     };
     fonts = {
       monospace = {
@@ -63,7 +64,7 @@ in
     opacity.popups = 0.75;
 
     # Default theme is dark
-    image = lib.mkDefault ./config/wallhaven-rr5rq7_1920x1080.png;
+    image = lib.mkDefault ./config/wp11286584-adventure-time-night-wallpapers.jpg;
     base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/${dark-scheme}.yaml";
     polarity = lib.mkDefault "dark";
     icons.dark = lib.mkDefault "Papirus-Dark";
@@ -74,7 +75,7 @@ in
  specialisation = {
    light-theme.configuration = {
      stylix = {
-       image = lib.mkForce ./config/wallhaven-d6m68g_1920x1080.png;
+       image = lib.mkForce ./config/wallhaven-9d7dox_1920x1080.png;
        base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/${light-scheme}.yaml";
        polarity = lib.mkForce "light";
        icons.light = lib.mkForce "Papirus-Light";
