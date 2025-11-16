@@ -16,6 +16,24 @@
       server.port = 6789;
       theme = {
         disable-picker = false;
+
+        # danqing
+        light = false;
+        background-color = "40 3.2 18.2"; # base00
+        primary-color = "176 35 91"; # base05
+        positive-color = "90 35 54.1"; # base0b
+        negative-color = "14 92 70.6"; # base08
+
+        presets = {
+          light-theme = {
+            # danqing-light
+            light = true;
+            background-color = "45 35 95"; # base00
+            primary-color = "40 3.2 18.2"; # base05
+            positive-color = "90 35 54.1"; # base0b
+            negative-color = "14 92 70.6"; # base08
+          };
+        };
       };
       pages = [
           {
@@ -317,6 +335,10 @@
                       {
                         url = "https://servo.org/blog/feed.xml";
                         title = "Servo";
+                      }
+                      {
+                        url = "https://blog.mozilla.org/en/latest/rss";
+                        title = "Mozilla";
                       }
                     ];
                   }
