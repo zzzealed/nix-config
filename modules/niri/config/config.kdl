@@ -81,7 +81,7 @@ layout {
     }
     default-column-width { proportion 0.5; } // TODO: Maybe leave empty so windows decide for themselves?
     focus-ring {
-        active-color "green" // TODO: Gradients?
+        active-color "lime" // TODO: Gradients?
         inactive-color "#505050"
     }
 
@@ -142,6 +142,12 @@ window-rule {
 window-rule {
     geometry-corner-radius 0
     clip-to-geometry false
+}
+
+gestures {
+    hot-corners {
+        off
+    }
 }
 
 // Keybinds.
