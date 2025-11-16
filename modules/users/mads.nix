@@ -22,7 +22,7 @@
       ../fish/home.nix
       ../mpv/home.nix
       #../firefox/home.nix
-      ../steam/home.nix #TODO: Fix
+      #../steam/home.nix #TODO: Fix
       ../ghostty/home.nix
       ../git/home.nix
       ../helix/home.nix
