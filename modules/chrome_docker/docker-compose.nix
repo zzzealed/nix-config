@@ -21,7 +21,7 @@
 
   # Containers
   virtualisation.oci-containers.containers."chrome" = {
-    image = "ghcr.io/linuxserver/chrome:142.0.7444";
+    image = "ghcr.io/linuxserver/chrome:142.0.7444.162-1-ls53";
     volumes = [
       "/var/lib/chrome:/config:rw"
     ];

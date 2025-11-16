@@ -1,7 +1,7 @@
 services:
   chrome:
     container_name: "chrome"
-    image: ghcr.io/linuxserver/chrome:142.0.7444
+    image: ghcr.io/linuxserver/chrome:142.0.7444.162-1-ls53
     ports:
       - "3000:3000"
       - "3001:3001"
