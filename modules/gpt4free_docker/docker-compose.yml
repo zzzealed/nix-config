@@ -1,13 +1,13 @@
 services:
   gpt4free:
     container_name: "gpt4free"
-    image: hlohaus789/g4f:v6.5.7-slim
+    image: hlohaus789/g4f:v6.5.4
     ports:
       - "9090:8080"
       - "7900:7900"
     volumes:
       # Remember to chown 1200:1201 (podman user:group) `/var/lib/gpt4free`
       - "/var/lib/gpt4free/har_and_cookies:/app/har_and_cookies"
-      - "/var/lib/gpt4free/generated_images:/app/generated_images"
+      - "/var/lib/gpt4free/generated_media:/app/generated_media"
     shm_size: "2g"
     restart: unless-stopped
