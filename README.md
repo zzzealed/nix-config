@@ -34,7 +34,8 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 
 # To-do
 [x] Init: `services.nginx` (reverse-proxy) \
-[ ] compose2nix: clear port 53 (disable DNS)? \
+[x] compose2nix: clear port 53 (disable DNS)? \
+[ ] Fix `server-nixos` bootloader \
 [ ] Init: `services.wireguard` (wireguard-server) \
 [ ] Manually define `services.glance` colorscheme or fix Stylix scheme \
 [ ] Better `README.md` \
@@ -50,4 +51,5 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [?] Set up 3rd-party caches (Cachix etc.) \
 [?] Switch to ZSH \
 [?] Init: `services.nitter` \
-[?] Jujutsu-vcs \
+[?] Jujutsu-vcs
+
