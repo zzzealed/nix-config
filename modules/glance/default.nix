@@ -428,6 +428,18 @@
                     template = builtins.readFile ./config/ical-events.file;
                   }
                   {
+                    type = "custom-api";
+                    title = "DK landsholdet iCal";
+                    cache = "15m";
+                    url = "http://0.0.0.0:8076/events";
+                    parameters = {
+                      # From: https://fixtur.es
+                      url = "https://calendar.google.com/calendar/ical/d65q914hiat9cdie7o7bk38p18%40group.calendar.google.com/public/basic.ics";
+                      limit = 5;
+                    };
+                    template = builtins.readFile ./config/ical-events.file;
+                  }
+                  {
                     type = "releases";
                     show-sources-icon = true;
                     limit = 5;
