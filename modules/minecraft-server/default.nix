@@ -63,6 +63,8 @@
             #                                sha256 = "sha256-iPYknfreQ0ZqmdL/1FCMhoLpLb3AdgW5AeqOKmI68Ns="; };
             ScalableLux = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PV9KcrYQ/ScalableLux-0.1.6%2Bfabric.c25518a-all.jar";
                                           sha256 = "sha256-ekpzcThhg8dVUjtWtVolHXWsLCP0Cvik8PijNbBdT8I="; };
+            AppleSkin = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/8sbiz1lS/appleskin-fabric-mc1.21.9-3.0.7.jar";
+                                        sha256 = "sha256-ejEbFTr0wrdgm4SSpjsk3Zt6/TOLrBoj32qJGm6AC4k="; };
           } );
         };
       };
