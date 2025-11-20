@@ -43,6 +43,8 @@
     #../../modules/wg-quick
     ../../modules/qbittorrent
     ../../modules/networkmanager
+    ../../modules/prismlauncher
+    ../../modules/ungoogled-chromium
   ];
 
   # Home manager modules
@@ -57,12 +59,10 @@
     scrcpy
     ntfs3g
     kdePackages.dolphin
-    prismlauncher
     krita
     rpcs3
     unstable.ryubing
     gparted
-    unstable.ungoogled-chromium
   ];
 
   # Boot
@@ -82,6 +82,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   hardware.graphics = {
     enable = true;
+    package = pkgs.mesa;
     enable32Bit = true;
     extraPackages = with pkgs; [ nvidia-vaapi-driver ];
   };
