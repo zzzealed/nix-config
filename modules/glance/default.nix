@@ -340,6 +340,10 @@
                         url = "https://blog.mozilla.org/en/latest/rss";
                         title = "Mozilla";
                       }
+                      {
+                        url = "https://itsfoss.com/rss";
+                        title = "It's FOSS";
+                      }
                     ];
                   }
                   {
