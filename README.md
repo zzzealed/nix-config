@@ -33,16 +33,13 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-[x] Init: `services.nginx` (reverse-proxy) \
-[x] compose2nix: clear port 53 (disable DNS)? \
 [ ] Fix `server-nixos` bootloader \
 [ ] Init: `services.wireguard` (wireguard-server) \
-[ ] Manually define `services.glance` colorscheme or fix Stylix scheme \
+[x] Manually define `services.glance` colorscheme or fix Stylix scheme \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
 [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
 [ ] `services.*`: Unique ports? \
-[x] Init: [`services.fabric-servers`](https://github.com/NixOS/nixpkgs/pull/432803) \
 [ ] Init: Rsync-hbd cron job \
 [x] Replace IPs with DNS \
 [x] Init: Karakeep \
