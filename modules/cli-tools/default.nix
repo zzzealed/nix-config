@@ -7,7 +7,6 @@
     ../tokei.nix
     ../tealdeer.nix
     ../fastfetch.nix
-    ../bottom.nix
     ../ripgrep.nix
     ../uutils-coreutils.nix
     ../fd.nix
