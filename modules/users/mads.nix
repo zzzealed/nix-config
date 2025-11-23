@@ -29,6 +29,7 @@
       ../navi/home.nix
       ../niri/home.nix
       ../stylix/home.nix
+      ../btop/home.nix
     ];
   };
 }
