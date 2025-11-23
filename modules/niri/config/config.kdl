@@ -108,8 +108,7 @@ layout {
 }
 
 // Startup spawns.
-spawn-at-startup "swaync"
-spawn-at-startup "wpaperd" // TODO: Does it actually start???
+spawn-at-startup "wpaperd"
 
 // Misc.
 prefer-no-csd // No application-side decoration. I think?
