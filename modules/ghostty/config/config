@@ -9,6 +9,5 @@ font-size = 15
 font-feature = -calt -liga -dlig
 
 shell-integration = detect
-shell-integration-features = cursor, sudo, title, ssh-env
-
-bell-features = system, audio, attention
+shell-integration-features = cursor, sudo, title
+# ssh-env ?
