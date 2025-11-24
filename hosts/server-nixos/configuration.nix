@@ -15,6 +15,8 @@
     ../../modules/locale
     ../../modules/stylix
     ../../modules/bash
+    ../../modules/ungoogled-chromium
+    ../../modules/python3.nix
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
@@ -37,6 +39,9 @@
     ../../modules/rust-gameserver
     ../../modules/nginx
     ../../modules/minecraft-server
+    ../../modules/rclone
+    ../../modules/rclone/hbd.nix
+    ../../modules/pipewire
     ## Compose2Nix
     ../../modules/gpt4free_docker/docker-compose.nix
     ../../modules/chrome_docker/docker-compose.nix
@@ -46,6 +51,7 @@
   environment.systemPackages = with pkgs; [
     zfs
     dig
+    screen
   ];
 
   # Boot
@@ -55,6 +61,9 @@
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  # shit11
+  services.xserver.enable = true;
 
   # ZFS
   services.sanoid.datasets."vault".daily = 1; # Snapshot "vault" once a day
