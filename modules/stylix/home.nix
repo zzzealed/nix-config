@@ -5,7 +5,6 @@
   services.swaync.enable = true;
   programs.swaylock.enable = true;
   programs.fuzzel.enable = true;
-  programs.mpv.enable = true;
   programs.bat.enable = true;
 
   stylix = {
