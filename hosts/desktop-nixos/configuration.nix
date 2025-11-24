@@ -12,7 +12,7 @@
     ../../modules/ly
     ../../modules/niri
     ../../modules/nh
-    ../../modules/firefox
+    #../../modules/firefox
     ../../modules/systemd-boot
     ../../modules/rclone
     ../../modules/steam
@@ -45,6 +45,8 @@
     ../../modules/networkmanager
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium
+    ../../modules/btop
+    ../../modules/python3.nix
   ];
 
   # Home manager modules
@@ -63,6 +65,9 @@
     rpcs3
     unstable.ryubing
     gparted
+    hakuneko
+    unstable.kcc
+    calibre
   ];
 
   # Boot
