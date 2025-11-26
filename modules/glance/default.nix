@@ -135,6 +135,7 @@
                         title = "Chrome";
                         url = "https://server.l.zzzealed.com:3001";
                         icon = "sh:google-chrome";
+                        allow-insecure = true;
                       }
                       {
                         title = "GPT4Free";
