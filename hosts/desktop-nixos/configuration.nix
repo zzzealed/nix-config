@@ -68,6 +68,7 @@
     hakuneko
     unstable.kcc
     calibre
+    unstable.servo
   ];
 
   # Boot
