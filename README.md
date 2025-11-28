@@ -33,7 +33,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-[ ] Fix `server-nixos` bootloader \
+[x] Fix `server-nixos` bootloader \
 [ ] Init: `services.wireguard` (wireguard-server) \
 [x] Manually define `services.glance` colorscheme or fix Stylix scheme \
 [ ] Better `README.md` \
