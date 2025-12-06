@@ -14,7 +14,7 @@
     svelte-language-server
     sqls
     tailwindcss-language-server
-    opentofu-ls
+    tofu-ls
     taplo
     typescript-language-server
     yaml-language-server
