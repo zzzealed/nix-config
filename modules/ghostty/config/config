@@ -3,6 +3,8 @@ gtk-single-instance = true
 quit-after-last-window-closed = true
 wait-after-command = true
 copy-on-select = false
+working-directory = inherit
+window-inherit-working-directory = true
 
 font-family = CodeNewRoman Nerd Font
 font-size = 15
