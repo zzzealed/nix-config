@@ -1,10 +1,5 @@
-{ config, pkgs, ... } @ args:
+{ config, pkgs, ... }:
 {
-  imports = [
-    "${args.inputs.nixpkgs-unstable}/nixos/modules/services/networking/pihole-ftl.nix"
-    "${args.inputs.nixpkgs-unstable}/nixos/modules/services/web-apps/pihole-web.nix"
-  ];
-  documentation.nixos.enable = false;
   services.pihole-web = {
     enable = true;
     package = pkgs.unstable.pihole-web;
@@ -43,6 +38,7 @@
           "karakeep.l.zzzealed.com,server.l.zzzealed.com"
           "n8n.l.zzzealed.com,server.l.zzzealed.com"
           "calibre.l.zzzealed.com,server.l.zzzealed.com"
+          "nitter.l.zzzealed.com,server.l.zzzealed.com"
         ];
       };
       webserver.api = {
