@@ -28,7 +28,7 @@
       };
       serverProperties = {
         server-port = 43000;
-        difficulty = "normal";
+        difficulty = "hard";
         enforce-whitelist = true;
         force-gamemode = true;
         gamemode = "survival";
