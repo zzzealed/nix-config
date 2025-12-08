@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   # Nix modules
   imports = [
@@ -47,6 +47,7 @@
     ../../modules/ungoogled-chromium
     ../../modules/btop
     ../../modules/python3.nix
+    inputs.chaotic.nixosModules.default
   ];
 
   # Home manager modules
@@ -92,6 +93,8 @@
     enable32Bit = true;
     extraPackages = with pkgs; [ nvidia-vaapi-driver ];
   };
+
+  #chaotic.mesa-git.enable = true;
 
   # Networking
   networking.firewall = { allowedTCPPorts = [ 8080 ]; allowedUDPPorts = [ 8080 ]; }; # For dev stuff
