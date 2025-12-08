@@ -2,17 +2,17 @@
   description = "My flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05"; # 25.05
+    nixpkgs.url = "nixpkgs/nixos-25.11"; # 25.11
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # Input pinned in `flake.lock`
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05"; # 25.05
+      url = "github:nix-community/home-manager/release-25.11"; # 25.11
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #yazi.url = "github:sxyazi/yazi";
     #tagstudio.url = "github:TagStudioDev/TagStudio";
     tidaluna = {
-     url = "github:Inrixia/TidaLuna";
-     inputs.nixpkgs.follows = "nixpkgs-unstable";
+     url = "github:zzzealed/tidaluna/nix-1.7.0-beta";
+     #inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     steam-config-nix.url = "github:different-name/steam-config-nix";
     #niri.url = "github:YaLTeR/niri";
@@ -20,15 +20,14 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     agenix.url = "github:ryantm/agenix";
     stylix = {
-      url = "github:nix-community/stylix/release-25.05";
+      url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     glance-ical-events.url = "github:AWildLeon/Glance-iCal-Events";
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    prismlauncher.url = "github:prismlauncher/prismlauncher";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = {
@@ -43,6 +42,8 @@
     glance-ical-events,
     nix-on-droid,
     nix-minecraft,
+    prismlauncher,
+    chaotic,
     ...
     } @ inputs: {
       nixosConfigurations = let
@@ -79,8 +80,27 @@
             system = arch;
           };
           modules = [
-            { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
-            { nixpkgs.config.allowUnfree = true; }
+            {
+              nix.settings = {
+                experimental-features = [ "nix-command" "flakes" ];
+                download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584 
+                trusted-substituters = [
+                  "https://nix-community.cachix.org"
+                  "https://prismlauncher.cachix.org"
+                  "https://cache.nixos-cuda.org"
+                ];
+                trusted-public-keys = [
+                  "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                  "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
+                  "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+                ];
+              };
+            }
+            {
+              nixpkgs.config = {
+                allowUnfree = true;
+              };
+            }
             { networking.hostName = name; }
             ./secrets
             ./overlays
