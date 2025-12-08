@@ -12,13 +12,13 @@
 }:
 
 let
-  glideVersion = "0.1.51a";
-  glideRevision = "a710ac4a5865";
-  firefoxVersion = "144.0b8";
+  glideVersion = "0.1.55a";
+  glideRevision = "00ecf625f6ff";
+  firefoxVersion = "146.0b9";
 
   firefoxSrc = fetchurl {
     url = "mirror://mozilla/firefox/releases/${firefoxVersion}/source/firefox-${firefoxVersion}.source.tar.xz";
-    hash = "sha512-8/hkzJZqrNa6MqIwbejFFGyVZgQ3W5at4CJzNW8rkQb2XdsHMu0kAj4rD3y3kbqoywQBWAmUbBi48UnB2l5k3A==";
+    hash = "sha512-d6mkYX89JPfv93KJ4D5TNzmYrmF/YBiTviVaHrqF3YH+paJpdhWaJRh6radAGtjabLsLWjZQxJNqdEWjp/VdQg==";
   };
 
   patchedSrc = stdenv.mkDerivation (finalAttrs: {
@@ -30,13 +30,18 @@ let
       owner = "glide-browser";
       repo = "glide";
       tag = glideVersion;
-      hash = "sha256-NsMgVQZiydlYHZCvPZdRtopMqmihD4E06JVqNftJ5oM=";
+      hash = "sha256-pBnGc8nk2a/xvvQk6o78k8NYqBCYr8TExth7V9p41v0=";
     };
 
     postUnpack = ''
       mkdir -p source/engine
       # note: the firefox tar unpacks to firefox-$version/
       tar xf ${firefoxSrc} --strip-components=1 -C source/engine
+    '';
+
+    postPatch = ''
+      pushd engine
+      popd
     '';
 
     nativeBuildInputs = [
@@ -50,11 +55,21 @@ let
     pnpmDeps = pnpm.fetchDeps {
       inherit (finalAttrs) pname version src;
       fetcherVersion = 2;
-      hash = "sha256-0gNGudV+CUk7WpHZQFBy4pk02H0PuKFvSH0cA6omx9M=";
+      hash = "sha256-q2nuM9IiMBTZJIsst8N4F+8GMCjdIYPytvApHUKm+qU=";
     };
 
     buildPhase = ''
       runHook preBuild
+
+      # replace dprint with a no-op script as it's just used for formatting a
+      # generated .d.ts file, which is not worth adding it as a dependency for
+      rm node_modules/.bin/dprint
+      echo '#!/bin/sh' > node_modules/.bin/dprint
+      chmod +x node_modules/.bin/dprint
+
+      # avoid some warnings that break things
+      substituteInPlace scripts/bundle.sh \
+        --replace-fail "pnpm esbuild" "pnpm --silent esbuild"
 
       patchShebangs scripts/
 
