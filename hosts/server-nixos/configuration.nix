@@ -42,6 +42,7 @@
     ../../modules/rclone
     ../../modules/rclone/hbd.nix
     ../../modules/pipewire
+    #../../modules/nitter
     ## Compose2Nix
     ../../modules/gpt4free_docker/docker-compose.nix
     ../../modules/chrome_docker/docker-compose.nix
@@ -59,7 +60,7 @@
   boot.loader.grub.device = "/dev/sde";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false;
+  boot.zfs.forceImportRoot = false; # Import with `sudo zpool import (-l) vault`
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # shit11
