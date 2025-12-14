@@ -97,7 +97,7 @@
   #chaotic.mesa-git.enable = true;
 
   # Networking
-  networking.firewall = { allowedTCPPorts = [ 8080 ]; allowedUDPPorts = [ 8080 ]; }; # For dev stuff
+  networking.firewall = { allowedTCPPorts = [ 8000 ]; }; # For dev stuff
 
   # State
   system.stateVersion = "24.11";
