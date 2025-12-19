@@ -1,0 +1,4 @@
+{ ... }:
+{
+  services.wpaperd.enable = true;
+}
