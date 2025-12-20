@@ -5,7 +5,7 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true; # Set to false to use the proprietary kernel module
+    #open = true; # Set to false to use the proprietary kernel module
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable; # Apparently `beta` is better?
 #    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
