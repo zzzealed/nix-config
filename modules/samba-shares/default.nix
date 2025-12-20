@@ -47,7 +47,7 @@
         "force user" = "mads";
         #"force group" = "samba";
       };
-      "hbd" = {
+      "hbd" = { # TODO: this is bottlenecked and is not great
         "path" = "/mnt/hbd";
         "browseable" = "yes";
         "read only" = "no";
