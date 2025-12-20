@@ -1319,16 +1319,15 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1763504492,
-        "narHash": "sha256-SIIY3HP+KJ4MxkMECfkmO2Zg2xnyArTxrJKwHBsdWe0=",
-        "owner": "zzzealed",
+        "lastModified": 1765158153,
+        "narHash": "sha256-7+BABZopsekmRjFBLl8Ni8bY5sIOtk2niiSnD7EuubM=",
+        "owner": "inrixia",
         "repo": "tidaluna",
-        "rev": "77e2cb48b47e206bd83e398cce531bc78081b362",
+        "rev": "94c277909f395922c4cee2729de771adf3f82d87",
         "type": "github"
       },
       "original": {
-        "owner": "zzzealed",
-        "ref": "nix-1.7.0-beta",
+        "owner": "inrixia",
         "repo": "tidaluna",
         "type": "github"
       }
