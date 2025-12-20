@@ -11,6 +11,15 @@ alias find fd
 alias fzf sk
 alias vid_length "bash /home/mads/nix-config/modules/bash/config/list_vid_length.sh"
 
+# Rebuild alias
+function rebuild_desktop-nixos
+    command ssh -t mads@server.l.zzzealed.com "sudo nixos-rebuild --target-host mads@desktop.l.zzzealed.com --sudo --ask-sudo-password --cores 10 --max-jobs 10 --flake /vault/Documents/nix-config/.#desktop-nixos $argv"
+end
+
+function rebuild_server-nixos
+    command ssh -t mads@server.l.zzzealed.com "sudo nixos-rebuild --cores 10 --max-jobs 10 --flake /vault/Documents/nix-config/.#server-nixos $argv"
+end
+
 # Interactive shell initialisation
 set fish_greeting # Disable greeting
 
