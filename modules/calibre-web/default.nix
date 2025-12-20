@@ -9,6 +9,7 @@
     options = {
       enableBookUploading = true;
       enableBookConversion = true;
+      #calibreLibrary = "/vault/Documents/Books"; # TODO: ?
     };
   };
   services.nginx = {
