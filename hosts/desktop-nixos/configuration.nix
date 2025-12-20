@@ -22,7 +22,7 @@
     ../../modules/tidal
     ../../modules/adb
     ../../modules/git
-    ../../modules/polkit
+    #../../modules/polkit
     ../../modules/wine
     ../../modules/bluetooth
     ../../modules/wooting
@@ -47,7 +47,10 @@
     ../../modules/ungoogled-chromium
     ../../modules/btop
     ../../modules/python3.nix
-    inputs.chaotic.nixosModules.default
+    ../../modules/fuzzel
+    ../../modules/swaynotificationcenter
+    ../../modules/swaylock
+    ../../modules/wpaperd
   ];
 
   # Home manager modules
@@ -70,6 +73,7 @@
     unstable.kcc
     calibre
     unstable.servo
+    tigervnc
   ];
 
   # Boot
@@ -85,8 +89,9 @@
     };
 
   # GPU
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  hardware.nvidia.open = true;
   hardware.graphics = {
     enable = true;
     package = pkgs.mesa;
