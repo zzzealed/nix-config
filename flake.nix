@@ -11,7 +11,7 @@
     #yazi.url = "github:sxyazi/yazi";
     #tagstudio.url = "github:TagStudioDev/TagStudio";
     tidaluna = {
-     url = "github:zzzealed/tidaluna/nix-1.7.0-beta";
+     url = "github:inrixia/tidaluna";
      #inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     steam-config-nix.url = "github:different-name/steam-config-nix";
@@ -27,7 +27,8 @@
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     prismlauncher.url = "github:prismlauncher/prismlauncher";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    glide-browser.url = "github:glide-browser/glide.nix";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
   };
 
   outputs = {
@@ -43,7 +44,7 @@
     nix-on-droid,
     nix-minecraft,
     prismlauncher,
-    chaotic,
+    nixpkgs-wayland,
     ...
     } @ inputs: {
       nixosConfigurations = let
