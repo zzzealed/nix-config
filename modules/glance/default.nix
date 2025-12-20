@@ -345,6 +345,10 @@
                         url = "https://itsfoss.com/rss";
                         title = "It's FOSS";
                       }
+                      {
+                        url = "https://feeds.arstechnica.com/arstechnica/index";
+                        title = "Ars Technica";
+                      }
                     ];
                   }
                   {
