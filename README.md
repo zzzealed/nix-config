@@ -33,16 +33,13 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-[x] Fix `server-nixos` bootloader \
+[ ] Disable password SSH and add agent \
 [ ] Init: `services.wireguard` (wireguard-server) \
-[x] Manually define `services.glance` colorscheme or fix Stylix scheme \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
 [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
 [ ] `services.*`: Unique ports? \
 [ ] Init: Rsync-hbd cron job \
-[x] Replace IPs with DNS \
-[x] Init: Karakeep \
 [?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
 [?] Switch to SOPS-nix \
 [?] Set up 3rd-party caches (Cachix etc.) \
