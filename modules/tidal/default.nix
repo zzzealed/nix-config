@@ -1,7 +1,7 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, inputs, stdenv, ... }:
 {
   environment.systemPackages = [
     #pkgs.unstable.tidal-hifi
-    inputs.tidaluna.packages.${system}.default
+    inputs.tidaluna.packages.${stdenv.hostPlatform.system}.default
   ];
 }
