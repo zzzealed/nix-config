@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-   environment.systemPackages = [ inputs.prismlauncher.packages.${pkgs.system}.prismlauncher ];
+   environment.systemPackages = [ inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher ];
 #  environment.systemPackages = with pkgs; [
 #  (prismlauncher.override {
 #    # Add binary required by some mod
