@@ -1,6 +1,12 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 {
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics = {
+    enable = true;
+    package = pkgs.mesa;
+    enable32Bit = true;
+    extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+  };
   hardware.nvidia = { # See: https://github.com/lutris/docs/blob/master/InstallingDrivers.md#nvidia-3
     modesetting.enable = true;
     powerManagement.enable = false;
