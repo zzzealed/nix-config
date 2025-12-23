@@ -1,18 +1,8 @@
 { inputs, pkgs, ... }:
 {
-   environment.systemPackages = [ inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher ];
-#  environment.systemPackages = with pkgs; [
-#  (prismlauncher.override {
-#    # Add binary required by some mod
-#    additionalPrograms = [ ffmpeg ];
-#
-#    # Change Java runtimes available to Prism Launcher
-#    jdks = [
-#      graalvmPackages.graalvm-ce
-#      zulu8
-#      zulu17
-#      zulu
-#    ];
-#  })
-#  ];
+  nix.settings = {
+     trusted-substituters = [ "https://prismlauncher.cachix.org" ];
+     trusted-public-keys = [ "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c=" ];
+  };
+  environment.systemPackages = [ inputs.prismlauncher.packages.${pkgs.system}.prismlauncher ];
 }
