@@ -38,7 +38,7 @@
           "karakeep.l.zzzealed.com,server.l.zzzealed.com"
           "n8n.l.zzzealed.com,server.l.zzzealed.com"
           "calibre.l.zzzealed.com,server.l.zzzealed.com"
-          "nitter.l.zzzealed.com,server.l.zzzealed.com"
+          "g4f.l.zzzealed.com,server.l.zzzealed.com"
         ];
       };
       webserver.api = {
