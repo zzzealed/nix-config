@@ -56,7 +56,12 @@
             system = arch;
           };
           modules = [
-            { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
+            {
+              nix.settings = {
+                experimental-features = [ "nix-command" "flakes" ];
+                download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584
+              };
+            }
             { nixpkgs.config.allowUnfree = true; }
             { networking.hostName = name; }
             ./secrets
@@ -84,17 +89,7 @@
             {
               nix.settings = {
                 experimental-features = [ "nix-command" "flakes" ];
-                download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584 
-                trusted-substituters = [
-                  "https://nix-community.cachix.org"
-                  "https://prismlauncher.cachix.org"
-                  "https://cache.nixos-cuda.org"
-                ];
-                trusted-public-keys = [
-                  "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                  "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
-                  "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-                ];
+                download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584
               };
             }
             {
