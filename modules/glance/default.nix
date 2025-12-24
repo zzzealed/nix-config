@@ -133,13 +133,13 @@
                       }
                       {
                         title = "Chrome";
-                        url = "https://server.l.zzzealed.com:3001";
+                        url = "https://chrome.l.zzzealed.com";
                         icon = "sh:google-chrome";
                         allow-insecure = true;
                       }
                       {
                         title = "GPT4Free";
-                        url = "http://server.l.zzzealed.com:9090/chat";
+                        url = "https://g4f.l.zzzealed.com";
                         icon = "sh:openai";
                       }
                     ];
