@@ -44,10 +44,12 @@
     ../../modules/rclone/hbd.nix
     ../../modules/pipewire
     #../../modules/nitter
-    #../../modules/wayvnc
+    ../../modules/wayvnc
     ../../modules/niri
     ## Compose2Nix
+    ../../modules/gpt4free_docker
     ../../modules/gpt4free_docker/docker-compose.nix
+    ../../modules/chrome_docker
     ../../modules/chrome_docker/docker-compose.nix
   ];
 
@@ -58,15 +60,15 @@
     screen
   ];
 
-  #
+  # Use proprietary drivers
   hardware.nvidia.open = false;
 
   # Wayland
-  environment.sessionVariables = {
-    WLR_BACKENDS = "headless";
-    WLR_LIBINPUT_NO_DEVICES = 1;
-    WAYLAND_DISPLAY = "wayland-1";
-  };
+#  environment.sessionVariables = {
+#    WLR_BACKENDS = "headless";
+#    WLR_LIBINPUT_NO_DEVICES = 1;
+#    WAYLAND_DISPLAY = "wayland-1";
+#  };
 
   # Boot
   boot.loader.grub.enable = true;
