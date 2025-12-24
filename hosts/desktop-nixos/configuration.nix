@@ -51,6 +51,7 @@
     ../../modules/swaynotificationcenter
     ../../modules/swaylock
     ../../modules/wpaperd
+    ../../modules/streamlink.nix
   ];
 
   # Home manager modules
@@ -92,12 +93,6 @@
   #services.xserver.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   hardware.nvidia.open = true;
-  hardware.graphics = {
-    enable = true;
-    package = pkgs.mesa;
-    enable32Bit = true;
-    extraPackages = with pkgs; [ nvidia-vaapi-driver ];
-  };
 
   #chaotic.mesa-git.enable = true;
 
