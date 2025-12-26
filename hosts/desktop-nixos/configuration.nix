@@ -45,7 +45,6 @@
     ../../modules/networkmanager
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium
-    ../../modules/btop
     ../../modules/python3.nix
     ../../modules/fuzzel
     ../../modules/swaynotificationcenter
