@@ -18,6 +18,7 @@
     ../../modules/ungoogled-chromium
     ../../modules/python3.nix
     ../../modules/fuzzel
+    ../../modules/nh
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
