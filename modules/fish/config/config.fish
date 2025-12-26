@@ -12,12 +12,12 @@ alias fzf sk
 alias vid_length "bash /home/mads/nix-config/modules/bash/config/list_vid_length.sh"
 
 # Rebuild alias
-function rebuild_desktop-nixos
-    command ssh -t mads@server.l.zzzealed.com "sudo nixos-rebuild --target-host mads@desktop.l.zzzealed.com --sudo --ask-sudo-password --cores 10 --max-jobs 10 --flake /vault/Documents/nix-config/.#desktop-nixos $argv"
+function rbld-desktop
+    command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname desktop-nixos --target-host mads@desktop.l.zzzealed.com --cores 10 --max-jobs 10 --ask"
 end
 
-function rebuild_server-nixos
-    command ssh -t mads@server.l.zzzealed.com "sudo nixos-rebuild --cores 10 --max-jobs 10 --flake /vault/Documents/nix-config/.#server-nixos $argv"
+function rbld-server
+    command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname server-nixos --cores 10 --max-jobs 10 --ask"
 end
 
 # Interactive shell initialisation
