@@ -12,9 +12,8 @@
       DO_NOT_TRACK = "True";
       SCARF_NO_ANALYTICS = "True";
       OPENAI_API_BASE_URL = "https://g4f.l.zzzealed.com/v1"; # GPT4Free instance, shhh
-      #OPENAI_API_BASE_URLS = "https://g4f.l.zzzealed.com/api/Perplexity;https://g4f.l.zzzealed.com/api/PollinationsAI";
       ENABLE_SIGNUP = "False";
-      DEFAULT_MODELS = "deepseek-v3";
+      DEFAULT_MODELS = "claude-sonnet-4.5";
       ENABLE_PERSISTENT_CONFIG = "True"; # We need this I guess?
       ENABLE_VERSION_UPDATE_CHECK = "False";
       ENABLE_WEB_SEARCH = "True";
