@@ -9,14 +9,21 @@
     ../../modules/home-manager
     ../../modules/helix
     ../../modules/bash
+    ../../modules/stylix
+    #../../modules/systemd-boot
+    ../../modules/networkmanager
+    ../../modules/openssh
+    ../../modules/nh
+    ../../modules/docker
     # Services
-    ../../modules/pihole
-    ../../modules/unbound
-    # TODO: wireguard
+    ../../modules/wireguard
   ];
 
   # Boot
-  boot.loader.grub.enable = true;
+  boot.loader = {
+    grub.enable = false;
+    generic-extlinux-compatible.enable = true;
+  };
 
   # Networking
   networking.hostId = "cf20a29f";
@@ -24,5 +31,4 @@
 
   # State
   system.stateVersion = "24.05";
-  home-manager.users.mads.stateVersion = "24.05";
 }
