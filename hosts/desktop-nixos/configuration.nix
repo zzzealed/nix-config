@@ -30,7 +30,6 @@
     ../../modules/ffmpeg
     ../../modules/helix
     ../../modules/pipewire
-    ../../modules/bat
     ../../modules/nvidia
     ../../modules/bitwarden
     ../../modules/samba-mounts
@@ -46,11 +45,8 @@
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium
     ../../modules/python3.nix
-    ../../modules/fuzzel
-    ../../modules/swaynotificationcenter
-    ../../modules/swaylock
-    ../../modules/wpaperd
     ../../modules/streamlink.nix
+    ../../modules/lan-mouse
   ];
 
   # Home manager modules

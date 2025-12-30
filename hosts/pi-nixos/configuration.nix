@@ -14,7 +14,6 @@
     ../../modules/networkmanager
     ../../modules/openssh
     ../../modules/nh
-    ../../modules/docker
     # Services
     ../../modules/wireguard
   ];

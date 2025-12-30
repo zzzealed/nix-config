@@ -9,7 +9,6 @@
     ../../modules/home-manager
     ../../modules/ffmpeg
     ../../modules/helix
-    ../../modules/bat
     ../../modules/nvidia
     ../../modules/networkmanager
     ../../modules/locale
@@ -17,8 +16,8 @@
     ../../modules/bash
     ../../modules/ungoogled-chromium
     ../../modules/python3.nix
-    ../../modules/fuzzel
     ../../modules/nh
+    #../../modules/prismlauncher
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
@@ -45,8 +44,6 @@
     ../../modules/rclone/hbd.nix
     ../../modules/pipewire
     #../../modules/nitter
-    ../../modules/wayvnc
-    ../../modules/niri
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/gpt4free_docker/docker-compose.nix
@@ -64,12 +61,8 @@
   # Use proprietary drivers
   hardware.nvidia.open = false;
 
-  # Wayland
-#  environment.sessionVariables = {
-#    WLR_BACKENDS = "headless";
-#    WLR_LIBINPUT_NO_DEVICES = 1;
-#    WAYLAND_DISPLAY = "wayland-1";
-#  };
+  # shit11
+  #services.xserver.enable = true;
 
   # Boot
   boot.loader.grub.enable = true;

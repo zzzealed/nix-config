@@ -35,6 +35,7 @@
       ../swaynotificationcenter/home.nix
       ../swaylock/home.nix
       ../wpaperd/home.nix
+      #../lan-mouse/home.nix
     ];
   };
 }

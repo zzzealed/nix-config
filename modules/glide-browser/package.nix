@@ -1,150 +1,91 @@
 {
-  buildMozillaMach,
-  fetchFromGitHub,
-  lib,
-  fetchurl,
-  git,
-  nodejs,
-  pkg-config,
-  pnpm,
-  python3,
-  stdenv,
+	alsa-lib,
+	autoPatchelfHook,
+	fetchurl,
+	ffmpeg_7,
+	gtk3,
+	lib,
+	libGL,
+	libX11,
+	patchelfUnstable,
+	pipewire,
+	stdenv,
+	wrapGAppsHook3,
+	makeDesktopItem
 }:
+stdenv.mkDerivation rec {
+	name = "glide-bin-${version}";
+	version = "0.1.56a";
+	src = fetchurl {
+		url = "https://github.com/glide-browser/glide/releases/download/${version}/glide.linux-x86_64.tar.xz";
+		sha256 = "f6fe3d0c23d181a25ecae4e4221de1a1e7646ce84a467023fec77feea40a432c";
+	};
+	sourceRoot = ".";
+	unpackCmd = "tar -xvf $src";
 
-let
-  glideVersion = "0.1.55a";
-  glideRevision = "00ecf625f6ff";
-  firefoxVersion = "146.0b9";
+	nativeBuildInputs = [
+		autoPatchelfHook
+		patchelfUnstable
+		wrapGAppsHook3
+	];
 
-  firefoxSrc = fetchurl {
-    url = "mirror://mozilla/firefox/releases/${firefoxVersion}/source/firefox-${firefoxVersion}.source.tar.xz";
-    hash = "sha512-d6mkYX89JPfv93KJ4D5TNzmYrmF/YBiTviVaHrqF3YH+paJpdhWaJRh6radAGtjabLsLWjZQxJNqdEWjp/VdQg==";
-  };
+	buildInputs = [
+		alsa-lib
+		gtk3
+		libX11
+	];
 
-  patchedSrc = stdenv.mkDerivation (finalAttrs: {
-    pname = "firefox-glide-browser-src-patched";
-    version = glideVersion;
-    GLIDE_REVISION = glideRevision;
+	appendRunpaths = [ "${pipewire}/lib" "${libGL}/lib" ];
 
-    src = fetchFromGitHub {
-      owner = "glide-browser";
-      repo = "glide";
-      tag = glideVersion;
-      hash = "sha256-pBnGc8nk2a/xvvQk6o78k8NYqBCYr8TExth7V9p41v0=";
-    };
+	patchelfFlags = [ "--no-clobber-old-sections" ];
 
-    postUnpack = ''
-      mkdir -p source/engine
-      # note: the firefox tar unpacks to firefox-$version/
-      tar xf ${firefoxSrc} --strip-components=1 -C source/engine
-    '';
+	# Codec support
+	preFixup = ''
+		gappsWrapperArgs+=(
+				--prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ffmpeg_7]}"
+			)
+	'';
 
-    postPatch = ''
-      pushd engine
-      popd
-    '';
+	installPhase = ''
+		runHook preInstall
 
-    nativeBuildInputs = [
-      git
-      nodejs
-      python3
-      pkg-config
-      pnpm.configHook
-    ];
+		mkdir -p $out/bin $out/share/icons/hicolor/128x128/apps $out/share/applications
+		cp -R glide $out
+		ln -s $out/glide/glide-bin $out/bin/glide
+		cp glide/browser/chrome/icons/default/default128.png $out/share/icons/hicolor/128x128/apps/glide.png
+		cp ${desktopEntry}/share/applications/glide-bin.desktop $out/share/applications/glide.desktop
 
-    pnpmDeps = pnpm.fetchDeps {
-      inherit (finalAttrs) pname version src;
-      fetcherVersion = 2;
-      hash = "sha256-q2nuM9IiMBTZJIsst8N4F+8GMCjdIYPytvApHUKm+qU=";
-    };
+		runHook postInstall
+	'';
 
-    buildPhase = ''
-      runHook preBuild
+	desktopEntry = makeDesktopItem {
+		name = "glide-bin";
+		exec = "glide --name glide %U";
+		icon = "glide";
+		desktopName = "Glide";
+		genericName = "Web Browser";
+		terminal = false;
+		startupNotify = true;
+		startupWMClass = "glide-browser";
+		categories = [
+			"Network"
+			"WebBrowser"
+		];
+		mimeTypes = [
+			"text/html"
+			"text/xml"
+			"application/xhtml+xml"
+			"application/vnd.mozilla.xul+xml"
+			"x-scheme-handler/http"
+			"x-scheme-handler/https"
+		];
+	};
 
-      # replace dprint with a no-op script as it's just used for formatting a
-      # generated .d.ts file, which is not worth adding it as a dependency for
-      rm node_modules/.bin/dprint
-      echo '#!/bin/sh' > node_modules/.bin/dprint
-      chmod +x node_modules/.bin/dprint
-
-      # avoid some warnings that break things
-      substituteInPlace scripts/bundle.sh \
-        --replace-fail "pnpm esbuild" "pnpm --silent esbuild"
-
-      patchShebangs scripts/
-
-      pnpm bootstrap --offline
-      # bootstrap includes a default mozconfig but that can mess with options that `buildMozillaMach` sets, so just remove it.
-      rm engine/mozconfig
-
-      runHook postBuild
-    '';
-
-    installPhase = ''
-      runHook preInstall
-
-      cp -r engine $out
-
-      cd $out
-      for i in $(find . -type l); do
-        realpath=$(readlink $i)
-        rm $i
-        cp $realpath $i
-      done
-
-      runHook postInstall
-    '';
-
-    dontFixup = true;
-  });
-in
-(
-  (buildMozillaMach {
-    pname = "glide-browser";
-    version = firefoxVersion;
-    packageVersion = glideVersion;
-    applicationName = "Glide";
-    binaryName = "glide";
-    branding = "browser/branding/glide";
-
-    requireSigning = false;
-    allowAddonSideload = true;
-
-    src = patchedSrc;
-
-    extraConfigureFlags = [
-      "--disable-lto"
-      "--with-app-basename=Glide"
-    ];
-
-    meta = {
-      description = "Extensible and keyboard-focused web browser built on Firefox";
-      homepage = "https://glide-browser.app/";
-      downloadPage = "https://glide-browser.app/#download";
-      changelog = "https://glide-browser.app/changelog#${glideVersion}";
-      license = lib.licenses.mpl20;
-      maintainers = with lib.maintainers; [
-        RobertCraigie
-        pyrox0
-      ];
-      platforms = lib.platforms.unix;
-      mainProgram = "glide";
-    };
-  }).override
-  {
-    pgoSupport = false;
-    crashreporterSupport = false;
-    enableOfficialBranding = false;
-  }
-).overrideAttrs
-  (
-    prev:
-    {
-      GLIDE_FIREFOX_VERSION = firefoxVersion;
-      MOZ_USER_DIR = "Glide Browser";
-    }
-    // lib.optionalAttrs stdenv.isDarwin {
-      # note: might be redundant
-      MOZ_MACBUNDLE_NAME = "Glide.app";
-    }
-  )
+	meta = with lib; {
+		description = "An extensible and keyboard-focused web browser.";
+		homepage = "https://glide-browser.app";
+		license = licenses.mpl20;
+		maintainers = [ "45Hnri" ];
+		platforms = platforms.linux;
+	};
+}
