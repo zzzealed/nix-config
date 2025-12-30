@@ -19,11 +19,11 @@ curl -L -O https://codeberg.org/zzzealed/nix-config/archive/main.tar.gz
 ```
 2. Unzip with:
 ```sh
-tar -xz main.tar.gz
+tar -xzf main.tar.gz
 ```
 3. Enter shell: 
 ```sh
-cd nix-config-main && nix-shell
+cd nix-config && nix-shell
 ```
 4. Rebuild and switch with a host's (eg. "desktop-nixos") configuration:
 ```sh
@@ -35,7 +35,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 # To-do
 [ ] Replace `system` with `stdenv.hostSystem` \
 [ ] Disable password SSH and add agent \
-[ ] Init: `services.wireguard` (wireguard-server) \
+[x] Init: `services.wireguard` (wireguard-server) \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
 [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
