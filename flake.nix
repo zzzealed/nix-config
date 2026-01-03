@@ -62,6 +62,14 @@
               nix.settings = {
                 experimental-features = [ "nix-command" "flakes" ];
                 download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584
+                trusted-substituters = [
+                  "https://prismlauncher.cachix.org"
+                  "https://lan-mouse.cachix.org"
+                ];
+                trusted-public-keys = [
+                  "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
+                  "lan-mouse.cachix.org-1:KlE2AEZUgkzNKM7BIzMQo8w9yJYqUpor1CAUNRY6OyM="
+                ];
               };
             }
             { nixpkgs.config.allowUnfree = true; }
