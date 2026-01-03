@@ -1,5 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [ ./hbd.nix ];
+  imports = [ ./mnt-hbd.nix ];
   environment.systemPackages = [ pkgs.rclone ];
 }
