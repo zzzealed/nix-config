@@ -70,7 +70,7 @@ layer-rule {
 }
 
 layout {
-    gaps 8 // Gaps around windows
+    gaps 5 // Gaps around windows
     center-focused-column "never"
     preset-column-widths { // I don't know what I did but it looks good
         proportion 0.25
@@ -81,8 +81,7 @@ layout {
     }
     default-column-width { proportion 0.5; } // TODO: Maybe leave empty so windows decide for themselves?
     focus-ring {
-        active-color "lime" // TODO: Gradients?
-        inactive-color "#505050"
+        off
     }
 
 // Border. Similar to focus-ring but always visible.
@@ -92,23 +91,20 @@ layout {
 
 // Drops shadows for windows. By default, off
     shadow {
-        // on
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
+        off
     }
 // TODO: What is this?
     struts {
-         left 0
-         right 0
-         top 0
-         bottom 0
+        left 0
+        right 0
+        top 0
+        bottom 0
     }
 }
 
 // Startup spawns.
 spawn-at-startup "wpaperd"
+spawn-at-startup "waybar"
 
 // Misc.
 prefer-no-csd // No application-side decoration. I think?
