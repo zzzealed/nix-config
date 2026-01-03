@@ -30,12 +30,7 @@
       ../niri/home.nix
       ../stylix/home.nix
       ../btop/home.nix
-      ../fuzzel/home.nix
       ../bat/home.nix
-      ../swaynotificationcenter/home.nix
-      ../swaylock/home.nix
-      ../wpaperd/home.nix
-      #../lan-mouse/home.nix
     ];
   };
 }
