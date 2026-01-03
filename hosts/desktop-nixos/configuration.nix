@@ -39,14 +39,13 @@
     ../../modules/stylix
     ../../modules/navi
     ../../modules/bash
-    #../../modules/wg-quick
+    ../../modules/wg-quick/wg-hbd.nix
     ../../modules/qbittorrent
     ../../modules/networkmanager
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium
     ../../modules/python3.nix
     ../../modules/streamlink.nix
-    ../../modules/lan-mouse
   ];
 
   # Home manager modules
