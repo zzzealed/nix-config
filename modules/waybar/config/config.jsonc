@@ -1,0 +1,35 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 15,
+  "margin-top": 5,
+  "margin-right": 5,
+  "margin-left": 5,
+  "modules-left": [
+    "clock",
+    "memory",
+    "custom/wg-quick"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "niri/window"
+  ],
+  // Modules
+  "niri/window": {
+    "format": "{}",
+    "icon": true,
+    "icon-size": 15
+  },
+  "memory": {
+    "format": "{percentage}% RAM"
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%T %D}"
+  },
+  "custom/wg-quick": {
+    "exec": "~/.config/waybar/wg-quick.sh",
+    "format": "{}",
+    "interval": 1
+  }
+}

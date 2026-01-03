@@ -52,6 +52,13 @@
   home-manager.users.mads = {
     imports = [
       ./mpv/home.nix
+      ../../modules/fuzzel/home.nix
+      ../../modules/bat/home.nix
+      ../../modules/swaynotificationcenter/home.nix
+      ../../modules/swaylock/home.nix
+      ../../modules/wpaperd/home.nix
+      ../../modules/lan-mouse/home.nix
+      ../../modules/waybar/home.nix
     ];
   };
 
