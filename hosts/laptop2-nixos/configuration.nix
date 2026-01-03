@@ -36,7 +36,6 @@
     ../../modules/swaylock
     ../../modules/wpaperd
     ../../modules/streamlink.nix
-    ../../modules/lan-mouse
   ];
 
   # Home manager modules
