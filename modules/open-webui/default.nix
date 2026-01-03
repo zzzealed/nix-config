@@ -3,8 +3,8 @@
   services.open-webui = {
     enable = true;
     # This app is a piece of shiiiiiiiiiiiittt
-    package = pkgs.unstable.open-webui;
-    #package = pkgs.open-webui;
+    #package = pkgs.unstable.open-webui;
+    package = pkgs.open-webui;
     port = 11111;
     #openFirewall = true;
     environment = {
@@ -14,6 +14,7 @@
       OPENAI_API_BASE_URL = "https://g4f.l.zzzealed.com/v1"; # GPT4Free instance, shhh
       ENABLE_SIGNUP = "False";
       DEFAULT_MODELS = "claude-sonnet-4.5";
+      DEFAULT_PINNED_MODELS = "claude-sonnet-4.5,deepseek-v3,gpt-5.1";
       ENABLE_PERSISTENT_CONFIG = "True"; # We need this I guess?
       ENABLE_VERSION_UPDATE_CHECK = "False";
       ENABLE_WEB_SEARCH = "True";
