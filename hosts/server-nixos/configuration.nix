@@ -41,7 +41,7 @@
     ../../modules/nginx
     ../../modules/minecraft-server
     ../../modules/rclone
-    ../../modules/rclone/hbd.nix
+    ../../modules/rclone/mnt-hbd.nix
     ../../modules/pipewire
     #../../modules/nitter
     ## Compose2Nix
