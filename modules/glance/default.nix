@@ -312,7 +312,7 @@
                       }
                       {
                         url = "https://richardlewis.substack.com/feed";
-                        title = "Richard Lewis";
+                        title = "Richard Lewis Substack";
                       }
                       {
                         url = "https://unixdigest.com/feed.rss";
@@ -349,6 +349,14 @@
                       {
                         url = "https://feeds.arstechnica.com/arstechnica/index";
                         title = "Ars Technica";
+                      }
+                      {
+                        url = "https://iamesports.substack.com/feed";
+                        title = "Thorin Substack";
+                      }
+                      {
+                        url = "https://esportsadvocate.net/rss";
+                        title = "The Esports Advocate";
                       }
                     ];
                   }
