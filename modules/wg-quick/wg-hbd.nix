@@ -7,7 +7,7 @@
   networking.wg-quick.interfaces = {
     wg-hbd = {
       configFile = config.age.secrets."hbd-wireguard_config".path; 
-      autostart = true;  # Automatically start the interface at boot
+      autostart = false;  # Automatically start the interface at boot
       # Local access, eg. for a PiHole instance.
       # Will cause DNS-leaks, but I don't mind. I think.
       postUp = [ 
