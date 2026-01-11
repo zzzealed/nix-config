@@ -21,7 +21,7 @@
 
   # Containers
   virtualisation.oci-containers.containers."gpt4free" = {
-    image = "hlohaus789/g4f:v6.8.2";
+    image = "hlohaus789/g4f:v6.9.0";
     volumes = [
       "/var/lib/gpt4free/generated_media:/app/generated_media:rw"
       "/var/lib/gpt4free/har_and_cookies:/app/har_and_cookies:rw"
