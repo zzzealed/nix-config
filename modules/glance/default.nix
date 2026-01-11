@@ -227,6 +227,7 @@
                       "ow_esports"
                       "genburten"
                       "ohnepixel"
+                      "rainbow6"
                     ];
                   }
                 ];
