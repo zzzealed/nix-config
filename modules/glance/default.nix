@@ -186,6 +186,10 @@
                             url = "https://hltv.org";
                           }
                           {
+                            title = "MCSR ranked";
+                            url = "https://mcsrranked.com/playoffs";
+                          }
+                          {
                             title = "Apex Comp calendar";
                             url = "https://calendar.google.com/calendar/embed?src=9ad286735043bbfc1494408580cbe6246b9d92988537e4549053f9e6866d63b3@group.calendar.google.com&ctz=Europe/Copenhagen";
                           }
