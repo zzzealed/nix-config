@@ -3,8 +3,8 @@
   services.open-webui = {
     enable = true;
     # This app is a piece of shiiiiiiiiiiiittt
-    #package = pkgs.unstable.open-webui;
-    package = pkgs.open-webui;
+    package = pkgs.unstable.open-webui;
+    #package = pkgs.open-webui;
     port = 11111;
     #openFirewall = true;
     environment = {
