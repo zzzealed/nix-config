@@ -5,38 +5,15 @@ let
   # danqing
   dark-scheme = "danqing";
   light-scheme = "danqing-light";
- 
-  # synth-midnight
-  #dark-scheme = "synth-midnight-dark";
-  #light-scheme = "synth-midnight-light";
 
-  # solarized
-  #dark-scheme = "solarized-dark";
-  #light-scheme = "solarized-light";
+  # standardized
+  #dark-scheme = "standardized-dark";
+  #light-scheme = "standardized-light";
 
-  # solarflare
-  #dark-scheme = "solarflare";
-  #light-scheme = "solareflare-light";
+  # catppuccin-frappe
+  #dark-scheme = "catppuccin-frappe";
+  #light-scheme = "catppuccin-latte";
 
-  # selenized
-  #dark-scheme = "selenized-black";
-  #light-scheme = "selenized-white";
-
-  # chicago
-  #dark-scheme = "chicago-night";
-  #light-scheme = "chicago-day";
-
-  # ayu
-  #dark-scheme = "ayu-mirage";
-  #light-scheme = "ayu-light";
-
-  # atelier-estuary
-  #dark-scheme = "atelier-estuary";
-  #light-scheme = "atelier-estuary-light";
-
-  # windows-nt
-  #dark-scheme = "windows-nt";
-  #light-scheme = "windows-nt-light";
 in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
