@@ -18,6 +18,7 @@
     ../../modules/python3.nix
     ../../modules/nh
     #../../modules/prismlauncher
+    ../../modules/glide-browser
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
