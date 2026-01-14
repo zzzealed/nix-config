@@ -58,4 +58,8 @@ in
     publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
     armor = true;
   };
+  "ddns-updater_config.age" = {
+    publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    armor = true;
+  };
 }
