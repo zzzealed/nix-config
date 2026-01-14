@@ -16,6 +16,7 @@
     ../../modules/nh
     # Services
     ../../modules/wireguard
+    #../../modules/ddns-updater # https://github.com/NixOS/nixpkgs/issues/447360
   ];
 
   # Boot
