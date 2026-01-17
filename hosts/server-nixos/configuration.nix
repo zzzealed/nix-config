@@ -19,6 +19,7 @@
     ../../modules/nh
     #../../modules/prismlauncher
     ../../modules/glide-browser
+    ../../modules/mpv
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
@@ -28,7 +29,7 @@
     ../../modules/scrutiny
     ../../modules/calibre-web
     ../../modules/vaultwarden
-    #../../modules/radicale
+    ../../modules/radicale
     ../../modules/samba-shares
     ../../modules/n8n
     ../../modules/pihole
@@ -80,6 +81,7 @@
   # Networking
   networking.hostId = "3f39026e";
   networking.interfaces.enp3s0.wakeOnLan.enable = true;
+  networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
 
   # State
   system.stateVersion = "24.05";
