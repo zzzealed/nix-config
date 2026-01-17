@@ -16,7 +16,6 @@
     ../../modules/systemd-boot
     ../../modules/rclone
     ../../modules/steam
-    ../../modules/ghostty
     ../../modules/obs-studio
     ../../modules/localsend
     ../../modules/tidal
@@ -77,6 +76,7 @@
     calibre
     unstable.servo
     tigervnc
+    unstable.thunderbird
   ];
 
   # Boot
@@ -99,7 +99,7 @@
   #chaotic.mesa-git.enable = true;
 
   # Networking
-  networking.firewall = { allowedTCPPorts = [ 8000 ]; }; # For dev stuff
+  networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
 
   # State
   system.stateVersion = "24.11";
