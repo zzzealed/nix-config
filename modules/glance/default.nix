@@ -107,6 +107,11 @@
                         icon = "sh:pi-hole";
                       }
                       {
+                        title = "Radicale";
+                        url = "https://radicale.l.zzzealed.com";
+                        icon = "sh:radicale";
+                      }
+                      {
                         title = "Home Assistant";
                         url = "https://ha.l.zzzealed.com";
                         icon = "sh:home-assistant";
@@ -145,93 +150,34 @@
                     ];
                   }
                   {
-                    type = "bookmarks";
-                    groups = [
-                      {
-                        links = [
-                          {
-                            title = "YouTube";
-                            url = "https://www.youtube.com/feed/subscriptions";
-                          }
-                          {
-                            title = "Github";
-                            url = "https://github.com/notifications";
-                          }
-                          {
-                            title = "Reddit";
-                            url = "https://www.reddit.com";
-                          }
-                          {
-                            title = "Steam";
-                            url = "https://store.steampowered.com";
-                          }
-                          {
-                            title = "Proton mail";
-                            url = "https://mail.proton.me";
-                          }
-                          {
-                            title = "IsThereAnyDeal";
-                            url = "https://isthereanydeal.com/deals/#filter:N4IgZgNghg5iBcIASIC%2BQ%3D%3D%3Ds";
-                          }
-                          {
-                            title = "HBD dashboard";
-                            url = "https://38.ein.itsby.design";
-                          }
-                          {
-                            title = "Liquipedia";
-                            url = "https://liquipedia.net";
-                          }
-                          {
-                            title = "HLTV";
-                            url = "https://hltv.org";
-                          }
-                          {
-                            title = "MCSR ranked";
-                            url = "https://mcsrranked.com/playoffs";
-                          }
-                          {
-                            title = "Apex Comp calendar";
-                            url = "https://calendar.google.com/calendar/embed?src=9ad286735043bbfc1494408580cbe6246b9d92988537e4549053f9e6866d63b3@group.calendar.google.com&ctz=Europe/Copenhagen";
-                          }
-                          {
-                            title = "CoC Esports news";
-                            url = "https://esports.clashofclans.com/news";
-                          }
-                          {
-                            title = "r/Piracy Lemmy instance";
-                            url = "https://lemmy.dbzer0.com/c/piracy";
-                          }
-                        ];
-                      }
-                    ];
-                  }
-                  {
-                    type = "twitch-channels";
-                    channels = [
-                      "richardlewisreports"
-                      "tempohrl"
-                      "tr3bla_"
-                      "oski_rl"
-                      "dralii"
-                      "majicbearrl"
-                      "zenrll"
-                      "atowwwww"
-                      "feer"
-                      "nicewigg"
-                      "apparentlyjack_rl"
-                      "vatira_"
-                      "rocketleague"
-                      "rlesports"
-                      "feinberg"
-                      "johnnyboi_i"
-                      "retalsrl"
-                      "imperialhal__"
-                      "oilrats"
-                      "nassrll_"
-                      "ow_esports"
-                      "genburten"
-                      "ohnepixel"
-                      "rainbow6"
+                    type = "releases";
+                    show-sources-icon = true;
+                    limit = 5;
+                    token = { _secret = config.age.secrets."glance-releases-token_github".path; };
+                    repositories = [
+                      "pi-hole/pi-hole"
+                      "analogj/scrutiny"
+                      "xtekky/gpt4free"
+                      "glide-browser/glide"
+                      "yalter/niri"
+                      "jetkvm/kvm"
+                      "helix-editor/helix"
+                      "dani-garcia/vaultwarden"
+                      "atlas-os/atlas"
+                      "mpv-player/mpv"
+                      "servo/servo"
+                      "glanceapp/glance"
+                      "open-webui/open-webui"
+                      "home-assistant/core"
+                      "dgtlmoon/changedetection.io"
+                      "gorhill/uBlock"
+                      "mastermindzh/tidal-hifi"
+                      "sharkdp/bat"
+                      "localsend/localsend"
+                      "yt-dlp/yt-dlp"
+                      "nekename/opendeck"
+                      "inrixia/tidaluna"
+                      "linuxserver/docker-chrome"
                     ];
                   }
                 ];
@@ -387,10 +333,6 @@
                 size = "small";
                 widgets = [
                   {
-                    type = "calendar";
-                    first-day-of-week = "monday";
-                  }
-                  {
                     type = "markets";
                     chart-link-template = "https://finance.yahoo.com";
                     symbol-link-template = "https://finance.yahoo.com/quote/{SYMBOL}";
@@ -418,90 +360,96 @@
                     hide-top-domains = true;
                   }
                   {
-                    type = "custom-api";
-                    title = "CompApex calendar";
-                    cache = "15m";
-                    url = "http://0.0.0.0:8076/events";
-                    parameters = {
-                      url = "https://calendar.google.com/calendar/ical/9ad286735043bbfc1494408580cbe6246b9d92988537e4549053f9e6866d63b3%40group.calendar.google.com/public/basic.ics";
-                      limit = 5;
-                    };
-                    template = builtins.readFile ./config/ical-events.file;
-                  }
-                  {
-                    type = "custom-api";
-                    title = "RLEsports iCal";
-                    cache = "15m";
-                    url = "http://0.0.0.0:8076/events";
-                    parameters = {
-                      url = "https://calendar.google.com/calendar/ical/otpef10f3afpfs6u3ljcu2fsa0%40group.calendar.google.com/public/basic.ics";
-                      limit = 5;
-                    };
-                    template = builtins.readFile ./config/ical-events.file;
-                  }
-                  {
-                    type = "custom-api";
-                    title = "Kredslob skrald";
-                    cache = "15m";
-                    url = "http://0.0.0.0:8076/events";
-                    parameters = {
-                      url = { _secret = config.age.secrets."glance-custom-api_kredslob_skrald".path; };
-                      limit = 5;
-                    };
-                    template = builtins.readFile ./config/ical-events.file;
-                  }
-                  {
-                    type = "custom-api";
-                    title = "DK landsholdet iCal";
-                    cache = "15m";
-                    url = "http://0.0.0.0:8076/events";
-                    parameters = {
-                      # From: https://fixtur.es
-                      url = "https://calendar.google.com/calendar/ical/d65q914hiat9cdie7o7bk38p18%40group.calendar.google.com/public/basic.ics";
-                      limit = 5;
-                    };
-                    template = builtins.readFile ./config/ical-events.file;
-                  }
-                  {
-                    type = "releases";
-                    show-sources-icon = true;
-                    limit = 5;
-                    token = { _secret = config.age.secrets."glance-releases-token_github".path; };
-                    repositories = [
-                      "pi-hole/pi-hole"
-                      "analogj/scrutiny"
-                      "xtekky/gpt4free"
-                      "glide-browser/glide"
-                      "yalter/niri"
-                      "jetkvm/kvm"
-                      "helix-editor/helix"
-                      "dani-garcia/vaultwarden"
-                      "atlas-os/atlas"
-                      "mpv-player/mpv"
-                      "servo/servo"
-                      "glanceapp/glance"
-                      "open-webui/open-webui"
-                      "home-assistant/core"
-                      "dgtlmoon/changedetection.io"
-                      "gorhill/uBlock"
-                      "mastermindzh/tidal-hifi"
-                      "sharkdp/bat"
-                      "localsend/localsend"
-                      "yt-dlp/yt-dlp"
-                      "nekename/opendeck"
-                      "inrixia/tidaluna"
-                      "linuxserver/docker-chrome"
+                    type = "bookmarks";
+                    groups = [
+                      {
+                        links = [
+                          {
+                            title = "YouTube";
+                            url = "https://www.youtube.com/feed/subscriptions";
+                          }
+                          {
+                            title = "Github";
+                            url = "https://github.com/notifications";
+                          }
+                          {
+                            title = "Reddit";
+                            url = "https://www.reddit.com";
+                          }
+                          {
+                            title = "Steam";
+                            url = "https://store.steampowered.com";
+                          }
+                          {
+                            title = "Proton mail";
+                            url = "https://mail.proton.me";
+                          }
+                          {
+                            title = "IsThereAnyDeal";
+                            url = "https://isthereanydeal.com/deals/#filter:N4IgZgNghg5iBcIASIC%2BQ%3D%3D%3Ds";
+                          }
+                          {
+                            title = "HBD dashboard";
+                            url = "https://38.ein.itsby.design";
+                          }
+                          {
+                            title = "Liquipedia";
+                            url = "https://liquipedia.net";
+                          }
+                          {
+                            title = "HLTV";
+                            url = "https://hltv.org";
+                          }
+                          {
+                            title = "MCSR ranked";
+                            url = "https://mcsrranked.com/playoffs";
+                          }
+                          {
+                            title = "Apex Comp calendar";
+                            url = "https://calendar.google.com/calendar/embed?src=9ad286735043bbfc1494408580cbe6246b9d92988537e4549053f9e6866d63b3@group.calendar.google.com&ctz=Europe/Copenhagen";
+                          }
+                          {
+                            title = "CoC Esports news";
+                            url = "https://esports.clashofclans.com/news";
+                          }
+                          {
+                            title = "r/Piracy Lemmy instance";
+                            url = "https://lemmy.dbzer0.com/c/piracy";
+                          }
+                        ];
+                      }
                     ];
                   }
-#                  {
-#                    type = "custom-api";
-#                    title = "HBD qBittorrent";
-#                    cache = "10s";
-#                    options = [
-#                      { view = "detailed"; }
-#                      { mode = "upload"; }
-#                    ];
-#                  }
+                  {
+                    type = "twitch-channels";
+                    channels = [
+                      "richardlewisreports"
+                      "tempohrl"
+                      "tr3bla_"
+                      "oski_rl"
+                      "dralii"
+                      "majicbearrl"
+                      "zenrll"
+                      "atowwwww"
+                      "feer"
+                      "nicewigg"
+                      "apparentlyjack_rl"
+                      "vatira_"
+                      "rocketleague"
+                      "rlesports"
+                      "feinberg"
+                      "johnnyboi_i"
+                      "retalsrl"
+                      "imperialhal__"
+                      "oilrats"
+                      "nassrll_"
+                      "ow_esports"
+                      "genburten"
+                      "ohnepixel"
+                      "rainbow6"
+                      "playapex"
+                    ];
+                  }
                ];
               }
            ];
@@ -509,12 +457,12 @@
       ];
     };
   };
-  services.glance-ical-events = {
-    enable = true;
-    host = "0.0.0.0";  # Bind to all interfaces
-    port = 8076;
-    workers = 4;
-  };
+#  services.glance-ical-events = {
+#    enable = true;
+#    host = "0.0.0.0";  # Bind to all interfaces
+#    port = 8076;
+#    workers = 4;
+#  };
   services.nginx = {
     virtualHosts."glance.l.zzzealed.com" = {
       useACMEHost = "zzzealed.com";
