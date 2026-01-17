@@ -8,7 +8,8 @@ alias mv "uutils-mv --verbose --interactive --progress"
 alias rm "rm --verbose --interactive=once"
 alias find fd
 alias fzf sk
-alias vid_length "bash /home/mads/nix-config/modules/bash/config/list_vid_length.sh"
+alias vid_length "bash /mnt/vault/Documents/nix-config/modules/bash/config/list_vid_length.sh"
+alias rsync "rsync --verbose --archive --progress --human-readable"
 
 # Rebuild alias
 function rbld-desktop
