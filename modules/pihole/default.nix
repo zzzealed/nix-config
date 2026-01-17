@@ -39,6 +39,7 @@
           "n8n.l.zzzealed.com,server.l.zzzealed.com"
           "calibre.l.zzzealed.com,server.l.zzzealed.com"
           "g4f.l.zzzealed.com,server.l.zzzealed.com"
+          "radicale.l.zzzealed.com,server.l.zzzealed.com"
         ];
       };
       webserver.api = {
