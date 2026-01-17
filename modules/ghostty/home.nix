@@ -1,9 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  programs.ghostty = {
-    enable = true;
-    package = pkgs.ghostty;
-  };
+  programs.ghostty.enable = true;
   home.file.".config/ghostty" = {
     source = ./config;
     recursive = true;
