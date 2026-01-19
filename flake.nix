@@ -30,6 +30,7 @@
     glide-browser.url = "github:glide-browser/glide.nix";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     lan-mouse.url = "github:feschber/lan-mouse";
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs = {
@@ -47,6 +48,7 @@
     prismlauncher,
     nixpkgs-wayland,
     lan-mouse,
+    ghostty,
     ...
     } @ inputs: {
       nixosConfigurations = let
