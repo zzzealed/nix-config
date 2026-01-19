@@ -34,8 +34,8 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 
 # To-do
 [ ] Replace `system` with `stdenv.hostSystem` \
+[ ] Fix `Fish` theme switching \ 
 [ ] Disable password SSH and add agent \
-[x] Init: `services.wireguard` (wireguard-server) \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
 [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
@@ -44,7 +44,6 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
 [?] Switch to SOPS-nix \
 [?] Set up 3rd-party caches (Cachix etc.) \
-[?] Switch to ZSH \
 [?] Init: `services.nitter` \
 [?] Jujutsu-vcs
 
