@@ -45,6 +45,7 @@
     ../../modules/ungoogled-chromium
     ../../modules/python3.nix
     ../../modules/streamlink.nix
+    ../../modules/ghostty
   ];
 
   # Home manager modules
