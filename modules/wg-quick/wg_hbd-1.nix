@@ -1,12 +1,11 @@
 { config, ... }:
 
 {
-
-  age.secrets."hbd-wireguard_config".file = ../../secrets/hbd-wireguard_config.age;
+  age.secrets."hbd-wireguard_config-1".file = ../../secrets/hbd-wireguard_config-1.age;
   
   networking.wg-quick.interfaces = {
-    wg-hbd = {
-      configFile = config.age.secrets."hbd-wireguard_config".path; 
+    wg_hbd-1 = {
+      configFile = config.age.secrets."hbd-wireguard_config-1".path; 
       autostart = false;  # Automatically start the interface at boot
       # Local access, eg. for a PiHole instance.
       # Will cause DNS-leaks, but I don't mind. I think.

@@ -38,7 +38,7 @@
     ../../modules/stylix
     ../../modules/navi
     ../../modules/bash
-    ../../modules/wg-quick/wg-hbd.nix
+    ../../modules/wg-quick/wg_hbd-1.nix
     ../../modules/qbittorrent
     ../../modules/networkmanager
     ../../modules/prismlauncher
