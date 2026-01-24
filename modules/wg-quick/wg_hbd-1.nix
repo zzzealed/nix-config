@@ -2,7 +2,7 @@
 
 {
   age.secrets."hbd-wireguard_config-1".file = ../../secrets/hbd-wireguard_config-1.age;
-  
+  networking.firewall.allowedTCPPorts = [ 41314 ]; # Port-forwarded at HBD  
   networking.wg-quick.interfaces = {
     wg_hbd-1 = {
       configFile = config.age.secrets."hbd-wireguard_config-1".path; 
