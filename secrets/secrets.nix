@@ -26,7 +26,7 @@ in
     publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
     armor = true;
   };
-  "hbd-wireguard_config.age" = {
+  "hbd-wireguard_config_1.age" = {
     publicKeys = decodingKeys ++ interactiveKeys;
     armor = true;
   };
