@@ -290,16 +290,24 @@
                         title = "Servo";
                       }
                       {
-                        url = "https://blog.mozilla.org/en/latest/rss";
-                        title = "Mozilla";
-                      }
-                      {
                         url = "https://itsfoss.com/rss";
                         title = "It's FOSS";
                       }
                       {
-                        url = "https://feeds.arstechnica.com/arstechnica/index";
-                        title = "Ars Technica";
+                        url = "https://feeds.arstechnica.com/arstechnica/technology-lab";
+                        title = "Ars Technica/Information Technology";
+                      }
+                      {
+                        url = "https://feeds.arstechnica.com/arstechnica/gadgets";
+                        title = "Ars Technica/Product News & Reviews";
+                      }
+                      {
+                        url = "https://feeds.arstechnica.com/arstechnica/tech-policy";
+                        title = "Ars Technica/Civilization & Discontents";
+                      }
+                      {
+                        url = "https://feeds.arstechnica.com/arstechnica/gaming";
+                        title = "Ars Technica/Gaming & Entertainment";
                       }
                       {
                         url = "https://iamesports.substack.com/feed";
