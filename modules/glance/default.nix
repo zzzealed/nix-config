@@ -317,6 +317,10 @@
                         url = "https://esportsadvocate.net/rss";
                         title = "The Esports Advocate";
                       }
+                      {
+                        url = "https://wiki.x266.mov/blog/rss";
+                        title = "Codec Wiki";
+                      }
                     ];
                   }
                   {
