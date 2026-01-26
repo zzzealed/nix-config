@@ -76,7 +76,6 @@
     unstable.kcc
     calibre
     unstable.servo
-    tigervnc
     unstable.thunderbird
   ];
 
