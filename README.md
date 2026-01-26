@@ -45,5 +45,5 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [?] Switch to SOPS-nix \
 [?] Set up 3rd-party caches (Cachix etc.) \
 [?] Init: `services.nitter` \
-[?] Jujutsu-vcs
-
+[?] Jujutsu-vcs \
+[?] Switch to Adguard Home
