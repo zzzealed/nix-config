@@ -8,20 +8,27 @@ alias mv "uutils-mv --verbose --interactive --progress"
 alias rm "rm --verbose --interactive=once"
 alias find fd
 alias fzf sk
-alias vid_length "bash /mnt/vault/Documents/nix-config/modules/bash/config/list_vid_length.sh"
 alias rsync "rsync --verbose --archive --progress --human-readable"
 
 # Rebuild alias
 function rbld-desktop
     command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname desktop-nixos --target-host mads@desktop.l.zzzealed.com --cores 10 --max-jobs 10 --ask"
 end
-
 function rbld-server
     command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname server-nixos --cores 10 --max-jobs 10 --ask"
 end
-
 function rbld-pi
     command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname pi-nixos --target-host mads@pi.l.zzzealed.com --cores 10 --max-jobs 10 --ask"
+end
+
+# Duration alias
+# TIP: use like `duration *.mkv */*.mkv | sort -V`
+function duration
+    for f in $argv
+        printf "%s - %s\n" \
+            (ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 -sexagesimal "$f") \
+            (path basename "$f")
+    end
 end
 
 # Interactive shell initialisation
