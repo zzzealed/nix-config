@@ -68,7 +68,7 @@
     ntfs3g
     kdePackages.dolphin
     krita
-    unstable.kdePackages.kdenlive
+    kdePackages.kdenlive
     rpcs3
     unstable.ryubing
     gparted
@@ -77,6 +77,7 @@
     calibre
     unstable.servo
     unstable.thunderbird
+    lm_sensors
   ];
 
   # Boot
