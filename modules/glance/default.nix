@@ -170,13 +170,12 @@
                       "open-webui/open-webui"
                       "home-assistant/core"
                       "dgtlmoon/changedetection.io"
-                      "gorhill/uBlock"
+                      "gorhill/ublock"
                       "mastermindzh/tidal-hifi"
                       "sharkdp/bat"
                       "localsend/localsend"
                       "yt-dlp/yt-dlp"
                       "nekename/opendeck"
-                      "inrixia/tidaluna"
                       "linuxserver/docker-chrome"
                     ];
                   }
