@@ -27,7 +27,7 @@
     ../../modules/openssh
     ../../modules/open-webui
     ../../modules/scrutiny
-    ../../modules/calibre-web
+    #../../modules/calibre-web
     ../../modules/vaultwarden
     ../../modules/radicale
     ../../modules/samba-shares
@@ -45,7 +45,6 @@
     ../../modules/rclone
     ../../modules/rclone/mnt-hbd.nix
     ../../modules/pipewire
-    #../../modules/nitter
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/gpt4free_docker/docker-compose.nix
