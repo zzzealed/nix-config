@@ -19,6 +19,8 @@
     ../../modules/ddclient
   ];
 
+  system.switch.enable = true;
+
   # Boot
   boot.loader = {
     grub.enable = false;
