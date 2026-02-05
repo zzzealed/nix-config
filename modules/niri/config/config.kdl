@@ -44,14 +44,14 @@ input {
 
 // This is confusing.
 // Left monitor
-output "DP-1" {
+output "DP-3" {
     mode "1920x1080@60"
     scale 1
     transform "normal"
     position x=0 y=0
 }
 // Middle monitor
-output "DP-3" {
+output "DP-1" {
     mode "1920x1080@240"
     scale 1
     transform "normal"
@@ -80,7 +80,7 @@ layer-rule {
 }
 
 layout {
-    gaps 5 // Gaps around windows
+    gaps 0 // Gaps around windows
     center-focused-column "never"
     preset-column-widths { // I don't know what I did but it looks good
         proportion 0.25
