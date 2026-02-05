@@ -1,18 +1,19 @@
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "spacing": 15,
-  "margin-top": 5,
-  "margin-right": 5,
-  "margin-left": 5,
+  "margin-top": 0,
+  "margin-right": 0,
+  "margin-left": 0,
+  "margin-bottom": 0,
   "modules-left": [
-    "clock",
-    "memory",
-    "custom/wg-quick"
+    "niri/window"
   ],
   "modules-center": [],
   "modules-right": [
-    "niri/window"
+    "custom/wg-quick",
+    "memory",
+    "clock"
   ],
   // Modules
   "niri/window": {
