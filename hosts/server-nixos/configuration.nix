@@ -47,6 +47,7 @@
     ../../modules/rclone
     ../../modules/rclone/mnt-hbd.nix
     ../../modules/pipewire
+    ../../modules/ddclient
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/gpt4free_docker/docker-compose.nix
