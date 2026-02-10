@@ -16,7 +16,6 @@
     ../../modules/nh
     # Services
     ../../modules/wireguard
-    ../../modules/ddclient
   ];
 
   system.switch.enable = true;

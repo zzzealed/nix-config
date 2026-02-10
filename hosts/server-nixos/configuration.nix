@@ -41,6 +41,8 @@
     ../../modules/karakeep
     ../../modules/rust-gameserver
     ../../modules/nginx
+    ../../modules/nginx/zzzealed.com.nix
+    ../../modules/nginx/rotte.city.nix
     ../../modules/minecraft-server
     ../../modules/rclone
     ../../modules/rclone/mnt-hbd.nix
