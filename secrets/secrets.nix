@@ -59,7 +59,7 @@ in
     armor = true;
   };
   "ddclient_config.age" = {
-    publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     armor = true;
   };
 }
