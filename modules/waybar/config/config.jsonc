@@ -7,12 +7,13 @@
   "margin-left": 0,
   "margin-bottom": 0,
   "modules-left": [
+    "memory",
+    "custom/wg-quick"
+  ],
+  "modules-center": [
     "niri/window"
   ],
-  "modules-center": [],
   "modules-right": [
-    "custom/wg-quick",
-    "memory",
     "clock"
   ],
   // Modules
@@ -26,7 +27,9 @@
   },
   "clock": {
     "interval": 1,
-    "format": "{:%T %D}"
+    "locale": "",
+    "format": "{:%d/%m/%y %T}",
+    "tooltip-format": "{:%x %X}"
   },
   "custom/wg-quick": {
     "exec": "~/.config/waybar/wg-quick.sh",
