@@ -46,6 +46,7 @@
     ../../modules/python3.nix
     ../../modules/streamlink.nix
     ../../modules/ghostty
+    ../../modules/virt-manager
   ];
 
   # Home manager modules
