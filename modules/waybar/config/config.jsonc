@@ -27,9 +27,8 @@
   },
   "clock": {
     "interval": 1,
-    "locale": "",
     "format": "{:%d/%m/%y %T}",
-    "tooltip-format": "{:%x %X}"
+    "tooltip-format": "{:%A, %B %e. %G at %r %Z}"
   },
   "custom/wg-quick": {
     "exec": "~/.config/waybar/wg-quick.sh",
