@@ -455,10 +455,22 @@
                       "oilrats"
                       "nassrll_"
                       "ow_esports"
+                      "ow_esports2"
                       "genburten"
                       "ohnepixel"
                       "rainbow6"
+                      "rainbow6bravo"
                       "playapex"
+                      "wahvey"
+                      "mawkzy_"
+                      "atrioc"
+                      "thorin"
+                      "heccu"
+                      "mauisnake"
+                      "nakeyjakey"
+                      "breezi_eu"
+                      "cjcj"
+                      "feinberg"
                     ];
                   }
                ];
