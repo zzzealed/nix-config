@@ -47,6 +47,7 @@
     ../../modules/streamlink.nix
     ../../modules/ghostty
     ../../modules/virt-manager
+    #../../modules/mysql
   ];
 
   # Home manager modules
