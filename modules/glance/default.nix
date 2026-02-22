@@ -320,6 +320,10 @@
                         url = "https://wiki.x266.mov/blog/rss";
                         title = "Codec Wiki";
                       }
+                      {
+                        url = "https://www.opensourceprojects.dev/rss";
+                        title = "Open-source Projects";
+                      }
                     ];
                   }
                   {
