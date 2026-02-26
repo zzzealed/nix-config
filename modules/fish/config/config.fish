@@ -2,12 +2,9 @@
 alias cat bat
 alias cp "uutils-cp --verbose --interactive --progress"
 alias du dust
-alias grep rg
 alias ls "ls --color=always --indicator-style=slash"
 alias mv "uutils-mv --verbose --interactive --progress"
 alias rm "rm --verbose --interactive=once"
-alias find fd
-alias fzf sk
 alias rsync "rsync --verbose --archive --progress --human-readable"
 
 # Rebuild alias
