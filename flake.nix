@@ -8,47 +8,33 @@
       url = "github:nix-community/home-manager/release-25.11"; # 25.11
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #yazi.url = "github:sxyazi/yazi";
-    #tagstudio.url = "github:TagStudioDev/TagStudio";
-    tidaluna = {
-     url = "github:inrixia/tidaluna";
-     #inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     steam-config-nix.url = "github:different-name/steam-config-nix";
-    #niri.url = "github:YaLTeR/niri";
-    #nur.url = "github:nix-community/NUR";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     agenix.url = "github:ryantm/agenix";
     stylix = {
       url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    glance-ical-events.url = "github:AWildLeon/Glance-iCal-Events";
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     prismlauncher.url = "github:prismlauncher/prismlauncher";
     glide-browser.url = "github:glide-browser/glide.nix";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    lan-mouse.url = "github:feschber/lan-mouse";
     ghostty.url = "github:ghostty-org/ghostty";
+    lan-mouse.url = "github:feschber/lan-mouse";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    tidaluna,
     steam-config-nix,
-    nix-gaming,
     agenix,
     stylix,
-    glance-ical-events,
     nix-on-droid,
     nix-minecraft,
     prismlauncher,
-    nixpkgs-wayland,
-    lan-mouse,
+    glide-browser,
     ghostty,
+    lan-mouse,
     ...
     } @ inputs: {
       nixosConfigurations = let
