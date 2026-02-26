@@ -49,6 +49,7 @@ in
  };
  # A specialisation you can use when rebuild with `--specialistation light-theme`
  # See: https://wiki.nixos.org/wiki/Specialisation
+ # Also, to reload Fish with new scheme, use: `exec fish`
  specialisation = {
    light-theme.configuration = {
      stylix = {
