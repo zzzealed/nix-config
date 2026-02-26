@@ -321,8 +321,8 @@
                         title = "Codec Wiki";
                       }
                       {
-                        url = "https://www.opensourceprojects.dev/rss";
-                        title = "Open-source Projects";
+                        url = "https://nitter.net/RLDailyShop/rss";
+                        title = "RLDailyShop";
                       }
                     ];
                   }
