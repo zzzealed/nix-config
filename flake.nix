@@ -20,6 +20,7 @@
     glide-browser.url = "github:glide-browser/glide.nix";
     ghostty.url = "github:ghostty-org/ghostty";
     lan-mouse.url = "github:feschber/lan-mouse";
+    nh.url = "github:nix-community/nh";
   };
 
   outputs = {
@@ -35,6 +36,7 @@
     glide-browser,
     ghostty,
     lan-mouse,
+    nh,
     ...
     } @ inputs: {
       nixosConfigurations = let
