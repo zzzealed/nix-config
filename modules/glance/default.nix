@@ -1,7 +1,5 @@
-{ config, inputs, ... }:
+{ config, ... }:
 {
-  imports = [ inputs.glance-ical-events.nixosModules.default ];
-
   age.secrets."glance-weather_location".file = ../../secrets/glance-weather_location.age;
   age.secrets."glance-custom-api_kredslob_skrald".file = ../../secrets/glance-custom-api_kredslob_skrald.age;
   age.secrets."pihole-app_password".file = ../../secrets/pihole-app_password.age;
