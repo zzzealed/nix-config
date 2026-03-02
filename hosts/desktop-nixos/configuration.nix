@@ -48,6 +48,8 @@
     ../../modules/ghostty
     ../../modules/virt-manager
     #../../modules/mysql
+    ../../modules/locale/espanol.nix
+    ../../modules/earlyoom
   ];
 
   # Home manager modules
@@ -80,6 +82,7 @@
     unstable.servo
     unstable.thunderbird
     lm_sensors
+    espeak
   ];
 
   # Boot
@@ -98,6 +101,10 @@
   #services.xserver.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   hardware.nvidia.open = true;
+
+  powerManagement.cpuFreqGovernor = "performance";
+
+  boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
 
   #chaotic.mesa-git.enable = true;
 
