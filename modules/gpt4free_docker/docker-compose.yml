@@ -1,7 +1,7 @@
 services:
   gpt4free:
     container_name: "gpt4free"
-    image: hlohaus789/g4f:v7.0.7
+    image: hlohaus789/g4f:v7.2.5
     ports:
       - "9090:8080"
       - "7900:7900"
