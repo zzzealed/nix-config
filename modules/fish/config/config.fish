@@ -28,6 +28,11 @@ function duration
     end
 end
 
+# Bangers alias
+function bangers
+    command mpv /mnt/vault/Videos/Memes/bangers.m3u8 --directory-mode=ignore
+end
+
 # Interactive shell initialisation
 set fish_greeting # Disable greeting
 
