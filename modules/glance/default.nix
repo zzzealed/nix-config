@@ -45,6 +45,7 @@
                     hour-format = "24h";
                     timezones = [
                       { timezone = "America/New_York"; }
+                      { timezone = "America/Chicago"; }
                       { timezone = "America/Los_Angeles"; }
                     ];
                   }
@@ -472,7 +473,8 @@
                       "nakeyjakey"
                       "breezi_eu"
                       "cjcj"
-                      "feinberg"
+                      "eslcs"
+                      "eslcsb"
                     ];
                   }
                ];
