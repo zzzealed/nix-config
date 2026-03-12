@@ -7,7 +7,7 @@
   };
   services.pihole-ftl = {
     enable = true;
-    package = pkgs.unstable.pihole-ftl;
+    package = pkgs.pihole-ftl;
     piholePackage = pkgs.unstable.pihole;
     #openFirewallWebserver = true;
     openFirewallDNS = true;
