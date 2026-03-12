@@ -2,7 +2,7 @@
 {
   services.karakeep = {
     enable = true;
-    package = pkgs.unstable.karakeep;
+    package = pkgs.karakeep;
     extraEnvironment = {
       PORT = "7890";
       DISABLE_SIGNUPS = "true";
