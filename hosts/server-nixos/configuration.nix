@@ -77,9 +77,11 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # ZFS
-  services.sanoid.datasets."vault".daily = 1; # Snapshot "vault" once a day
-  services.sanoid.datasets."vault2".daily = 1; # Snapshot "vault2" once a day
-
+  services.zfs.autoSnapshot = {
+    enable = true;
+    weekly = 2;
+  };
+  
   # Networking
   networking.hostId = "3f39026e";
   networking.interfaces.enp3s0.wakeOnLan.enable = true;
