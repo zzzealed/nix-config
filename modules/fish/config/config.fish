@@ -43,8 +43,8 @@ set -g fish_key_bindings fish_vi_key_bindings
 set -gx EDITOR hx
 
 # Send desktop-noti if command longer than 10s
-function notify_long_tasks --on-event fish_postexec
-    if [ "$CMD_DURATION" -gt 10000 ] # 10 seconds
-        notify-send --app-name=Ghostty --icon=com.mitchellh.ghostty --expire-time=1000 "Command finished" $argv
-    end
-end
+#function notify_long_tasks --on-event fish_postexec
+#    if [ "$CMD_DURATION" -gt 10000 ] # 10 seconds
+#        notify-send --app-name=Ghostty --icon=com.mitchellh.ghostty --expire-time=1000 "Command finished" $argv
+#    end
+#end
