@@ -33,7 +33,6 @@
     ../../modules/bitwarden
     ../../modules/samba-mounts
     ../../modules/openssh
-    ../../modules/glide-browser
     ../../modules/locale
     ../../modules/stylix
     ../../modules/navi
@@ -63,6 +62,7 @@
       ../../modules/wpaperd/home.nix
       ../../modules/lan-mouse/home.nix
       ../../modules/waybar/home.nix
+      ../../modules/glide-browser/home.nix
     ];
   };
 
