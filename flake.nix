@@ -17,7 +17,7 @@
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     prismlauncher.url = "github:prismlauncher/prismlauncher";
-    glide-browser.url = "github:glide-browser/glide.nix";
+    glide.url = "github:glide-browser/glide.nix";
     ghostty.url = "github:ghostty-org/ghostty";
     lan-mouse.url = "github:feschber/lan-mouse";
     nh.url = "github:nix-community/nh";
@@ -33,7 +33,7 @@
     nix-on-droid,
     nix-minecraft,
     prismlauncher,
-    glide-browser,
+    glide,
     ghostty,
     lan-mouse,
     nh,
