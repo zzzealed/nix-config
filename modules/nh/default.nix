@@ -1,7 +1,8 @@
-{ inputs, system, ... }:
+{ pkgs, inputs, system, ... }:
 {
   programs.nh = {
     enable = true;
-    package = inputs.nh.packages.${system}.nh;
+    package = pkgs.unstable.nh;
+    #package = inputs.nh.packages.${system}.nh;
   };
 }
