@@ -18,7 +18,6 @@
     ../../modules/python3.nix
     ../../modules/nh
     #../../modules/prismlauncher
-    ../../modules/glide-browser
     ../../modules/mpv
     # Services
     ../../modules/home-assistant
