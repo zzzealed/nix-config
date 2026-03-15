@@ -30,7 +30,7 @@
     ../../modules/vaultwarden
     ../../modules/radicale
     ../../modules/samba-shares
-    ../../modules/n8n
+    #../../modules/n8n
     ../../modules/pihole
     ../../modules/unbound
     ../../modules/podman
