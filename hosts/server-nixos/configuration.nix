@@ -12,7 +12,6 @@
     ../../modules/nvidia
     ../../modules/networkmanager
     ../../modules/locale
-    ../../modules/stylix
     ../../modules/bash
     ../../modules/ungoogled-chromium
     ../../modules/python3.nix
@@ -53,6 +52,15 @@
     ../../modules/chrome_docker
     ../../modules/chrome_docker/docker-compose.nix
   ];
+
+  home-manager.users.mads = {
+    imports = [
+      ../../modules/git/home.nix
+      ../../modules/helix/home.nix
+      ../../modules/navi/home.nix
+      ../../modules/btop/home.nix
+    ];
+  };
 
   # Packages
   environment.systemPackages = with pkgs; [

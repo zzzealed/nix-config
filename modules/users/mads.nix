@@ -18,19 +18,5 @@
   # Home manager
   home-manager.users.mads = {
     xdg.enable = true;
-    imports = [
-      ../fish/home.nix
-      ../mpv/home.nix
-      #../firefox/home.nix
-      #../steam/home.nix #TODO: Fix
-      ../ghostty/home.nix
-      ../git/home.nix
-      ../helix/home.nix
-      ../navi/home.nix
-      ../niri/home.nix
-      ../stylix/home.nix
-      ../btop/home.nix
-      ../bat/home.nix
-    ];
   };
 }
