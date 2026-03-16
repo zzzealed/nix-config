@@ -63,6 +63,16 @@
       ../../modules/lan-mouse/home.nix
       ../../modules/waybar/home.nix
       ../../modules/glide-browser/home.nix
+      ../../modules/fish/home.nix
+      ../../modules/mpv/home.nix
+      ../../modules/ghostty/home.nix
+      ../../modules/git/home.nix
+      ../../modules/helix/home.nix
+      ../../modules/navi/home.nix
+      ../../modules/niri/home.nix
+      ../../modules/stylix/home.nix
+      ../../modules/btop/home.nix
+      #../../modules/steam/home.nix
     ];
   };
 

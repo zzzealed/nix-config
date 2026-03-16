@@ -21,20 +21,12 @@
     ../../modules/ffmpeg
     ../../modules/helix
     ../../modules/pipewire
-    ../../modules/bat
     ../../modules/samba-mounts
     ../../modules/openssh
     ../../modules/glide-browser
     ../../modules/locale
-    ../../modules/stylix
-    ../../modules/navi
-    ../../modules/bash
     #../../modules/wg-quick
     ../../modules/networkmanager
-    ../../modules/fuzzel
-    ../../modules/swaynotificationcenter
-    ../../modules/swaylock
-    ../../modules/wpaperd
     ../../modules/streamlink.nix
   ];
 
