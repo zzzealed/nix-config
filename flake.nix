@@ -8,12 +8,17 @@
       url = "github:nix-community/home-manager/release-25.11"; # 25.11
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    steam-config-nix.url = "github:different-name/steam-config-nix";
-    agenix.url = "github:ryantm/agenix";
-    stylix = {
-      url = "github:nix-community/stylix/release-25.11";
+    nur = {
+      url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      #url = "github:nix-community/stylix/release-25.11";
+      url = "git+file:///vault/Documents/Projects/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix.url = "github:ryantm/agenix";
+    steam-config-nix.url = "github:different-name/steam-config-nix";
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     prismlauncher.url = "github:prismlauncher/prismlauncher";
@@ -27,9 +32,10 @@
     self,
     nixpkgs,
     home-manager,
-    steam-config-nix,
-    agenix,
+    nur,
     stylix,
+    agenix,
+    steam-config-nix,
     nix-on-droid,
     nix-minecraft,
     prismlauncher,
@@ -75,37 +81,6 @@
         desktop-nixos = mkSystem "desktop-nixos" "x86_64-linux";
         server-nixos = mkSystem "server-nixos" "x86_64-linux";
         pi-nixos = mkSystem "pi-nixos" "aarch64-linux";
-        phone-nix = mkSystem "phone-nix" "aarch64-linux";
-      };
-      # Same ordeal for nix-on-droid
-      nixOnDroidConfigurations = let
-        mkSystem = name: arch: nix-on-droid.lib.nixOnDroidConfiguration {
-          specialArgs = {
-            flakeInputs = inputs;
-            inherit inputs;
-            system = arch;
-          };
-          modules = [
-            {
-              nix.settings = {
-                experimental-features = [ "nix-command" "flakes" ];
-                download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584
-              };
-            }
-            {
-              nixpkgs.config = {
-                allowUnfree = true;
-              };
-            }
-            { networking.hostName = name; }
-            ./secrets
-            ./overlays
-            (./hosts + "/${name}/configuration.nix")
-            (./hosts + "/${name}/hardware-configuration.nix")
-          ];
-        };
-      in {
-        phone-nix = mkSystem "phone-nix" "aarch64-linux";
       };
     };
 }
