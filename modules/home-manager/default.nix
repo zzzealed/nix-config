@@ -1,4 +1,4 @@
-{ system, inputs, flakeInputs, pkgs, ... }:
+{ inputs, flakeInputs, pkgs, ... }:
 
 {
   imports = [
@@ -7,7 +7,7 @@
   environment.systemPackages = [ pkgs.home-manager ];
   home-manager = {
     #useGlobalPkgs = true; # Apparently deprecated?
-    extraSpecialArgs = { inherit flakeInputs inputs system; };
+    extraSpecialArgs = { inherit flakeInputs inputs; };
     backupFileExtension = "bak";
     users.mads.home.stateVersion = "24.11";
   };
