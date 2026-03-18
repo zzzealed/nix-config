@@ -1,11 +1,9 @@
-{ config, inputs, pkgs, ... }:
+{  inputs, pkgs, ... }:
 {
   imports = [
     inputs.glide.homeModules.default
     inputs.agenix.homeManagerModules.default
   ];
-
-  age.secrets."browser_startup-homepage".file = ../../secrets/browser_startup-homepage.age;
 
   programs.glide-browser = {
     enable = true;
