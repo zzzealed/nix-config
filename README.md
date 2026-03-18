@@ -33,7 +33,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-[ ] Replace `system` with `stdenv.hostSystem` \
+[x] Replace `system` with `stdenv.hostSystem` \
 [ ] Fix `Fish` theme switching \
 [ ] Disable password SSH and add agent \
 [ ] Better `README.md` \
