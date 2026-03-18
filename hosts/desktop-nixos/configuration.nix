@@ -93,6 +93,7 @@
     unstable.thunderbird
     lm_sensors
     espeak
+    hollywood
   ];
 
   # Boot
