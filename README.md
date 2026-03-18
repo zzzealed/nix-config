@@ -34,7 +34,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 
 # To-do
 [ ] Replace `system` with `stdenv.hostSystem` \
-[ ] Fix `Fish` theme switching \ 
+[ ] Fix `Fish` theme switching \
 [ ] Disable password SSH and add agent \
 [ ] Better `README.md` \
 [ ] More `pkgs.navi` docs \
