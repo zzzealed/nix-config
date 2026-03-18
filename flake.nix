@@ -48,10 +48,10 @@
       nixosConfigurations = let
         # Global configuration, so applies to *all* hosts 
         mkSystem = name: arch: nixpkgs.lib.nixosSystem {
+          system = arch;
           specialArgs = { # See: https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
             flakeInputs = inputs;
             inherit inputs;
-            system = arch;
           };
           modules = [
             {
