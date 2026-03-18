@@ -8,7 +8,6 @@
   networking.wireguard.interfaces.wg0 = {
     ips = [ "10.100.0.1/16" ];
     listenPort = 51820;
-
     # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
     postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/16 -o enu1u1u1 -j MASQUERADE";
     postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/16 -o enu1u1u1 -j MASQUERADE";
@@ -17,7 +16,7 @@
     peers = [
       {
         # phone-nix
-        publicKey = "B88QuxKAxCTJ7lNSiaOfFex+hmyQq+VxK5KgHatB4HU=";
+        publicKey = "bmX/vHEwIteNYly02k79UtlaEsMYz4n8aabEY6eohUA=";
         allowedIPs = [ "10.100.0.2/32" ];
       }
     ];
