@@ -264,8 +264,8 @@
                         title = "Richard Lewis Substack";
                       }
                       {
-                        url = "https://unixdigest.com/feed.rss";
-                        title = "unixdigest";
+                        url = "https://unixdigest.com/articles.xml";
+                        title = "Unixdigest Articles";
                       }
                       {
                         url = "https://determinate.systems/rss.xml";
