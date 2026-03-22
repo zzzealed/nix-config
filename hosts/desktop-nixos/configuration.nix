@@ -110,14 +110,14 @@
 
   # GPU
   #services.xserver.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
   hardware.nvidia.open = true;
 
   powerManagement.cpuFreqGovernor = "performance";
 
   boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
-
-  #chaotic.mesa-git.enable = true;
 
   # Networking
   networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
