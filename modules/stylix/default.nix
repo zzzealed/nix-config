@@ -6,13 +6,10 @@ let
   dark-scheme = "danqing";
   light-scheme = "danqing-light";
 
-  # standardized
-  #dark-scheme = "standardized-dark";
-  #light-scheme = "standardized-light";
+  # da-one
+  #dark-scheme = "da-one-black";
+  #light-scheme = "da-one-white";
 
-  # catppuccin-frappe
-  #dark-scheme = "catppuccin-frappe";
-  #light-scheme = "catppuccin-latte";
 
 in
 {
@@ -21,7 +18,6 @@ in
     enable = true;
     autoEnable = true;
     targets = {
-      #grub.enable = false;
       glance.enable = false;
     };
     fonts = {
