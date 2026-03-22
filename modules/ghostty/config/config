@@ -6,9 +6,8 @@ copy-on-select = false
 working-directory = inherit
 window-inherit-working-directory = true
 
-notify-on-command-finish = always
+notify-on-command-finish-after = 10s
 notify-on-command-finish-action = bell, notify
-notify-on-command-finish-after = 1s
 
 font-family = CodeNewRoman Nerd Font
 font-size = 15
