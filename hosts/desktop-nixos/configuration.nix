@@ -8,7 +8,6 @@
     ../../modules/users/mads.nix
     ../../modules/cli-tools
     ../../modules/fish
-    #../../modules/mpv
     ../../modules/ly
     ../../modules/niri
     ../../modules/nh
