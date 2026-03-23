@@ -33,8 +33,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-[x] Replace `system` with `stdenv.hostSystem` \
-[x] Fix `Fish` theme switching \
+[ ] Make all files+dirs kebab-case \
 [ ] Make custom base16 theme \
 [ ] Disable password SSH and add agent \
 [ ] Better `README.md` \
@@ -47,4 +46,5 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 [?] Set up 3rd-party caches (Cachix etc.) \
 [?] Init: `services.nitter` \
 [?] Jujutsu-vcs \
-[?] Switch to Adguard Home
+[?] Switch to Adguard Home \
+[?] Ashell bar
