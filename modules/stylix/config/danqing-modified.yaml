@@ -6,7 +6,7 @@ palette:
   base00: "#2d302f" # ----
   base01: "#434846" # ---
   base02: "#5a605d" # --
-  base03: "#9da8a3" # -
+  base03: "#e0f0eF" # -
   base04: "#cad8d2" # +
   base05: "#e0f0eF" # ++ 素
   base06: "#ecf6f2" # +++
