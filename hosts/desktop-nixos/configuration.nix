@@ -8,7 +8,7 @@
     ../../modules/users/mads.nix
     ../../modules/cli-tools
     ../../modules/fish
-    ../../modules/mpv
+    #../../modules/mpv
     ../../modules/ly
     ../../modules/niri
     ../../modules/nh
@@ -53,8 +53,8 @@
 
   # Home manager modules
   home-manager.users.mads = {
+    home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;
     imports = [
-      ./mpv/home.nix
       ../../modules/fuzzel/home.nix
       ../../modules/bat/home.nix
       ../../modules/swaynotificationcenter/home.nix
