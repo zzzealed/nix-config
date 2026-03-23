@@ -17,7 +17,6 @@
     ../../modules/python3.nix
     ../../modules/nh
     #../../modules/prismlauncher
-    ../../modules/mpv
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
@@ -59,6 +58,7 @@
       ../../modules/helix/home.nix
       ../../modules/navi/home.nix
       ../../modules/btop/home.nix
+      ../../modules/mpv/home.nix
     ];
   };
 
