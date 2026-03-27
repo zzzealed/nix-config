@@ -1,5 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  environment.systemPackages = [ pkgs.alsa-utils ];
   services.pipewire = {
     enable = true;
     audio.enable = true; # Set as primary sound server
