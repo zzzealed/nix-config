@@ -26,6 +26,7 @@
     ghostty.url = "github:ghostty-org/ghostty";
     lan-mouse.url = "github:feschber/lan-mouse";
     nh.url = "github:nix-community/nh";
+    tidaluna.url = "github:inrixia/tidaluna";
   };
 
   outputs = {
@@ -43,6 +44,7 @@
     ghostty,
     lan-mouse,
     nh,
+    tidaluna,
     ...
     } @ inputs: {
       nixosConfigurations = let
