@@ -19,6 +19,7 @@
       "hue"
       "cast"
       "apple_tv"
+      "yale"
     ];
     extraPackages = python3Packages: with python3Packages; [
       # recorder postgresql support
