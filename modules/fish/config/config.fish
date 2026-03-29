@@ -4,7 +4,9 @@ alias cp "uutils-cp --verbose --interactive --progress"
 alias du dust
 alias ls "ls --color=always --indicator-style=slash"
 alias mv "uutils-mv --verbose --interactive --progress"
-alias rm "rm --verbose --interactive=once"
+#alias rm "rm --verbose --interactive=once"
+alias rm "echo use Gomi!"
+alias gomi "gomi --verbose"
 alias rsync "rsync --verbose --archive --progress --human-readable"
 
 # Rebuild alias
