@@ -86,13 +86,13 @@
     unstable.ryubing
     gparted
     hakuneko
-    unstable.kcc
     calibre
     unstable.servo
     unstable.thunderbird
     lm_sensors
     espeak
     hollywood
+    usbutils
   ];
 
   # Boot
@@ -120,6 +120,9 @@
 
   # Networking
   networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
+
+  # ???
+  services.gvfs.enable = true;
 
   # State
   system.stateVersion = "24.11";
