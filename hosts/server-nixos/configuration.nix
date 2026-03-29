@@ -47,9 +47,7 @@
     ../../modules/ddclient
     ## Compose2Nix
     ../../modules/gpt4free_docker
-    ../../modules/gpt4free_docker/docker-compose.nix
     ../../modules/chrome_docker
-    ../../modules/chrome_docker/docker-compose.nix
   ];
 
   home-manager.users.mads = {
@@ -67,6 +65,7 @@
     zfs
     dig
     screen
+    unstable.kcc
   ];
 
   # Use proprietary drivers
