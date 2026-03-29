@@ -1,5 +1,6 @@
 { ... }:
 {
+  imports = [ ./docker-compose.nix ];
   services.nginx = {
     virtualHosts."g4f.l.zzzealed.com" = {
       useACMEHost = "zzzealed.com";
