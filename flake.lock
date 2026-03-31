@@ -954,17 +954,18 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1773660759,
-        "narHash": "sha256-VX7JSEYySHEI/BKODLEyIofBAUaXLG8rcM8hx8VnfCA=",
-        "ref": "refs/heads/add-glide-browser",
-        "rev": "dd351d9aade053b014567ce38ecf52b605b48b93",
-        "revCount": 1376,
-        "type": "git",
-        "url": "file:///vault/Documents/Projects/stylix"
+        "lastModified": 1773970576,
+        "narHash": "sha256-MRGYHvK3/K9kxA6OITDcyUDvx2ywPnBsv5ybAfwEwfE=",
+        "owner": "zzzealed",
+        "repo": "stylix",
+        "rev": "bd2fac83824a03d2a5e70e0b09f9325df2c2cfa1",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///vault/Documents/Projects/stylix"
+        "owner": "zzzealed",
+        "ref": "add-glide-browser",
+        "repo": "stylix",
+        "type": "github"
       }
     },
     "systems": {
