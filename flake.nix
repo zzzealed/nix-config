@@ -14,7 +14,8 @@
     };
     stylix = {
       #url = "github:nix-community/stylix/release-25.11";
-      url = "git+file:///vault/Documents/Projects/stylix";
+      #url = "git+file:///vault/Documents/Projects/stylix";
+      url = "github:zzzealed/stylix/add-glide-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
