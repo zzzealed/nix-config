@@ -1,5 +1,7 @@
 { ... }:
 {
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "default";
+  networking.networkmanager = {
+    enable = true;
+    dns = "default";
+  };
 }
