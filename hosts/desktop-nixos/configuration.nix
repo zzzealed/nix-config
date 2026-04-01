@@ -46,7 +46,7 @@
     ../../modules/ghostty
     ../../modules/virt-manager
     #../../modules/mysql
-    ../../modules/locale/espanol.nix
+    #../../modules/locale/espanol.nix
     ../../modules/earlyoom
   ];
 
@@ -80,6 +80,7 @@
     scrcpy
     ntfs3g
     kdePackages.dolphin
+    kdePackages.xdg-desktop-portal-kde
     krita
     kdePackages.kdenlive
     rpcs3
@@ -114,15 +115,13 @@
   };
   hardware.nvidia.open = true;
 
+  # ???
   powerManagement.cpuFreqGovernor = "performance";
-
   boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
+  services.gvfs.enable = true;
 
   # Networking
   networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
-
-  # ???
-  services.gvfs.enable = true;
 
   # State
   system.stateVersion = "24.11";
