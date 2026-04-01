@@ -151,14 +151,14 @@
                   {
                     type = "releases";
                     show-sources-icon = true;
-                    limit = 5;
+                    limit = 10;
                     token = { _secret = config.age.secrets."glance-releases-token_github".path; };
                     repositories = [
                       "pi-hole/pi-hole"
                       "analogj/scrutiny"
                       "xtekky/gpt4free"
                       "glide-browser/glide"
-                      "yalter/niri"
+                      "niri-wm/niri"
                       "jetkvm/kvm"
                       "helix-editor/helix"
                       "dani-garcia/vaultwarden"
@@ -176,6 +176,8 @@
                       "yt-dlp/yt-dlp"
                       "nekename/opendeck"
                       "linuxserver/docker-chrome"
+                      "karakeep-app/karakeep"
+                      "prismlauncher/prismlauncher"
                     ];
                   }
                 ];
