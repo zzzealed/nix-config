@@ -2,17 +2,20 @@
 {
   # Nix modules
   imports = [
+    # Stack
+    ../../modules/limine # Bootloader
+    ../../modules/ly # Display manager
+    ../../modules/niri # Compositor
+    ../../modules/pipewire # Audio
+    ../../modules/networkmanager # Network
+    # Everything else
     ../../modules/yt-dlp.nix
     ../../modules/libreoffice.nix
     ../../modules/legcord.nix
     ../../modules/users/mads.nix
     ../../modules/cli-tools
     ../../modules/fish
-    ../../modules/ly
-    ../../modules/niri
     ../../modules/nh
-    #../../modules/firefox
-    ../../modules/systemd-boot
     ../../modules/rclone
     ../../modules/steam
     ../../modules/obs-studio
@@ -20,14 +23,12 @@
     ../../modules/tidal
     ../../modules/adb
     ../../modules/git
-    #../../modules/polkit
     ../../modules/wine
     ../../modules/bluetooth
     ../../modules/wooting
     ../../modules/home-manager
     ../../modules/ffmpeg
     ../../modules/helix
-    ../../modules/pipewire
     ../../modules/nvidia
     ../../modules/bitwarden
     ../../modules/samba-mounts
@@ -38,7 +39,6 @@
     ../../modules/bash
     ../../modules/wg-quick/wg_hbd-1.nix
     ../../modules/qbittorrent
-    ../../modules/networkmanager
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium
     ../../modules/python3.nix
@@ -102,11 +102,11 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # Secondary SSD
-  fileSystems."/mnt/Samsung" =
-    { device = "/dev/disk/by-uuid/EEA23721A236EE29";
-      fsType = "ntfs-3g"; 
-      options = [ "rw" "uid=1000"];
-    };
+  fileSystems."/mnt/Samsung" = {
+    device = "/dev/disk/by-uuid/EEA23721A236EE29";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
 
   # GPU
   #services.xserver.enable = true;
@@ -115,7 +115,7 @@
   };
   hardware.nvidia.open = true;
 
-  # ???
+  # Random
   powerManagement.cpuFreqGovernor = "performance";
   boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
   services.gvfs.enable = true;
