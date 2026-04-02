@@ -30,7 +30,6 @@
     ../../modules/n8n
     ../../modules/pihole
     ../../modules/unbound
-    ../../modules/podman
     ../../modules/searx
     ../../modules/glance
     ../../modules/karakeep
