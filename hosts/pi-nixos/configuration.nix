@@ -9,7 +9,6 @@
     ../../modules/home-manager
     ../../modules/helix
     ../../modules/bash
-    #../../modules/systemd-boot
     ../../modules/networkmanager
     ../../modules/openssh
     ../../modules/nh

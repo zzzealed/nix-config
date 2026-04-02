@@ -62,6 +62,7 @@
              # TWP
              # Violentmonkey
              # YouTube Watch Later
+             # Disable YouTube Watch Later Autoplay
 #          ];
         };
         search = {
