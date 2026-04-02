@@ -4,6 +4,7 @@
   imports = [
     # Stack
     ../../modules/limine # Bootloader
+    ../../modules/limine/windows-dualboot.nix
     ../../modules/ly # Display manager
     ../../modules/niri # Compositor
     ../../modules/pipewire # Audio
