@@ -13,10 +13,9 @@
     ../../modules/networkmanager
     ../../modules/locale
     ../../modules/bash
-    ../../modules/ungoogled-chromium
+    ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
     ../../modules/nh
-    #../../modules/prismlauncher
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
@@ -32,7 +31,6 @@
     ../../modules/pihole
     ../../modules/unbound
     ../../modules/podman
-    #../../modules/docker
     ../../modules/searx
     ../../modules/glance
     ../../modules/karakeep
