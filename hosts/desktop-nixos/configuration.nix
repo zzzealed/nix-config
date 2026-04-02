@@ -40,7 +40,7 @@
     ../../modules/wg-quick/wg_hbd-1.nix
     ../../modules/qbittorrent
     ../../modules/prismlauncher
-    ../../modules/ungoogled-chromium
+    ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
     ../../modules/streamlink.nix
     ../../modules/ghostty
