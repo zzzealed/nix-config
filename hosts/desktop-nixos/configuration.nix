@@ -89,7 +89,6 @@
     rpcs3
     unstable.ryubing
     gparted
-    hakuneko
     calibre
     unstable.servo
     unstable.thunderbird
