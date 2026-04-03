@@ -178,6 +178,7 @@
                       "linuxserver/docker-chrome"
                       "karakeep-app/karakeep"
                       "prismlauncher/prismlauncher"
+                      "codeberg:river/river"
                     ];
                   }
                 ];
