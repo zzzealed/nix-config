@@ -58,8 +58,7 @@
       # Stack
       ../../modules/waybar/home.nix # Bar
       ../../modules/fuzzel/home.nix # Launcher
-      #../../modules/swaynotificationcenter/home.nix # Notifications
-      ../../modules/dunst/home.nix
+      ../../modules/dunst/home.nix # Notifications
       ../../modules/swaylock/home.nix # Lock screen
       ../../modules/wpaperd/home.nix # Wallpaper
       # Everything else
