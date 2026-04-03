@@ -45,7 +45,7 @@
     ../../modules/python3.nix
     ../../modules/streamlink.nix
     ../../modules/ghostty
-    ../../modules/virt-manager
+    #../../modules/virt-manager
     #../../modules/mysql
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
