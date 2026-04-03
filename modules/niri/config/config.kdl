@@ -2,7 +2,7 @@ input {
     keyboard {
         xkb {
             layout "us,dk"
-            options "grp:ctrl_alt_toggle" // TODO: Doesn't actually work?
+            options "grp:ctrl_alt_toggle" // CTRL+ALT to switch layout
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -122,8 +122,9 @@ layout {
 }
 
 // Startup spawns.
-spawn-at-startup "wpaperd"
 spawn-at-startup "waybar"
+// Restart wpaperd cus there is no "WAYLAND_DISPLAY" to set before Niri starts...
+spawn-at-startup "systemctl" "--user" "restart" "wpaperd"
 
 // Misc.
 prefer-no-csd // No application-side decoration. I think?
