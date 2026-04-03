@@ -954,11 +954,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1773970576,
-        "narHash": "sha256-MRGYHvK3/K9kxA6OITDcyUDvx2ywPnBsv5ybAfwEwfE=",
+        "lastModified": 1775200518,
+        "narHash": "sha256-PjLIasYV8Q7tLH5+L4I6svkhkbUXp93BF5FDulLjOiw=",
         "owner": "zzzealed",
         "repo": "stylix",
-        "rev": "bd2fac83824a03d2a5e70e0b09f9325df2c2cfa1",
+        "rev": "b8adbe595904dd4a18c8d8ebfc4978023349864d",
         "type": "github"
       },
       "original": {
