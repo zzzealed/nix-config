@@ -33,18 +33,19 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-[ ] Make all files+dirs kebab-case \
-[ ] Make custom base16 theme \
-[ ] Disable password SSH and add agent \
-[ ] Better `README.md` \
-[ ] More `pkgs.navi` docs \
-[ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?, \
-[ ] `services.*`: Unique ports? \
-[ ] Init: Rsync-hbd cron job \
-[?] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?) \
-[?] Switch to SOPS-nix \
-[?] Set up 3rd-party caches (Cachix etc.) \
-[?] Init: `services.nitter` \
-[?] Jujutsu-vcs \
-[?] Switch to Adguard Home \
-[?] Ashell bar
+- [ ] Make all files+dirs kebab-case
+- [ ] Make custom base16 theme
+- [ ] Disable password SSH and add agent
+- [ ] Better `README.md`
+- [ ] More `pkgs.navi` docs
+- [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?,
+- [ ] `services.*`: Unique ports?
+- [ ] Init: Rsync-hbd cron job
+- [ ] Add `mpv-playlist-dir-conf` to NUR
+- [ ] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?)
+- [ ] Switch to SOPS-nix
+- [ ] Set up 3rd-party caches (Cachix etc.)
+- [ ] Init: `services.nitter`
+- [ ] Jujutsu-vcs
+- [ ] Switch to Adguard Home
+- [ ] Ashell bar
