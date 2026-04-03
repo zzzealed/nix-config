@@ -55,13 +55,16 @@
   home-manager.users.mads = {
     home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;
     imports = [
-      ../../modules/fuzzel/home.nix
+      # Stack
+      ../../modules/waybar/home.nix # Bar
+      ../../modules/fuzzel/home.nix # Launcher
+      #../../modules/swaynotificationcenter/home.nix # Notifications
+      ../../modules/dunst/home.nix
+      ../../modules/swaylock/home.nix # Lock screen
+      ../../modules/wpaperd/home.nix # Wallpaper
+      # Everything else
       ../../modules/bat/home.nix
-      ../../modules/swaynotificationcenter/home.nix
-      ../../modules/swaylock/home.nix
-      ../../modules/wpaperd/home.nix
       ../../modules/lan-mouse/home.nix
-      ../../modules/waybar/home.nix
       ../../modules/glide-browser/home.nix
       ../../modules/fish/home.nix
       ../../modules/mpv/home.nix
@@ -95,6 +98,7 @@
     espeak
     hollywood
     usbutils
+    wlsunset
   ];
 
   # Boot
@@ -120,6 +124,7 @@
   powerManagement.cpuFreqGovernor = "performance";
   boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
   services.gvfs.enable = true;
+  time.hardwareClockInLocalTime = true; # https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#System_time
 
   # Networking
   networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
