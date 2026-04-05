@@ -10,5 +10,6 @@
     ../uutils-coreutils.nix
     ../pastel.nix
     ../gomi.nix
+    ../jujutsu.nix
   ];
 }
