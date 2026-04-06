@@ -5,7 +5,10 @@
     virtualHosts."chrome.l.zzzealed.com" = {
       useACMEHost = "zzzealed.com";
       forceSSL = true;
-      locations."/".proxyPass = "http://127.0.0.1:3000";
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:3000";
+        proxyWebsockets = true; # https://docs.linuxserver.io/FAQ/#jammy
+      };
     };
   };
 }
