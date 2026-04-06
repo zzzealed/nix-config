@@ -63,7 +63,7 @@ in
     armor = true;
   };
   "hbd-ftps_rclone-config.age" = {
-    publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    publicKeys = [ root_server-nixos root_desktop-nixos ] ++ interactiveKeys;
     armor = true;
   };
 }
