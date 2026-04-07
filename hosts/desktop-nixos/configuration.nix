@@ -49,6 +49,7 @@
     #../../modules/mysql
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
+    ../../modules/wlsunset
   ];
 
   # Home manager modules
@@ -63,7 +64,7 @@
       ../../modules/wpaperd/home.nix # Wallpaper
       # Everything else
       ../../modules/bat/home.nix
-      ../../modules/lan-mouse/home.nix
+      #../../modules/lan-mouse/home.nix
       ../../modules/glide-browser/home.nix
       ../../modules/fish/home.nix
       ../../modules/mpv/home.nix
@@ -96,7 +97,6 @@
     espeak
     hollywood
     usbutils
-    wlsunset
   ];
 
   # Boot
