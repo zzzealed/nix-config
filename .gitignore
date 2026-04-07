@@ -4,3 +4,7 @@ result-*
 
 # Ignore automatically generated direnv output
 .direnv
+
+# Ignore wallpapers that Stylix use
+modules/stylix/config/*.png
+modules/stylix/config/*.jpg
