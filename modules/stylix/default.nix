@@ -20,9 +20,7 @@ in
   stylix = {
     enable = true;
     autoEnable = true;
-    targets = {
-      glance.enable = false;
-    };
+    targets = { glance.enable = false; };
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.code-new-roman;
@@ -48,7 +46,6 @@ in
     opacity.popups = 0.75;
 
     # Default theme is dark
-    #image = lib.mkDefault ./config/wp11286584-adventure-time-night-wallpapers.jpg;
     image = lib.mkDefault (pkgs.fetchurl {
       url = "https://w.wallhaven.cc/full/rr/wallhaven-rr5rq7.jpg";
       hash = "sha256-kpLa+UVjUlfRHq24cdBGfD7TPJ/RiSHLijEB1ro9bbQ=";
