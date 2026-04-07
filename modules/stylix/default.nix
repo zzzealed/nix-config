@@ -6,6 +6,10 @@ let
   #dark-scheme = "danqing";
   #light-scheme = "danqing-light";
 
+  # danqing-modified
+  dark-scheme = ./config/danqing-modified.yaml;
+  light-scheme = ./config/danqing-light-modified.yaml; 
+
   # da-one
   #dark-scheme = "da-one-black";
   #light-scheme = "da-one-white";
@@ -44,9 +48,12 @@ in
     opacity.popups = 0.75;
 
     # Default theme is dark
-    image = lib.mkDefault ./config/wp11286584-adventure-time-night-wallpapers.jpg;
-    #base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/${dark-scheme}.yaml";
-    base16Scheme = lib.mkDefault ./config/danqing-modified.yaml;
+    #image = lib.mkDefault ./config/wp11286584-adventure-time-night-wallpapers.jpg;
+    image = lib.mkDefault (pkgs.fetchurl {
+      url = "https://w.wallhaven.cc/full/rr/wallhaven-rr5rq7.jpg";
+      hash = "sha256-kpLa+UVjUlfRHq24cdBGfD7TPJ/RiSHLijEB1ro9bbQ=";
+    });
+    base16Scheme = lib.mkDefault "${dark-scheme}";
     polarity = lib.mkDefault "dark";
     icons.dark = lib.mkDefault "Papirus-Dark";
     cursor.name = lib.mkDefault "Bibata-Modern-Ice";
@@ -57,9 +64,11 @@ in
  specialisation = {
    light-theme.configuration = {
      stylix = {
-       image = lib.mkForce ./config/wallhaven-9d7dox_1920x1080.png;
-       #base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/${light-scheme}.yaml";
-       base16Scheme = lib.mkForce ./config/danqing-light-modified.yaml;
+       image = lib.mkForce (pkgs.fetchurl {
+         url = "https://w.wallhaven.cc/full/9d/wallhaven-9d7dox.jpg";
+         hash = "sha256-OYzqiDNaFlDopzZbTU1YkqV2bOrw/LAup16aA2Jxieo=";
+       });
+       base16Scheme = lib.mkForce "${light-scheme}";
        polarity = lib.mkForce "light";
        icons.light = lib.mkForce "Papirus-Light";
        cursor.name = lib.mkForce "Bibata-Modern-Classic";
