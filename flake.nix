@@ -19,15 +19,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
-    steam-config-nix.url = "github:different-name/steam-config-nix";
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    #steam-config-nix.url = "github:different-name/steam-config-nix";
+    #nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    prismlauncher.url = "github:prismlauncher/prismlauncher";
+    #prismlauncher.url = "github:prismlauncher/prismlauncher";
     glide.url = "github:glide-browser/glide.nix";
-    ghostty.url = "github:ghostty-org/ghostty";
-    lan-mouse.url = "github:feschber/lan-mouse";
+    #ghostty.url = "github:ghostty-org/ghostty";
+    #lan-mouse.url = "github:feschber/lan-mouse";
     nh.url = "github:nix-community/nh";
-    tidaluna.url = "github:inrixia/tidaluna";
+    #tidaluna.url = "github:inrixia/tidaluna";
   };
 
   outputs = {
@@ -37,15 +37,15 @@
     nur,
     stylix,
     agenix,
-    steam-config-nix,
-    nix-on-droid,
+    #steam-config-nix,
+    #nix-on-droid,
     nix-minecraft,
-    prismlauncher,
+    #prismlauncher,
     glide,
-    ghostty,
-    lan-mouse,
+    #ghostty,
+    #lan-mouse,
     nh,
-    tidaluna,
+    #tidaluna,
     ...
     } @ inputs: {
       nixosConfigurations = let

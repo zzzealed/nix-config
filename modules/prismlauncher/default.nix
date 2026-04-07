@@ -1,4 +1,7 @@
 { inputs, pkgs, ... }:
 {
-  environment.systemPackages = [ inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher ];
+  environment.systemPackages = [
+    pkgs.unstable.prismlauncher
+    #inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher
+  ];
 }
