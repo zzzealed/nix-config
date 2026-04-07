@@ -15,18 +15,32 @@
     stylix = {
       #url = "github:nix-community/stylix/release-25.11";
       #url = "git+file:///vault/Documents/Projects/stylix";
-      url = "github:zzzealed/stylix/add-glide-browser";
+      url = "github:zzzealed/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix.url = "github:ryantm/agenix";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     #steam-config-nix.url = "github:different-name/steam-config-nix";
     #nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #prismlauncher.url = "github:prismlauncher/prismlauncher";
-    glide.url = "github:glide-browser/glide.nix";
+    glide = {
+      url = "github:glide-browser/glide.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     #ghostty.url = "github:ghostty-org/ghostty";
     #lan-mouse.url = "github:feschber/lan-mouse";
-    nh.url = "github:nix-community/nh";
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #tidaluna.url = "github:inrixia/tidaluna";
   };
 
