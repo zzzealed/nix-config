@@ -4,9 +4,10 @@
   age.secrets."porkbun-nginx_api_secret".file = ../../secrets/porkbun-nginx_api_secret.age;
 
   services.nginx.virtualHosts."zzzealed.com" = {
+    default = true;
     useACMEHost = "zzzealed.com";
     forceSSL = true;
-    root = "/";
+    root = ./config/zzzealed.com;
   };
   security.acme.certs."zzzealed.com" = {
     domain = "zzzealed.com";

@@ -4,7 +4,6 @@
   age.secrets."porkbun-nginx_api_secret".file = ../../secrets/porkbun-nginx_api_secret.age;
 
   services.nginx.virtualHosts."rotte.city" = {
-    default = true;
     useACMEHost = "rotte.city";
     forceSSL = true;
     root = "/";
