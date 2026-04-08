@@ -9,7 +9,6 @@ let
   # Adventure time
   #dark-wallpaper = { url = "https://w.wallhaven.cc/full/rr/wallhaven-rr5rq7.jpg"; hash = "sha256-kpLa+UVjUlfRHq24cdBGfD7TPJ/RiSHLijEB1ro9bbQ="; };
   #light-wallpaper = { url = "https://w.wallhaven.cc/full/9d/wallhaven-9d7dox.jpg"; hash = "sha256-OYzqiDNaFlDopzZbTU1YkqV2bOrw/LAup16aA2Jxieo="; };
-
   # NixOS
   dark-wallpaper = { url = "https://w.wallhaven.cc/full/pk/wallhaven-pkrqze.png"; hash = "sha256-nhIUtCy/Hb8UbuxXeL3l3FMausjQrnjTVi1B3GkL9B8="; };
   light-wallpaper = {url = "https://w.wallhaven.cc/full/e7/wallhaven-e7djlk.png"; hash = "sha256-EMSD1XQLaqHs0NbLY0lS1oZ4rKznO+h9XOGDS121m9c="; };
