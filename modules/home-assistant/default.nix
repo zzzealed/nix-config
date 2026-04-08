@@ -3,7 +3,7 @@
   services.home-assistant = {
     enable = true;
     #openFirewall = true;
-    package = pkgs.unstable.home-assistant;
+    package = pkgs.home-assistant;
     extraComponents = [
       # Components required to complete the onboarding
       "analytics"
