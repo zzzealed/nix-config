@@ -2,13 +2,13 @@
 {
   services.pihole-web = {
     enable = true;
-    package = pkgs.unstable.pihole-web;
+    package = pkgs.pihole-web;
     ports = [ 8181 ];
   };
   services.pihole-ftl = {
     enable = true;
     package = pkgs.pihole-ftl;
-    piholePackage = pkgs.unstable.pihole;
+    piholePackage = pkgs.pihole;
     #openFirewallWebserver = true;
     openFirewallDNS = true;
     settings = { # From: https://github.com/pi-hole/FTL/blob/master/test/pihole.toml
