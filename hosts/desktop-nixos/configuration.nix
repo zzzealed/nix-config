@@ -98,6 +98,29 @@
     usbutils
   ];
 
+  # xdg.mime
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = "org.kde.dolphin.desktop";
+      "text/html" = "glide-browser.desktop";
+      "x-scheme-handler/http" = "glide-browser.desktop";
+      "x-scheme-handler/https" = "glide-browser.desktop";
+      "x-scheme-handler/about" = "glide-browser.desktop";
+      "image/jpeg" = "mpv.desktop";
+      "image/png" = "mpv.desktop";
+      "image/gif" = "mpv.desktop";
+      "image/webp" = "mpv.desktop";
+      "image/svg+xml"= "mpv.desktop";
+      "video/mp4" = "mpv.desktop";
+      "video/mkv" = "mpv.desktop";
+      "video/webm" = "mpv.desktop";
+      "video/avi" = "mpv.desktop";
+      "video/mov" = "mpv.desktop";
+      "video/x-matroska" = "mpv.desktop";
+    };
+  };
+
   # Boot
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
