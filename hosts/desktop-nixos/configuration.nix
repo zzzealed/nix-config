@@ -48,6 +48,7 @@
     #../../modules/mysql
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
+    ../../modules/thermald
   ];
 
   # Home manager modules
@@ -144,6 +145,8 @@
   boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
   services.gvfs.enable = true;
   time.hardwareClockInLocalTime = true; # https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#System_time
+  services.fstrim.enable = true;
+  hardware.cpu.intel.updateMicrocode = true;
 
   # Networking
   networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff

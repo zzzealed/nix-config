@@ -42,6 +42,7 @@
     ../../modules/rclone/mnt-hbd.nix
     ../../modules/pipewire
     ../../modules/ddclient
+    ../../modules/thermald
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker

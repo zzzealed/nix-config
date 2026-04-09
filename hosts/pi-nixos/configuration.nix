@@ -13,6 +13,7 @@
     ../../modules/nh
     # Services
     ../../modules/wireguard
+    ../../modules/thermald
   ];
 
   home-manager.users.mads = {
