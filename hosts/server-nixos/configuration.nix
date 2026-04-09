@@ -37,6 +37,7 @@
     ../../modules/nginx/zzzealed.com.nix
     ../../modules/nginx/rotte.city.nix
     ../../modules/minecraft-server
+    ../../modules/minecraft-server/mads-sp.nix
     ../../modules/rclone
     ../../modules/rclone/mnt-hbd.nix
     ../../modules/pipewire
