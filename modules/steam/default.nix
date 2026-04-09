@@ -2,6 +2,17 @@
 {
   programs.steam = {
     enable = true;
-    extraCompatPackages = [ pkgs.unstable.proton-ge-bin ];
+    extest.enable = true;
+    package = pkgs.unstable.steam;
+    protontricks = {
+      enable = true;
+      package = pkgs.unstable.protontricks;
+    };
+    extraCompatPackages = [
+      pkgs.unstable.proton-ge-bin
+    ];
+    extraPackages = [
+      pkgs.unstable.gamescope
+    ];
   };
 }
