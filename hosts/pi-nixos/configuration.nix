@@ -7,7 +7,6 @@
     ../../modules/cli-tools
     ../../modules/git
     ../../modules/home-manager
-    ../../modules/helix
     ../../modules/bash
     ../../modules/networkmanager
     ../../modules/openssh

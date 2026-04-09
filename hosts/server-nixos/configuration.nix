@@ -8,7 +8,6 @@
     ../../modules/git
     ../../modules/home-manager
     ../../modules/ffmpeg
-    ../../modules/helix
     ../../modules/nvidia
     ../../modules/networkmanager
     ../../modules/locale

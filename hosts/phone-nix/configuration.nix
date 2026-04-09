@@ -10,13 +10,18 @@
     ../../modules/git
     ../../modules/home-manager
     ../../modules/ffmpeg
-    ../../modules/helix
     ../../modules/bat
     ../../modules/openssh
     ../../modules/locale
     ../../modules/stylix
     ../../modules/navi
   ];
+  # Home manager modules
+  home-manager.users.mads = {
+    imports = [
+      ../../modules/helix/home.nix
+    ];
+  };
 
   # Secondary SSD
   fileSystems."/mnt/Samsung" =

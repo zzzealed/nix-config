@@ -29,7 +29,6 @@
     ../../modules/wooting
     ../../modules/home-manager
     ../../modules/ffmpeg
-    ../../modules/helix
     ../../modules/nvidia
     ../../modules/bitwarden
     ../../modules/samba-mounts
