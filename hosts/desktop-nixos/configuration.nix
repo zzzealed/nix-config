@@ -48,12 +48,11 @@
     #../../modules/mysql
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
-    ../../modules/wlsunset
   ];
 
   # Home manager modules
   home-manager.users.mads = {
-    home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;
+    home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
     imports = [
       # Stack
       ../../modules/waybar/home.nix # Bar
