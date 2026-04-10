@@ -11,6 +11,7 @@
     ../../modules/networkmanager
     ../../modules/openssh
     ../../modules/nh
+    ../../modules/nameservers/server.nix
     # Services
     ../../modules/wireguard
   ];

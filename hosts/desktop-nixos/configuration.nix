@@ -49,6 +49,7 @@
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
     ../../modules/thermald
+    ../../modules/nameservers/server.nix
   ];
 
   # Home manager modules

@@ -15,6 +15,11 @@
     ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
     ../../modules/nh
+    ../../modules/nameservers/local.nix
+    ../../modules/pipewire
+    ../../modules/rclone
+    ../../modules/rclone/mnt-hbd.nix
+    ../../modules/thermald
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
@@ -38,11 +43,7 @@
     ../../modules/nginx/rotte.city.nix
     ../../modules/minecraft-server
     ../../modules/minecraft-server/mads-sp.nix
-    ../../modules/rclone
-    ../../modules/rclone/mnt-hbd.nix
-    ../../modules/pipewire
     ../../modules/ddclient
-    ../../modules/thermald
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
