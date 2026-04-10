@@ -9,9 +9,9 @@
     ../../modules/home-manager
     ../../modules/bash
     ../../modules/networkmanager
+    ../../modules/networkmanager/server-dns.nix
     ../../modules/openssh
     ../../modules/nh
-    ../../modules/nameservers/server.nix
     # Services
     ../../modules/wireguard
   ];

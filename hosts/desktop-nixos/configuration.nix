@@ -9,6 +9,7 @@
     ../../modules/niri # Compositor
     ../../modules/pipewire # Audio
     ../../modules/networkmanager # Network
+    ../../modules/networkmanager/server-dns.nix
     # Everything else
     ../../modules/yt-dlp.nix
     ../../modules/libreoffice.nix
@@ -49,7 +50,6 @@
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
     ../../modules/thermald
-    ../../modules/nameservers/server.nix
   ];
 
   # Home manager modules

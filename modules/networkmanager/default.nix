@@ -1,7 +1,10 @@
 { ... }:
 {
-  networking.networkmanager = {
-    enable = true;
-    dns = "default";
+  networking = {
+    resolvconf.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
   };
 }

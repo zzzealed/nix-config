@@ -10,12 +10,12 @@
     ../../modules/ffmpeg
     ../../modules/nvidia
     ../../modules/networkmanager
+    ../../modules/networkmanager/local-dns.nix
     ../../modules/locale
     ../../modules/bash
     ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
     ../../modules/nh
-    ../../modules/nameservers/local.nix
     ../../modules/pipewire
     ../../modules/rclone
     ../../modules/rclone/mnt-hbd.nix
