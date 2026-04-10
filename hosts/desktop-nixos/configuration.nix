@@ -12,7 +12,6 @@
     # Everything else
     ../../modules/yt-dlp.nix
     ../../modules/libreoffice.nix
-    ../../modules/legcord.nix
     ../../modules/users/mads.nix
     ../../modules/cli-tools
     ../../modules/fish
@@ -65,7 +64,6 @@
       ../../modules/wpaperd/home.nix # Wallpaper
       # Everything else
       ../../modules/bat/home.nix
-      #../../modules/lan-mouse/home.nix
       ../../modules/glide-browser/home.nix
       ../../modules/fish/home.nix
       ../../modules/mpv/home.nix
@@ -76,7 +74,7 @@
       ../../modules/niri/home.nix
       ../../modules/stylix/home.nix
       ../../modules/btop/home.nix
-      #../../modules/steam/home.nix
+      ../../modules/legcord/home.nix
     ];
   };
 

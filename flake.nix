@@ -23,25 +23,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    #steam-config-nix.url = "github:different-name/steam-config-nix";
     #nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #prismlauncher.url = "github:prismlauncher/prismlauncher";
     glide = {
       url = "github:glide-browser/glide.nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    #ghostty.url = "github:ghostty-org/ghostty";
-    #lan-mouse.url = "github:feschber/lan-mouse";
-    nh = {
-      url = "github:nix-community/nh";
+    nixcord = {
+      url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #tidaluna.url = "github:inrixia/tidaluna";
   };
 
   outputs = {
@@ -51,15 +46,10 @@
     nur,
     stylix,
     agenix,
-    #steam-config-nix,
     #nix-on-droid,
     nix-minecraft,
-    #prismlauncher,
     glide,
-    #ghostty,
-    #lan-mouse,
-    nh,
-    #tidaluna,
+    nixcord,
     ...
     } @ inputs: {
       nixosConfigurations = let
