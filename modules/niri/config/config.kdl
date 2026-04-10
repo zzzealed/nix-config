@@ -98,7 +98,7 @@ layout {
         proportion 0.75
         proportion 1.0
     }
-    default-column-width { proportion 0.5; } // TODO: Maybe leave empty so windows decide for themselves?
+    default-column-width { proportion 0.5; }
     focus-ring {
         off
     }
@@ -140,8 +140,8 @@ animations {
 }
 
 // Window rules.
-window-rule { // TODO: Remove titlebars
-    default-column-width {}
+window-rule {
+    open-maximized true
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
