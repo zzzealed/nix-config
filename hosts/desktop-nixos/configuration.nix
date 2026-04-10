@@ -18,6 +18,7 @@
     ../../modules/fish
     ../../modules/nh
     ../../modules/rclone
+    ../../modules/rclone/mnt-hbd.nix
     ../../modules/steam
     ../../modules/obs-studio
     ../../modules/localsend
@@ -97,6 +98,7 @@
     espeak
     hollywood
     usbutils
+    llm
   ];
 
   # xdg.mime
