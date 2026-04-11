@@ -20,6 +20,8 @@
     ../../modules/rclone
     ../../modules/rclone/mnt-hbd.nix
     ../../modules/thermald
+    ../../modules/zfs
+    ../../modules/zfs/vault-pool.nix
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
@@ -63,7 +65,6 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    zfs
     dig
     screen
     unstable.kcc
@@ -79,16 +80,8 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sde";
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false; # Import with `sudo zpool import (-l) vault`
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  # ZFS
-  services.zfs.autoSnapshot = {
-    enable = true;
-    weekly = 2;
-  };
-  
   # Networking
   networking.hostId = "3f39026e";
   networking.interfaces.enp3s0.wakeOnLan.enable = true;

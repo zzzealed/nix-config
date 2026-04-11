@@ -12,6 +12,7 @@
     ../../modules/networkmanager/server-dns.nix
     ../../modules/openssh
     ../../modules/nh
+    ../../modules/zfs
     # Services
     ../../modules/wireguard
     ../../modules/samba-shares
@@ -38,7 +39,6 @@
 
   # Networking
   networking.hostId = "cf20a29f";
-  #networking.interfaces.enp3s0.wakeOnLan.enable = true; # TODO
 
   # State
   system.stateVersion = "24.05";
