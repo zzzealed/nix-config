@@ -32,6 +32,10 @@ in
         package = pkgs.noto-fonts;
         name = "NotoSerif";
       };
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
     };
     cursor = {
       package = pkgs.bibata-cursors;
