@@ -27,7 +27,6 @@
     ../../modules/git
     ../../modules/wine
     ../../modules/bluetooth
-    ../../modules/wooting
     ../../modules/home-manager
     ../../modules/ffmpeg
     ../../modules/nvidia
@@ -99,6 +98,7 @@
     hollywood
     usbutils
     llm
+    wooting-udev-rules
   ];
 
   # xdg.mime
