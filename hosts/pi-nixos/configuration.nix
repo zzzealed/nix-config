@@ -14,6 +14,9 @@
     ../../modules/nh
     # Services
     ../../modules/wireguard
+    ../../modules/samba-shares
+    ../../modules/samba-shares/vault2-share.nix
+    ../../modules/hd-idle/vault2-spindown.nix
   ];
 
   home-manager.users.mads = {

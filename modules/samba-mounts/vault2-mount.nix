@@ -1,7 +1,7 @@
 { ... }:
 {
   fileSystems."/mnt/vault2" = {
-    device = "//server.l.zzzealed.com/vault2";
+    device = "//pi.l.zzzealed.com/vault2";
     fsType = "cifs";
     options = let
       # this line prevents hanging on network split

@@ -31,6 +31,8 @@
     ../../modules/vaultwarden
     ../../modules/radicale
     ../../modules/samba-shares
+    ../../modules/samba-shares/vault-share.nix
+    ../../modules/samba-shares/home-share.nix
     ../../modules/n8n
     ../../modules/pihole
     ../../modules/unbound
