@@ -8,62 +8,25 @@ let
   mads_desktop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos";
   mads_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos";
   interactiveKeys = [ mads_desktop-nixos mads_server-nixos ];
+
+  defaults = { armor = true; };
+
+  secrets = {
+    "mads-password.age".publicKeys = decodingKeys ++ [ mads_desktop-nixos mads_server-nixos ];
+    "searx-secret_key.age".publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
+    "glance-weather_location.age".publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
+    "glance-custom-api_kredslob_skrald.age".publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
+    "hbd-wireguard_config-1.age".publicKeys = decodingKeys ++ interactiveKeys;
+    "porkbun-nginx_api_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "porkbun-nginx_api_secret.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "changedetection-io_api_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "pihole-app_password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "changedetection-io_rss.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "glance-releases-token_github.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "server-nixos_wireguard_private-key.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    "ddclient_config.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "hbd-ftps_rclone-config.age".publicKeys = [ root_server-nixos root_desktop-nixos ] ++ interactiveKeys;
+    "phone-nix_wireguard_config.age".publicKeys = interactiveKeys;
+  };
 in
-{
-  "mads-password.age" = {
-    publicKeys = decodingKeys ++ [ mads_desktop-nixos mads_server-nixos ];
-    armor = true;
-  };
-  "searx-secret_key.age" = {
-    publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
-    armor = true;
-  };
-  "glance-weather_location.age" = {
-    publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
-    armor = true;
-  };
-  "glance-custom-api_kredslob_skrald.age" = {
-    publicKeys = [ root_server-nixos mads_desktop-nixos mads_server-nixos ];
-    armor = true;
-  };
-  "hbd-wireguard_config-1.age" = {
-    publicKeys = decodingKeys ++ interactiveKeys;
-    armor = true;
-  };
-  "porkbun-nginx_api_key.age" = {
-    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "porkbun-nginx_api_secret.age" = {
-    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "changedetection-io_api_key.age" = {
-    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "pihole-app_password.age" = {
-    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "changedetection-io_rss.age" = {
-    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "glance-releases-token_github.age" = {
-    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "wireguard_private-key.age" = {
-    publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "ddclient_config.age" = {
-    publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-  "hbd-ftps_rclone-config.age" = {
-    publicKeys = [ root_server-nixos root_desktop-nixos ] ++ interactiveKeys;
-    armor = true;
-  };
-}
+  builtins.mapAttrs (_name: value: defaults // value) secrets
