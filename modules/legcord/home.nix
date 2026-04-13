@@ -13,6 +13,8 @@
         minimizeToTray = false;
         mods = [ "vencord" ];
         tray = false;
+        hardwareAcceleration = true;
+        doneSetup = true;
       };
     };
     config = {
