@@ -63,12 +63,11 @@
       ../../modules/swaylock/home.nix # Lock screen
       ../../modules/wpaperd/home.nix # Wallpaper
       ../../modules/ghostty/home.nix # Terminal
+      ../../modules/fish/home.nix # Shell
       # Everything else
       ../../modules/bat/home.nix
       ../../modules/glide-browser/home.nix
-      ../../modules/fish/home.nix
       ../../modules/mpv/home.nix
-      ../../modules/ghostty/home.nix
       ../../modules/git/home.nix
       ../../modules/helix/home.nix
       ../../modules/navi/home.nix
