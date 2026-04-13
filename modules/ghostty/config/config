@@ -9,7 +9,6 @@ window-inherit-working-directory = true
 notify-on-command-finish-after = 10s
 notify-on-command-finish-action = bell, notify
 
-font-family = CodeNewRoman Nerd Font
 font-size = 15
 font-feature = -calt -liga -dlig
 
