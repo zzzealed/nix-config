@@ -45,7 +45,6 @@
     ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
     ../../modules/streamlink.nix
-    ../../modules/ghostty
     #../../modules/virt-manager
     #../../modules/mysql
     #../../modules/locale/espanol.nix
@@ -63,6 +62,7 @@
       ../../modules/dunst/home.nix # Notifications
       ../../modules/swaylock/home.nix # Lock screen
       ../../modules/wpaperd/home.nix # Wallpaper
+      ../../modules/ghostty/home.nix # Terminal
       # Everything else
       ../../modules/bat/home.nix
       ../../modules/glide-browser/home.nix
