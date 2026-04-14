@@ -326,6 +326,18 @@
                         url = "https://nitter.net/RLDailyShop/rss";
                         title = "RLDailyShop";
                       }
+                      {
+                        url = "https://forgejo.org/rss.xml";
+                        title = "Forgejo";
+                      }
+                      {
+                        url = "https://isaacfreund.com/blog/feed.xml";
+                        title = "Isaac Freund";
+                      }
+                      {
+                        url = "https://futo.tech/blog/rss.xml";
+                        title = "Futo";
+                      }
                     ];
                   }
                   {
