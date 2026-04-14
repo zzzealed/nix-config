@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 let
   # Themes: https://tinted-theming.github.io/tinted-gallery/
   # danqing-modified
@@ -52,20 +52,19 @@ in
     base16Scheme = lib.mkDefault dark-scheme;
     polarity = lib.mkDefault "dark";
     icons.dark = lib.mkDefault "Papirus-Dark";
-    cursor.name = lib.mkDefault "Bibata-Modern-Ice";
+    cursor.name = lib.mkDefault "Bibata-Modern-Classic";
  };
- # A specialisation you can use on rebuild with `--specialistation light-theme`
- # See: https://wiki.nixos.org/wiki/Specialisation
- # Also, to reload Fish with new scheme, use: `exec fish`
- specialisation = {
-   light-theme.configuration = {
-     stylix = {
-       image = lib.mkForce (pkgs.fetchurl light-wallpaper);
-       base16Scheme = lib.mkForce light-scheme;
-       polarity = lib.mkForce "light";
-       icons.light = lib.mkForce "Papirus-Light";
-       cursor.name = lib.mkForce "Bibata-Modern-Classic";
-     };
-   };
- };
+  # A specialisation you can use on rebuild with `--specialistation light-theme`
+  # See: https://wiki.nixos.org/wiki/Specialisation
+  specialisation = {
+    light-theme.configuration = {
+      stylix = {
+        image = lib.mkForce (pkgs.fetchurl light-wallpaper);
+        base16Scheme = lib.mkForce light-scheme;
+        polarity = lib.mkForce "light";
+        icons.light = lib.mkForce "Papirus-Light";
+        cursor.name = lib.mkForce "Bibata-Modern-Classic";
+      };
+    };
+  };
 }

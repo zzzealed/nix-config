@@ -130,6 +130,9 @@ spawn-at-startup "systemctl" "--user" "restart" "wpaperd"
 prefer-no-csd // No application-side decoration. I think?
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 cursor {
+    //xcursor-theme "default" // Cursor set by Stylix
+    //xcursor-size 24
+    
     hide-when-typing
     hide-after-inactive-ms 1000
 }
@@ -142,19 +145,7 @@ animations {
 // Window rules.
 window-rule {
     open-maximized true
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-// No rounded corners. I don't like them.
-window-rule {
+    open-floating false
     geometry-corner-radius 0
     clip-to-geometry false
 }
