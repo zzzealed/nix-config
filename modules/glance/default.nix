@@ -356,6 +356,16 @@
                       }
                     ];
                   }
+                  {
+                    type = "group";
+                    widgets = [
+                      { type = "reddit"; subreddit = "av1"; }
+                      { type = "reddit"; subreddit = "mpv"; }
+                      { type = "reddit"; subreddit = "niri"; }
+                      { type = "reddit"; subreddit = "nixos"; }
+                      { type = "reddit"; subreddit = "selfhosted"; }
+                    ];
+                  }
                 ]; 
               }
               {
