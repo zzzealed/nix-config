@@ -6,9 +6,9 @@ palette:
   base00: "#fcfefd" # ++++
   base01: "#ecf6f2" # +++
   base02: "#e0f0eF" # ++ 素
-  base03: "#5a605d" # +
+  base03: "#cad8d2" # +
   base04: "#9da8a3" # -
-  base05: "#828a87" # --
+  base05: "#5a605d" # --
   base06: "#434846" # ---
   base07: "#2d302f" # ----
   base08: "#F9906F" # red 酡颜
