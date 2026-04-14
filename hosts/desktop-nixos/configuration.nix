@@ -50,6 +50,7 @@
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
     ../../modules/thermald
+    ../../modules/yubikey
   ];
 
   # Home manager modules
