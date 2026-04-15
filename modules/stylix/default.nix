@@ -63,7 +63,7 @@ in
         base16Scheme = lib.mkForce light-scheme;
         polarity = lib.mkForce "light";
         icons.light = lib.mkForce "Papirus-Light";
-        cursor.name = lib.mkForce "Bibata-Modern-Classic";
+        cursor.name = lib.mkForce "Bibata-Modern-Ice";
       };
     };
   };
