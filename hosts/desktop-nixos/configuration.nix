@@ -51,6 +51,7 @@
     ../../modules/earlyoom
     ../../modules/thermald
     ../../modules/yubikey
+    ../../modules/xdg-portal
   ];
 
   # Home manager modules
@@ -84,7 +85,6 @@
     scrcpy
     ntfs3g
     kdePackages.dolphin
-    kdePackages.xdg-desktop-portal-kde
     krita
     kdePackages.kdenlive
     rpcs3
