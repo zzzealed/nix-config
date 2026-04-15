@@ -12,7 +12,6 @@ alias rsync "rsync --verbose --archive --progress --human-readable"
 # Rebuild alias
 function rbld-desktop
     command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname desktop-nixos --target-host mads@desktop.l.zzzealed.com --cores 10 --max-jobs 10 --ask"
-    exec fish # Reload fish theme
 end
 function rbld-server
     command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname server-nixos --cores 10 --max-jobs 10 --ask"
