@@ -77,6 +77,7 @@
       ../../modules/stylix/home.nix
       ../../modules/btop/home.nix
       ../../modules/legcord/home.nix
+      ../../modules/yazi/home.nix
     ];
   };
 
