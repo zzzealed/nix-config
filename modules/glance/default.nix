@@ -291,10 +291,6 @@
                         title = "Servo";
                       }
                       {
-                        url = "https://itsfoss.com/rss";
-                        title = "It's FOSS";
-                      }
-                      {
                         url = "https://feeds.arstechnica.com/arstechnica/technology-lab";
                         title = "Ars Technica/Information Technology";
                       }
@@ -337,6 +333,10 @@
                       {
                         url = "https://futo.tech/blog/rss.xml";
                         title = "Futo";
+                      }
+                      {
+                        url = "https://xkcd.com/rss.xml";
+                        title = "xkcd";
                       }
                     ];
                   }
