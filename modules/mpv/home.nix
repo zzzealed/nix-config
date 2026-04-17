@@ -14,5 +14,10 @@
         manga-reader
       ];
     };
+    includes = [
+      "~~/config.conf"
+      "~~/profiles.conf"
+      "~~/host.conf"
+    ];
   };
 }
