@@ -3,5 +3,8 @@
   programs.adb = {
     enable = true;
   };
-  environment.systemPackages = [ pkgs.android-tools ];
+  environment.systemPackages = [
+    pkgs.android-tools
+    pkgs.scrcpy
+  ];
 }

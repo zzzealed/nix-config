@@ -82,7 +82,6 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    scrcpy
     ntfs3g
     kdePackages.dolphin
     krita
