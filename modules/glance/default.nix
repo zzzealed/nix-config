@@ -502,6 +502,7 @@
                       "eslcsb"
                       "pge4"
                       "henkovic"
+                      "s1mple"
                     ];
                   }
                ];
