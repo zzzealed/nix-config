@@ -115,7 +115,7 @@
   stylix.targets.glide-browser = {
     profileNames = [ "mads" ];
     enable = true;
-    #colorTheme.enable = true;
-    firefoxGnomeTheme.enable = true;
+    colorTheme.enable = true;
+    #firefoxGnomeTheme.enable = true;
   };
 }
