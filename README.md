@@ -15,15 +15,15 @@ My monorepo for my [Nix](https://github.com/NixOS/nix) hosts.
 # Using
 1. Clone, or download the repository:
 ```sh
-curl -L -O https://codeberg.org/zzzealed/nix-config/archive/main.tar.gz
+curl -L -O https://github.com/zzzealed/nix-config/archive/refs/heads/main.tar.gz
 ```
 2. Unzip with:
 ```sh
-tar -xzf main.tar.gz
+tar -xzf nix-config-main.tar.gz
 ```
 3. Enter shell: 
 ```sh
-cd nix-config && nix-shell
+cd nix-config-main && nix-shell
 ```
 4. Rebuild and switch with a host's (eg. "desktop-nixos") configuration:
 ```sh
