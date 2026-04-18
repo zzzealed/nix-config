@@ -51,6 +51,7 @@
     ../../modules/minecraft-server
     ../../modules/minecraft-server/mads-sp.nix
     ../../modules/ddclient
+    ../../modules/forgejo
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
