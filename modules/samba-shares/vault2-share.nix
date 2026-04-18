@@ -6,10 +6,10 @@
       "browseable" = "yes";
       "read only" = "no";
       "guest ok" = "no";
-      "create mask" = "0644";
-      "directory mask" = "0755";
-      "force user" = "mads";
-      #"force group" = "samba";
+      "inherit acls" = "yes";
+      "inherit permissions" = "yes";
+      "valid users" = "@vault2";
+      "write list" = "@vault2";
     };
- };
+  };
 }

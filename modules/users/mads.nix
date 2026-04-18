@@ -5,7 +5,7 @@
     description = "Mads";
     home = "/home/mads";
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "adbusers" "gamemode" "networkmanager" "libvirtd" ];
+    extraGroups = [ "wheel" "docker" "adbusers" "gamemode" "networkmanager" "libvirtd" "vault" "vault2" ];
     hashedPasswordFile = config.age.secrets."mads-password".path;
     linger = true;
     openssh.authorizedKeys.keys = [
