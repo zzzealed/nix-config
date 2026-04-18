@@ -1,8 +1,5 @@
 # nix-config
-My "monorepo" for my [Nix](https://github.com/NixOS/nix) hosts.
-
-Hosted on: [Codeberg](https://codeberg.org/zzzealed/nix-config) \
-Mirror on: [Github](https://github.com/zzzealed/nix-config)
+My monorepo for my [Nix](https://github.com/NixOS/nix) hosts.
 
 # File structure
 * [`hosts/`](./hosts/): Here you'll find any Nix modules that are host-specific and imports for the shared `modules/`-modules.
