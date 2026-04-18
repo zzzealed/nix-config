@@ -33,6 +33,6 @@
   "custom/wg-quick": {
     "exec": "~/.config/waybar/wg-quick.sh",
     "format": "{}",
-    "interval": 1
+    "interval": 3
   }
 }
