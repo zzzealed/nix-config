@@ -3,7 +3,10 @@
   # Nix modules
   imports = [
     ../../modules/yt-dlp.nix
+    ../../modules/users
+    ../../modules/users/groups.nix
     ../../modules/users/mads.nix
+    ../../modules/users/linus.nix
     ../../modules/cli-tools
     ../../modules/git
     ../../modules/home-manager

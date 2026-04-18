@@ -3,6 +3,8 @@
   # Nix modules
   imports = [
     ../../secrets/default.nix
+    ../../modules/users
+    ../../modules/users/groups.nix
     ../../modules/users/mads.nix
     ../../modules/cli-tools
     ../../modules/git

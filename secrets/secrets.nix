@@ -27,6 +27,7 @@ let
     "ddclient_config.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "hbd-ftps_rclone-config.age".publicKeys = [ root_server-nixos root_desktop-nixos ] ++ interactiveKeys;
     "phone-nix_wireguard_config.age".publicKeys = interactiveKeys;
+    "linus-password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 in
   builtins.mapAttrs (_name: value: defaults // value) secrets
