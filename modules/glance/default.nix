@@ -81,6 +81,11 @@
                         icon = "sh:jetkvm";
                       }
                       {
+                        title = "zzzealed.com";
+                        url = "https://zzzealed.com";
+                        icon = "sh:nginx";
+                      }
+                      {
                         title = "Vaultwarden";
                         url = "https://vault.l.zzzealed.com";
                         icon = "sh:vaultwarden";
@@ -119,6 +124,11 @@
                         title = "ChangeDetection";
                         url = "https://change.l.zzzealed.com";
                         icon = "sh:changedetection";
+                      }
+                      {
+                        title = "Forgejo";
+                        url = "https://git.zzzealed.com";
+                        icon = "sh:forgejo";
                       }
                       {
                         title = "Calibre Web";
