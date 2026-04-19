@@ -1,4 +1,10 @@
 { config, ... }:
+let
+  website = builtins.fetchGit {
+    url = "https://codeberg.org/zzzealed/zzzealed.com";
+    rev = "f48af8109d90b1ae689a18af39e5e53777d2db7c";
+  };
+in
 {
   age.secrets."porkbun-nginx_api_key".file = ../../secrets/porkbun-nginx_api_key.age;
   age.secrets."porkbun-nginx_api_secret".file = ../../secrets/porkbun-nginx_api_secret.age;
@@ -7,7 +13,7 @@
     default = true;
     useACMEHost = "zzzealed.com";
     forceSSL = true;
-    root = ./config/zzzealed.com;
+    root = website;
   };
   security.acme.certs."zzzealed.com" = {
     domain = "zzzealed.com";
