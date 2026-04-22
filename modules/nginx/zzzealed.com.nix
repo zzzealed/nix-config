@@ -18,10 +18,10 @@ in
   security.acme.certs."zzzealed.com" = {
     domain = "zzzealed.com";
     extraDomainNames = [ 
-      "*.zzzealed.com"
-      "*.l.zzzealed.com"
+      "*.zzzealed.com" # Public, set via Porkbun DNS
+      "*.l.zzzealed.com" # Local, set via Pihole
     ];
-    dnsProvider = "porkbun";
+    dnsProvider = "porkbun"; # Provider of DNS-challenge
     dnsPropagationCheck = true;
     credentialFiles = {
       PORKBUN_API_KEY_FILE = config.age.secrets."porkbun-nginx_api_key".path;
