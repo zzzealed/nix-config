@@ -36,6 +36,10 @@
               url = "https://glance.l.zzzealed.com";
             }
             {
+              name = "Gatus";
+              url = "http://192.168.0.151:8080"
+            }
+            {
               name = "JetKVM";
               url = "http://192.168.0.104";
             }
