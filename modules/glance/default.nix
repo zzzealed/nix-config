@@ -76,6 +76,11 @@
                         icon = "sh:pfsense";
                       }
                       {
+                        title = "Gatus";
+                        url = "http://192.168.0.151:8080";
+                        icon = "sh:gatus";
+                      }
+                      {
                         title = "JetKVM";
                         url = "http://192.168.0.104";
                         icon = "sh:jetkvm";
