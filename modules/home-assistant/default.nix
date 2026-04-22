@@ -23,15 +23,17 @@
     ];
     extraPackages = python3Packages: with python3Packages; [
       # recorder postgresql support
-      psycopg2
+      #psycopg2
     ];
     config = {
       default_config = {};
       http = {
         server_port = 8123;
-        trusted_proxies = [ "::1" ];
+        trusted_proxies = [ "::1" "127.0.0.1" ];
         use_x_forwarded_for = true;
       };
+      frontend = {};
+      api = {};
     };
   };
   services.nginx = {
