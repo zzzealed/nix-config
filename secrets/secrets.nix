@@ -23,11 +23,11 @@ let
     "pihole-app_password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "changedetection-io_rss.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "glance-releases-token_github.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "server-nixos_wireguard_private-key.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
     "ddclient_config.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "hbd-ftps_rclone-config.age".publicKeys = [ root_server-nixos root_desktop-nixos ] ++ interactiveKeys;
     "phone-nix_wireguard_config.age".publicKeys = interactiveKeys;
     "linus-password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "gatus_environment-file.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
   };
 in
   builtins.mapAttrs (_name: value: defaults // value) secrets
