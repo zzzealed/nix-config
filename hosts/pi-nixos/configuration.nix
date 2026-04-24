@@ -2,7 +2,6 @@
 {
   # Nix modules
   imports = [
-    ../../secrets/default.nix
     ../../modules/users
     ../../modules/users/groups.nix
     ../../modules/users/mads.nix
@@ -19,7 +18,6 @@
     ../../modules/wireguard
     ../../modules/samba-shares
     ../../modules/samba-shares/vault2-share.nix
-    ../../modules/gatus
   ];
 
   home-manager.users.mads = {
