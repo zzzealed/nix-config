@@ -20,6 +20,7 @@
           "192.168.0.146 desktop.l.zzzealed.com"
           "192.168.0.31 laptop2.l.zzzealed.com"
           "192.168.0.164 phone.l.zzzealed.com"
+          "10.100.0.4 ntfy.rotte.city" # Route through Wireguard
         ];
         dnssec = true; ### CHANGED, default = false
         listeningMode = "ALL"; ### CHANGED, default = "LOCAL"
