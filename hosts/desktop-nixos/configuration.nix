@@ -39,7 +39,9 @@
     ../../modules/stylix
     ../../modules/navi
     ../../modules/bash
+    ../../modules/wg-quick
     ../../modules/wg-quick/wg_hbd-1.nix
+    ../../modules/wg-quick/wg_pi-nixos-3.nix
     ../../modules/qbittorrent
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium.nix
@@ -52,6 +54,9 @@
     ../../modules/thermald
     ../../modules/yubikey
     ../../modules/xdg-portal
+    ../../modules/wg-quick
+    ../../modules/tokei.nix
+    ../../modules/tealdeer.nix
   ];
 
   # Home manager modules
