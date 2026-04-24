@@ -19,6 +19,9 @@ end
 function rbld-pi
     command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname pi-nixos --target-host mads@pi.l.zzzealed.com --cores 10 --max-jobs 10 --ask"
 end
+function rbld-vps
+    command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname vps-nixos --target-host mads@vps.rotte.city --cores 10 --max-jobs 10 --ask"
+end
 
 # Duration alias
 # TIP: use like `duration *.mkv */*.mkv | sort -V`
