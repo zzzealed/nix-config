@@ -5,7 +5,7 @@
   services.gatus = {
     enable = true;
     package = pkgs.gatus;
-    openFirewall = true;
+    #openFirewall = true;
     environmentFile = config.age.secrets."gatus_environment-file".path; 
     settings.web.port = 8080;
     settings = {
@@ -19,8 +19,31 @@
             send-on-resolved = true;
           };
         };
+        ntfy = {
+          url = "http://127.0.0.1:8181";
+          topic = "gatus";
+          default-alert = {
+            enabled = true;
+            failure-threshold = 2;
+            success-threshold = 1;
+            send-on-resolved = true;
+          };
+        };
       };
       endpoints = [
+        # TEST
+#        {
+#          name = "TEST";
+#          url = "https://google.com";
+#          interval = "1m";
+#          conditions = [
+#            "[STATUS] == 404"
+#          ];
+#          alerts = [
+#            { type = "discord"; }
+#            { type = "ntfy"; }
+#          ];
+#        }
         # Misc (local)
         {
           name = "Router";
@@ -33,7 +56,10 @@
             "[RESPONSE_TIME] < 300"
             "[IP] == 192.168.0.1"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "JetKVM";
@@ -46,24 +72,79 @@
             "[RESPONSE_TIME] < 300"
             "[IP] == 192.168.0.104"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
          
         # *.rotte.city (public)
         {
-          name = "DDNS";
+          name = "Website 2";
           group = "rotte.city";
-          url = "icmp://rotte.city";
+          url = "https://rotte.city";
+          interval = "5m";
+          conditions = [
+            "[STATUS] == 404" # Intentional
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 300"
+            # LEGO renews every 30 days
+            "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
+            # I have Porkbuns's "Early Auto Renew (45 days)" turned on 
+            "[DOMAIN_EXPIRATION] > 336h" # 14 days
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
+        {
+          name = "ntfy";
+          group = "ntfy.rotte.city";
+          url = "http://127.0.0.1:8181/v1/health";
+          interval = "5m";
+          conditions = [
+            "[STATUS] == 200"
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 300"
+            "[BODY].healthy == true" # true 
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
+        {
+          name = "DDNS 2";
+          group = "vps.rotte.city";
+          url = "icmp://vps.rotte.city";
+          interval = "5m";
+          conditions = [
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 300"
+            # So we know if IP changes, for funsies
+            "[IP] == 79.76.44.104"
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
+        {
+          name = "DDNS";
+          group = "ddns.rotte.city";
+          url = "icmp://ddns.rotte.city";
           interval = "5m";
           conditions = [
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 300"
             # So we know if IP changes, for funsies
             "[IP] == 87.104.105.54"
-            # I have Porkbuns's "Early Auto Renew (45 days)" turned on 
-            "[DOMAIN_EXPIRATION] > 336h" # 14 days
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Rust gameserver";
@@ -74,7 +155,10 @@
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 300"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
 
         # *.zzzealed.com (public)
@@ -89,9 +173,13 @@
             "[RESPONSE_TIME] < 300"
             # LEGO renews every 30 days
             "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
+            # I have Porkbuns's "Early Auto Renew (45 days)" turned on 
             "[DOMAIN_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Forgejo";
@@ -106,7 +194,10 @@
             "[BODY].checks.database:ping[0].status == pass" # Database is pass
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
 
         # *.l.zzzealed.com (local)
@@ -121,7 +212,10 @@
             "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "SearXNG";
@@ -135,7 +229,10 @@
             "[BODY] == OK" # ok
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "OpenWebUI";
@@ -149,7 +246,10 @@
             "[BODY].status == true" # true
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Karakeep";
@@ -163,7 +263,10 @@
             "[BODY].status == ok" # ok
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Scrutiny";
@@ -182,7 +285,10 @@
             "[BODY].data.summary.0x5002538f4381ec2d.device.device_status == 0"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Pihole";
@@ -200,7 +306,10 @@
             "[BODY].gravity.domains_being_blocked > 0"  # We are using blocklists
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Radicale";
@@ -213,7 +322,10 @@
             "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Home Assistant";
@@ -230,7 +342,10 @@
             "[BODY].state == RUNNING" # This will do
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "ChangeDetection";
@@ -248,7 +363,10 @@
             "[BODY].watch_count > 0"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Calibre Web";
@@ -261,7 +379,10 @@
             "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "n8n";
@@ -275,7 +396,10 @@
             "[BODY].status == ok" # ok
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Chrome";
@@ -288,7 +412,10 @@
             "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "GPT4Free";
@@ -302,32 +429,48 @@
             "[BODY].data != []" # We have models
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "SSH";
           group = "SSH";
-          url = "ssh://rotte.city:2222";
+          url = "ssh://ddns.rotte.city:2222";
           interval = "5m";
           conditions = [
             "[STATUS] == 0"
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 300"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
         {
           name = "Wireguard";
           group = "Wireguard";
-          url = "udp://rotte.city:51820";
+          url = "udp://ddns.rotte.city:51820";
           interval = "5m";
           conditions = [
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 300"
           ];
-          alerts = [{ type = "discord"; }];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
         }
       ];
+    };
+  };
+  services.nginx = {
+    virtualHosts."status.rotte.city" = {
+      useACMEHost = "rotte.city";
+      forceSSL = true;
+      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.gatus.settings.web.port}";
     };
   };
 }
