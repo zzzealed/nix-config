@@ -77,8 +77,13 @@
                       }
                       {
                         title = "Gatus";
-                        url = "http://192.168.0.151:8080";
+                        url = "https://status.rotte.city";
                         icon = "sh:gatus";
+                      }
+                      {
+                        title = "ntfy";
+                        url = "https://ntfy.rotte.city";
+                        icon = "sh:ntfy";
                       }
                       {
                         title = "JetKVM";
@@ -88,6 +93,11 @@
                       {
                         title = "zzzealed.com";
                         url = "https://zzzealed.com";
+                        icon = "sh:nginx";
+                      }
+                      {
+                        title = "rotte.city";
+                        url = "https://rotte.city";
                         icon = "sh:nginx";
                       }
                       {
