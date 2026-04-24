@@ -88,6 +88,7 @@
         desktop-nixos = mkSystem "desktop-nixos" "x86_64-linux";
         server-nixos = mkSystem "server-nixos" "x86_64-linux";
         pi-nixos = mkSystem "pi-nixos" "aarch64-linux";
+        vps-nixos = mkSystem "vps-nixos" "x86_64-linux";
       };
     };
 }
