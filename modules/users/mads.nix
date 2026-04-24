@@ -24,9 +24,4 @@
     ];
   };
   nix.settings.trusted-users = [ "mads" ]; # Needed for remote rebuilds
-
-  # Home manager
-  home-manager.users.mads = {
-    xdg.enable = true;
-  };
 }
