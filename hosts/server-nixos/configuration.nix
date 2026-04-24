@@ -50,6 +50,7 @@
     ../../modules/minecraft-server
     ../../modules/minecraft-server/mads-sp.nix
     ../../modules/ddclient
+    ../../modules/ddclient/ddns.rotte.city.nix
     ../../modules/forgejo
     ## Compose2Nix
     ../../modules/gpt4free_docker
