@@ -33,14 +33,20 @@
           settings = [
             {
               name = "Glance";
+              tags = [];
+              keyword = ",glance";
               url = "https://glance.l.zzzealed.com";
             }
             {
               name = "Gatus";
-              url = "http://192.168.0.151:8080";
+              tags = [];
+              keyword = ",gatus";
+              url = "https://status.rotte.city";
             }
             {
               name = "JetKVM";
+              tags = [];
+              keyword = ",jetkvm";
               url = "http://192.168.0.104";
             }
           ];
@@ -72,12 +78,30 @@
           engines = {
             "SearXNG" = {
               urls = [ { template = "https://searx.l.zzzealed.com/search?q={searchTerms}"; } ];
+              icon = "https://searx.l.zzzealed.com/static/themes/simple/img/favicon.png";
               definedAliases = [ "@searx" ];
+            };
+            "NixOS package search" = {
+              urls = [ { template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}"; } ];
+              icon = "https://search.nixos.org/images/nix-logo.png";
+              definedAliases = [ "@nixpkgs" ];
+            };
+            "NixOS option search" = {
+              urls = [ { template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}"; } ];
+              icon = "https://search.nixos.org/images/nix-logo.png";
+              definedAliases = [ "@nixopts" ];
+            };
+            "Home Manager manual options" = {
+              urls = [ { template = "https://nix-community.github.io/home-manager/options.xhtml#opt-{searchTerms}"; } ];
+              icon = "";
+              definedAliases = [ "@hmopts" ];
             };
           };
           default = "SearXNG";
         };
         settings = {
+          force = true;
+          # Misc.
           "signon.rememberSignons" = false;
           "extensions.formautofill.creditCards.enabled" = false;
           "sidebar.verticalTabs" = true;
@@ -94,17 +118,22 @@
           "browser.uiCustomization.state" = ''
             {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["_3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf_-browser-action","sponsorblocker_ajay_app-browser-action","firefoxcolor_mozilla_com-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","gdpr_cavi_au_dk-browser-action","ff2mpv_yossarian_net-browser-action","hltv-fantasy-values_zzzealed-browser-action","nixpkgs-pr-tracker_tahayassine_me-browser-action","redirector_einaregilsson_com-browser-action","_a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad_-browser-action","_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action","_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action","_036a55b4-5e72-4d05-a06c-cba2dfcc134a_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action"],"nav-bar":["reset-pbm-toolbar-button","sidebar-button","glide-toolbar-mode-button","back-button","forward-button","stop-reload-button","customizableui-special-spring3","urlbar-container","customizableui-special-spring4","vertical-spacer","downloads-button","adnauseam_rednoise_org-browser-action","addon_darkreader_org-browser-action","addon_karakeep_app-browser-action","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["reset-pbm-toolbar-button","developer-button","screenshot-button","firefoxcolor_mozilla_com-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","adnauseam_rednoise_org-browser-action","gdpr_cavi_au_dk-browser-action","addon_darkreader_org-browser-action","ff2mpv_yossarian_net-browser-action","hltv-fantasy-values_zzzealed-browser-action","addon_karakeep_app-browser-action","nixpkgs-pr-tracker_tahayassine_me-browser-action","redirector_einaregilsson_com-browser-action","_a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad_-browser-action","_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action","_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action","sponsorblocker_ajay_app-browser-action","_036a55b4-5e72-4d05-a06c-cba2dfcc134a_-browser-action","_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action","_3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf_-browser-action","_74145f27-f039-47ce-a470-a662b129930a_-browser-action"],"dirtyAreaCache":["nav-bar","TabsToolbar","vertical-tabs","PersonalToolbar","unified-extensions-area","toolbar-menubar"],"currentVersion":23,"newElementCount":7}
           '';
+
           # History/cookies
-          "places.history.enabled" = false;
-          "privacy.clearHistory.cookiesAndStorage" = false;
-          "privacy.clearHistory.formdata" = true;
-          "privacy.clearHistory.siteSettings" = true;
+          "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
+          "privacy.clearOnShutdown_v2.cache" = true;
+          "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+          "privacy.clearOnShutdown_v2.formdata" = true;
+          "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = true;
+          "privacy.clearOnShutdown_v2.siteSettings" = false;
+
           # Firefox, the AI-first browser
           "browser.ai.control.default" = "blocked";
           "browser.ai.control.pdfjsAltText"	= "blocked";
           "browser.ai.control.sidebarChatbot"	= "blocked";
           "browser.ai.control.smartTabGroups"	= "blocked";
           "browser.ai.control.translations" = "blocked";
+
           # https://github.com/elFarto/nvidia-vaapi-driver#firefox
           "media.ffmpeg.vaapi.enabled" = true;
           "media.hardware-video-decoding.force-enabled" = true;
