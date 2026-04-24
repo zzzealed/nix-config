@@ -8,7 +8,7 @@
       server.port = 8609;
       server.bind_address = "0.0.0.0";
       server.secret_key = config.age.secrets."searx-secret_key".path;
-      search.formats = [ "html" "json" ];
+      search.formats = [ "html" "json" ]; # For OpenWebUI
     };
   };
   #networking.firewall = { allowedTCPPorts = [ config.services.searx.settings.server.port ]; };
