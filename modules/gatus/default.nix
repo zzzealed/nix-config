@@ -20,7 +20,7 @@
           };
         };
         ntfy = {
-          url = "http://127.0.0.1:8181";
+          url = "https://ntfy.rotte.city";
           topic = "gatus";
           default-alert = {
             enabled = true;
@@ -101,7 +101,7 @@
         {
           name = "ntfy";
           group = "ntfy.rotte.city";
-          url = "http://127.0.0.1:8181/v1/health";
+          url = "https://ntfy.rotte.city/v1/health";
           interval = "5m";
           conditions = [
             "[STATUS] == 200"
