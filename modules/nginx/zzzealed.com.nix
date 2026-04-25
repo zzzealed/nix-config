@@ -2,7 +2,7 @@
 let
   website = builtins.fetchGit {
     url = "https://codeberg.org/zzzealed/zzzealed.com";
-    rev = "f48af8109d90b1ae689a18af39e5e53777d2db7c";
+    rev = "d9eb65a478971259d2464f65f5cd737d86bf5d66";
   };
 in
 {
@@ -15,6 +15,14 @@ in
     forceSSL = true;
     root = website;
   };
+
+  # Redirect to external Gatus instance
+  services.nginx.virtualHosts."status.zzzealed.com" = {
+    useACMEHost = "zzzealed.com";
+    forceSSL = true;
+    locations."/".return = "301 https://status.rotte.city/endpoints/zzzealed-com_website";
+  };
+  
   security.acme.certs."zzzealed.com" = {
     domain = "zzzealed.com";
     extraDomainNames = [ 
