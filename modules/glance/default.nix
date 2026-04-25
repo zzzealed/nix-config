@@ -81,11 +81,6 @@
                         icon = "sh:gatus";
                       }
                       {
-                        title = "ntfy";
-                        url = "https://ntfy.rotte.city";
-                        icon = "sh:ntfy";
-                      }
-                      {
                         title = "JetKVM";
                         url = "http://192.168.0.104";
                         icon = "sh:jetkvm";
@@ -99,6 +94,7 @@
                         title = "rotte.city";
                         url = "https://rotte.city";
                         icon = "sh:nginx";
+                        alt-status-codes =  [ 404 ];
                       }
                       {
                         title = "Vaultwarden";
