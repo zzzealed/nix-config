@@ -49,6 +49,7 @@
     ../../modules/nginx/zzzealed.com.nix
     ../../modules/minecraft-server
     ../../modules/minecraft-server/mads-sp.nix
+    ../../modules/minecraft-server/mads-sp-skyblock.nix
     ../../modules/ddclient
     ../../modules/ddclient/ddns.rotte.city.nix
     ../../modules/forgejo
