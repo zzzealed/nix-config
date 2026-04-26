@@ -6,13 +6,9 @@
   networking.firewall = { allowedUDPPorts = [ 24454 ]; }; # For "Simple Voice Chat" mod.
 
   services.minecraft-servers = {
-    servers.fabric = {
-      enable = true;
-      package = pkgs.fabricServers.fabric-1_21_11.override { loaderVersion = "0.18.3"; };
-    };
     servers.mads-sp = {
       enable = true;
-      package = pkgs.fabricServers.fabric-1_21_11;
+      package = pkgs.fabricServers.fabric-1_21_11.override { loaderVersion = "0.19.2"; };
       openFirewall = true;
       whitelist = {
         # This is a mapping from Minecraft usernames to UUIDs. You can use https://mcuuid.net/ to get a Minecraft UUID for a username
@@ -48,7 +44,7 @@
           Fabric-API = fetchurl { url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/5oK85X7C/fabric-api-0.140.0%2B1.21.11.jar"; sha512 = "f33d3aa6d4da877975eb0f814f9ac8c02f9641e0192402445912ddab43269efcc685ef14d59fd8ee53deb9b6ff4521442e06e1de1fd1284b426711404db5350b"; };
           FerriteCore = fetchurl { url = "https://cdn.modrinth.com/data/uXXizFIs/versions/eRLwt73x/ferritecore-8.0.3-fabric.jar"; sha512 = "be600543e499b59286f9409f46497570adc51939ae63eaa12ac29e6778da27d8c7c6cd0b3340d8bcca1cc99ce61779b1a8f52b990f9e4e9a93aa9c6482905231"; };
           Lithium = fetchurl { url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/4DdLmtyz/lithium-fabric-0.21.1%2Bmc1.21.11.jar"; sha512 = "0857d30d063dc704a264b2fe774a7e641926193cfdcde72fe2cd603043d8548045b955e30c05b1b2b96ef7d1c0f85d55269da26f44a0644c984b45623e976794"; };
-          SimpleVoiceChat = fetchurl { url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/YECcGHNV/voicechat-fabric-1.21.11-2.6.9.jar"; sha512 = "e96414e96f36c8344c27d5ae0477699fa41e1fd1098036604063732d4b60e8004d2c24ddb4fad7ae84a0766c1930d56a67ac6acab9aeb75372758e431770e2f9"; };
+          #SimpleVoiceChat = fetchurl { url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/YECcGHNV/voicechat-fabric-1.21.11-2.6.9.jar"; sha512 = "e96414e96f36c8344c27d5ae0477699fa41e1fd1098036604063732d4b60e8004d2c24ddb4fad7ae84a0766c1930d56a67ac6acab9aeb75372758e431770e2f9"; };
           Krypton = fetchurl { url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/O9LmWYR7/krypton-0.2.10.jar"; sha512 = "4dcd7228d1890ddfc78c99ff284b45f9cf40aae77ef6359308e26d06fa0d938365255696af4cc12d524c46c4886cdcd19268c165a2bf0a2835202fe857da5cab"; };
           C2MeFabric = fetchurl { url = "https://cdn.modrinth.com/data/VSNURh3q/versions/DLKF3HZk/c2me-fabric-mc1.21.11-0.3.6%2Bbeta.1.0.jar"; sha512 = "d4f983aeb5083033b525522e623a9a9ba86b6fc9c83db008cc0575d0077e736ac9bee0b6b0e03b8d1c89ae27a4e5cdc269041f61eb0d1a10757de4c30b065467"; };
           ImprovedSigns = fetchurl { url = "https://cdn.modrinth.com/data/tEcCNQe7/versions/wUAKh1yn/improved-signs-1.6.0%2Bmc1.21.11.jar"; sha512 = "f23b7ed1baa185e319794e9ba15a638fd36a2efdde1c9332f0b477cd78caf61838f34800bcbf10e0ea5349decdc9da24522cdba7133da48737fe54807e872c54"; };
