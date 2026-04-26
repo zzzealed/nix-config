@@ -65,6 +65,7 @@
     imports = [
       # Stack
       ../../modules/waybar/home.nix # Bar
+      #../../modules/ashell/home.nix
       ../../modules/fuzzel/home.nix # Launcher
       ../../modules/dunst/home.nix # Notifications
       ../../modules/swaylock/home.nix # Lock screen
