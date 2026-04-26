@@ -50,3 +50,4 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] Jujutsu-vcs
 - [ ] Switch to Adguard Home
 - [ ] Ashell bar
+- [ ] CrowdSec (+Anubis)
