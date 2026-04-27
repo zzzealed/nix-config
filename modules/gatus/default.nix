@@ -6,7 +6,7 @@
     enable = true;
     package = pkgs.gatus;
     #openFirewall = true;
-    environmentFile = config.age.secrets."gatus_environment-file".path; 
+    environmentFile = config.age.secrets."gatus_environment-file".path;
     settings.web.port = 8080;
     settings = {
       alerting = {
@@ -32,18 +32,18 @@
       };
       endpoints = [
         # TEST
-#        {
-#          name = "TEST";
-#          url = "https://google.com";
-#          interval = "1m";
-#          conditions = [
-#            "[STATUS] == 404"
-#          ];
-#          alerts = [
-#            { type = "discord"; }
-#            { type = "ntfy"; }
-#          ];
-#        }
+        #        {
+        #          name = "TEST";
+        #          url = "https://google.com";
+        #          interval = "1m";
+        #          conditions = [
+        #            "[STATUS] == 404"
+        #          ];
+        #          alerts = [
+        #            { type = "discord"; }
+        #            { type = "ntfy"; }
+        #          ];
+        #        }
         # Misc (local)
         {
           name = "Router";
@@ -77,7 +77,7 @@
             { type = "ntfy"; }
           ];
         }
-         
+
         # *.rotte.city (public)
         {
           name = "Website 2";
@@ -90,7 +90,7 @@
             "[RESPONSE_TIME] < 300"
             # LEGO renews every 30 days
             "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
-            # I have Porkbuns's "Early Auto Renew (45 days)" turned on 
+            # I have Porkbuns's "Early Auto Renew (45 days)" turned on
             "[DOMAIN_EXPIRATION] > 336h" # 14 days
           ];
           alerts = [
@@ -107,7 +107,7 @@
             "[STATUS] == 200"
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 300"
-            "[BODY].healthy == true" # true 
+            "[BODY].healthy == true" # true
           ];
           alerts = [
             { type = "discord"; }
@@ -160,7 +160,35 @@
             { type = "ntfy"; }
           ];
         }
-
+        {
+          name = "SSH";
+          group = "SSH";
+          url = "ssh://ddns.rotte.city:2267";
+          interval = "5m";
+          conditions = [
+            "[STATUS] == 0"
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 300"
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
+        {
+          name = "Wireguard";
+          group = "Wireguard";
+          url = "udp://ddns.rotte.city:51820";
+          interval = "5m";
+          conditions = [
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 300"
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
         # *.zzzealed.com (public)
         {
           name = "Website";
@@ -173,7 +201,7 @@
             "[RESPONSE_TIME] < 300"
             # LEGO renews every 30 days
             "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
-            # I have Porkbuns's "Early Auto Renew (45 days)" turned on 
+            # I have Porkbuns's "Early Auto Renew (45 days)" turned on
             "[DOMAIN_EXPIRATION] > 336h"
           ];
           alerts = [
@@ -303,7 +331,7 @@
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 300"
             "[BODY].queries.total > 0" # We are receiving queries
-            "[BODY].gravity.domains_being_blocked > 0"  # We are using blocklists
+            "[BODY].gravity.domains_being_blocked > 0" # We are using blocklists
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
           alerts = [
@@ -435,28 +463,16 @@
           ];
         }
         {
-          name = "SSH";
-          group = "SSH";
-          url = "ssh://ddns.rotte.city:2267";
+          name = "Teapot";
+          group = "twitter.l.zzzealed.com";
+          url = "https://twitter.l.zzzealed.com/.health";
           interval = "5m";
           conditions = [
-            "[STATUS] == 0"
+            "[STATUS] == 200"
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 300"
-          ];
-          alerts = [
-            { type = "discord"; }
-            { type = "ntfy"; }
-          ];
-        }
-        {
-          name = "Wireguard";
-          group = "Wireguard";
-          url = "udp://ddns.rotte.city:51820";
-          interval = "5m";
-          conditions = [
-            "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[BODY].sessions.total > 0"
+            "[CERTIFICATE_EXPIRATION] > 336h"
           ];
           alerts = [
             { type = "discord"; }

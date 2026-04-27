@@ -37,58 +37,73 @@
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    teapot = {
+      url = "github:amaanq/teapot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nur,
-    stylix,
-    agenix,
-    #nix-on-droid,
-    nix-minecraft,
-    glide,
-    nixcord,
-    ...
-    } @ inputs: {
-      nixosConfigurations = let
-        # Global configuration, so applies to *all* hosts 
-        mkSystem = name: arch: nixpkgs.lib.nixosSystem {
-          system = arch;
-          specialArgs = { # See: https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
-            flakeInputs = inputs;
-            inherit inputs;
-          };
-          modules = [
-            {
-              nix.settings = {
-                experimental-features = [ "nix-command" "flakes" ];
-                download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584
-                trusted-substituters = [
-                  "https://prismlauncher.cachix.org"
-                  "https://lan-mouse.cachix.org"
-                ];
-                trusted-public-keys = [
-                  "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
-                  "lan-mouse.cachix.org-1:KlE2AEZUgkzNKM7BIzMQo8w9yJYqUpor1CAUNRY6OyM="
-                ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nur,
+      stylix,
+      agenix,
+      #nix-on-droid,
+      nix-minecraft,
+      glide,
+      nixcord,
+      teapot,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations =
+        let
+          # Global configuration, so applies to *all* hosts
+          mkSystem =
+            name: arch:
+            nixpkgs.lib.nixosSystem {
+              system = arch;
+              specialArgs = {
+                # See: https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
+                flakeInputs = inputs;
+                inherit inputs;
               };
-            }
-            { nixpkgs.config.allowUnfree = true; }
-            { networking.hostName = name; }
-            ./secrets
-            ./overlays
-            (./hosts + "/${name}/configuration.nix")
-            (./hosts + "/${name}/hardware-configuration.nix")
-          ];
+              modules = [
+                {
+                  nix.settings = {
+                    experimental-features = [
+                      "nix-command"
+                      "flakes"
+                    ];
+                    download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584
+                    trusted-substituters = [
+                      "https://prismlauncher.cachix.org"
+                      "https://lan-mouse.cachix.org"
+                    ];
+                    trusted-public-keys = [
+                      "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
+                      "lan-mouse.cachix.org-1:KlE2AEZUgkzNKM7BIzMQo8w9yJYqUpor1CAUNRY6OyM="
+                    ];
+                  };
+                }
+                { nixpkgs.config.allowUnfree = true; }
+                { networking.hostName = name; }
+                ./secrets
+                ./overlays
+                (./hosts + "/${name}/configuration.nix")
+                (./hosts + "/${name}/hardware-configuration.nix")
+              ];
+            };
+        in
+        {
+          # Hosts: "name" "arch"
+          desktop-nixos = mkSystem "desktop-nixos" "x86_64-linux";
+          server-nixos = mkSystem "server-nixos" "x86_64-linux";
+          pi-nixos = mkSystem "pi-nixos" "aarch64-linux";
+          vps-nixos = mkSystem "vps-nixos" "x86_64-linux";
         };
-      in {
-        # Hosts: "name" "arch"
-        desktop-nixos = mkSystem "desktop-nixos" "x86_64-linux";
-        server-nixos = mkSystem "server-nixos" "x86_64-linux";
-        pi-nixos = mkSystem "pi-nixos" "aarch64-linux";
-        vps-nixos = mkSystem "vps-nixos" "x86_64-linux";
-      };
     };
 }

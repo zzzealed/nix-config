@@ -54,6 +54,7 @@
     ../../modules/ddclient/ddns.rotte.city.nix
     ../../modules/forgejo
     ../../modules/endlessh
+    ../../modules/teapot
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
@@ -91,7 +92,10 @@
   # Networking
   networking.hostId = "3f39026e";
   networking.interfaces.enp3s0.wakeOnLan.enable = true;
-  networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
+  networking.firewall = {
+    allowedTCPPorts = [ 8000 ];
+    allowedUDPPorts = [ 8000 ];
+  }; # For dev stuff
 
   # State
   system.stateVersion = "24.05";
