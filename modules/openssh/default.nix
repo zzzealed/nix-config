@@ -1,7 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.openssh = {
     enable = true;
+    package = pkgs.openssh;
     settings = {
       PasswordAuthentication = true;
       PermitRootLogin = "prohibit-password";
@@ -11,7 +12,6 @@
       AcceptEnv COLORTERM TERM_PROGRAM TERM_PROGRAM_VERSION
     '';
     ports = [
-      22
       2267
     ];
     hostKeys = [
@@ -22,10 +22,28 @@
     ];
   };
   programs.ssh = {
+    package = pkgs.openssh;
     extraConfig = ''
-      Host vps.rotte.city
-        HostName vps.rotte.city
-        Port 2222
+      Host 192.168.0.118 server.l.zzzealed.com
+        Port 2267
+
+      Host 192.168.0.151 pi.l.zzzealed.com
+        Port 2267
+
+      Host 192.168.0.146 desktop.l.zzzealed.com
+        Port 2267
+
+      Host 192.168.0.31 laptop2.l.zzzealed.com
+        Port 2267
+
+      Host 192.168.0.164 phone.l.zzzealed.com
+        Port 2267
+
+      Host 87.104.105.54 ddns.rotte.city
+        Port 2267
+      
+      Host 79.76.44.104 vps.rotte.city
+        Port 2267
     
       Host *
         SetEnv TERM=xterm-256color
