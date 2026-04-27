@@ -437,7 +437,7 @@
         {
           name = "SSH";
           group = "SSH";
-          url = "ssh://ddns.rotte.city:2222";
+          url = "ssh://ddns.rotte.city:2267";
           interval = "5m";
           conditions = [
             "[STATUS] == 0"
