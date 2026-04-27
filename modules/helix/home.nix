@@ -10,11 +10,11 @@
       clang-tools # C
       vscode-langservers-extracted # Various
       marksman # Markdown
-      nil # Nix
       python313Packages.python-lsp-server # Python
       rust-analyzer # Rust
       svelte-language-server # Svelte
       sqls # SQL
+      prettierd # Various
       tailwindcss-language-server # Tailwind
       tofu-ls # OpenTofu
       taplo # TOML
@@ -28,6 +28,9 @@
       lua-language-server # Lua
       systemd-lsp # Systemd
       tinymist # Typst
+      # Nix
+      nixd
+      nixfmt
     ];
   };
   home.file.".config/helix" = {
