@@ -23,32 +23,36 @@
         margin-right = 0;
         margin-left = 0;
         margin-bottom = 0;
-        modules-left = [ "niri/workspaces" "memory" "custom/wg-quick" ];
+        modules-left = [
+          "niri/workspaces"
+          "memory"
+          "custom/wg-quick"
+        ];
         modules-center = [ "niri/window" ];
         modules-right = [ "clock" ];
-    
+
         "niri/window" = {
           format = "{title}";
           icon = true;
           icon-size = 15;
         };
-    
+
         "niri/workspaces" = {
           format = "{index}";
           disable-click = true;
           current-only = true;
         };
-    
+
         memory = {
           format = "{percentage}% RAM";
         };
-    
+
         clock = {
           interval = 1;
           format = "{:%d/%m/%Y %T}";
           tooltip-format = "{:%A, %B %e. %G at %r %Z}";
         };
-    
+
         "custom/wg-quick" = {
           exec = "~/.config/waybar/wg-quick.sh";
           format = "{}";

@@ -120,7 +120,7 @@
       "image/png" = "mpv.desktop";
       "image/gif" = "mpv.desktop";
       "image/webp" = "mpv.desktop";
-      "image/svg+xml"= "mpv.desktop";
+      "image/svg+xml" = "mpv.desktop";
       "video/mp4" = "mpv.desktop";
       "video/mkv" = "mpv.desktop";
       "video/webm" = "mpv.desktop";
@@ -139,7 +139,10 @@
   fileSystems."/mnt/Samsung" = {
     device = "/dev/disk/by-uuid/EEA23721A236EE29";
     fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" ];
+    options = [
+      "rw"
+      "uid=1000"
+    ];
   };
 
   # GPU
@@ -158,7 +161,10 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   # Networking
-  networking.firewall = { allowedTCPPorts = [ 8000 ]; allowedUDPPorts = [ 8000 ]; }; # For dev stuff
+  networking.firewall = {
+    allowedTCPPorts = [ 8000 ];
+    allowedUDPPorts = [ 8000 ];
+  }; # For dev stuff
 
   # State
   system.stateVersion = "24.11";
