@@ -3,7 +3,7 @@
   services.calibre-web = {
     enable = true;
     #openFirewall = true;
-    package = pkgs.unstable.calibre-web;
+    package = pkgs.calibre-web;
     listen.ip = "0.0.0.0";
     listen.port = 8083;
     options = {

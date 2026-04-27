@@ -1,7 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.unbound = {
     enable = true;
+    package = pkgs.unbound;
     settings = {
       server = {
         verbosity = 0;

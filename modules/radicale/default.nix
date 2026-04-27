@@ -1,7 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.radicale = {
     enable = true;
+    package = pkgs.radicale;
     settings = {
       server = {
         hosts = [ "0.0.0.0:5232" "[::]:5232" ];

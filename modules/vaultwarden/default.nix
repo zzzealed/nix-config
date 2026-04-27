@@ -1,7 +1,8 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   services.vaultwarden = {
     enable = true;
+    package = pkgs.vaultwarden;
     dbBackend = "sqlite";
     #backupDir = ""; # TODO: vault?
     config = {

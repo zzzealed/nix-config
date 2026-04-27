@@ -1,7 +1,8 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   services.scrutiny = {
     enable = true;
+    package = pkgs.scrutiny;
     #openFirewall = true;
     settings.web.listen.port = 50236;
   };

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   age.secrets."glance-weather_location".file = ../../secrets/glance-weather_location.age;
   age.secrets."glance-custom-api_kredslob_skrald".file = ../../secrets/glance-custom-api_kredslob_skrald.age;
@@ -8,6 +8,7 @@
 
   services.glance = {
     enable = true;
+    package = pkgs.glance;
     #openFirewall = true;
     settings = {
       server.host = "0.0.0.0";

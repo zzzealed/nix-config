@@ -1,7 +1,8 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   services.changedetection-io = {
     enable = true;
+    package = pkgs.changedetection-io;
     behindProxy = true;
     #webDriverSupport = true;
     listenAddress = "0.0.0.0";
