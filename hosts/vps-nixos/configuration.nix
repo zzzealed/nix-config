@@ -16,6 +16,7 @@
     ../../modules/ddclient
     ../../modules/ddclient/vps.rotte.city.nix
     ../../modules/ntfy-sh
+    ../../modules/endlessh
   ];
 
   # Workaround for https://github.com/NixOS/nix/issues/8502
