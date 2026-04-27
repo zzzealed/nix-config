@@ -49,6 +49,12 @@
               keyword = ",jetkvm";
               url = "http://192.168.0.104";
             }
+            {
+              name = "Karakeep";
+              tags = [];
+              keyword = ",kara";
+              url = "https://karakeep.l.zzzealed.com";
+            }
           ];
         };
         extensions = {
