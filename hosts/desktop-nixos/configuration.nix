@@ -20,7 +20,7 @@
     ../../modules/rclone
     ../../modules/rclone/mnt-hbd.nix
     ../../modules/steam
-    ../../modules/obs-studio
+    #../../modules/obs-studio
     ../../modules/localsend
     ../../modules/tidal
     ../../modules/adb
