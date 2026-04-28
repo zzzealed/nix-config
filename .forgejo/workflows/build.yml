@@ -1,0 +1,18 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: nix-config
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build desktop-nixos
+        run: nix build .#nixosConfigurations.desktop-nixos.config.system.build.toplevel --no-link
+
+      - name: Build server-nixos
+        run: nix build .#nixosConfigurations.server-nixos.config.system.build.toplevel --no-link
+
+      - name: Build pi-nixos
+        run: nix build .#nixosConfigurations.pi-nixos.config.system.build.toplevel --no-link
