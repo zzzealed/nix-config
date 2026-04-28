@@ -53,8 +53,10 @@
     ../../modules/ddclient
     ../../modules/ddclient/ddns.rotte.city.nix
     ../../modules/forgejo
+    ../../modules/forgejo/runner.nix
     ../../modules/endlessh
     ../../modules/teapot
+    ../../modules/harmonia
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker

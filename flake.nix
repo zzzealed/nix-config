@@ -80,12 +80,10 @@
                     ];
                     download-buffer-size = 524288000; # https://github.com/NixOS/nix/issues/11728#issuecomment-2725297584
                     trusted-substituters = [
-                      "https://prismlauncher.cachix.org"
-                      "https://lan-mouse.cachix.org"
+                      "https://cache.l.zzzealed.com"
                     ];
                     trusted-public-keys = [
-                      "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
-                      "lan-mouse.cachix.org-1:KlE2AEZUgkzNKM7BIzMQo8w9yJYqUpor1CAUNRY6OyM="
+                      "cache.l.zzzealed.com-1:d29SnNbB+hmWUlqbc6TaYaOP8fv25hlxpQRxgCqLQhE="
                     ];
                   };
                 }
