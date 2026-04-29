@@ -8,10 +8,11 @@
       name = "server-nixos";
       url = "https://github.com/zzzealed/nix-config";
       tokenFile = config.age.secrets."github_nix-config_token-file".path;
-      extraPackages = [
-        pkgs.nix
-        pkgs.git
-        pkgs.bash
+      extraPackages = with pkgs; [
+        nix
+        git
+        bash
+        curl
       ];
       extraLabels = [ "nix" ];
     };
