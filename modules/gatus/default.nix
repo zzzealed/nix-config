@@ -32,8 +32,8 @@
       };
       external-endpoints = [
         {
-          name = "eval";
-          group = "Github";
+          name = "Actions eval.yml workflow";
+          group = "github.com";
           token = "$\{GATUS_GITHUB_TOKEN}";
           alerts = [
             { type = "discord"; }
@@ -41,8 +41,8 @@
           ];
         }
         {
-          name = "build";
-          group = "Github";
+          name = "Actions build.yml workflow";
+          group = "github.com";
           token = "$\{GATUS_GITHUB_TOKEN}";
           alerts = [
             { type = "discord"; }

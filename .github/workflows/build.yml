@@ -34,11 +34,11 @@ jobs:
         run: |
           curl -f -X POST \
             -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
-            "https://status.rotte.city/api/v1/endpoints/github_build/external?success=true"
+            "https://status.rotte.city/api/v1/endpoints/github-com_actions-build-yml-workflow/external?success=true"
 
       - name: Report failure to Gatus
         if: failure()
         run: |
           curl -f -X POST \
             -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
-            "https://status.rotte.city/api/v1/endpoints/githubs_build/external?success=false"
+            "https://status.rotte.city/api/v1/endpoints/github-com_actions-build-yml-workflow/external?success=false"
