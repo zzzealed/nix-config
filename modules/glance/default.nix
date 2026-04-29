@@ -176,6 +176,11 @@
                       url = "https://g4f.l.zzzealed.com";
                       icon = "sh:openai";
                     }
+                    {
+                      title = "Harmonia";
+                      url = "https://cache.l.zzzealed.com";
+                      icon = "sh:nixos";
+                    }
                   ];
                 }
                 {
