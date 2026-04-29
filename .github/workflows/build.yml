@@ -28,3 +28,17 @@ jobs:
 
       - name: build vps-nixos
         run: nix build .#nixosConfigurations.vps-nixos.config.system.build.toplevel --out-link /var/lib/github-runner/server-nixos/gc-roots/vps-nixos
+
+      - name: Report success to Gatus
+        if: success()
+        run: |
+          curl -f -X POST \
+            -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
+            "https://status.rotte.city/api/v1/endpoints/github.com/zzzealed/nix-config/actions_build.yml/external?success=true"
+
+      - name: Report failure to Gatus
+        if: failure()
+        run: |
+          curl -f -X POST \
+            -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
+            "https://status.rotte.city/api/v1/endpoints/github.com/zzzealed/nix-config/actions_build.yml/external?success=false"

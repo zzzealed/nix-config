@@ -26,3 +26,17 @@ jobs:
 
       - name: eval vps-nixos
         run: nix eval .#nixosConfigurations.vps-nixos.config.system.build.toplevel
+
+      - name: Report success to Gatus
+        if: success()
+        run: |
+          curl -f -X POST \
+            -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
+            "https://status.rotte.city/api/v1/endpoints/github.com/zzzealed/nix-config/actions_eval.yml/external?success=true"
+
+      - name: Report failure to Gatus
+        if: failure()
+        run: |
+          curl -f -X POST \
+            -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
+            "https://status.rotte.city/api/v1/endpoints/github.com/zzzealed/nix-config/actions_eval.yml/external?success=false"
