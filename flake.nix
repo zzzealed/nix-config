@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    #nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +51,7 @@
       nur,
       stylix,
       agenix,
-      #nix-on-droid,
+      nix-on-droid,
       nix-minecraft,
       glide,
       nixcord,
