@@ -9,7 +9,7 @@
 
   services.teapot = {
     enable = true;
-    package = inputs.teapot.packages.${pkgs.system}.default;
+    package = inputs.teapot.packages.${pkgs.stdenv.hostPlatform.system}.default;
     server = {
       hostname = "twitter.l.zzzealed.com";
       port = 2525;
