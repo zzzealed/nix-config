@@ -55,7 +55,6 @@
     ../../modules/ddclient
     ../../modules/ddclient/ddns.rotte.city.nix
     ../../modules/forgejo
-    ../../modules/forgejo/runner.nix
     ../../modules/endlessh
     ../../modules/teapot
     ../../modules/harmonia

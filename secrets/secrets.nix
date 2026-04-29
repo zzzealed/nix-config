@@ -51,7 +51,6 @@ let
     "vps-nixos_ddclient_config.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
     "desktop-nixos_wireguard_config.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "harmonia_sign-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "forgejo_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "github_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 in
