@@ -30,6 +30,26 @@
           };
         };
       };
+      external-endpoints = [
+        {
+          name = "eval.yml";
+          group = "github.com/zzzealed/nix-config/actions";
+          token = "$\{GATUS_GITHUB_TOKEN}";
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
+        {
+          name = "build.yml";
+          group = "https://github.com/zzzealed/nix-config/actions";
+          token = "$\{GATUS_GITHUB_TOKEN}";
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
+      ];
       endpoints = [
         # TEST
         #        {
