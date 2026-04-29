@@ -9,18 +9,21 @@ alias rm "echo use Gomi!"
 alias gomi "gomi --verbose"
 alias rsync "rsync --verbose --archive --progress --human-readable"
 
-# Rebuild alias
+# Rebuild aliases
+function rbld
+    command nh os $argv[1] "$HOME/nix-config#$argv[2]" --ask
+end
 function rbld-desktop
-    command nh os $argv /home/mads/nix-config --ask
+    command ssh -tA mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#desktop-nixos --ask --target-host mads@desktop.l.zzzealed.com"
 end
 function rbld-server
-    command ssh mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#server-nixos --ask"
+    command ssh -tA mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#server-nixos --ask"
 end
 function rbld-pi
-    command ssh mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#pi-nixos --ask --target-host mads@pi.l.zzzealed.com"
+    command ssh -tA mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#pi-nixos --ask --target-host mads@pi.l.zzzealed.com"
 end
 function rbld-vps
-    command ssh mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#vps-nixos --ask --target-host mads@vps.rotte.city"
+    command ssh -tA mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#vps-nixos --ask --target-host mads@vps.rotte.city"
 end
 
 # Duration alias
