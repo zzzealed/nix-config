@@ -1,22 +1,28 @@
 on:
   push:
     branches: [main]
+    paths:
+      - "flake.lock"
 
 jobs:
-  build-hosts:
+  build:
     runs-on: nix
     steps:
       - uses: actions/checkout@v4
 
       # Build hosts and symlink result out to create gc-roots
-      - name: Build desktop-nixos host
+      - name: desktop-nixos
         run: nix build .#nixosConfigurations.desktop-nixos.config.system.build.toplevel --out-link /var/lib/gitea-runner/default/desktop-nixos
 
-      - name: Build server-nixos host
+      - name: server-nixos
         run: nix build .#nixosConfigurations.server-nixos.config.system.build.toplevel --out-link /var/lib/gitea-runner/default/server-nixos
 
-      - name: Build pi-nixos host
+      - name: pi-nixos
         run: nix build .#nixosConfigurations.pi-nixos.config.system.build.toplevel --out-link /var/lib/gitea-runner/default/pi-nixos
 
-      - name: Build vps-nixos host
+      - name: vps-nixos
         run: nix build .#nixosConfigurations.vps-nixos.config.system.build.toplevel --out-link /var/lib/gitea-runner/default/vps-nixos
+
+      # Optimise store
+      - name: optimise store
+        run: nix-store --optimise
