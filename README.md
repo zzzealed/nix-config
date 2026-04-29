@@ -45,7 +45,6 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?)
 - [ ] Switch to SOPS-nix
 - [ ] Set up 3rd-party caches (Cachix etc.)
-- [x] Init: `services.nitter`
 - [ ] Jujutsu-vcs
 - [ ] Switch to Adguard Home
 - [x] Ashell bar
