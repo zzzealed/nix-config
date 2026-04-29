@@ -11,16 +11,16 @@ alias rsync "rsync --verbose --archive --progress --human-readable"
 
 # Rebuild alias
 function rbld-desktop
-    command nh os $argv /mnt/vault/Documents/nix-config --hostname desktop-nixos --ask --max-jobs 1
+    command nh os $argv /home/mads/nix-config --ask
 end
 function rbld-server
-    command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname server-nixos --ask"
+    command ssh mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#server-nixos --ask"
 end
 function rbld-pi
-    command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname pi-nixos --target-host mads@pi.l.zzzealed.com --ask"
+    command ssh mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#pi-nixos --ask --target-host mads@pi.l.zzzealed.com"
 end
 function rbld-vps
-    command ssh -A -t mads@server.l.zzzealed.com "nh os $argv /vault/Documents/nix-config --hostname vps-nixos --target-host mads@vps.rotte.city --ask"
+    command ssh mads@server.l.zzzealed.com "nh os $argv git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#vps-nixos --ask --target-host mads@vps.rotte.city"
 end
 
 # Duration alias
