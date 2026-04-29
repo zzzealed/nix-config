@@ -20,7 +20,8 @@
     virtualHosts."git.zzzealed.com" = {
       useACMEHost = "zzzealed.com";
       forceSSL = true;
-      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}";
+      locations."/".proxyPass =
+        "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}";
     };
   };
 }
