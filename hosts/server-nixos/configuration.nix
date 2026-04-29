@@ -26,6 +26,7 @@
     ../../modules/zfs
     ../../modules/zfs/vault-pool.nix
     ../../modules/nix-gc
+    ../../modules/nix-optimise
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick
