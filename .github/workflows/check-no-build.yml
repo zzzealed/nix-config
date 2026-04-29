@@ -16,7 +16,7 @@ jobs:
           fi
 
       - name: check outputs without building
-        run: nix flake check --no-build --verbose
+        run: nix flake check --all-systems --no-build
 
       - name: report status
         if: always() # Run even on fail
