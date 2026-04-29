@@ -1,15 +1,12 @@
 on:
-  workflow_run:
-    workflows: ["eval"]
+  push:
     branches: [main]
-    types: [completed]
     paths:
       - "flake.lock"
 
 jobs:
   cache:
     runs-on: [self-hosted, nix]
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: checkout
         run: |
