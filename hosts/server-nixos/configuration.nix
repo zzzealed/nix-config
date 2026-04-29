@@ -59,6 +59,7 @@
     ../../modules/endlessh
     ../../modules/teapot
     ../../modules/harmonia
+    ../../modules/github-runners
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
