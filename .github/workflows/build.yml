@@ -8,7 +8,14 @@ jobs:
   cache:
     runs-on: [self-hosted, nix]
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout
+        run: |
+          if [ -d .git ]; then
+            git fetch origin main
+            git reset --hard origin/main
+          else
+            git clone https://github.com/zzzealed/nix-config .
+          fi
 
       - name: build desktop-nixos
         run: nix build .#nixosConfigurations.desktop-nixos.config.system.build.toplevel --out-link /var/lib/github-runner/server-nixos/gc-roots/desktop-nixos

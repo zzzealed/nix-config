@@ -6,7 +6,14 @@ jobs:
   eval:
     runs-on: [self-hosted, nix]
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout
+        run: |
+          if [ -d .git ]; then
+            git fetch origin main
+            git reset --hard origin/main
+          else
+            git clone https://github.com/zzzealed/nix-config .
+          fi
 
       - name: eval desktop-nixos
         run: nix eval .#nixosConfigurations.desktop-nixos.config.system.build.toplevel
