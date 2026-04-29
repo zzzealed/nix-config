@@ -57,6 +57,7 @@
     ../../modules/wg-quick
     ../../modules/tokei.nix
     ../../modules/tealdeer.nix
+    ../../modules/gc
   ];
 
   # Home manager modules

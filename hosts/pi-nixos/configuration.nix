@@ -14,6 +14,7 @@
     ../../modules/openssh
     ../../modules/nh
     ../../modules/zfs
+    ../../modules/gc
     # Services
     ../../modules/wireguard
     ../../modules/samba-shares

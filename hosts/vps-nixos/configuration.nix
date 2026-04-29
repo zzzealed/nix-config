@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ../../modules/users
     ../../modules/users/mads.nix
@@ -6,6 +7,7 @@
     ../../modules/networkmanager/server-dns.nix
     ../../modules/bash
     ../../modules/nh
+    ../../modules/gc
     # Services
     ../../modules/openssh
     ../../modules/wg-quick
