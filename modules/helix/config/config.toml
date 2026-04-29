@@ -10,6 +10,9 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.file-picker]
+hidden = false
+
 [editor.statusline]
 left = ["mode", "read-only-indicator", "version-control"]
 center = ["file-name", "file-modification-indicator"]
