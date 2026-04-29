@@ -32,8 +32,8 @@
       };
       external-endpoints = [
         {
-          name = "eval.yml";
-          group = "github.com/zzzealed/nix-config/actions";
+          name = "eval";
+          group = "Github";
           token = "$\{GATUS_GITHUB_TOKEN}";
           alerts = [
             { type = "discord"; }
@@ -41,8 +41,8 @@
           ];
         }
         {
-          name = "build.yml";
-          group = "https://github.com/zzzealed/nix-config/actions";
+          name = "build";
+          group = "Github";
           token = "$\{GATUS_GITHUB_TOKEN}";
           alerts = [
             { type = "discord"; }
