@@ -9,6 +9,7 @@ on:
 jobs:
   cache:
     runs-on: [self-hosted, nix]
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: checkout
         run: |
