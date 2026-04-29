@@ -479,6 +479,23 @@
             { type = "ntfy"; }
           ];
         }
+        {
+          name = "Harmonia";
+          group = "cache.l.zzzealed.com";
+          url = "https://cache.l.zzzealed.com/health";
+          interval = "5m";
+          conditions = [
+            "[STATUS] == 200"
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 300"
+            "[BODY] == OK"
+            "[CERTIFICATE_EXPIRATION] > 336h"
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
       ];
     };
   };
