@@ -9,6 +9,7 @@
     environmentFile = config.age.secrets."gatus_environment-file".path;
     settings.web.port = 8080;
     settings = {
+      #
       alerting = {
         discord = {
           webhook-url = "$\{DISCORD_WEBHOOK}";
@@ -30,6 +31,7 @@
           };
         };
       };
+      #
       external-endpoints = [
         {
           name = "Actions check-no-build.yml workflow";
@@ -50,6 +52,7 @@
           ];
         }
       ];
+      #
       endpoints = [
         # TEST
         #        {
@@ -120,7 +123,7 @@
         }
         {
           name = "ntfy";
-          group = "ntfy.rotte.city";
+          group = "rotte.city";
           url = "https://ntfy.rotte.city/v1/health";
           interval = "5m";
           conditions = [
@@ -136,7 +139,7 @@
         }
         {
           name = "DDNS 2";
-          group = "vps.rotte.city";
+          group = "rotte.city";
           url = "icmp://vps.rotte.city";
           interval = "5m";
           conditions = [
@@ -152,7 +155,7 @@
         }
         {
           name = "DDNS";
-          group = "ddns.rotte.city";
+          group = "rotte.city";
           url = "icmp://ddns.rotte.city";
           interval = "5m";
           conditions = [
@@ -168,7 +171,7 @@
         }
         {
           name = "Rust gameserver";
-          group = "rust.rotte.city";
+          group = "rotte.city";
           url = "udp://rust.rotte.city:28015";
           interval = "5m";
           conditions = [
@@ -182,7 +185,7 @@
         }
         {
           name = "SSH";
-          group = "SSH";
+          group = "rotte.city";
           url = "ssh://ddns.rotte.city:2267";
           interval = "5m";
           conditions = [
@@ -197,7 +200,7 @@
         }
         {
           name = "Wireguard";
-          group = "Wireguard";
+          group = "rotte.city";
           url = "udp://ddns.rotte.city:51820";
           interval = "5m";
           conditions = [
@@ -231,7 +234,7 @@
         }
         {
           name = "Forgejo";
-          group = "git.zzzealed.com";
+          group = "zzzealed.com";
           url = "https://git.zzzealed.com/api/healthz";
           interval = "5m";
           conditions = [
@@ -251,7 +254,7 @@
         # *.l.zzzealed.com (local)
         {
           name = "Vaultwarden";
-          group = "vault.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://vault.l.zzzealed.com/alive";
           interval = "5m";
           conditions = [
@@ -267,7 +270,7 @@
         }
         {
           name = "SearXNG";
-          group = "searx.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://searx.l.zzzealed.com/healthz";
           interval = "5m";
           conditions = [
@@ -284,7 +287,7 @@
         }
         {
           name = "OpenWebUI";
-          group = "chat.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://chat.l.zzzealed.com/health";
           interval = "5m";
           conditions = [
@@ -301,7 +304,7 @@
         }
         {
           name = "Karakeep";
-          group = "karakeep.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://karakeep.l.zzzealed.com/api/health";
           interval = "5m";
           conditions = [
@@ -318,7 +321,7 @@
         }
         {
           name = "Scrutiny";
-          group = "scrutiny.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://scrutiny.l.zzzealed.com/api/summary";
           interval = "5m";
           conditions = [
@@ -340,7 +343,7 @@
         }
         {
           name = "Pihole";
-          group = "pihole.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://pihole.l.zzzealed.com/api/stats/summary";
           headers = {
             "X-FTL-SID" = "$\{PIHOLE_PASSWORD}";
@@ -361,7 +364,7 @@
         }
         {
           name = "Radicale";
-          group = "radicale.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://radicale.l.zzzealed.com";
           interval = "5m";
           conditions = [
@@ -377,7 +380,7 @@
         }
         {
           name = "Home Assistant";
-          group = "ha.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://ha.l.zzzealed.com/api/config";
           headers = {
             "Authorization" = "Bearer $\{HASS_TOKEN}";
@@ -397,7 +400,7 @@
         }
         {
           name = "ChangeDetection";
-          group = "change.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://change.l.zzzealed.com/api/v1/systeminfo";
           headers = {
             "x-api-key" = "$\{CHANGEDETECTION_KEY}";
@@ -418,7 +421,7 @@
         }
         {
           name = "Calibre Web";
-          group = "calibre.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://calibre.l.zzzealed.com";
           interval = "5m";
           conditions = [
@@ -434,7 +437,7 @@
         }
         {
           name = "n8n";
-          group = "n8n.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://n8n.l.zzzealed.com/healthz";
           interval = "5m";
           conditions = [
@@ -451,7 +454,7 @@
         }
         {
           name = "Chrome";
-          group = "chrome.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://chrome.l.zzzealed.com";
           interval = "5m";
           conditions = [
@@ -467,7 +470,7 @@
         }
         {
           name = "GPT4Free";
-          group = "g4f.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://g4f.l.zzzealed.com/v1/models";
           interval = "5m";
           conditions = [
@@ -484,7 +487,7 @@
         }
         {
           name = "Teapot";
-          group = "twitter.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://twitter.l.zzzealed.com/.health";
           interval = "5m";
           conditions = [
@@ -501,7 +504,7 @@
         }
         {
           name = "Harmonia";
-          group = "cache.l.zzzealed.com";
+          group = "l.zzzealed.com";
           url = "https://cache.l.zzzealed.com/health";
           interval = "5m";
           conditions = [
