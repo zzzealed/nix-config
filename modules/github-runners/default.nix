@@ -11,7 +11,6 @@
       extraPackages = [
         pkgs.nix
         pkgs.git
-        pkgs.nodejs
         pkgs.bash
       ];
       extraLabels = [ "nix" ];
