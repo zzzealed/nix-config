@@ -38,8 +38,14 @@
           group = "github.com";
           token = "$\{GATUS_GITHUB_TOKEN}";
           alerts = [
-            { type = "discord"; }
-            { type = "ntfy"; }
+            {
+              type = "discord";
+              failure-threshold = 1;
+            }
+            {
+              type = "ntfy";
+              failure-threshold = 1;
+            }
           ];
         }
         {
@@ -47,8 +53,14 @@
           group = "github.com";
           token = "$\{GATUS_GITHUB_TOKEN}";
           alerts = [
-            { type = "discord"; }
-            { type = "ntfy"; }
+            {
+              type = "discord";
+              failure-threshold = 1;
+            }
+            {
+              type = "ntfy";
+              failure-threshold = 1;
+            }
           ];
         }
       ];
