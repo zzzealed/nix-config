@@ -25,7 +25,7 @@
     ../../modules/thermald
     ../../modules/zfs
     ../../modules/zfs/vault-pool.nix
-    ../../modules/gc
+    ../../modules/nix-gc
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick

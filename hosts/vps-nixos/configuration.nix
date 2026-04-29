@@ -7,7 +7,7 @@
     ../../modules/networkmanager/server-dns.nix
     ../../modules/bash
     ../../modules/nh
-    ../../modules/gc
+    ../../modules/nix-gc
     # Services
     ../../modules/openssh
     ../../modules/wg-quick
