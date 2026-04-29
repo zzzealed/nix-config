@@ -1,4 +1,7 @@
 # nix-config
+[![.github/workflows/eval.yml](https://github.com/zzzealed/nix-config/actions/workflows/eval.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/eval.yml)
+[![.github/workflows/build.yml](https://github.com/zzzealed/nix-config/actions/workflows/build.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/build.yml)
+
 My monorepo for my [Nix](https://github.com/NixOS/nix) hosts.
 
 # File structure
