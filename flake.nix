@@ -81,6 +81,9 @@
                       "https://cache.nixos.org"
                       "https://cache.l.zzzealed.com"
                     ];
+                    trusted-substituters = [
+                      "https://cache.l.zzzealed.com"
+                    ];
                     trusted-public-keys = [
                       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
                       "cache.l.zzzealed.com-1:d29SnNbB+hmWUlqbc6TaYaOP8fv25hlxpQRxgCqLQhE="
@@ -103,5 +106,14 @@
           pi-nixos = mkSystem "pi-nixos" "aarch64-linux";
           vps-nixos = mkSystem "vps-nixos" "x86_64-linux";
         };
+
+      checks.x86_64-linux = {
+        desktop-nixos = self.nixosConfigurations.desktop-nixos.config.system.build.toplevel;
+        server-nixos = self.nixosConfigurations.server-nixos.config.system.build.toplevel;
+        vps-nixos = self.nixosConfigurations.vps-nixos.config.system.build.toplevel;
+      };
+      checks.aarch64-linux = {
+        pi-nixos = self.nixosConfigurations.pi-nixos.config.system.build.toplevel;
+      };
     };
 }
