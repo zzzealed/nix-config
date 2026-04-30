@@ -36,6 +36,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
+- [ ] `flake.nix`-v3: proper checks, `nix build .#ci`, cleaner `mkSystem`
 - [ ] Make all files+dirs kebab-case
 - [ ] Make custom base16 theme
 - [ ] Disable password SSH and add agent
