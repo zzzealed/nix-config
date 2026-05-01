@@ -33,31 +33,31 @@ end
 
 ## Misc.
 function cat
-    als bat $argv
+    command bat $argv
 end
 function cp
-    als uutils-cp --verbose --interactive --progress $argv
+    command uutils-cp --verbose --interactive --progress $argv
 end
 function du
-    als dust $argv
+    command dust $argv
 end
 function ls
-    als ls --color=always --indicator-style=slash $argv
+    command ls --color=always --indicator-style=slash $argv
 end
 function mv
-    als uutils-mv --verbose --interactive --progress $argv
+    command uutils-mv --verbose --interactive --progress $argv
 end
 #function rm
-#    als rm --verbose --interactive=once
+#    command rm --verbose --interactive=once
 #end
 function rm
-    als echo use Gomi!
+    command echo use Gomi!
 end
 function gomi
-    als gomi --verbose $argv
+    command gomi --verbose $argv
 end
 function rsync
-    als rsync --verbose --archive --progress --human-readable $argv
+    command rsync --verbose --archive --progress --human-readable $argv
 end
 
 ## Custom
