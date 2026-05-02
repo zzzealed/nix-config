@@ -88,7 +88,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[IP] == 192.168.0.1"
           ];
           alerts = [
@@ -104,7 +104,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[IP] == 192.168.0.104"
           ];
           alerts = [
@@ -122,7 +122,7 @@
           conditions = [
             "[STATUS] == 404" # Intentional
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             # LEGO renews every 30 days
             "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
             # I have Porkbuns's "Early Auto Renew (45 days)" turned on
@@ -141,7 +141,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].healthy == true" # true
           ];
           alerts = [
@@ -156,7 +156,7 @@
           interval = "5m";
           conditions = [
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             # So we know if IP changes, for funsies
             "[IP] == 79.76.44.104"
           ];
@@ -172,7 +172,7 @@
           interval = "5m";
           conditions = [
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             # So we know if IP changes, for funsies
             "[IP] == 87.104.105.54"
           ];
@@ -188,7 +188,7 @@
           interval = "5m";
           conditions = [
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
           ];
           alerts = [
             { type = "discord"; }
@@ -203,7 +203,7 @@
           conditions = [
             "[STATUS] == 0"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
           ];
           alerts = [
             { type = "discord"; }
@@ -217,7 +217,7 @@
           interval = "5m";
           conditions = [
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
           ];
           alerts = [
             { type = "discord"; }
@@ -233,7 +233,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             # LEGO renews every 30 days
             "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
             # I have Porkbuns's "Early Auto Renew (45 days)" turned on
@@ -252,7 +252,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].checks.cache:ping[0].status == pass" # Cache is pass
             "[BODY].checks.database:ping[0].status == pass" # Database is pass
             "[CERTIFICATE_EXPIRATION] > 336h"
@@ -272,7 +272,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
           alerts = [
@@ -288,7 +288,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY] == OK" # ok
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
@@ -305,7 +305,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].status == true" # true
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
@@ -322,7 +322,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].status == ok" # ok
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
@@ -339,7 +339,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].success == true" # ? everything good ig
             "[BODY].data.summary.0x5002538f4372fee6.device.device_status == 0" # Our disks have no errors
             "[BODY].data.summary.0x5002538f4372feeb.device.device_status == 0"
@@ -364,7 +364,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].queries.total > 0" # We are receiving queries
             "[BODY].gravity.domains_being_blocked > 0" # We are using blocklists
             "[CERTIFICATE_EXPIRATION] > 336h"
@@ -382,7 +382,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
           alerts = [
@@ -401,7 +401,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].state == RUNNING" # This will do
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
@@ -421,7 +421,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].uptime > 0" # Hopefully this works
             "[BODY].watch_count > 0"
             "[CERTIFICATE_EXPIRATION] > 336h"
@@ -439,7 +439,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
           alerts = [
@@ -455,7 +455,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].status == ok" # ok
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
@@ -472,7 +472,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
           alerts = [
@@ -488,7 +488,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].data != []" # We have models
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
@@ -505,7 +505,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY].sessions.total > 0"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
@@ -522,7 +522,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
-            "[RESPONSE_TIME] < 300"
+            "[RESPONSE_TIME] < 500"
             "[BODY] == OK"
             "[CERTIFICATE_EXPIRATION] > 336h"
           ];
