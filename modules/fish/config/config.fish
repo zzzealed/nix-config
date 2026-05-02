@@ -19,16 +19,16 @@ function rbld
     als nh os $argv[1] $HOME/nix-config#$argv[2] $argv[3..]
 end
 function rbld-desktop
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#desktop-nixos --ask --target-host mads@desktop.l.zzzealed.com" $argv[2..]
+    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#desktop-nixos --refresh --ask --target-host mads@desktop.l.zzzealed.com" $argv[2..]
 end
 function rbld-server
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#server-nixos --ask" $argv[2..]
+    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#server-nixos --refresh --ask" $argv[2..]
 end
 function rbld-pi
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#pi-nixos --ask --target-host mads@pi.l.zzzealed.com" $argv[2..]
+    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#pi-nixos --refresh --ask --target-host mads@pi.l.zzzealed.com" $argv[2..]
 end
 function rbld-vps
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#vps-nixos --ask --target-host mads@vps.rotte.city" $argv[2..]
+    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#vps-nixos --refresh --ask --target-host mads@vps.rotte.city" $argv[2..]
 end
 
 ## Misc.
