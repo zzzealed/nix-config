@@ -546,7 +546,7 @@
                     "retalsrl"
                     "imperialhal__"
                     "oilrats"
-                    "nassrll_"
+                    "nassrll"
                     "ow_esports"
                     "ow_esports2"
                     "genburten"
