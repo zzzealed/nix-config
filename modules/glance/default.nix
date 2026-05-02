@@ -377,6 +377,10 @@
                       url = "https://xkcd.com/rss.xml";
                       title = "xkcd";
                     }
+                    {
+                      url = "https://simplex.chat/feed.rss";
+                      title = "SimpleX Blog";
+                    }
                   ];
                 }
                 {
