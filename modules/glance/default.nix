@@ -146,6 +146,11 @@
                       icon = "sh:forgejo";
                     }
                     {
+                      title = "Redlib";
+                      url = "https://reddit.l.zzzealed.com";
+                      icon = "sh:reddit";
+                    }
+                    {
                       title = "Teapot";
                       url = "https://twitter.l.zzzealed.com";
                       icon = "sh:twitter";

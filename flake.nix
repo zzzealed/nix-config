@@ -40,6 +40,11 @@
       url = "github:amaanq/teapot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    redlib = {
+      #url = "github:redlib-org/redlib";
+      url = "github:redlib-org/redlib/pull/552/head";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -54,6 +59,7 @@
       glide,
       nixcord,
       teapot,
+      redlib,
       ...
     }@inputs:
     {
