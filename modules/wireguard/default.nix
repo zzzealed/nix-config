@@ -29,9 +29,11 @@
         publicKey = "oB0yJ8lGWSjpdnwRiuT7uHkN7Ri++G3K+2YmKbgzZGI=";
         allowedIPs = [ "10.100.0.4/32" ];
       }
-      #{
-        # 5. TODO: laptop
-      #}
+      {
+        # 5. laptop
+        publicKey = "v4BfeaTce5+bjdmhSkbSCp3mPh/hy3GHNEFHU/ExY0Y=";
+        allowedIPs = [ "10.100.0.5/32" ];
+      }
     ];
   };
 
