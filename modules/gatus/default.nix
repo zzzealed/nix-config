@@ -515,6 +515,22 @@
           ];
         }
         {
+          name = "Redlib";
+          group = "l.zzzealed.com";
+          url = "https://reddit.l.zzzealed.com/info";
+          interval = "5m";
+          conditions = [
+            "[STATUS] == 200"
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 500"
+            "[CERTIFICATE_EXPIRATION] > 336h"
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
+        {
           name = "Harmonia";
           group = "l.zzzealed.com";
           url = "https://cache.l.zzzealed.com/health";
