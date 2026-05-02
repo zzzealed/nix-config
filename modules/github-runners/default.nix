@@ -17,4 +17,5 @@
       extraLabels = [ "nix" ];
     };
   };
+  nix.settings.allowed-users = [ "github-runner-server-nixos" ];
 }
