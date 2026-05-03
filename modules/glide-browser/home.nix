@@ -60,6 +60,12 @@
               keyword = ",kara";
               url = "https://karakeep.l.zzzealed.com";
             }
+            {
+              name = "nix-config";
+              tags = [ ];
+              keyword = ",nix-config";
+              url = "https://github.com/zzzealed/nix-config";
+            }
           ];
         };
         extensions = {
