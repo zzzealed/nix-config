@@ -1,8 +1,7 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 {
   services.n8n = {
     enable = true;
-    package = pkgs.n8n;
     #openFirewall = true;
     environment = {
       N8N_PORT = 5678;
