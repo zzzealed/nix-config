@@ -15,11 +15,12 @@
     MOZ_ENABLE_WAYLAND = "1";
     MOZ_DISABLE_RDD_SANDBOX = "1";
     LIBVA_DRIVER_NAME = "nvidia";
+    MOZ_LEGACY_PROFILES = "0"; # Use XDG
   };
 
   programs.glide-browser = {
     enable = true;
-    nativeMessagingHosts = [ pkgs.ff2mpv ];
+    nativeMessagingHosts = [ pkgs.ff2mpv ]; # For some reason it still lands in `~/.glide-browser/native-messaging-hosts/`. But it works
     policies = {
       EnableTrackingProtection = true;
       DisableTelemetry = true;
