@@ -50,6 +50,6 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] Switch to SOPS-nix
 - [ ] Set up 3rd-party caches (Cachix etc.)
 - [ ] Jujutsu-vcs
-- [ ] Switch to Adguard Home
+- [ ] Just rawdog dnsmasq instead of Pihole
 - [x] Ashell bar
 - [ ] CrowdSec (+Anubis)
