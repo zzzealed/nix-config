@@ -60,6 +60,7 @@
     ../../modules/harmonia
     ../../modules/github-runners
     ../../modules/redlib
+    #../../modules/speedtest-tracker # FIXME: uncomment once added to nixpkgs-25.11
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
