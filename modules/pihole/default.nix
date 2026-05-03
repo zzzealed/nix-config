@@ -33,7 +33,6 @@
         app_pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI=";
         #totp_secret = "";
       };
-      # Wilcard routing
       misc.dnsmasq_lines = [
         "address=/.l.zzzealed.com/192.168.0.118"
       ];

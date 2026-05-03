@@ -11,12 +11,11 @@
       ROCKET_PORT = 8222;
     };
   };
-  services.nginx = {
-    virtualHosts."vault.l.zzzealed.com" = {
-      useACMEHost = "zzzealed.com";
-      forceSSL = true;
-      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT}";
-      locations."/".proxyWebsockets = true;
-    };
+  services.nginx.virtualHosts."vault.l.zzzealed.com" = {
+    useACMEHost = "zzzealed.com";
+    forceSSL = true;
+    locations."/".proxyPass =
+      "http://127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT}";
+    locations."/".proxyWebsockets = true;
   };
 }

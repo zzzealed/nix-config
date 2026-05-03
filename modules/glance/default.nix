@@ -583,12 +583,10 @@
   #    port = 8076;
   #    workers = 4;
   #  };
-  services.nginx = {
-    virtualHosts."glance.l.zzzealed.com" = {
-      useACMEHost = "zzzealed.com";
-      forceSSL = true;
-      locations."/".proxyPass =
-        "http://127.0.0.1:${toString config.services.glance.settings.server.port}";
-    };
+  services.nginx.virtualHosts."glance.l.zzzealed.com" = {
+    useACMEHost = "zzzealed.com";
+    forceSSL = true;
+    locations."/".proxyPass =
+      "http://127.0.0.1:${toString config.services.glance.settings.server.port}";
   };
 }

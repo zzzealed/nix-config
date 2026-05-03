@@ -5,7 +5,10 @@
     package = pkgs.radicale;
     settings = {
       server = {
-        hosts = [ "0.0.0.0:5232" "[::]:5232" ];
+        hosts = [
+          "0.0.0.0:5232"
+          "[::]:5232"
+        ];
       };
       auth = {
         type = "htpasswd";
@@ -17,11 +20,9 @@
       };
     };
   };
-  services.nginx = {
-    virtualHosts."radicale.l.zzzealed.com" = {
-      useACMEHost = "zzzealed.com";
-      forceSSL = true;
-      locations."/".proxyPass = "http://127.0.0.1:5232";
-    };
+  services.nginx.virtualHosts."radicale.l.zzzealed.com" = {
+    useACMEHost = "zzzealed.com";
+    forceSSL = true;
+    locations."/".proxyPass = "http://127.0.0.1:5232";
   };
 }

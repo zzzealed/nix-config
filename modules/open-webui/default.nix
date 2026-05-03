@@ -22,12 +22,10 @@
       SEARXNG_QUERY_URL = "https://searx.l.zzzealed.com/search?q=<query>"; # Remember to enable JSON on SearXNG instance
     };
   };
-  services.nginx = {
-    virtualHosts."chat.l.zzzealed.com" = {
-      useACMEHost = "zzzealed.com";
-      forceSSL = true;
-      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.open-webui.port}";
-      locations."/".proxyWebsockets = true;
-    };
+  services.nginx.virtualHosts."chat.l.zzzealed.com" = {
+    useACMEHost = "zzzealed.com";
+    forceSSL = true;
+    locations."/".proxyPass = "http://127.0.0.1:${toString config.services.open-webui.port}";
+    locations."/".proxyWebsockets = true;
   };
 }

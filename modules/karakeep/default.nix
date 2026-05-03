@@ -21,11 +21,10 @@
     };
   };
   #networking.firewall = { allowedTCPPorts = [ 7890 ]; };
-  services.nginx = {
-    virtualHosts."karakeep.l.zzzealed.com" = {
-      useACMEHost = "zzzealed.com";
-      forceSSL = true;
-      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.karakeep.extraEnvironment.PORT}";
-    };
+  services.nginx.virtualHosts."karakeep.l.zzzealed.com" = {
+    useACMEHost = "zzzealed.com";
+    forceSSL = true;
+    locations."/".proxyPass =
+      "http://127.0.0.1:${toString config.services.karakeep.extraEnvironment.PORT}";
   };
 }
