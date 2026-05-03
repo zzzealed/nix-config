@@ -1,91 +1,108 @@
 {
-  "createdBy": "Redirector v3.5.3",
-  "createdAt": "2026-04-02T00:44:33.195Z",
-  "redirects": [
-    {
-      "description": "Strip YouTube playlist context",
-      "exampleUrl": "https://www.youtube.com/watch?v=ABC123&list=WL&index=5",
-      "exampleResult": "https://www.youtube.com/watch?v=ABC123&",
-      "error": null,
-      "includePattern": "^https://www\\.youtube\\.com/watch\\?(.*)(?:&?list=[^&]*)(?:&?index=[^&]*)(.*)",
-      "excludePattern": "",
-      "patternDesc": "",
-      "redirectUrl": "https://www.youtube.com/watch?$1$2",
-      "patternType": "R",
-      "processMatches": "noProcessing",
-      "disabled": false,
-      "grouped": false,
-      "appliesTo": [
-        "main_frame"
-      ]
-    },
-    {
-      "description": "Redirect nixos.wiki to wiki.nixos.org",
-      "exampleUrl": "https://nixos.wiki/wiki/Flakes",
-      "exampleResult": "https://wiki.nixos.org/wiki/Flakes",
-      "error": null,
-      "includePattern": "https://nixos.wiki/*",
-      "excludePattern": "",
-      "patternDesc": "",
-      "redirectUrl": "https://wiki.nixos.org/$1",
-      "patternType": "W",
-      "processMatches": "noProcessing",
-      "disabled": false,
-      "grouped": false,
-      "appliesTo": [
-        "main_frame"
-      ]
-    },
-    {
-      "description": "Redirect gta.fandom.com to gta.wiki",
-      "exampleUrl": "https://gta.fandom.com/wiki/Zentorno",
-      "exampleResult": "https://gta.wiki/w/Zentorno",
-      "error": null,
-      "includePattern": "https://gta.fandom.com/wiki/*",
-      "excludePattern": "",
-      "patternDesc": "",
-      "redirectUrl": "https://gta.wiki/w/$1",
-      "patternType": "W",
-      "processMatches": "noProcessing",
-      "disabled": false,
-      "grouped": false,
-      "appliesTo": [
-        "main_frame"
-      ]
-    },
-    {
-      "description": "Redirect minecraft.fandom.com to minecraft.wiki",
-      "exampleUrl": "https://minecraft.fandom.com/wiki/Emerald",
-      "exampleResult": "https://minecraft.wiki/w/Emerald",
-      "error": null,
-      "includePattern": "https://minecraft.fandom.com/wiki/*",
-      "excludePattern": "",
-      "patternDesc": "",
-      "redirectUrl": "https://minecraft.wiki/w/$1",
-      "patternType": "W",
-      "processMatches": "noProcessing",
-      "disabled": false,
-      "grouped": false,
-      "appliesTo": [
-        "main_frame"
-      ]
-    },
-    {
-      "description": "Redirect old.reddit.com to reddit.com",
-      "exampleUrl": "https://old.reddit.com/r/selfhosted",
-      "exampleResult": "https://reddit.com/r/selfhosted",
-      "error": null,
-      "includePattern": "https://old.reddit.com/*",
-      "excludePattern": "",
-      "patternDesc": "",
-      "redirectUrl": "https://reddit.com/$1",
-      "patternType": "W",
-      "processMatches": "noProcessing",
-      "disabled": false,
-      "grouped": false,
-      "appliesTo": [
-        "main_frame"
-      ]
-    }
-  ]
+    "createdBy": "Redirector v3.5.3",
+    "createdAt": "2026-05-03T09:32:07.174Z",
+    "redirects": [
+        {
+            "description": "Strip YouTube playlist context",
+            "exampleUrl": "https://www.youtube.com/watch?v=ABC123&list=WL&index=5",
+            "exampleResult": "https://www.youtube.com/watch?v=ABC123&",
+            "error": null,
+            "includePattern": "^https://www\\.youtube\\.com/watch\\?(.*)(?:&?list=[^&]*)(?:&?index=[^&]*)(.*)",
+            "excludePattern": "",
+            "patternDesc": "i dont understand this",
+            "redirectUrl": "https://www.youtube.com/watch?$1$2",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "nixos.wiki to wiki.nixos.org",
+            "exampleUrl": "https://nixos.wiki/wiki/Flakes",
+            "exampleResult": "https://wiki.nixos.org/wiki/Flakes",
+            "error": null,
+            "includePattern": "https://nixos.wiki/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://wiki.nixos.org/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "gta.fandom.com to gta.wiki",
+            "exampleUrl": "https://gta.fandom.com/wiki/Zentorno",
+            "exampleResult": "https://gta.wiki/w/Zentorno",
+            "error": null,
+            "includePattern": "https://gta.fandom.com/wiki/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://gta.wiki/w/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "minecraft.fandom.com to minecraft.wiki",
+            "exampleUrl": "https://minecraft.fandom.com/wiki/Emerald",
+            "exampleResult": "https://minecraft.wiki/w/Emerald",
+            "error": null,
+            "includePattern": "https://minecraft.fandom.com/wiki/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://minecraft.wiki/w/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "reddit.com to reddit.l.zzzealed.com",
+            "exampleUrl": "https://www.reddit.com/r/selfhosted",
+            "exampleResult": "https://reddit.l.zzzealed.com/r/selfhosted",
+            "error": null,
+            "includePattern": "https://*reddit.com/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://reddit.l.zzzealed.com/$2",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "x.com to twitter.l.zzzealed.com",
+            "exampleUrl": "https://www.x.com/retals",
+            "exampleResult": "https://twitter.l.zzzealed.com/retals",
+            "error": null,
+            "includePattern": "https://*x.com/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://twitter.l.zzzealed.com/$2",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        }
+    ]
 }
