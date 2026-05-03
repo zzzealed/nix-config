@@ -127,6 +127,8 @@
           '';
 
           # History/cookies
+          "places.history.enabled" = true;
+          "browser.formfill.enable" = true;
           "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
           "privacy.clearOnShutdown_v2.cache" = true;
           "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
