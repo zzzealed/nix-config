@@ -550,11 +550,9 @@
       ];
     };
   };
-  services.nginx = {
-    virtualHosts."status.rotte.city" = {
-      useACMEHost = "rotte.city";
-      forceSSL = true;
-      locations."/".proxyPass = "http://127.0.0.1:${toString config.services.gatus.settings.web.port}";
-    };
+  services.nginx.virtualHosts."status.rotte.city" = {
+    useACMEHost = "rotte.city";
+    forceSSL = true;
+    locations."/".proxyPass = "http://127.0.0.1:${toString config.services.gatus.settings.web.port}";
   };
 }
