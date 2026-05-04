@@ -228,12 +228,13 @@
         {
           name = "Website";
           group = "zzzealed.com";
-          url = "https://zzzealed.com";
+          url = "https://zzzealed.com/health";
           interval = "5m";
           conditions = [
             "[STATUS] == 200"
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 500"
+            "[BODY] == ok" # ok
             # LEGO renews every 30 days
             "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
             # I have Porkbuns's "Early Auto Renew (45 days)" turned on
