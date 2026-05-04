@@ -14,8 +14,8 @@
         "-dlig"
       ];
       font-size = 16;
-      command = "fish";
-      #inital-command
+      command = "fish --init-command 'zmx list'";
+      initial-command = "zmx attach 1 fish";
       notify-on-command-finish = "always";
       notify-on-command-finish-action = [
         "bell"

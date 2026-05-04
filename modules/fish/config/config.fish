@@ -7,6 +7,16 @@ set -g fish_key_bindings fish_vi_key_bindings
 # Set $EDITOR
 set -gx EDITOR hx
 
+# zmx
+functions -c fish_prompt _original_fish_prompt 2>/dev/null
+
+function fish_prompt --description 'Write out the prompt'
+    if set -q ZMX_SESSION
+        echo -n "[$ZMX_SESSION] "
+    end
+    _original_fish_prompt
+end
+
 # Custom alias function
 function als # Custom alias function
     echo "\$ $argv"

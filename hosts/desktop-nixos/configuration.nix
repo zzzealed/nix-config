@@ -58,6 +58,7 @@
     ../../modules/tokei.nix
     ../../modules/tealdeer.nix
     ../../modules/nix-gc
+    ../../modules/zmx
   ];
 
   # Home manager modules

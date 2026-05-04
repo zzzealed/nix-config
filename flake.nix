@@ -45,6 +45,10 @@
       url = "github:redlib-org/redlib/pull/552/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zmx = {
+      url = "github:neurosnap/zmx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -60,6 +64,7 @@
       nixcord,
       teapot,
       redlib,
+      zmx,
       ...
     }@inputs:
     {
