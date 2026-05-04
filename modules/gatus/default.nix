@@ -117,12 +117,13 @@
         {
           name = "Website 2";
           group = "rotte.city";
-          url = "https://rotte.city";
+          url = "https://rotte.city/health";
           interval = "5m";
           conditions = [
             "[STATUS] == 404" # Intentional
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 500"
+            "[BODY] == ok" # ok
             # LEGO renews every 30 days
             "[CERTIFICATE_EXPIRATION] > 336h" # 14 days
             # I have Porkbuns's "Early Auto Renew (45 days)" turned on
