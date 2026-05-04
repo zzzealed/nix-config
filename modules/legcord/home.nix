@@ -1,4 +1,8 @@
-{ cfg, pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [ inputs.nixcord.homeModules.nixcord ];
 
@@ -18,9 +22,11 @@
       };
     };
     config = {
-      # No idea why this doesn't work
-      #themes."stylix" = cfg.themeBody + cfg.extraCss;
-      #enabledThemes = [ "stylix.css" ];
+      useQuickCss = false;
+      themes = {
+        "stylix.theme.css" = "/home/mads/.config/legcord/themes/stylix.theme.css";
+      };
+      enabledThemes = [ "stylix.theme.css" ];
       plugins = {
         alwaysTrust.enable = true;
         customIdle.enable = true;
