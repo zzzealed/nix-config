@@ -98,7 +98,6 @@
                       title = "rotte.city";
                       url = "https://rotte.city";
                       icon = "sh:nginx";
-                      alt-status-codes = [ 404 ];
                     }
                     {
                       title = "Vaultwarden";
