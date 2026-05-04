@@ -14,6 +14,13 @@ in
     useACMEHost = "zzzealed.com";
     forceSSL = true;
     root = website;
+    locations."/health" = {
+      return = ''200 "ok"'';
+      extraConfig = ''
+        access_log off;
+        add_header Content-Type text/plain;
+      '';
+    };
   };
 
   # Redirect to external Gatus instance
