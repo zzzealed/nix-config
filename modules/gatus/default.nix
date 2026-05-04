@@ -120,7 +120,7 @@
           url = "https://rotte.city/health";
           interval = "5m";
           conditions = [
-            "[STATUS] == 404" # Intentional
+            "[STATUS] == 200"
             "[CONNECTED] == true"
             "[RESPONSE_TIME] < 500"
             "[BODY] == ok" # ok
