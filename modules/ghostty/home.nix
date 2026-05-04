@@ -6,9 +6,35 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
     installBatSyntax = true;
-  };
-  home.file.".config/ghostty" = {
-    source = ./config;
-    recursive = true;
+    systemd.enable = true;
+    settings = {
+      font-feature = [
+        "-calt"
+        "-liga"
+        "-dlig"
+      ];
+      font-size = 16;
+      command = "fish";
+      #inital-command
+      notify-on-command-finish = "always";
+      notify-on-command-finish-action = [
+        "bell"
+        "notify"
+      ];
+      notify-on-command-finish-after = "15s";
+      working-directory = "inherit";
+      keybind = [
+        "ctrl+k=scroll_page_lines:-1"
+        "ctrl+j=scroll_page_lines:1"
+      ];
+      window-inherit-working-directory = true;
+      copy-on-select = false;
+      quit-after-last-window-closed = false;
+      shell-integration-features = true;
+      bell-features = [
+        "system"
+        "attention"
+      ];
+    };
   };
 }
