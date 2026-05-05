@@ -1,6 +1,6 @@
 # nix-config
 [![.github/workflows/check-no-build.yml](https://github.com/zzzealed/nix-config/actions/workflows/check-no-build.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/check-no-build.yml)
-[![.github/workflows/check.yml](https://github.com/zzzealed/nix-config/actions/workflows/check.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/check.yml)
+[![.github/workflows/build.yml](https://github.com/zzzealed/nix-config/actions/workflows/build.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/build.yml)
 
 My monorepo for my [Nix](https://github.com/NixOS/nix) hosts.
 
