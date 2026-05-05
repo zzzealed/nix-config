@@ -195,30 +195,45 @@
                     _secret = config.age.secrets."glance-releases-token_github".path;
                   };
                   repositories = [
+                    # Services
                     "pi-hole/pi-hole"
                     "analogj/scrutiny"
                     "xtekky/gpt4free"
-                    "glide-browser/glide"
-                    "niri-wm/niri"
-                    "jetkvm/kvm"
-                    "helix-editor/helix"
-                    "dani-garcia/vaultwarden"
-                    "atlas-os/atlas"
-                    "mpv-player/mpv"
-                    "servo/servo"
+                    "linuxserver/docker-chrome"
                     "glanceapp/glance"
                     "open-webui/open-webui"
                     "home-assistant/core"
                     "dgtlmoon/changedetection.io"
+                    "redlib-org/redlib"
+                    "glanceapp/glance"
+                    "karakeep-app/karakeep"
+                    "dani-garcia/vaultwarden"
+                    "kozea/radicale"
+                    "codeberg:forgejo/forgejo"
+                    "janeczku/calibre-web"
+                    "nix-community/harmonia"
+                    "n8n-io/n8n"
+                    # Apps
+                    "glide-browser/glide"
+                    "helix-editor/helix"
+                    "mpv-player/mpv"
+                    "servo/servo"
                     "gorhill/ublock"
                     "mastermindzh/tidal-hifi"
                     "sharkdp/bat"
                     "localsend/localsend"
                     "yt-dlp/yt-dlp"
                     "nekename/opendeck"
-                    "linuxserver/docker-chrome"
-                    "karakeep-app/karakeep"
                     "prismlauncher/prismlauncher"
+                    "nix-community/nh"
+                    "legcord/legcord"
+                    "ciromattia/kcc"
+                    "cavi-au/consent-o-matic"
+                    "rclone/rclone"
+                    # Other
+                    "niri-wm/niri"
+                    "jetkvm/kvm"
+                    "atlas-os/atlas"
                     "codeberg:river/river"
                   ];
                 }
@@ -357,10 +372,10 @@
                       url = "https://esportsadvocate.net/rss";
                       title = "The Esports Advocate";
                     }
-                    {
-                      url = "https://wiki.x266.mov/blog/rss";
-                      title = "Codec Wiki";
-                    }
+                    #{
+                    #url = "https://wiki.x266.mov/blog/rss";
+                    #title = "Codec Wiki";
+                    #}
                     {
                       url = "https://twitter.l.zzzealed.com/RLDailyShop/rss";
                       title = "RLDailyShop";
