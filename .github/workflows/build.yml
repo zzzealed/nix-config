@@ -1,0 +1,41 @@
+on:
+  push:
+    branches: [main]
+    paths:
+    - "flake.lock"
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        host: [desktop-nixos, server-nixos, pi-nixos, vps-nixos]
+      fail-fast: false
+    runs-on: [self-hosted, nix]
+    steps:
+      - name: checkout
+        run: |
+          if [ -d .git ]; then
+            git fetch origin main
+            git reset --hard origin/main
+          else
+            git clone https://github.com/zzzealed/nix-config .
+          fi
+
+      - name: build ${{ matrix.host }}
+        run: |
+          nix build \
+            .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
+            --log-format bar-with-logs \
+            --out-link /var/lib/github-runner/server-nixos/gcroots/${{ matrix.host }}
+
+      - name: report status
+        if: always() # Run even on fail
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            STATUS=true
+          else
+            STATUS=false
+          fi
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
+            "https://status.rotte.city/api/v1/endpoints/github-com_actions-check-yml-workflow/external?success=$STATUS"
