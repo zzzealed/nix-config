@@ -49,7 +49,7 @@
           ];
         }
         {
-          name = "Actions check.yml workflow";
+          name = "Actions build.yml workflow";
           group = "github.com";
           token = "$\{GATUS_GITHUB_TOKEN}";
           alerts = [
