@@ -19,10 +19,9 @@ jobs:
 
       - name: check outputs without building
         run: |
-          nix flake check \
+          nix flake check --no-build \
             --all-systems \
-            --log-format bar \
-            --no-build
+            --log-format bar
 
       - name: report status
         if: always() # Run even on fail

@@ -23,8 +23,7 @@ jobs:
 
       - name: build ${{ matrix.host }}
         run: |
-          nix build \
-            .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
+          nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
             --log-format bar-with-logs \
             --out-link /var/lib/github-runner/server-nixos/gcroots/${{ matrix.host }}
 
