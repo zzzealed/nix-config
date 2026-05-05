@@ -18,4 +18,8 @@
     };
   };
   nix.settings.allowed-users = [ "github-runner-server-nixos" ];
+  # Symlink gcroots
+  systemd.tmpfiles.rules = [
+    "L+ /nix/var/nix/gcroots/github-runner - - - - /var/lib/github-runner/server-nixos/gcroots"
+  ];
 }
