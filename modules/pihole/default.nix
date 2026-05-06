@@ -36,7 +36,10 @@
       misc = {
         etc_dnsmasq_d = true;
         # Wildcard local DNS route
-        dnsmasq_lines = [ "address=/.l.zzzealed.com/192.168.0.118" ];
+        dnsmasq_lines = [
+          "address=/.l.zzzealed.com/192.168.0.118"
+          "server=/.l.zzzealed.com/" # empty server = don't forward, answer locally only
+        ];
       };
     };
     lists = [
