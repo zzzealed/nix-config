@@ -28,6 +28,7 @@
     ../../modules/nix-gc
     ../../modules/nix-optimise
     ../../modules/zmx
+    ../../modules/comma
     # Services
     ../../modules/home-assistant
     #../../modules/wg-quick

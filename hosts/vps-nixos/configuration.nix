@@ -8,6 +8,7 @@
     ../../modules/bash
     ../../modules/nh
     ../../modules/nix-gc
+    ../../modules/comma
     # Services
     ../../modules/openssh
     ../../modules/wg-quick

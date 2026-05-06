@@ -15,6 +15,7 @@
     ../../modules/nh
     ../../modules/zfs
     ../../modules/nix-gc
+    ../../modules/comma
     # Services
     ../../modules/wireguard
     ../../modules/samba-shares
