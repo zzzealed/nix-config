@@ -59,7 +59,7 @@
     ../../modules/tealdeer.nix
     ../../modules/nix-gc
     ../../modules/zmx
-    ../../modules/comma
+    ../../modules/nix-index-database
   ];
 
   # Home manager modules

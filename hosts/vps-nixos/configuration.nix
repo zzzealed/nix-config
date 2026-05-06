@@ -8,7 +8,7 @@
     ../../modules/bash
     ../../modules/nh
     ../../modules/nix-gc
-    ../../modules/comma
+    ../../modules/nix-index-database
     # Services
     ../../modules/openssh
     ../../modules/wg-quick

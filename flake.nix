@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11"; # 25.11
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # Input pinned in `flake.lock`
+    nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11"; # 25.11
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +49,10 @@
     zmx = {
       url = "github:neurosnap/zmx";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs-unstable-small";
+    };
   };
 
   outputs =
@@ -64,6 +69,7 @@
       teapot,
       redlib,
       zmx,
+      nix-index-database,
       ...
     }@inputs:
     {
