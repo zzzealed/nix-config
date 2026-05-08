@@ -400,6 +400,10 @@
                       url = "https://simplex.chat/feed.rss";
                       title = "SimpleX Blog";
                     }
+                    {
+                      url = "https://kill-the-newsletter.com/feeds/vjktitqvivujprhmbmtk.xml";
+                      title = "The LFN Herald";
+                    }
                   ];
                 }
                 {
