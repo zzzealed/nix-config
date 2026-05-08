@@ -52,6 +52,7 @@ let
     "desktop-nixos_wireguard_config.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "harmonia_sign-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "github_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 in
 builtins.mapAttrs (_name: value: defaults // value) secrets

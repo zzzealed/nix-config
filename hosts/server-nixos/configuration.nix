@@ -36,7 +36,7 @@
     ../../modules/openssh
     ../../modules/open-webui
     ../../modules/scrutiny
-    ../../modules/calibre-web
+    #../../modules/calibre-web
     ../../modules/vaultwarden
     ../../modules/radicale
     ../../modules/samba-shares
@@ -63,6 +63,8 @@
     ../../modules/github-runners
     ../../modules/redlib
     #../../modules/speedtest-tracker # FIXME: uncomment once added to nixpkgs-25.11
+    ../../modules/pr-tracker
+    ../../modules/pr-tracker/git.nix
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
