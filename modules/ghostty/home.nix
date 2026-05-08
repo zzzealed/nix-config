@@ -33,6 +33,7 @@
       shell-integration-features = true;
       bell-features = [
         "system"
+        "audio"
         "attention"
       ];
     };
