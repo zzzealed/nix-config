@@ -17,28 +17,28 @@ function fish_prompt --description 'Write out the prompt'
     _original_fish_prompt
 end
 
-# Custom alias function
-function als # Custom alias function
-    echo "\$ $argv"
-    command $argv
-end
-
 # Aliases
 ## Rebuild
 function rbld
     als nh os $argv[1] $HOME/nix-config#$argv[2] $argv[3..]
 end
+function _rbld
+    set target $argv[1]
+    ssh -tA mads@server.l.zzzealed.com \
+        "rsync --archive --info=progress2 --filter=':- .gitignore' mads@desktop.l.zzzealed.com:/home/mads/nix-config/ ~/nix-config/ && \
+        nh os $argv[2] ~/nix-config#$target --ask $argv[3..]"
+end
 function rbld-desktop
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#desktop-nixos --refresh --ask --target-host mads@desktop.l.zzzealed.com" $argv[2..]
+    _rbld desktop-nixos $argv --target-host mads@desktop.l.zzzealed.com
 end
 function rbld-server
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#server-nixos --refresh --ask" $argv[2..]
+    _rbld server-nixos $argv
 end
 function rbld-pi
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#pi-nixos --refresh --ask --target-host mads@pi.l.zzzealed.com" $argv[2..]
+    _rbld pi-nixos $argv --target-host mads@pi.l.zzzealed.com
 end
 function rbld-vps
-    als ssh -tA mads@server.l.zzzealed.com "nh os $argv[1] git+ssh://mads@desktop.l.zzzealed.com/home/mads/nix-config#vps-nixos --refresh --ask --target-host mads@vps.rotte.city" $argv[2..]
+    _rbld vps-nixos $argv --target-host mads@vps.rotte.city
 end
 
 ## Misc.
