@@ -549,6 +549,22 @@
             { type = "ntfy"; }
           ];
         }
+        {
+          name = "pr-tracker";
+          group = "l.zzzealed.com";
+          url = "https://pr-tracker.l.zzzealed.com";
+          interval = "5m";
+          conditions = [
+            "[STATUS] == 200"
+            "[CONNECTED] == true"
+            "[RESPONSE_TIME] < 500"
+            "[CERTIFICATE_EXPIRATION] > 336h"
+          ];
+          alerts = [
+            { type = "discord"; }
+            { type = "ntfy"; }
+          ];
+        }
       ];
     };
   };

@@ -185,6 +185,11 @@
                       url = "https://cache.l.zzzealed.com";
                       icon = "sh:nixos";
                     }
+                    {
+                      title = "pr-tracker";
+                      url = "https://pr-tracker.l.zzzealed.com";
+                      icon = "sh:github";
+                    }
                   ];
                 }
                 {
