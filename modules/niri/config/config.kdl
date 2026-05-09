@@ -165,6 +165,7 @@ binds { // TODO: Actually look at these.
     Mod+D hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: Swaylock" { spawn "swaylock"; }
     Mod+N hotkey-overlay-title="Close a Notification: Dunst" { spawn "dunstctl" "close"; }
+    Mod+B hotkey-overlay-title="Open a Browser: Glide" { spawn "glide-browser"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
