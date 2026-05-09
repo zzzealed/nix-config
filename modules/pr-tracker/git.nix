@@ -49,7 +49,7 @@ in
 
   systemd.services.git-prune-nixpkgs = {
     path = [ pkgs.gitMinimal ];
-    wantedBy = [ "multi-user.target" ];
+    #wantedBy = [ "multi-user.target" ];
     serviceConfig.DynamicUser = true;
     serviceConfig.Group = "nixpkgs";
     serviceConfig.ReadWritePaths = "/var/lib/git/nixpkgs.git";
