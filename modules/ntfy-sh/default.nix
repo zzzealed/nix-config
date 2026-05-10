@@ -5,7 +5,7 @@
     package = pkgs.ntfy-sh;
     settings = {
       base-url = "https://ntfy.l.zzzealed.com";
-      listen-http = ":8181";
+      listen-http = ":8182";
     };
   };
   services.nginx.virtualHosts."ntfy.l.zzzealed.com" = {
