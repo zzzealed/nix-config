@@ -75,8 +75,11 @@ in
 
   systemd.timers.git-fetch-nixpkgs = {
     wantedBy = [ "timers.target" ];
-    timerConfig.OnActiveSec = 0;
-    timerConfig.OnUnitActiveSec = 300;
+    timerConfig = {
+      OnActiveSec = 0;
+      OnUnitActiveSec = 300;
+      Persistent = false;
+    };
   };
 
   systemd.services.git-gc-nixpkgs = {
@@ -92,6 +95,9 @@ in
 
   systemd.timers.git-gc-nixpkgs = {
     wantedBy = [ "timers.target" ];
-    timerConfig.OnCalendar = "daily";
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = false;
+    };
   };
 }

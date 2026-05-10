@@ -14,11 +14,11 @@
     ../../modules/wg-quick
     ../../modules/wg-quick/wg_pi-nixos-4.nix
     ../../modules/gatus
+    ../../modules/gatus/gatus-public.nix
     ../../modules/nginx
     ../../modules/nginx/rotte.city.nix
     ../../modules/ddclient
-    ../../modules/ddclient/vps.rotte.city.nix
-    ../../modules/ntfy-sh
+    ../../modules/ddclient/vps.zzzealed.com
     ../../modules/endlessh
   ];
 

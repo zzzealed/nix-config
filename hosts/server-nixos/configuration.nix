@@ -31,7 +31,8 @@
     ../../modules/nix-index-database
     # Services
     ../../modules/home-assistant
-    #../../modules/wg-quick
+    ../../modules/wg-quick
+    # ../../modules/wg-quick/wg_hbd-2.nix
     ../../modules/changedetection-io
     ../../modules/openssh
     ../../modules/open-webui
@@ -55,7 +56,7 @@
     ../../modules/minecraft-server/mads-sp.nix
     ../../modules/minecraft-server/mads-sp-skyblock.nix
     ../../modules/ddclient
-    ../../modules/ddclient/ddns.rotte.city.nix
+    ../../modules/ddclient/home.zzzealed.com
     ../../modules/forgejo
     ../../modules/endlessh
     ../../modules/teapot
@@ -65,6 +66,10 @@
     #../../modules/speedtest-tracker # FIXME: uncomment once added to nixpkgs-25.11
     ../../modules/pr-tracker
     ../../modules/pr-tracker/git.nix
+    ../../modules/ollama
+    ../../modules/ntfy-sh
+    ../../modules/gatus
+    ../../modules/gatus/gatus-local.nix
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
@@ -83,7 +88,6 @@
   # Packages
   environment.systemPackages = with pkgs; [
     dig
-    screen
     unstable.kcc
   ];
 

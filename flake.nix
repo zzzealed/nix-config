@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11"; # 25.11
+    #nixpkgs.url = "git+file:///home/mads/Documents/nixpkgs";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # Input pinned in `flake.lock`
     nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     home-manager = {
@@ -48,6 +49,7 @@
     };
     zmx = {
       url = "github:neurosnap/zmx";
+      #url = "git+file:///home/mads/Documents/zmx";
     };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

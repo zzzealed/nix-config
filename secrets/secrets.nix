@@ -46,13 +46,18 @@ let
     "hbd-ftps_rclone-config.age".publicKeys = decodingKeys ++ interactiveKeys;
     "phone-nix_wireguard_config.age".publicKeys = interactiveKeys;
     "linus-password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "gatus_environment-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+    "gatus_environment-file.age".publicKeys = [
+      root_server-nixos
+      root_vps-nixos
+    ]
+    ++ interactiveKeys;
     "vps-nixos_wireguard_config.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
     "vps-nixos_ddclient_config.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
     "desktop-nixos_wireguard_config.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "harmonia_sign-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "github_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "hbd-wireguard_config-2.age".publicKeys = decodingKeys ++ interactiveKeys;
   };
 in
 builtins.mapAttrs (_name: value: defaults // value) secrets

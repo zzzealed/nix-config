@@ -42,13 +42,12 @@
     ../../modules/wg-quick
     ../../modules/wg-quick/wg_hbd-1.nix
     ../../modules/wg-quick/wg_pi-nixos-3.nix
-    ../../modules/qbittorrent
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
     ../../modules/streamlink.nix
     #../../modules/virt-manager
-    #../../modules/mysql
+    ../../modules/mysql
     #../../modules/locale/espanol.nix
     ../../modules/earlyoom
     ../../modules/thermald
