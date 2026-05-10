@@ -56,7 +56,7 @@
     ../../modules/minecraft-server/mads-sp.nix
     ../../modules/minecraft-server/mads-sp-skyblock.nix
     ../../modules/ddclient
-    ../../modules/ddclient/home.zzzealed.com
+    ../../modules/ddclient/home.zzzealed.com.nix
     ../../modules/forgejo
     ../../modules/endlessh
     ../../modules/teapot

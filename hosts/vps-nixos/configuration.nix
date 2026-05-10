@@ -18,7 +18,7 @@
     ../../modules/nginx
     ../../modules/nginx/rotte.city.nix
     ../../modules/ddclient
-    ../../modules/ddclient/vps.zzzealed.com
+    ../../modules/ddclient/vps.zzzealed.com.nix
     ../../modules/endlessh
   ];
 
