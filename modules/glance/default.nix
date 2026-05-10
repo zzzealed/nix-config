@@ -81,6 +81,11 @@
                     }
                     {
                       title = "Gatus";
+                      url = "https://status.l.zzzealed.com";
+                      icon = "sh:gatus";
+                    }
+                    {
+                      title = "Gatus 2";
                       url = "https://status.rotte.city";
                       icon = "sh:gatus";
                     }
