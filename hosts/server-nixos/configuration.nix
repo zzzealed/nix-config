@@ -70,6 +70,7 @@
     ../../modules/ntfy-sh
     ../../modules/gatus
     ../../modules/gatus/gatus-local.nix
+    ../../modules/qbittorrent
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
