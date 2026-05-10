@@ -39,12 +39,12 @@
       Host 192.168.0.164 phone.l.zzzealed.com
         Port 2267
 
-      Host 87.104.105.54 ddns.rotte.city
+      Host 87.104.105.54 home.zzzealed.com
         Port 2267
-      
-      Host 79.76.44.104 vps.rotte.city
+
+      Host 79.76.44.104 vps.zzzealed.com
         Port 2267
-    
+
       Host *
         SetEnv TERM=xterm-256color
         SendEnv COLORTERM TERM_PROGRAM TERM_PROGRAM_VERSION

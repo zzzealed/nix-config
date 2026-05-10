@@ -38,7 +38,7 @@ function rbld-pi
     _rbld pi-nixos $argv --target-host mads@pi.l.zzzealed.com
 end
 function rbld-vps
-    _rbld vps-nixos $argv --target-host mads@vps.rotte.city
+    _rbld vps-nixos $argv --target-host mads@vps.zzzealed.com
 end
 
 ## Misc.
