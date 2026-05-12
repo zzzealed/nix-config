@@ -19,9 +19,10 @@ pkgs.mkShell {
   NIX_CONFIG = "experimental-features = nix-command flakes";
   packages = with pkgs; [
     nix
-    home-manager
-    git
-    vim
     nixos-rebuild-ng
+    nixos-generate-config
+    home-manager
+    vim
+    git
   ];
 }
