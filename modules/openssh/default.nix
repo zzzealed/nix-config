@@ -7,6 +7,7 @@
       PasswordAuthentication = true;
       PermitRootLogin = "prohibit-password";
       X11Forwarding = true;
+      LogLevel = "VERBOSE";
     };
     extraConfig = ''
       AcceptEnv COLORTERM TERM_PROGRAM TERM_PROGRAM_VERSION
