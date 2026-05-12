@@ -13,6 +13,8 @@ My monorepo for my [Nix](https://github.com/NixOS/nix) hosts.
 
 * [`secrets/`](./secrets/): My [agenix](https://github.com/ryantm/agenix) secrets which are used in various modules, unlocked at rebuild with my host's SSH-keys in `/etc/ssh/`.
 
+* [`templates/`](./templates/): Template files for various configs.
+
 * [`flake.nix`](./flake.nix): My [flake](https://wiki.nixos.org/wiki/NixOS_system_configuration#Defining_NixOS_as_a_flake) that essentially acts as blueprint for my hosts. Taking in `inputs` like nixpkgs and passing everything on as the global configuration for my hosts.
 
 # Using
@@ -36,7 +38,6 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 # To-do
-- [ ] `flake.nix`-v3: proper checks, `nix build .#ci`, cleaner `mkSystem`
 - [ ] Make all files+dirs kebab-case
 - [ ] Make custom base16 theme
 - [ ] Disable password SSH and add agent
