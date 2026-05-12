@@ -39,16 +39,16 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 ## To-do
+- [ ] Init: `services.octodns` blocker: nixos/nixpkgs#517510
+- [ ] Init: `services.crowdsec` blocker: nixos/nixpkgs#496325
+- [ ] Init: `pkgs.zmx` blocker: nixos/nixpkgs#468608
+- [ ] Init: `sops.secrets` blocker: mic92/sops-nix#779, mic92/sops-nix#922
 - [ ] Make all files+dirs kebab-case
 - [ ] Make custom base16 theme
 - [ ] Disable password SSH and add agent
 - [ ] Better `README.md`
 - [ ] More `pkgs.navi` docs
-- [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?,
+- [ ] SOCKS5-proxy: 3proxy?, proxychains?, networking.proxy?,
 - [ ] `services.*`: Unique ports?
-- [ ] Init: Rsync-hbd cron job
-- [ ] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?)
-- [ ] Switch to SOPS-nix
-- [ ] Jujutsu-vcs
+- [ ] Auth-middleware: Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?
 - [ ] Just rawdog dnsmasq instead of Pihole
-- [ ] CrowdSec (+Anubis?)
