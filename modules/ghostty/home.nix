@@ -30,7 +30,13 @@
       window-inherit-working-directory = true;
       copy-on-select = false;
       quit-after-last-window-closed = false;
-      shell-integration-features = true;
+      shell-integration-features = [
+        "cursor"
+        "sudo"
+        "title"
+        "ssh-env"
+        "path"
+      ];
       bell-features = [
         "system"
         "audio"
