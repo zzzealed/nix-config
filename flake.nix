@@ -58,21 +58,20 @@
   };
 
   outputs =
+    # Bind all inputs from above to `inputs` attr
     inputs@{ ... }:
     let
       mkSystem =
-        name: system:
+        name: system: domain:
         inputs.nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = {
-            # See: https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
-            inherit inputs;
-          };
+          # https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
+          specialArgs = { inherit inputs; };
           modules = [
             {
               networking = {
                 hostName = name;
-                domain = "l.zzzealed.com";
+                domain = domain;
               };
             }
             ./nix.nix
@@ -85,10 +84,10 @@
     in
     {
       nixosConfigurations = {
-        desktop-nixos = mkSystem "desktop" "x86_64-linux";
-        server-nixos = mkSystem "server" "x86_64-linux";
-        pi-nixos = mkSystem "pi" "aarch64-linux";
-        vps-nixos = mkSystem "vps" "x86_64-linux";
+        desktop-nixos = mkSystem "desktop" "x86_64-linux" "l.zzzealed.com";
+        server-nixos = mkSystem "server" "x86_64-linux" "l.zzzealed.com";
+        pi-nixos = mkSystem "pi" "aarch64-linux" "l.zzzealed.com";
+        vps-nixos = mkSystem "vps" "x86_64-linux" "zzzealed.com";
       };
     };
 }
