@@ -2,16 +2,10 @@
 [![.github/workflows/check-no-build.yml](https://github.com/zzzealed/nix-config/actions/workflows/check-no-build.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/check-no-build.yml)
 [![.github/workflows/build.yml](https://github.com/zzzealed/nix-config/actions/workflows/build.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/build.yml)
 
-My monorepo for my [Nix](https://github.com/NixOS/nix) hosts.
-
-# File structure
-* [`hosts/`](./hosts/): Here you'll find any Nix modules that are host-specific and imports for the shared `modules/`-modules.
 
 * [`modules/`](./modules/): Shared Nix modules and configuration that are imported individually per `hosts/foo/configuration.nix`.
 
 * [`overlays/`](./overlays/): Shared [Nix overlays](https://wiki.nixos.org/wiki/Overlays) that are used globally if imported in `overlays/default.nix`.
-
-* [`secrets/`](./secrets/): My [agenix](https://github.com/ryantm/agenix) secrets which are used in various modules, unlocked at rebuild with my host's SSH-keys in `/etc/ssh/`.
 
 * [`templates/`](./templates/): Template files for various configs.
 
@@ -46,10 +40,8 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] SOCKS5 proxy: Init, 3proxy?, proxychains?, networking.proxy?,
 - [ ] `services.*`: Unique ports?
 - [ ] Init: Rsync-hbd cron job
-- [ ] Add `mpv-playlist-dir-conf` to NUR
 - [ ] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?)
 - [ ] Switch to SOPS-nix
 - [ ] Jujutsu-vcs
 - [ ] Just rawdog dnsmasq instead of Pihole
-- [x] Ashell bar
 - [ ] CrowdSec (+Anubis?)
