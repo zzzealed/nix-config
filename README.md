@@ -48,8 +48,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] Add `mpv-playlist-dir-conf` to NUR
 - [ ] Auth-middleware, (Authelia?, Authentik?, TinyAuth?, Pocket-ID?, ZITADEL?)
 - [ ] Switch to SOPS-nix
-- [ ] Set up 3rd-party caches (Cachix etc.)
 - [ ] Jujutsu-vcs
 - [ ] Just rawdog dnsmasq instead of Pihole
 - [x] Ashell bar
-- [ ] CrowdSec (+Anubis)
+- [ ] CrowdSec (+Anubis?)
