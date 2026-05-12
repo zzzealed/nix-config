@@ -20,6 +20,7 @@
     ../../modules/ddclient
     ../../modules/ddclient/vps.zzzealed.com.nix
     ../../modules/endlessh
+    ../../modules/fail2ban
   ];
 
   # Workaround for https://github.com/NixOS/nix/issues/8502

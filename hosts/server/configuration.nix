@@ -71,6 +71,7 @@
     ../../modules/gatus
     ../../modules/gatus/gatus-local.nix
     ../../modules/qbittorrent
+    ../../modules/fail2ban
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker

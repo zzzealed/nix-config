@@ -53,7 +53,6 @@
     ../../modules/thermald
     ../../modules/yubikey
     ../../modules/xdg-portal
-    ../../modules/wg-quick
     ../../modules/tokei.nix
     ../../modules/tealdeer.nix
     ../../modules/nix-gc
@@ -86,6 +85,7 @@
       ../../modules/btop/home.nix
       ../../modules/legcord/home.nix
       ../../modules/yazi/home.nix
+      ../../modules/opencode/home.nix
     ];
   };
 
