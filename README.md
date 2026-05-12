@@ -40,7 +40,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 
 ## To-do
 - [ ] Init: `services.octodns` blocker: nixos/nixpkgs#517510
-- [ ] Init: `services.crowdsec` blocker: nixos/nixpkgs#496325
+- [ ] Init: `services.crowdsec` blocker: nixos/nixpkgs#446307
 - [ ] Init: `pkgs.zmx` blocker: nixos/nixpkgs#468608
 - [ ] Init: `sops.secrets` blocker: mic92/sops-nix#779, mic92/sops-nix#922
 - [ ] Make all files+dirs kebab-case
