@@ -121,13 +121,18 @@
     {
       name = "DDNS 2";
       group = "zzzealed.com";
-      url = "icmp://vps.zzzealed.com";
+      url = "1.1.1.1";
       interval = "5m";
+      dns = {
+        query-name = "vps.zzzealed.com";
+        query-type = "A";
+      };
       conditions = [
         "[CONNECTED] == true"
         "[RESPONSE_TIME] < 500"
         # So we know if IP changes, for funsies
-        "[IP] == 79.76.44.104"
+        "[BODY] == 79.76.44.104"
+        "[DNS_RCODE] == NOERROR"
       ];
       alerts = [
         { type = "discord"; }
@@ -137,13 +142,18 @@
     {
       name = "DDNS";
       group = "zzzealed.com";
-      url = "icmp://home.zzzealed.com";
+      url = "1.1.1.1";
       interval = "5m";
+      dns = {
+        query-name = "home.zzzealed.com";
+        query-type = "A";
+      };
       conditions = [
         "[CONNECTED] == true"
         "[RESPONSE_TIME] < 500"
         # So we know if IP changes, for funsies
-        "[IP] == 87.104.105.54"
+        "[BODY] == 87.104.105.54"
+        "[DNS_RCODE] == NOERROR"
       ];
       alerts = [
         { type = "discord"; }
