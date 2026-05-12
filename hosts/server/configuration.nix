@@ -37,7 +37,7 @@
     ../../modules/openssh
     ../../modules/open-webui
     ../../modules/scrutiny
-    #../../modules/calibre-web
+    ../../modules/calibre-web
     ../../modules/vaultwarden
     ../../modules/radicale
     ../../modules/samba-shares
