@@ -3,6 +3,7 @@ on:
     branches: [main]
     paths-ignore:
       - "flake.lock"
+      - "README.md"
 jobs:
   check-no-build:
     runs-on: [self-hosted, nix]
