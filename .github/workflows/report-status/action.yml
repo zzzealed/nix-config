@@ -1,0 +1,18 @@
+name: Report Status
+description: Report workflow status to Gatus
+inputs:
+  endpoint:
+    required: true
+    description: Gatus endpoint path
+  token:
+    required: true
+    description: Gatus auth token
+runs:
+  using: composite
+  steps:
+    - name: report status
+      shell: bash
+      run: |
+        curl -sf -X POST \
+          -H "Authorization: Bearer ${{ inputs.token }}" \
+          "https://status.rotte.city/api/v1/endpoints/${{ inputs.endpoint }}/external?success=${{ inputs.status }}"

@@ -2,39 +2,38 @@ on:
   push:
     branches: [main]
     paths:
-    - "flake.lock"
-
+      - "flake.lock"
 jobs:
-  build:
+  build-server:
+    runs-on: [self-hosted, nix]
+    steps:
+      - uses: ./.github/actions/checkout
+      - name: build server-nixos
+        run: |
+          nix build .#nixosConfigurations.server-nixos.config.system.build.toplevel \
+            --log-format bar \
+            --out-link /var/lib/github-runner/server-nixos/gcroots/server-nixos
+  build-rest:
+    needs: build-server
     strategy:
       matrix:
-        host: [desktop-nixos, server-nixos, pi-nixos, vps-nixos]
+        host: [desktop-nixos, pi-nixos, vps-nixos]
       fail-fast: false
     runs-on: [self-hosted, nix]
     steps:
-      - name: checkout
-        run: |
-          if [ -d .git ]; then
-            git fetch origin main
-            git reset --hard origin/main
-          else
-            git clone https://github.com/zzzealed/nix-config .
-          fi
-
+      - uses: ./.github/actions/checkout
       - name: build ${{ matrix.host }}
         run: |
           nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
-            --log-format bar-with-logs \
+            --log-format bar \
             --out-link /var/lib/github-runner/server-nixos/gcroots/${{ matrix.host }}
-
-      - name: report status
-        if: always() # Run even on fail
-        run: |
-          if [ "${{ job.status }}" = "success" ]; then
-            STATUS=true
-          else
-            STATUS=false
-          fi
-          curl -sf -X POST \
-            -H "Authorization: Bearer ${{ secrets.GATUS_GITHUB_TOKEN }}" \
-            "https://status.rotte.city/api/v1/endpoints/github-com_actions-build-yml-workflow/external?success=$STATUS"
+  gatus-post:
+    if: always()
+    needs: [build-server, build-rest]
+    runs-on: [self-hosted, nix]
+    steps:
+      - uses: ./.github/actions/report-status
+        with:
+          endpoint: github-com_actions-build-yml-workflow
+          status: ${{ needs.build-server.result == 'success' && needs.build-rest.result == 'success' }}
+          token: ${{ secrets.GATUS_GITHUB_TOKEN }}
