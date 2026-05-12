@@ -7,6 +7,9 @@ inputs:
   token:
     required: true
     description: Gatus auth token
+  status:
+    required: true
+    description: Gatus success boolean
 runs:
   using: composite
   steps:
