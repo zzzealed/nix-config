@@ -28,17 +28,23 @@ function _rbld
         "rsync --archive --info=progress2 --filter=':- .gitignore' mads@desktop.l.zzzealed.com:/home/mads/nix-config/ ~/nix-config/ && \
         nh os $argv[2] ~/nix-config#$host --ask $argv[3..]"
 end
-function rbld-desktop
-    _rbld desktop-nixos $argv --target-host mads@desktop.l.zzzealed.com
-end
 function rbld-server
     _rbld server-nixos $argv
+end
+function rbld-desktop
+    _rbld desktop-nixos $argv --target-host mads@desktop.l.zzzealed.com
 end
 function rbld-pi
     _rbld pi-nixos $argv --target-host mads@pi.l.zzzealed.com
 end
 function rbld-vps
     _rbld vps-nixos $argv --target-host mads@vps.zzzealed.com
+end
+function rbld-all
+    rbld-server $argv
+    rbld-desktop $argv
+    rbld-pi $argv
+    rbld-vps $argv
 end
 
 ## Misc.
