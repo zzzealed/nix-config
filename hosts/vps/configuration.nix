@@ -28,8 +28,5 @@
 
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
-  #networking.hostName = "instance-20260423-1921";
-  networking.domain = "";
   system.stateVersion = "23.11";
-
 }
