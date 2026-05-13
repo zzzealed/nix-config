@@ -75,6 +75,9 @@ end
 function rsync
     command rsync --verbose --archive --progress --human-readable $argv
 end
+function za
+    zmx a $argv fish
+end
 
 ## Custom
 # TIP: use like `duration *.mkv */*.mkv | sort -V`
