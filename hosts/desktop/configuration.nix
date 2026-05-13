@@ -107,6 +107,7 @@
     usbutils
     llm
     wooting-udev-rules
+    unstable.librepods
   ];
 
   # xdg.mime
