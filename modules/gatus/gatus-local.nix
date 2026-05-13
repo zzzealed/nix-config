@@ -68,23 +68,6 @@
       ];
     }
     {
-      name = "OpenWebUI";
-      group = "l.zzzealed.com";
-      url = "https://chat.l.zzzealed.com/health";
-      interval = "5m";
-      conditions = [
-        "[STATUS] == 200"
-        "[CONNECTED] == true"
-        "[RESPONSE_TIME] < 500"
-        "[BODY].status == true" # true
-        "[CERTIFICATE_EXPIRATION] > 336h"
-      ];
-      alerts = [
-        { type = "discord"; }
-        { type = "ntfy"; }
-      ];
-    }
-    {
       name = "Karakeep";
       group = "l.zzzealed.com";
       url = "https://karakeep.l.zzzealed.com/api/health";
@@ -202,22 +185,6 @@
       ];
     }
     {
-      name = "Calibre Web";
-      group = "l.zzzealed.com";
-      url = "https://calibre.l.zzzealed.com";
-      interval = "5m";
-      conditions = [
-        "[STATUS] == 200"
-        "[CONNECTED] == true"
-        "[RESPONSE_TIME] < 500"
-        "[CERTIFICATE_EXPIRATION] > 336h"
-      ];
-      alerts = [
-        { type = "discord"; }
-        { type = "ntfy"; }
-      ];
-    }
-    {
       name = "n8n";
       group = "l.zzzealed.com";
       url = "https://n8n.l.zzzealed.com/healthz";
@@ -237,7 +204,7 @@
     {
       name = "Chrome";
       group = "l.zzzealed.com";
-      url = "https://chrome.l.zzzealed.com";
+      url = "https://chrome.l.zzzealed.com/#shared";
       interval = "5m";
       conditions = [
         "[STATUS] == 200"
