@@ -2,7 +2,7 @@
 {
   programs.niri = {
     enable = true;
-    package = pkgs.unstable.niri; # TODO: flake
+    package = pkgs.unstable.niri;
   };
   environment.systemPackages = with pkgs; [
     unstable.xwayland-satellite # X-compatibility
