@@ -3,6 +3,7 @@
   services.fail2ban = {
     enable = true;
     package = pkgs.fail2ban;
+    extraPackages = [ pkgs.nftables ];
     ignoreIP = [
       "192.168.0.0/16"
       "10.100.0.0/16" # Wireguard
