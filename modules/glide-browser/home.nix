@@ -53,6 +53,12 @@
               name = "Gatus";
               tags = [ ];
               keyword = ",gatus";
+              url = "https://status.l.zzzealed.com";
+            }
+            {
+              name = "Gatus 2";
+              tags = [ ];
+              keyword = ",gatus2";
               url = "https://status.rotte.city";
             }
             {
