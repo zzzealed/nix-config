@@ -115,11 +115,6 @@
                       icon = "sh:searxng";
                     }
                     {
-                      title = "Open WebUI";
-                      url = "https://chat.l.zzzealed.com";
-                      icon = "sh:open-webui";
-                    }
-                    {
                       title = "Karakeep";
                       url = "https://karakeep.l.zzzealed.com";
                       icon = "sh:karakeep";
@@ -158,11 +153,6 @@
                       title = "Teapot";
                       url = "https://twitter.l.zzzealed.com";
                       icon = "sh:twitter";
-                    }
-                    {
-                      title = "Calibre Web";
-                      url = "https://calibre.l.zzzealed.com";
-                      icon = "sh:calibre-web";
                     }
                     {
                       title = "n8n";
