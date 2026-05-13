@@ -29,8 +29,10 @@ in
     package = opencode-sandboxed;
     enableMcpIntegration = false;
     rules = ''
-      See your abilities in `~/nix-config/modules/opencode/home.nix`.
-      In short; you have no write for the most part. Don't suggest editing a file.
+      - See your abilities in `~/nix-config/modules/opencode/home.nix`.
+        - In short; you have no write for the most part. Don't suggest editing a file.
+      - I use [NixOS with Nix](https://github.com/NixOS/nix), see `~/nix-config/nix.nix`.
+      - I use [Helix editor](https://github.com/helix-editor/helix), see `~/nix-config/modules/helix/home.nix`.
     '';
     settings = {
       # model = "";
@@ -43,8 +45,9 @@ in
           "*.env" = "deny";
           "*.env.*" = "deny";
           "*.env.example" = "allow";
-          "config.php" = "deny";
+          "*config.php" = "deny";
         };
+        "edit" = "deny";
         "glob" = "allow";
         "grep" = "allow";
         "bash" = {
