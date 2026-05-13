@@ -17,9 +17,11 @@ let
         --proc /proc \
         --bind "$HOME/.config/opencode" "$HOME/.config/opencode" \
         --bind "$HOME/.local/share/opencode" "$HOME/.local/share/opencode" \
+        --bind "$HOME/.local/state/opencode" "$HOME/.local/state/opencode" \
         --bind "$HOME/.cache/opencode" "$HOME/.cache/opencode" \
         --bind "$HOME/.cache/nix" "$HOME/.cache/nix" \
-        "${pkgs.opencode}/bin/opencode" "$@"
+        --bind "/run/user/1000/zmx" "/run/user/1000/zmx" \
+        "${pkgs.unstable.opencode}/bin/opencode" "$@"
     '';
   };
 in
@@ -29,10 +31,15 @@ in
     package = opencode-sandboxed;
     enableMcpIntegration = false;
     rules = ''
+      - Please read `./AGENTS.md`
       - See your abilities in `~/nix-config/modules/opencode/home.nix`.
         - In short; you have no write for the most part. Don't suggest editing a file.
-      - I use [NixOS with Nix](https://github.com/NixOS/nix), see `~/nix-config/nix.nix`.
-      - I use [Helix editor](https://github.com/helix-editor/helix), see `~/nix-config/modules/helix/home.nix`.
+      - I use [NixOS with Nix](https://github.com/NixOS/nix), see `~/nix-config/nix.nix`-file.
+      - I use [Helix editor](https://github.com/helix-editor/helix), see `~/nix-config/modules/helix/home.nix`-file.
+        - My config is in `~/nix-config/modules/helix/config/`-dir.
+      - I use [zmx](https://github.com/neurosnap/zmx), see `~/nix-config/modules/zmx/default.nix`-file.
+      - I use [Fish shell](https://github.com/fish-shell/fish-shell), see `~/nix-config/modules/fish/default.nix`-file.
+        - My config is in `~/nix-config/modules/fish/config/`-dir.
     '';
     settings = {
       # model = "";
@@ -46,15 +53,19 @@ in
           "*.env.*" = "deny";
           "*.env.example" = "allow";
           "*config.php" = "deny";
+          "example.config.php" = "allow";
         };
         "edit" = "deny";
         "glob" = "allow";
         "grep" = "allow";
         "bash" = {
           "*" = "deny";
+          "opencode *" = "allow";
           "nix-shell" = "allow";
           "nix flake *" = "allow";
           "man *" = "allow";
+          "zmx *" = "allow";
+          "tail *" = "allow";
         };
         "question" = "allow";
         "webfetch" = "allow";
@@ -63,6 +74,7 @@ in
           "*" = "deny";
           "~/.config/opencode" = "allow";
           "~/.local/share/opencode" = "allow";
+          "~/.local/state/opencode" = "allow";
           "~/.cache/opencode" = "allow";
           "~/.cache/nix" = "allow";
           "~/nix-config" = "allow";
@@ -75,6 +87,11 @@ in
         Run `nix-shell`.
         Run `nix flake check --no-build`.
         Usage: /test
+      '';
+      "history" = ''
+        # get history of zmx session
+        run `zmx history $ARGUMENTS` and respond to what you see.
+        Usage: /history <session_name>
       '';
     };
   };
