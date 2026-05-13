@@ -35,9 +35,7 @@
     # ../../modules/wg-quick/wg_hbd-2.nix
     ../../modules/changedetection-io
     ../../modules/openssh
-    ../../modules/open-webui
     ../../modules/scrutiny
-    ../../modules/calibre-web
     ../../modules/vaultwarden
     ../../modules/radicale
     ../../modules/samba-shares
