@@ -28,6 +28,7 @@
       lua-language-server # Lua
       systemd-lsp # Systemd
       tinymist # Typst
+      intelephense # PHP
       # Nix
       nixd
       nixfmt
