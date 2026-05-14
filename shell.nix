@@ -20,7 +20,6 @@ pkgs.mkShell {
   packages = with pkgs; [
     nix
     nixos-rebuild-ng
-    nixos-generate-config
     home-manager
     vim
     git
