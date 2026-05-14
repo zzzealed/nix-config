@@ -337,13 +337,13 @@
     {
       name = "qBittorrent";
       group = "l.zzzealed.com";
-      url = "https://qbit.l.zzzealed.com/api/v2/app/version";
+      url = "https://qbit.l.zzzealed.com";
       interval = "5m";
       conditions = [
         "[STATUS] == 200"
         "[CONNECTED] == true"
         "[RESPONSE_TIME] < 500"
-        "[BODY] == pat(v*)"
+        "[BODY] == pat(*qBittorrent WebUI*)"
         "[CERTIFICATE_EXPIRATION] > 336h"
       ];
       alerts = [
