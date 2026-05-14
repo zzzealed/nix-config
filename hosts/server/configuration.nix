@@ -32,7 +32,7 @@
     # Services
     ../../modules/home-assistant
     ../../modules/wg-quick
-    # ../../modules/wg-quick/wg_hbd-2.nix
+    ../../modules/wg-quick/wg_hbd-2.nix
     ../../modules/changedetection-io
     ../../modules/openssh
     ../../modules/scrutiny
@@ -70,6 +70,7 @@
     ../../modules/gatus/gatus-local.nix
     ../../modules/qbittorrent
     ../../modules/fail2ban
+    # ../../modules/authelia
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
