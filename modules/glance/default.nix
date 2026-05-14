@@ -125,6 +125,11 @@
                       icon = "sh:pi-hole";
                     }
                     {
+                      title = "qBittorrent";
+                      url = "https://qbit.l.zzzealed.com";
+                      icon = "sh:qbittorrent";
+                    }
+                    {
                       title = "Radicale";
                       url = "https://radicale.l.zzzealed.com";
                       icon = "sh:radicale";

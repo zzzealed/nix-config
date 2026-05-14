@@ -334,6 +334,23 @@
         { type = "ntfy"; }
       ];
     }
+    {
+      name = "qBittorrent";
+      group = "l.zzzealed.com";
+      url = "https://qbit.l.zzzealed.com/api/v2/app/version";
+      interval = "5m";
+      conditions = [
+        "[STATUS] == 200"
+        "[CONNECTED] == true"
+        "[RESPONSE_TIME] < 500"
+        "[BODY] == pat(v*)"
+        "[CERTIFICATE_EXPIRATION] > 336h"
+      ];
+      alerts = [
+        { type = "discord"; }
+        { type = "ntfy"; }
+      ];
+    }
   ];
   services.nginx.virtualHosts."status.l.zzzealed.com" = {
     useACMEHost = "zzzealed.com";
