@@ -59,12 +59,12 @@ in
       permission = {
         "*" = "deny";
         "read" = {
-          "*" = "ask";
+          "*" = "allow";
           "*.env" = "deny";
           "*.env.*" = "deny";
-          "*.env.example" = "ask";
+          "*.env.example" = "allow";
           "*config.php" = "deny";
-          "example.config.php" = "ask";
+          "example.config.php" = "allow";
         };
         "edit" = "deny";
         "glob" = "allow";
