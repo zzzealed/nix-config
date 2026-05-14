@@ -404,6 +404,10 @@
                       url = "https://kill-the-newsletter.com/feeds/vjktitqvivujprhmbmtk.xml";
                       title = "The LFN Herald";
                     }
+                    {
+                      url = "https://www.xda-developers.com/feed/news";
+                      title = "XDA";
+                    }
                   ];
                 }
                 {
