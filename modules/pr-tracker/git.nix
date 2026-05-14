@@ -25,7 +25,7 @@ in
         core.bare = true;
         core.sharedRepository = "world";
         fetch.prune = true;
-        gc.auto = 0;
+        gc.auto = 6700;
         "remote \"origin\"" = {
           url = "https://github.com/NixOS/nixpkgs";
           tagOpt = "--no-tags";
@@ -88,7 +88,7 @@ in
     serviceConfig.DynamicUser = true;
     serviceConfig.Group = "nixpkgs";
     serviceConfig.ReadWritePaths = "/var/lib/git/nixpkgs.git";
-    serviceConfig.ExecStart = "${pkgs.gitMinimal}/bin/git --git-dir /var/lib/git/nixpkgs.git gc --quiet";
+    serviceConfig.ExecStart = "${pkgs.gitMinimal}/bin/git --git-dir /var/lib/git/nixpkgs.git gc --auto --quiet";
     serviceConfig.Type = "oneshot";
     serviceConfig.UMask = "0002";
   };
