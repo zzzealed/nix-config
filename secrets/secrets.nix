@@ -58,6 +58,10 @@ let
     "github_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "hbd-wireguard_config-2.age".publicKeys = decodingKeys ++ interactiveKeys;
+    "authelia_jwt-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "authelia_storage-encryption-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "hbd-1_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "hbd-2_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 in
 builtins.mapAttrs (_name: value: defaults // value) secrets
