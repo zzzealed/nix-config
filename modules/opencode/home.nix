@@ -2,34 +2,45 @@
 let
   # Bubblewrap OpenCode
   # I've watched "Age of Ultron"
-  opencode-sandboxed = pkgs.writeShellApplication {
+  opencode-bubblewrapped = pkgs.writeShellApplication {
     name = "opencode";
-    runtimeInputs = [ pkgs.bubblewrap ];
+    runtimeInputs = [
+      pkgs.bubblewrap
+      pkgs.unstable.opencode
+    ];
+    # This is the best I cared to come up with
     text = ''
       mkdir -p "$HOME/.config/opencode"
       mkdir -p "$HOME/.local/share/opencode"
+      mkdir -p "$HOME/.local/state/opencode"
+      mkdir -p "$HOME/.cache/opencode"
 
       exec bwrap \
-        --ro-bind / / \
-        --tmpfs /tmp \
-        --tmpfs /var/tmp \
         --dev /dev \
         --proc /proc \
+        --tmpfs /tmp \
+        --ro-bind /nix /nix \
+        --ro-bind /run/current-system /run/current-system \
+        --ro-bind /etc/resolv.conf /etc/resolv.conf \
         --bind "$HOME/.config/opencode" "$HOME/.config/opencode" \
         --bind "$HOME/.local/share/opencode" "$HOME/.local/share/opencode" \
         --bind "$HOME/.local/state/opencode" "$HOME/.local/state/opencode" \
         --bind "$HOME/.cache/opencode" "$HOME/.cache/opencode" \
         --bind "$HOME/.cache/nix" "$HOME/.cache/nix" \
-        --bind "/run/user/1000/zmx" "/run/user/1000/zmx" \
-        "${pkgs.unstable.opencode}/bin/opencode" "$@"
+        --bind "/run/user/$UID/zmx" "/run/user/$UID/zmx" \
+        --ro-bind "$HOME/nix-config" "$HOME/nix-config" \
+        --ro-bind "$HOME/Documents" "$HOME/Documents" \
+        --setenv OPENCODE_DISABLE_CHANNEL_DB 1 \
+        opencode "$@"
     '';
   };
 in
 {
   programs.opencode = {
     enable = true;
-    package = opencode-sandboxed;
+    package = opencode-bubblewrapped;
     enableMcpIntegration = false;
+    # Writes to ~/.config/opencode/AGENTS.md
     rules = ''
       - Please read `./AGENTS.md`
       - See your abilities in `~/nix-config/modules/opencode/home.nix`.
@@ -44,28 +55,37 @@ in
     settings = {
       # model = "";
       autoshare = false;
-      autoupdate = true;
+      autoupdate = "notify";
       permission = {
         "*" = "deny";
         "read" = {
-          "*" = "allow";
+          "*" = "ask";
           "*.env" = "deny";
           "*.env.*" = "deny";
-          "*.env.example" = "allow";
+          "*.env.example" = "ask";
           "*config.php" = "deny";
-          "example.config.php" = "allow";
+          "example.config.php" = "ask";
         };
         "edit" = "deny";
         "glob" = "allow";
         "grep" = "allow";
         "bash" = {
           "*" = "deny";
-          "opencode *" = "allow";
+          # opencode
+          "opencode *" = "ask";
+          # nix-shell
           "nix-shell" = "allow";
-          "nix flake *" = "allow";
+          # nix flake
+          "nix flake *" = "deny";
+          "nix flake show *" = "allow";
+          "nix flake check *" = "allow";
+          # misc.
           "man *" = "allow";
-          "zmx *" = "allow";
-          "tail *" = "allow";
+          # zmx
+          "zmx *" = "deny";
+          "zmx list *" = "allow";
+          "zmx history *" = "ask";
+          "zmx tail *" = "ask";
         };
         "question" = "allow";
         "webfetch" = "allow";
@@ -92,6 +112,11 @@ in
         # get history of zmx session
         run `zmx history $ARGUMENTS` and respond to what you see.
         Usage: /history <session_name>
+      '';
+      "tail" = ''
+        # tail history of zmx session
+        run `zmx tail $ARGUMENTS` and respond to what you see.
+        Usage: /tail <session_name>
       '';
     };
   };
