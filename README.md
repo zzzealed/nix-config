@@ -39,7 +39,8 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 > NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
 
 ## To-do
-- [ ] Init: `services.authelia`
+- [x] Init: `services.authelia`
+- [ ] Forgejo, HA, Karakeep, Pihole: OIDC
 - [ ] Init: `services.octodns` blocker: nixos/nixpkgs#517510
 - [ ] Init: `services.crowdsec` blocker: nixos/nixpkgs#446307
 - [ ] Init: `pkgs.zmx` blocker: nixos/nixpkgs#468608
