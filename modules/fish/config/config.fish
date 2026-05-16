@@ -41,9 +41,13 @@ function rbld-vps
     _rbld vps-nixos $argv --target-host mads@vps.zzzealed.com
 end
 function rbld-all
+    echo server
     rbld-server $argv
+    echo desktop
     rbld-desktop $argv
+    echo pi
     rbld-pi $argv
+    echo vps
     rbld-vps $argv
 end
 

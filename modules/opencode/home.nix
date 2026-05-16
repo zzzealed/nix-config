@@ -81,11 +81,12 @@ in
           "nix flake check *" = "allow";
           # misc.
           "man *" = "allow";
+          "tail *" = "ask";
           # zmx
           "zmx *" = "deny";
           "zmx list *" = "allow";
           "zmx history *" = "ask";
-          "zmx tail *" = "ask";
+          "zmx history * | tail *" = "ask";
         };
         "question" = "allow";
         "webfetch" = "allow";
@@ -103,20 +104,14 @@ in
     };
     commands = {
       "test" = ''
-        # flake check without building
         Run `nix-shell`.
         Run `nix flake check --no-build`.
         Usage: /test
       '';
-      "history" = ''
-        # get history of zmx session
-        run `zmx history $ARGUMENTS` and respond to what you see.
-        Usage: /history <session_name>
-      '';
       "tail" = ''
-        # tail history of zmx session
-        run `zmx tail $ARGUMENTS` and respond to what you see.
-        Usage: /tail <session_name>
+        run `zmx history $1 | tail $2`.
+        $3.
+        Usage: /tail <session_name> | tail -<lines> "<message>"
       '';
     };
   };
