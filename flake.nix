@@ -61,8 +61,8 @@
     # Bind all inputs from above to `inputs` attr
     inputs@{ ... }:
     let
-      mkSystem =
-        name: system: domain:
+      mkNixosConfig =
+        hostName: system: domain:
         inputs.nixpkgs.lib.nixosSystem {
           system = system;
           # https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
@@ -70,24 +70,24 @@
           modules = [
             {
               networking = {
-                hostName = name;
+                hostName = hostName;
                 domain = domain;
               };
             }
             ./nix.nix
             ./secrets
             ./overlays
-            (./hosts + "/${name}/configuration.nix")
-            (./hosts + "/${name}/hardware-configuration.nix")
+            (./hosts + "/${hostName}/configuration.nix")
+            (./hosts + "/${hostName}/hardware-configuration.nix")
           ];
         };
     in
     {
       nixosConfigurations = {
-        desktop-nixos = mkSystem "desktop" "x86_64-linux" "l.zzzealed.com";
-        server-nixos = mkSystem "server" "x86_64-linux" "l.zzzealed.com";
-        pi-nixos = mkSystem "pi" "aarch64-linux" "l.zzzealed.com";
-        vps-nixos = mkSystem "vps" "x86_64-linux" "zzzealed.com";
+        desktop-nixos = mkNixosConfig "desktop" "x86_64-linux" "l.zzzealed.com";
+        server-nixos = mkNixosConfig "server" "x86_64-linux" "l.zzzealed.com";
+        pi-nixos = mkNixosConfig "pi" "aarch64-linux" "l.zzzealed.com";
+        vps-nixos = mkNixosConfig "vps" "x86_64-linux" "zzzealed.com";
       };
     };
 }
