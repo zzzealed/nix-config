@@ -8,5 +8,5 @@
         useWallpaper = true;
       };
     };
- };
+  };
 }
