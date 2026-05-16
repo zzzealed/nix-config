@@ -41,7 +41,6 @@
     ../../modules/samba-shares
     ../../modules/samba-shares/vault-share.nix
     ../../modules/samba-shares/home-share.nix
-    ../../modules/n8n
     ../../modules/pihole
     ../../modules/unbound
     ../../modules/searx
@@ -70,7 +69,7 @@
     ../../modules/gatus/gatus-local.nix
     ../../modules/qbittorrent
     ../../modules/fail2ban
-    # ../../modules/authelia
+    ../../modules/authelia
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
