@@ -23,6 +23,8 @@
       server.address = "tcp://:9091/";
       session = {
         same_site = "lax";
+        expiration = "6 hours";
+        inactivity = "2 hour";
         cookies = [
           {
             domain = "zzzealed.com";
@@ -33,29 +35,6 @@
       access_control = {
         default_policy = "deny";
         rules = [
-          # API health endpoints
-          {
-            # This is not a *great* way to do this. I should be doing it per-domain but I can't be arsed
-            domain = "*.l.zzzealed.com";
-            policy = "bypass";
-            resources = [
-              # I still hate regex
-              "^/alive/?$"
-              "^/healthz/?$"
-              "^/api/health/?$"
-              "^/api/summary/?$"
-              "^/api/stats/summary/?$"
-              "^/api/config/?$"
-              "^/api/v1/systeminfo/?$"
-              "^/v1/models/?$"
-              "^/\\.health/?$"
-              "^/info/?$"
-              "^/health/?$"
-              "^/v1/health/?$"
-              "^/api/v2/transfer/info/?$"
-              "^/[^/]+/rss/?$"
-            ];
-          }
           # Exceptions
           {
             domain = "auth.l.zzzealed.com";

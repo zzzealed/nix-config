@@ -12,6 +12,12 @@
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
+    commonHttpConfig = ''
+      map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ""      close;
+      }
+    '';
   };
   security.acme = {
     acceptTerms = true;

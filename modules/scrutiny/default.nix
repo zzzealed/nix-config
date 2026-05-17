@@ -26,5 +26,7 @@
         proxy_pass_request_body off;
       '';
     };
+    locations."/api/summary".proxyPass =
+      "http://127.0.0.1:${toString config.services.scrutiny.settings.web.listen.port}";
   };
 }
