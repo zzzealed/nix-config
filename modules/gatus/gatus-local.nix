@@ -43,6 +43,7 @@
         "[STATUS] == 200"
         "[CONNECTED] == true"
         "[RESPONSE_TIME] < 500"
+        "[BODY] != ''" # body isn't empty
         "[CERTIFICATE_EXPIRATION] > 336h"
       ];
       alerts = [
@@ -295,6 +296,7 @@
         "[CONNECTED] == true"
         "[RESPONSE_TIME] < 500"
         "[BODY].healthy == true" # true
+        "[CERTIFICATE_EXPIRATION] > 336h"
       ];
       alerts = [
         { type = "discord"; }
@@ -336,26 +338,45 @@
         { type = "ntfy"; }
       ];
     }
+    {
+      name = "Glance";
+      group = "l.zzzealed.com";
+      url = "https://glance.l.zzzealed.com/api/healthz";
+      interval = "5m";
+      conditions = [
+        "[STATUS] == 200"
+        "[CONNECTED] == true"
+        "[RESPONSE_TIME] < 500"
+        "[CERTIFICATE_EXPIRATION] > 336h"
+      ];
+      alerts = [
+        { type = "discord"; }
+        { type = "ntfy"; }
+      ];
+    }
   ];
   services.nginx.virtualHosts."status.l.zzzealed.com" = {
     useACMEHost = "zzzealed.com";
     forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:${toString config.services.gatus.settings.web.port}";
-      extraConfig = ''
-        auth_request /internal/authelia/authz;
-        auth_request_set $redirection_url $upstream_http_location;
-        error_page 401 =302 $redirection_url;
-      '';
-    };
-    locations."/internal/authelia/authz" = {
-      extraConfig = ''
-        internal;
-        proxy_pass http://127.0.0.1:9091/api/authz/auth-request;
-        proxy_set_header X-Original-Method $request_method;
-        proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
-        proxy_pass_request_body off;
-      '';
+    locations = {
+      "/" = {
+        proxyPass = "http://127.0.0.1:${toString config.services.gatus.settings.web.port}";
+        extraConfig = ''
+          auth_request /internal/authelia/authz;
+          auth_request_set $redirection_url $upstream_http_location;
+          error_page 401 =302 $redirection_url;
+        '';
+      };
+      "/internal/authelia/authz" = {
+        extraConfig = ''
+          internal;
+          proxy_pass http://127.0.0.1:9091/api/authz/auth-request;
+          proxy_set_header X-Original-Method $request_method;
+          proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
+          proxy_pass_request_body off;
+        '';
+      };
+      "/health".proxyPass = "http://127.0.0.1:${toString config.services.gatus.settings.web.port}";
     };
   };
 }
