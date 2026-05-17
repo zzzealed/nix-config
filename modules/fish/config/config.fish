@@ -20,13 +20,15 @@ end
 # Aliases
 ## Rebuild
 function rbld
+    command sudo -v
     command nh os $argv[1] $HOME/nix-config#$argv[2] $argv[3..]
 end
 function _rbld
     set host $argv[1]
     command ssh -tA mads@server.l.zzzealed.com \
-        "rsync --archive --info=progress2 --filter=':- .gitignore' mads@desktop.l.zzzealed.com:/home/mads/nix-config/ ~/nix-config/ && \
-        nh os $argv[2] ~/nix-config#$host --ask $argv[3..]"
+        "sudo -v && \
+        rsync --archive --info=progress2 --filter=':- .gitignore' mads@desktop.l.zzzealed.com:/home/mads/nix-config/ ~/nix-config/ && \
+        nh os $argv[2] ~/nix-config#$host $argv[3..]"
 end
 function rbld-server
     _rbld server-nixos $argv
