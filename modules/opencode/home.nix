@@ -4,9 +4,10 @@ let
   # I've watched "Age of Ultron"
   opencode-bubblewrapped = pkgs.writeShellApplication {
     name = "opencode";
-    runtimeInputs = [
-      pkgs.bubblewrap
-      pkgs.unstable.opencode
+    runtimeInputs = with pkgs; [
+      bubblewrap
+      unstable.opencode
+      unstable.helix # For /editor
     ];
     # This is the best I cared to come up with
     text = ''
@@ -28,6 +29,8 @@ let
         --bind "$HOME/.cache/opencode" "$HOME/.cache/opencode" \
         --bind "$HOME/.cache/nix" "$HOME/.cache/nix" \
         --bind "/run/user/$UID/zmx" "/run/user/$UID/zmx" \
+        --bind "$HOME/.config/helix" "$HOME/.config/helix" \
+        --bind "$HOME/.cache/helix" "$HOME/.cache/helix" \
         --ro-bind "$HOME/nix-config" "$HOME/nix-config" \
         --ro-bind "$HOME/Documents" "$HOME/Documents" \
         --setenv OPENCODE_DISABLE_CHANNEL_DB 1 \
@@ -101,6 +104,31 @@ in
           "~/nix-config" = "allow";
         };
       };
+      provider = {
+        # https://raw.githubusercontent.com/maruf009sultan/g4f-working/refs/heads/main/working/working_results.txt
+        "g4f.anyprovider" = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "GPT4Free";
+          options = {
+            "baseURL" = "https://g4f.l.zzzealed.com/api/anyprovider";
+            "apiKey" = "secret";
+          };
+          models = {
+            "glm-5.1".name = "glm-5.1";
+          };
+        };
+        "g4f.qwen" = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "GPT4Free";
+          options = {
+            "baseURL" = "https://g4f.l.zzzealed.com/api/qwen";
+            "apiKey" = "secret";
+          };
+          models = {
+            "qwen3.5-max-2026-03-08".name = "qwen3.5-max-2026-03-08";
+          };
+        };
+      };
     };
     commands = {
       "test" = ''
@@ -110,7 +138,7 @@ in
       '';
       "tail" = ''
         run `zmx history $1 | tail $2`.
-        $3.
+        $3
         Usage: /tail <session_name> | tail -<lines> "<message>"
       '';
     };
