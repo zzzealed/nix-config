@@ -56,7 +56,8 @@ in
         - My config is in `~/nix-config/modules/fish/config/`-dir.
     '';
     settings = {
-      # model = "";
+      model = "opencode/qwen3.6-plus-free";
+      small_model = "opencode/deepseek-v4-flash-free";
       autoshare = false;
       autoupdate = "notify";
       permission = {
