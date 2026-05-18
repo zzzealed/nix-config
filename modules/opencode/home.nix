@@ -85,6 +85,7 @@ in
           # misc.
           "man *" = "allow";
           "tail *" = "ask";
+          "rg *" = "allow";
           # zmx
           "zmx *" = "deny";
           "zmx list *" = "allow";
