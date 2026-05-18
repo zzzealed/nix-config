@@ -39,6 +39,7 @@
           proxy_pass http://127.0.0.1:9091/api/authz/auth-request;
           proxy_set_header X-Original-Method $request_method;
           proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
+          proxy_set_header Content-Length "";
           proxy_pass_request_body off;
         '';
       };
