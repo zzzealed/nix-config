@@ -27,7 +27,7 @@
         cnameRecords = [ ];
       };
       webserver.api = {
-        pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI="; # ## CHANGED, default = ""
+        #pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI="; # ## CHANGED, default = ""
         app_pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$tJm1oUkrwSOPVZlAVeGqjA==$zksJz7atbt39Mw2DoqeFOCqwzO8Rd8ayH1N7JZwGGBI=";
         #totp_secret = "";
       };
@@ -111,6 +111,27 @@
   services.nginx.virtualHosts."pihole.l.zzzealed.com" = {
     useACMEHost = "zzzealed.com";
     forceSSL = true;
-    locations."/".proxyPass = "http://127.0.0.1:${toString config.services.pihole-web.ports}";
+    locations = {
+      "/" = {
+        proxyPass = "http://127.0.0.1:${toString config.services.pihole-web.ports}";
+        extraConfig = ''
+          auth_request /internal/authelia/authz;
+          auth_request_set $redirection_url $upstream_http_location;
+          error_page 401 =302 $redirection_url;
+        '';
+      };
+      "/internal/authelia/authz" = {
+        extraConfig = ''
+          internal;
+          proxy_pass http://127.0.0.1:9091/api/authz/auth-request;
+          proxy_set_header X-Original-Method $request_method;
+          proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
+          proxy_set_header X-Original-URI $request_uri;
+          proxy_set_header Content-Length "";
+          proxy_pass_request_body off;
+        '';
+      };
+      "/api/".proxyPass = "http://127.0.0.1:${toString config.services.pihole-web.ports}";
+    };
   };
 }
