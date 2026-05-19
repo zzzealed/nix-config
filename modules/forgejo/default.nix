@@ -9,7 +9,16 @@
         ROOT_URL = "https://git.zzzealed.com";
         HTTP_PORT = 3333;
       };
-      service.DISABLE_REGISTRATION = true;
+      service = {
+        DISABLE_REGISTRATION = true;
+        ALLOW_ONLY_EXTERNAL_REGISTRATION = true;
+        SHOW_REGISTRATION_BUTTON = false;
+      };
+      openid = {
+        ENABLE_OPENID_SIGNIN = false;
+        ENABLE_OPENID_SIGNUP = true;
+        WHITELISTED_URIS = "auth.l.zzzealed.com";
+      };
       cors = {
         ENABLED = true;
         ALLOW_ORIGIN = "https://zzzealed.com";
