@@ -62,6 +62,9 @@ let
     "authelia_storage-encryption-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "hbd-1_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "hbd-2_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "authelia_oidc-hmac-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "authelia_oidc-issuer-private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 in
 builtins.mapAttrs (_name: value: defaults // value) secrets

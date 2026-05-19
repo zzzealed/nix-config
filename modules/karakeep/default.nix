@@ -1,9 +1,13 @@
 { pkgs, config, ... }:
 {
+  age.secrets."karakeep_environment-file".file = ../../secrets/karakeep_environment-file.age;
+
   services.karakeep = {
     enable = true;
     package = pkgs.karakeep;
+    environmentFile = config.age.secrets."karakeep_environment-file".path;
     extraEnvironment = {
+      NEXTAUTH_URL = "https://karakeep.l.zzzealed.com";
       PORT = "7890";
       DISABLE_SIGNUPS = "true";
       DISABLE_NEW_RELEASE_CHECK = "true";

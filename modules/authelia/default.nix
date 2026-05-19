@@ -8,6 +8,14 @@
     file = ../../secrets/authelia_storage-encryption-key-file.age;
     owner = "authelia-main";
   };
+  age.secrets."authelia_oidc-hmac-secret-file" = {
+    file = ../../secrets/authelia_oidc-hmac-secret-file.age;
+    owner = "authelia-main";
+  };
+  age.secrets."authelia_oidc-issuer-private-key-file" = {
+    file = ../../secrets/authelia_oidc-issuer-private-key-file.age;
+    owner = "authelia-main";
+  };
 
   services.authelia.instances.main = {
     enable = true;
@@ -15,6 +23,8 @@
     secrets = {
       jwtSecretFile = config.age.secrets."authelia_jwt-secret-file".path;
       storageEncryptionKeyFile = config.age.secrets."authelia_storage-encryption-key-file".path;
+      oidcHmacSecretFile = config.age.secrets."authelia_oidc-hmac-secret-file".path;
+      oidcIssuerPrivateKeyFile = config.age.secrets."authelia_oidc-issuer-private-key-file".path;
     };
     settings = {
       theme = "auto";
@@ -46,6 +56,42 @@
             policy = "two_factor";
           }
         ];
+      };
+      identity_providers = {
+        oidc = {
+          claims_policies = {
+            karakeep = {
+              id_token = [ "email" ];
+            };
+          };
+          clients = [
+            {
+              client_id = "forgejo";
+              # Generate with `authelia -c authelia crypto hash generate pbkdf2`
+              client_secret = "$pbkdf2-sha512$310000$Z5XWq/yH3udVZn/gibDftA$F7NAXd7W/pxdm7iv//pZy7ODPTfDRsFMJWmja3fhIUi2iCva2Ni0DF9u3fOIf2li3qhWHKmKgvNeOYkzIKSb1A";
+              redirect_uris = [ "https://git.zzzealed.com/user/oauth2/authelia/callback" ];
+              scopes = [
+                "openid"
+                "email"
+                "profile"
+                "groups"
+              ];
+            }
+            {
+              client_id = "karakeep";
+              client_name = "Karakeep";
+              client_secret = "$pbkdf2-sha512$310000$Ei9k39F0Cxtm2HXweXtSiQ$iYww67U0V7ws.7R41N5jVW5C0roaKbg7jfmkoEn9F8tr5XfMPwsPElQtRXufTm8jkAhT92MnsyN7wfscbAwV2A";
+              claims_policy = "karakeep";
+              redirect_uris = [ "https://karakeep.l.zzzealed.com/api/auth/callback/custom" ];
+              scopes = [
+                "openid"
+                "email"
+                "profile"
+                "groups"
+              ];
+            }
+          ];
+        };
       };
       storage.local.path = "/var/lib/authelia-main/db.sqlite";
       notifier.filesystem.filename = "/var/lib/authelia-main/notifications.yml";
