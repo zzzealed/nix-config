@@ -4,6 +4,9 @@
     enable = true;
     #openFirewall = true;
     package = pkgs.home-assistant;
+    customComponents = [
+      pkgs.unstable.home-assistant-custom-components.auth_oidc
+    ];
     extraComponents = [
       # Components required to complete the onboarding
       "analytics"
@@ -24,7 +27,8 @@
     extraPackages =
       python3Packages: with python3Packages; [
         # recorder postgresql support
-        #psycopg2
+        psycopg2
+        joserfc
       ];
     config = {
       default_config = { };
@@ -36,6 +40,10 @@
         ];
         use_x_forwarded_for = true;
       };
+      auth_oidc = {
+        client_id = "homeassistant";
+        discovery_url = "https://auth.l.zzzealed.com/.well-known/openid-configuration";
+      };
       frontend = { };
       api = { };
     };
@@ -43,11 +51,14 @@
   services.nginx.virtualHosts."ha.l.zzzealed.com" = {
     useACMEHost = "zzzealed.com";
     forceSSL = true;
-    locations."/".proxyPass =
-      "http://[::1]:${toString config.services.home-assistant.config.http.server_port}";
-    locations."/".proxyWebsockets = true;
-    extraConfig = ''
-      proxy_buffering off;
-    '';
+    locations = {
+      "/" = {
+        proxyPass = "http://[::1]:${toString config.services.home-assistant.config.http.server_port}";
+        proxyWebsockets = true;
+        extraConfig = ''
+          proxy_buffering off;
+        '';
+      };
+    };
   };
 }

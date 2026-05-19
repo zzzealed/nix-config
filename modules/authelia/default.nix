@@ -90,6 +90,20 @@
                 "groups"
               ];
             }
+            {
+              client_id = "homeassistant";
+              client_name = "Home Assistant";
+              public = true;
+              require_pkce = true;
+              pkce_challenge_method = "S256";
+              redirect_uris = [ "https://ha.l.zzzealed.com/auth/oidc/callback" ];
+              scopes = [
+                "openid"
+                "email"
+                "profile"
+                "groups"
+              ];
+            }
           ];
         };
       };
