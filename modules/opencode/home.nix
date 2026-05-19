@@ -58,6 +58,7 @@ in
     settings = {
       model = "opencode/qwen3.6-plus-free";
       small_model = "opencode/deepseek-v4-flash-free";
+      default_agent = "plan";
       autoshare = false;
       autoupdate = "notify";
       permission = {
