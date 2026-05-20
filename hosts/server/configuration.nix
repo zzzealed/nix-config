@@ -102,6 +102,7 @@
   boot.loader.grub.device = "/dev/sde";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.kernelModules = [ "nvidia-uvm" ];
 
   # Networking
   networking.hostId = "3f39026e";
