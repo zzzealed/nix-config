@@ -103,7 +103,7 @@ layout {
 
 spawn-at-startup "waybar"
 spawn-at-startup "systemctl" "--user" "restart" "wpaperd" // Restart wpaperd cus there is no "WAYLAND_DISPLAY" to set before Niri starts...
-spawn-at-startup "ghostty" "+new-window" "-e" "zmx" "attach" "TODO" "--fish" "hx" "/home/mads/TODO.md" // Open ~/TODO.md on startup
+spawn-at-startup "ghostty" "+new-window" "-e" "zmx" "attach" "TODO" "hx" "/home/mads/TODO.md" // Open ~/TODO.md on startup
 
 // Misc.
 prefer-no-csd // No application-side decoration. I think?
