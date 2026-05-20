@@ -4,23 +4,13 @@ input {
             layout "us,dk"
             options "grp:ctrl_alt_toggle" // CTRL+ALT to switch layout
         }
-
-        // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
 
     touchpad {
         // off
         tap
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
         natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
     }
 
     mouse {
@@ -30,13 +20,7 @@ input {
     }
 
     trackpoint {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // middle-emulation
+
     }
     focus-follows-mouse max-scroll-amount="0%" // Focus window where my mouse is at, and don't scroll from mouse movement
     warp-mouse-to-focus mode="center-xy-always" // Warp mouse to center of focused windows
@@ -103,16 +87,12 @@ layout {
         off
     }
 
-// Border. Similar to focus-ring but always visible.
     border {
         off
     }
-
-// Drops shadows for windows. By default, off
     shadow {
         off
     }
-// TODO: What is this?
     struts {
         left 0
         right 0
@@ -121,10 +101,9 @@ layout {
     }
 }
 
-// Startup spawns.
 spawn-at-startup "waybar"
-// Restart wpaperd cus there is no "WAYLAND_DISPLAY" to set before Niri starts...
-spawn-at-startup "systemctl" "--user" "restart" "wpaperd"
+spawn-at-startup "systemctl" "--user" "restart" "wpaperd" // Restart wpaperd cus there is no "WAYLAND_DISPLAY" to set before Niri starts...
+spawn-at-startup "ghostty" "+new-window" "-e" "zmx" "attach" "TODO" "--fish" "hx" "/home/mads/TODO.md" // Open ~/TODO.md on startup
 
 // Misc.
 prefer-no-csd // No application-side decoration. I think?
@@ -167,12 +146,6 @@ binds { // TODO: Actually look at these.
     Mod+N hotkey-overlay-title="Close a Notification: Dunst" { spawn "dunstctl" "close"; }
     Mod+B hotkey-overlay-title="Open a Browser: Glide" { spawn "glide-browser"; }
 
-    // You can also use a shell. Do this if you need pipes, multiple commands, etc.
-    // Note: the entire command goes as a single argument in the end.
-    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
-
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
