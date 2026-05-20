@@ -12,10 +12,10 @@
       DISABLE_SIGNUPS = "true";
       DISABLE_NEW_RELEASE_CHECK = "true";
       # Inference
-      OPENAI_API_KEY = "secret";
-      OPENAI_BASE_URL = "https://g4f.l.zzzealed.com/backend-api/v2/qwen";
-      INFERENCE_TEXT_MODEL = "qwen3.6-plus";
-      INFERENCE_IMAGE_MODEL = "qwen3.6-plus";
+      OPENAI_API_KEY = "ollama";
+      OPENAI_BASE_URL = "https://ollama.l.zzzealed.com/v1";
+      INFERENCE_TEXT_MODEL = "qwen3:0.6b";
+      INFERENCE_IMAGE_MODEL = "qwen2.5vl:3b";
       INFERENCE_CONTEXT_LENGTH = "16384";
       # Crawler
       CRAWLER_FULL_PAGE_SCREENSHOT = "true";
