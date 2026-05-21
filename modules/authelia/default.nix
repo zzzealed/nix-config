@@ -28,13 +28,14 @@
     };
     settings = {
       theme = "auto";
-      default_2fa_method = "totp";
+      default_2fa_method = "webauthn";
       log.level = "info";
       server.address = "tcp://:9091/";
       session = {
         same_site = "lax";
         expiration = "6 hours";
-        inactivity = "2 hour";
+        inactivity = "72h";
+        remember_me = "365d";
         cookies = [
           {
             domain = "zzzealed.com";
