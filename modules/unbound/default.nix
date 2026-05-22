@@ -2,7 +2,7 @@
 {
   services.unbound = {
     enable = true;
-    package = pkgs.unbound;
+    package = pkgs.unbound-with-systemd;
     settings = {
       server = {
         verbosity = 0;
