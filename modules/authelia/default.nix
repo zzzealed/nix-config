@@ -51,7 +51,15 @@
             domain = "auth.l.zzzealed.com";
             policy = "bypass";
           }
+          {
+            domain = "vault.l.zzzealed.com";
+            policy = "bypass";
+          }
           # Protect everything else
+          {
+            domain = "*.zzzealed.com";
+            policy = "two_factor";
+          }
           {
             domain = "*.l.zzzealed.com";
             policy = "two_factor";
