@@ -43,8 +43,8 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] Init: `services.crowdsec` blocker: nixos/nixpkgs#446307
 - [ ] Init: `pkgs.zmx` blocker: nixos/nixpkgs#468608
 - [ ] Init: `sops.secrets` blocker: mic92/sops-nix#779, mic92/sops-nix#922
+- [ ] Init: `base24-scheme` blocker: nix-community/stylix#252
 - [ ] Make all files+dirs kebab-case
-- [ ] Make custom base16 theme
 - [ ] Disable password SSH and add agent
 - [ ] More `pkgs.navi` docs
 - [ ] `services.*`: Unique ports?
