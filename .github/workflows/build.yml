@@ -6,6 +6,7 @@ on:
 jobs:
   build-server:
     runs-on: [self-hosted, nix]
+    timeout-minutes: 1440 # 24 hours
     steps:
       - name: checkout
         run: |
@@ -22,6 +23,7 @@ jobs:
             --out-link /var/lib/github-runner/server-nixos/gcroots/server-nixos
   build-rest:
     needs: build-server
+    timeout-minutes: 1440 # 24 hours
     strategy:
       matrix:
         host: [desktop-nixos, pi-nixos, vps-nixos]
