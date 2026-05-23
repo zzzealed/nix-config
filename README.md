@@ -44,6 +44,7 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] Init: `pkgs.zmx` blocker: nixos/nixpkgs#468608
 - [ ] Init: `sops.secrets` blocker: mic92/sops-nix#779, mic92/sops-nix#922
 - [ ] Init: `base24-scheme` blocker: nix-community/stylix#252
+- [ ] Switch hosts `server`, `pi` to `boot.loader.limine`
 - [ ] Make all files+dirs kebab-case
 - [ ] Disable password SSH and add agent
 - [ ] More `pkgs.navi` docs
