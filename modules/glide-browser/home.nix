@@ -18,6 +18,8 @@
     MOZ_LEGACY_PROFILES = "0"; # Use XDG
   };
 
+  home.file.".config/glide/glide.ts".source = ./config/glide.ts;
+
   programs.glide-browser = {
     enable = true;
     nativeMessagingHosts = [ pkgs.ff2mpv ]; # For some reason it still lands in `~/.glide-browser/native-messaging-hosts/`. But it works
