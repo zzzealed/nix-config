@@ -99,8 +99,7 @@
 
   # Boot
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sde";
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.device = "/dev/disk/by-id/ata-Samsung_SSD_870_QVO_1TB_S5RRNF0W804580E";
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.kernelModules = [ "nvidia-uvm" ];
 
