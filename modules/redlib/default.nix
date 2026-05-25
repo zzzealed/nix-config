@@ -12,6 +12,7 @@
     settings = {
       REDLIB_ENABLE_RSS = "on";
       REDLIB_FULL_URL = "https://reddit.l.zzzealed.com";
+      REDLIB_DEFAULT_USE_HLS = "on";
     };
   };
   services.nginx.virtualHosts."reddit.l.zzzealed.com" = {
@@ -37,6 +38,7 @@
         '';
       };
       "/info".proxyPass = "http://127.0.0.1:${toString config.services.redlib.port}";
+      "/hls/".proxyPass = "http://127.0.0.1:${toString config.services.redlib.port}";
     };
   };
 }
