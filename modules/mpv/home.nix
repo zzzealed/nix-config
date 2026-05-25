@@ -7,11 +7,12 @@
   programs.mpv = {
     enable = true;
     package = pkgs.unstable.mpv.override {
-      scripts = with pkgs.unstable.mpvScripts; [
-        webtorrent-mpv-hook
-        sponsorblock-minimal
-        mpris
-        manga-reader
+      scripts = with pkgs; [
+        unstable.mpvScripts.webtorrent-mpv-hook
+        unstable.mpvScripts.sponsorblock-minimal
+        unstable.mpvScripts.mpris
+        unstable.mpvScripts.manga-reader
+        nur.repos.zeal.playlist-dir-conf
       ];
     };
     includes = [
