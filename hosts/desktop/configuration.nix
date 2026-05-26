@@ -58,6 +58,7 @@
     ../../modules/nix-gc
     ../../modules/zmx
     ../../modules/nix-index-database
+    ../../modules/teamspeak/client.nix
   ];
 
   # Home manager modules

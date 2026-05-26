@@ -70,6 +70,7 @@
     ../../modules/qbittorrent
     ../../modules/fail2ban
     ../../modules/authelia
+    ../../modules/teamspeak/server.nix
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
