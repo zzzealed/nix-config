@@ -48,7 +48,7 @@ in
       enable = true;
       package = pkgs.papirus-icon-theme;
     };
-    opacity.popups = 0.75;
+    opacity.popups = 0.90;
 
     # Default theme is dark
     image = lib.mkDefault wallpapers.quintuplets-bride.v1;
