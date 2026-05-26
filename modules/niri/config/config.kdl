@@ -103,7 +103,7 @@ layout {
 
 spawn-at-startup "waybar"
 spawn-at-startup "systemctl" "--user" "restart" "wpaperd" // Restart wpaperd cus there is no "WAYLAND_DISPLAY" to set before Niri starts...
-spawn-at-startup "ghostty" "+new-window" "-e" "zmx" "attach" "TODO" "hx" "/home/mads/TODO.md" // Open ~/TODO.md on startup
+spawn-at-startup "thunderbird"
 
 // Misc.
 prefer-no-csd // No application-side decoration. I think?
@@ -144,7 +144,7 @@ binds { // TODO: Actually look at these.
     Mod+D hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: Swaylock" { spawn "swaylock"; }
     Mod+N hotkey-overlay-title="Close a Notification: Dunst" { spawn "dunstctl" "close"; }
-    Mod+B hotkey-overlay-title="Open a Browser: Glide" { spawn "glide-browser"; }
+    Mod+B hotkey-overlay-title="Open a Browser: Glide" { spawn "glide"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
