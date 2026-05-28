@@ -97,3 +97,6 @@ end
 function bangers
     command mpv /mnt/vault/Videos/Memes/bangers.m3u8 --directory-mode=ignore
 end
+function hash_url
+    command nix-prefetch-url $argv | xargs nix hash convert --hash-algo sha256
+end
