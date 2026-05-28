@@ -2,13 +2,15 @@
 {
   age.secrets."hbd-1_private-key-file".file = ../../secrets/hbd-1_private-key-file.age;
   networking.firewall = {
+    allowedUDPPorts = [ 21841 ];
     checkReversePath = "loose";
   };
-  networking.wireguard.interfaces.wg_hbd-1 = {
-    ips = [ "10.107.2.2/24" ];
+  networking.wg-quick.interfaces.wg_hbd-1 = {
+    autostart = false;
+    address = [ "10.107.2.1/24" ]; # client VPN IP
     listenPort = 21841;
     privateKeyFile = config.age.secrets."hbd-1_private-key-file".path;
-    allowedIPsAsRoutes = false;
+    dns = [ "192.168.0.118" ];
     peers = [
       {
         publicKey = "dSJPSHB+5k4TyYQ2eMtOrlncGyaTDyqFvMzLVRrcQ0Q=";
@@ -17,18 +19,15 @@
         persistentKeepalive = 25;
       }
     ];
-    postSetup = [
-      "ip rule add from 192.168.0.0/16 table main prio 10"
-      "ip rule add from 172.17.0.0/16 table main prio 20"
-      "ip rule add from 172.16.0.0/12 table main prio 30"
-      # Route DNS queries to PiHole via main table
-      "ip rule add to 192.168.0.118 table main prio 5"
+    postUp = [
+      "ip rule add to 192.168.0.0/24 table main priority 500"
+      "ip rule add to 10.0.0.0/8 table main priority 510"
+      "ip rule add to 172.16.0.0/12 table main priority 520"
     ];
-    postShutdown = [
-      "ip rule del from 192.168.0.0/16"
-      "ip rule del from 172.17.0.0/16"
-      "ip rule del from 172.16.0.0/12"
-      "ip rule del to 192.168.0.118"
+    postDown = [
+      "ip rule del to 192.168.0.0/24 table main priority 500"
+      "ip rule del to 10.0.0.0/8 table main priority 510"
+      "ip rule del to 172.16.0.0/12 table main priority 520"
     ];
   };
 }
