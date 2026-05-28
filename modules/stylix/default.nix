@@ -13,8 +13,6 @@ let
 in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
-  # Download all wallpapers to store, even if not used.
-  system.extraDependencies = lib.collect lib.isDerivation wallpapers; # Also traverse all attrsets
 
   stylix = {
     enable = true;
@@ -51,7 +49,7 @@ in
     opacity.popups = 0.90;
 
     # Default theme is dark
-    image = lib.mkDefault wallpapers.nixos.black;
+    image = lib.mkDefault wallpapers.firewatch.dark;
     base16Scheme = lib.mkDefault dark-scheme;
     polarity = lib.mkDefault "dark";
     icons.dark = lib.mkDefault "Papirus-Dark";
@@ -62,7 +60,7 @@ in
   specialisation.light-theme.configuration = {
     environment.etc."specialisation".text = "light-theme"; # https://github.com/nix-community/nh#specialisations-support
     stylix = {
-      image = lib.mkForce wallpapers.nixos.white;
+      image = lib.mkForce wallpapers.firewatch.sunset;
       base16Scheme = lib.mkForce light-scheme;
       polarity = lib.mkForce "light";
       icons.light = lib.mkForce "Papirus-Light";

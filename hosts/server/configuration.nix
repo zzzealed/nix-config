@@ -1,5 +1,11 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
+let
+  wallpapers = import ../../modules/stylix/wallpapers.nix pkgs;
+in
 {
+  # Download all wallpapers to store, even if not used.
+  system.extraDependencies = lib.collect lib.isDerivation wallpapers;
+
   # Nix modules
   imports = [
     ../../modules/yt-dlp.nix
