@@ -2,7 +2,7 @@
 let
   website = builtins.fetchGit {
     url = "https://codeberg.org/zzzealed/zzzealed.com";
-    rev = "6985b7c13ff7bb9e34dcad67929733d04b0c25cd";
+    rev = "b1727ac77f84f2c2429724e92e4752dc90a5a875";
   };
 in
 {
