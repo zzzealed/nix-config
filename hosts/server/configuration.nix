@@ -47,6 +47,7 @@ in
     ../../modules/samba-shares
     ../../modules/samba-shares/vault-share.nix
     ../../modules/samba-shares/home-share.nix
+    ../../modules/samba-shares/qbittorrent-share.nix
     ../../modules/pihole
     ../../modules/unbound
     ../../modules/searx

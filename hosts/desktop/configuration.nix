@@ -34,6 +34,7 @@
     ../../modules/samba-mounts/vault-mount.nix
     ../../modules/samba-mounts/vault2-mount.nix
     ../../modules/samba-mounts/home-mount.nix
+    ../../modules/samba-mounts/qbittorrent-mount.nix
     ../../modules/openssh
     ../../modules/locale
     ../../modules/stylix
