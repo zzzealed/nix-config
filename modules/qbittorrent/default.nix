@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  imports = [ ./wireguard.nix ];
   services.qbittorrent = {
     enable = true;
     package = pkgs.qbittorrent-nox;
@@ -15,7 +16,7 @@
           AuthSubnetWhitelistEnabled = true;
         };
         Advanced = {
-          NetworkInterface = "wg_hbd-2";
+          NetworkInterface = "wg_proton-2";
         };
       };
     };

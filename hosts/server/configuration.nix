@@ -38,7 +38,6 @@ in
     # Services
     ../../modules/home-assistant
     ../../modules/wg-quick
-    ../../modules/wg-quick/wg_hbd-2.nix
     ../../modules/changedetection-io
     ../../modules/openssh
     ../../modules/scrutiny

@@ -41,7 +41,7 @@
     ../../modules/navi
     ../../modules/bash
     ../../modules/wg-quick
-    ../../modules/wg-quick/wg_hbd-1.nix
+    ../../modules/wg-quick/wg_proton-1.nix
     ../../modules/wg-quick/wg_pi-nixos-3.nix
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium.nix
@@ -110,6 +110,7 @@
     llm
     wooting-udev-rules
     unstable.librepods
+    unstable.streamcontroller
   ];
 
   # xdg.mime
