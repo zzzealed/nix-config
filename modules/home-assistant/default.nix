@@ -22,7 +22,7 @@
       "hue"
       "cast"
       "apple_tv"
-      "yale"
+      # "yale" # aiounittest-1.5.0 not supported for interpreter python3.14
     ];
     extraPackages =
       python3Packages: with python3Packages; [
