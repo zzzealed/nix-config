@@ -44,7 +44,7 @@ in
     package = opencode-bubblewrapped;
     enableMcpIntegration = false;
     # Writes to ~/.config/opencode/AGENTS.md
-    rules = ''
+    context = ''
       - Please read `./AGENTS.md`
       - See your abilities in `~/nix-config/modules/opencode/home.nix`.
         - In short; you have no write for the most part. Don't suggest editing a file.
