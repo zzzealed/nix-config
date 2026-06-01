@@ -111,6 +111,8 @@
     wooting-udev-rules
     unstable.librepods
     unstable.streamcontroller
+    unstable.webtorrent_desktop
+    unstable.stremio-linux-shell
   ];
 
   # xdg.mime
