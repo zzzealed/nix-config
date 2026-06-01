@@ -2,12 +2,12 @@
   description = "My flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11"; # 25.11
+    nixpkgs.url = "nixpkgs/nixos-26.05"; # 26.05
     #nixpkgs.url = "git+file:///home/mads/Documents/nixpkgs";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # Input pinned in `flake.lock`
     nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11"; # 25.11
+      url = "github:nix-community/home-manager/release-26.05"; # 26.05
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
