@@ -23,7 +23,6 @@
     ../../modules/obs-studio
     ../../modules/localsend
     ../../modules/tidal
-    ../../modules/adb
     ../../modules/git
     ../../modules/wine
     ../../modules/bluetooth
@@ -113,6 +112,7 @@
     unstable.streamcontroller
     unstable.webtorrent_desktop
     unstable.stremio-linux-shell
+    android-tools
   ];
 
   # xdg.mime

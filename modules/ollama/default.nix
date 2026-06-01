@@ -3,7 +3,6 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-cuda;
-    acceleration = "cuda";
     port = 11434;
     loadModels = [
       "qwen3:0.6b"
