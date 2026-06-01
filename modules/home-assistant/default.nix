@@ -5,7 +5,7 @@
     #openFirewall = true;
     package = pkgs.home-assistant;
     customComponents = [
-      pkgs.unstable.home-assistant-custom-components.auth_oidc
+      pkgs.home-assistant-custom-components.auth_oidc
     ];
     extraComponents = [
       # Components required to complete the onboarding
