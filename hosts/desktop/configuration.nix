@@ -111,6 +111,7 @@
     unstable.webtorrent_desktop
     unstable.stremio-linux-shell
     android-tools
+    scrcpy
   ];
 
   # xdg.mime
