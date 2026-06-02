@@ -43,7 +43,7 @@ in
     ../../modules/nix-index-database
     # Services
     ../../modules/home-assistant
-    ../../modules/wg-quick
+    ../../modules/wireguard
     ../../modules/changedetection-io
     ../../modules/openssh
     ../../modules/scrutiny

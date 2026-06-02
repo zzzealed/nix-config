@@ -11,8 +11,8 @@
     ../../modules/nix-index-database
     # Services
     ../../modules/openssh
-    ../../modules/wg-quick
-    ../../modules/wg-quick/wg_pi-4.nix
+    ../../modules/wireguard
+    ../../modules/wireguard/wg_pi-4.nix
     ../../modules/gatus
     ../../modules/gatus/gatus-public.nix
     ../../modules/nginx

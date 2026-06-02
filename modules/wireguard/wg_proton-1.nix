@@ -8,8 +8,8 @@
     ];
     autostart = false;
     dns = [
-      "192.168.0.118" # Local Pihole
-      "1.1.1.1"
+      config.nameserver.server
+      config.nameserver.secondary
     ];
     listenPort = 51820;
     peers = [

@@ -18,10 +18,6 @@ let
     mads_server-nixos
   ];
 
-  defaults = {
-    armor = true;
-  };
-
   secrets = {
     "mads-password.age".publicKeys = decodingKeys ++ interactiveKeys;
     "searx-secret_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
@@ -52,7 +48,6 @@ let
     ]
     ++ interactiveKeys;
     "vps-nixos_ddclient_config.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
-    "desktop-nixos_wireguard_config.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "harmonia_sign-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "github_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
@@ -66,7 +61,12 @@ let
     "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "proton-1_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "proton-2_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "pi-3_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "pi-4_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+  };
+
+  defaults = {
+    armor = true;
   };
 in
 builtins.mapAttrs (_name: value: defaults // value) secrets

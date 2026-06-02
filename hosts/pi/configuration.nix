@@ -18,6 +18,7 @@
     ../../modules/nix-index-database
     # Services
     ../../modules/wireguard
+    ../../modules/wireguard/server.nix
     ../../modules/samba-shares
     ../../modules/samba-shares/vault2-share.nix
   ];
