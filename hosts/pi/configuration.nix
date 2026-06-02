@@ -9,8 +9,8 @@
     ../../modules/git
     ../../modules/home-manager
     ../../modules/bash
-    ../../modules/networkmanager
-    ../../modules/networkmanager/server-dns.nix
+    ../../modules/networking/networkmanager.nix
+    ../../modules/networking/nameservers.nix
     ../../modules/openssh
     ../../modules/nh
     ../../modules/zfs
@@ -31,7 +31,7 @@
     ];
   };
 
-  system.switch.enable = true;
+  system.switch.enable = true; # TODO: ??
 
   # Boot
   boot.loader = {

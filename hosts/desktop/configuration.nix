@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   # Nix modules
   imports = [
@@ -8,8 +8,9 @@
     ../../modules/ly # Display manager
     ../../modules/niri # Compositor
     ../../modules/pipewire # Audio
-    ../../modules/networkmanager # Network
-    ../../modules/networkmanager/server-dns.nix
+    ../../modules/networking/networkmanager.nix # Network
+    ../../modules/networking/nameservers.nix
+    ../../modules/networking/firewall.nix
     # Everything else
     ../../modules/yt-dlp.nix
     ../../modules/libreoffice.nix

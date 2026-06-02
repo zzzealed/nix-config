@@ -3,8 +3,8 @@
   imports = [
     ../../modules/users
     ../../modules/users/mads.nix
-    ../../modules/networkmanager
-    ../../modules/networkmanager/server-dns.nix
+    ../../modules/networking/networkmanager.nix
+    ../../modules/networking/nameservers.nix
     ../../modules/bash
     ../../modules/nh
     ../../modules/nix-gc

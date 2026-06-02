@@ -1,9 +1,14 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   wallpapers = import ../../modules/stylix/wallpapers.nix pkgs;
 in
 {
-  # Download all wallpapers to store, even if not used.
+  # Download all wallpapers to store.
   system.extraDependencies = lib.collect lib.isDerivation wallpapers;
 
   # Nix modules
@@ -18,8 +23,9 @@ in
     ../../modules/home-manager
     ../../modules/ffmpeg
     ../../modules/nvidia
-    ../../modules/networkmanager
-    ../../modules/networkmanager/local-dns.nix
+    ../../modules/networking/networkmanager.nix
+    ../../modules/networking/nameservers.nix
+    ../../modules/networking/firewall.nix
     ../../modules/locale
     ../../modules/bash
     ../../modules/ungoogled-chromium.nix
@@ -111,11 +117,8 @@ in
   boot.kernelModules = [ "nvidia-uvm" ];
 
   # Networking
+  nameserver.server = "127.0.0.1"; # Override for this host
   networking.interfaces.enp3s0.wakeOnLan.enable = true;
-  networking.firewall = {
-    allowedTCPPorts = [ 8000 ];
-    allowedUDPPorts = [ 8000 ];
-  }; # For dev stuff
 
   # State
   system.stateVersion = "24.05";
