@@ -111,7 +111,6 @@ in
   boot.kernelModules = [ "nvidia-uvm" ];
 
   # Networking
-  networking.hostId = "3f39026e";
   networking.interfaces.enp3s0.wakeOnLan.enable = true;
   networking.firewall = {
     allowedTCPPorts = [ 8000 ];

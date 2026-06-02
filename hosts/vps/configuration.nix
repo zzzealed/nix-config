@@ -12,7 +12,7 @@
     # Services
     ../../modules/openssh
     ../../modules/wg-quick
-    ../../modules/wg-quick/wg_pi-nixos-4.nix
+    ../../modules/wg-quick/wg_pi-4.nix
     ../../modules/gatus
     ../../modules/gatus/gatus-public.nix
     ../../modules/nginx

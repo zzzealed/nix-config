@@ -39,9 +39,6 @@
     generic-extlinux-compatible.enable = true;
   };
 
-  # Networking
-  networking.hostId = "cf20a29f";
-
   # State
   system.stateVersion = "24.05";
 }
