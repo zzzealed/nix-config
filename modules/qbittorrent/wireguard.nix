@@ -25,5 +25,8 @@
       }
     ];
   };
-  systemd.services.qbittorrent.unitConfig.After = [ "wireguard-wg_proton-2.target" ];
+  systemd.services.qbittorrent = {
+    after = [ "wireguard-wg_proton-2.target" ];
+    requires = [ "wireguard-wg_proton-2.target" ];
+  };
 }
