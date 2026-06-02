@@ -62,16 +62,15 @@
     inputs@{ ... }:
     let
       mkNixosConfig =
-        hostName: system: domain:
+        hostName: system: domain: hostId:
         inputs.nixpkgs.lib.nixosSystem {
           system = system;
-          # https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
-          specialArgs = { inherit inputs; };
           modules = [
             {
               networking = {
                 hostName = hostName;
                 domain = domain;
+                hostId = hostId;
               };
             }
             ./nix.nix
@@ -80,14 +79,16 @@
             (./hosts + "/${hostName}/configuration.nix")
             (./hosts + "/${hostName}/hardware-configuration.nix")
           ];
+          # https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
+          specialArgs = { inherit inputs; };
         };
     in
     {
       nixosConfigurations = {
-        desktop-nixos = mkNixosConfig "desktop" "x86_64-linux" "l.zzzealed.com";
-        server-nixos = mkNixosConfig "server" "x86_64-linux" "l.zzzealed.com";
-        pi-nixos = mkNixosConfig "pi" "aarch64-linux" "l.zzzealed.com";
-        vps-nixos = mkNixosConfig "vps" "x86_64-linux" "zzzealed.com";
+        desktop-nixos = mkNixosConfig "desktop" "x86_64-linux" "l.zzzealed.com" "19fa2096";
+        server-nixos = mkNixosConfig "server" "x86_64-linux" "l.zzzealed.com" "adb2c089";
+        pi-nixos = mkNixosConfig "pi" "aarch64-linux" "l.zzzealed.com" "cf20a29f";
+        vps-nixos = mkNixosConfig "vps" "x86_64-linux" "zzzealed.com" "2c363b2d";
       };
     };
 }
