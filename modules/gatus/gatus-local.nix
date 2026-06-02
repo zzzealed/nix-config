@@ -95,11 +95,11 @@
         "[CONNECTED] == true"
         "[RESPONSE_TIME] < 500"
         "[BODY].success == true" # ? everything good ig
-        "[BODY].data.summary.0x5002538f4372fee6.device.device_status == 0" # Our disks have no errors
-        "[BODY].data.summary.0x5002538f4372feeb.device.device_status == 0"
-        "[BODY].data.summary.0x5002538f4372feee.device.device_status == 0"
-        "[BODY].data.summary.0x5002538f4372fef1.device.device_status == 0"
-        "[BODY].data.summary.0x5002538f4381ec2d.device.device_status == 0"
+        "[BODY].data.summary.255c98b6-6f17-5dab-9f74-9e5f01500feb.device.device_status == 0" # Our disks have no errors
+        "[BODY].data.summary.2d249e73-7507-56e2-8ce4-ffe4cbba463c.device.device_status == 0"
+        "[BODY].data.summary.32f7d884-2524-569a-aec0-97f23cc9b04c.device.device_status == 0"
+        "[BODY].data.summary.39bbd9b0-70eb-5bba-9381-e07e5ab37652.device.device_status == 0"
+        "[BODY].data.summary.fd26325e-4d19-59f6-bb5c-10e2f97cf361.device.device_status == 0"
         "[CERTIFICATE_EXPIRATION] > 336h"
       ];
       alerts = [
