@@ -31,8 +31,6 @@
     ];
   };
 
-  system.switch.enable = true; # TODO: ??
-
   # Boot
   boot.loader = {
     grub.enable = false;
