@@ -103,11 +103,8 @@
     calibre
     unstable.servo
     unstable.thunderbird
-    lm_sensors
-    espeak
     hollywood
     usbutils
-    llm
     wooting-udev-rules
     unstable.librepods
     unstable.streamcontroller
