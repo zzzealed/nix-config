@@ -6,8 +6,11 @@
       "10.2.0.2/32"
       "2a07:b944::2:2/128"
     ];
-    autostart = true;
-    dns = [ "192.168.0.118" ]; # Local Pihole
+    autostart = false;
+    dns = [
+      "192.168.0.118" # Local Pihole
+      "1.1.1.1"
+    ];
     listenPort = 51820;
     peers = [
       {
