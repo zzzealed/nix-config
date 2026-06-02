@@ -8,6 +8,16 @@ let
       bubblewrap
       unstable.opencode
       unstable.helix # For /editor
+      # LSPs
+      clang-tools
+      deno
+      nixd
+      intelephense
+      rust-analyzer
+      tinymist
+      typescript
+      yaml-language-server
+      zls
     ];
     # This is the best I cared to come up with
     text = ''
@@ -61,6 +71,7 @@ in
       default_agent = "plan";
       autoshare = false;
       autoupdate = "notify";
+      lsp = true;
       permission = {
         "*" = "deny";
         "read" = {
