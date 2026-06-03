@@ -88,6 +88,7 @@
       ../../modules/legcord/home.nix
       ../../modules/yazi/home.nix
       ../../modules/opencode/home.nix
+      ../../modules/thunderbird/home.nix
     ];
   };
 
@@ -102,7 +103,6 @@
     gparted
     calibre
     unstable.servo
-    unstable.thunderbird
     hollywood
     usbutils
     wooting-udev-rules
