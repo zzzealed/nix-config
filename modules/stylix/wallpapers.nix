@@ -24,4 +24,5 @@ in
     sunset = f "https://w.wallhaven.cc/full/95/wallhaven-95mxp8.png" "sha256-E+BZQScFwVzi6cuXCIMpzFco0uepmPS9g+rIUWAirb4=";
   };
   uzumaki = f "https://w.wallhaven.cc/full/kx/wallhaven-kxo91d.png" "sha256-l2HpNeleo8jmWNtMxxSIo1nHGdgjdc4BuCougF4loqY=";
+  firewatch-keyart = f "https://www.camposanto.com/external/wallpapers/keyart/2560x1600.jpg" "sha256-8z50mTnKboS0cvfxQEF++khy2caQ7XwYj1HMU2oPHtE=";
 }
