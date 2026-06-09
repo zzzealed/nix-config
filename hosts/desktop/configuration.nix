@@ -8,9 +8,9 @@
     ../../modules/ly # Display manager
     ../../modules/niri # Compositor
     ../../modules/pipewire # Audio
+    ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix # Network
     ../../modules/networking/nameservers.nix
-    ../../modules/networking/firewall.nix
     # Everything else
     ../../modules/yt-dlp.nix
     ../../modules/libreoffice.nix
@@ -166,12 +166,6 @@
   time.hardwareClockInLocalTime = true; # https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#System_time
   services.fstrim.enable = true;
   hardware.cpu.intel.updateMicrocode = true;
-
-  # Networking
-  networking.firewall = {
-    allowedTCPPorts = [ 8000 ];
-    allowedUDPPorts = [ 8000 ];
-  }; # For dev stuff
 
   # State
   system.stateVersion = "24.11";

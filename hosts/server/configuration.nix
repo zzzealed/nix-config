@@ -23,9 +23,9 @@ in
     ../../modules/home-manager
     ../../modules/ffmpeg
     ../../modules/nvidia
+    ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
-    ../../modules/networking/firewall.nix
     ../../modules/locale
     ../../modules/bash
     ../../modules/ungoogled-chromium.nix

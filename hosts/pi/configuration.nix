@@ -9,6 +9,7 @@
     ../../modules/git
     ../../modules/home-manager
     ../../modules/bash
+    ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
     ../../modules/openssh
