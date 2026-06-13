@@ -15,9 +15,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      #url = "github:nix-community/stylix/release-25.11";
-      #url = "git+file:///vault/Documents/Projects/stylix";
-      url = "github:zzzealed/stylix/release-25.11";
+      url = "github:nix-community/stylix/pull/2240/head";
+      #url = "git+file:///home/mads/Documents/stylix";
+      #url = "github:zzzealed/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
