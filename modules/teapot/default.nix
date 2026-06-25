@@ -16,7 +16,6 @@
       publicPort = 443; # `null` just removes the option from the config lol
       https = true;
     };
-    #config.enableDebug = true;
     #openFirewall = true;
   };
   services.nginx.virtualHosts."twitter.l.zzzealed.com" = {
