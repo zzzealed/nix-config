@@ -60,6 +60,7 @@
     ../../modules/zmx
     ../../modules/nix-index-database
     ../../modules/teamspeak/client.nix
+    # ../../modules/opendeck
   ];
 
   # Home manager modules
@@ -107,7 +108,6 @@
     usbutils
     wooting-udev-rules
     unstable.librepods
-    unstable.streamcontroller
     unstable.webtorrent_desktop
     unstable.stremio-linux-shell
     android-tools
