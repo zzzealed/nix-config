@@ -63,6 +63,7 @@ let
     "proton-2_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "pi-3_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "pi-4_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+    "speedtest-tracker_app-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 
   defaults = {
