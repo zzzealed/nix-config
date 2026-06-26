@@ -55,6 +55,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable-small";
     };
+    opendeck-nix = {
+      url = "github:Kitt3120/opendeck-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
