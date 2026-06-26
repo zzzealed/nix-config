@@ -72,7 +72,7 @@ in
     ../../modules/harmonia
     ../../modules/github-runners
     ../../modules/redlib
-    #../../modules/speedtest-tracker # FIXME: uncomment once added to nixpkgs-25.11
+    ../../modules/speedtest-tracker
     ../../modules/pr-tracker
     ../../modules/pr-tracker/git.nix
     ../../modules/ollama
@@ -83,6 +83,7 @@ in
     ../../modules/fail2ban
     ../../modules/authelia
     ../../modules/teamspeak/server.nix
+    # ../../modules/renovate/default.nix
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
