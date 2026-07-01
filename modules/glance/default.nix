@@ -403,10 +403,6 @@
                       title = "The LFN Herald";
                     }
                     {
-                      url = "https://www.xda-developers.com/feed/news";
-                      title = "XDA";
-                    }
-                    {
                       url = "https://blog.tangled.org/feed.xml";
                       title = "Tangled";
                     }
