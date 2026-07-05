@@ -61,6 +61,7 @@
     ../../modules/nix-index-database
     ../../modules/teamspeak/client.nix
     # ../../modules/opendeck
+    ../../modules/i2p
   ];
 
   # Home manager modules
