@@ -9,6 +9,7 @@
   programs.nixcord = {
     enable = true;
     user = "mads";
+    discord.enable = false;
     legcord = {
       enable = true;
       package = pkgs.unstable.legcord;
