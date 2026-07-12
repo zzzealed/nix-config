@@ -497,10 +497,6 @@
                           url = "https://github.com/notifications";
                         }
                         {
-                          title = "Reddit";
-                          url = "https://www.reddit.com";
-                        }
-                        {
                           title = "Steam";
                           url = "https://store.steampowered.com";
                         }
@@ -511,10 +507,6 @@
                         {
                           title = "IsThereAnyDeal";
                           url = "https://isthereanydeal.com/deals/#filter:N4IgZgNghg5iBcIASIC%2BQ%3D%3D%3Ds";
-                        }
-                        {
-                          title = "HBD dashboard";
-                          url = "https://38.ein.itsby.design";
                         }
                         {
                           title = "Liquipedia";
@@ -588,6 +580,7 @@
                     "pge4"
                     "henkovic"
                     "s1mple"
+                    "dafran"
                   ];
                 }
               ];
