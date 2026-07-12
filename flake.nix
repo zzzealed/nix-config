@@ -47,10 +47,6 @@
       url = "github:redlib-org/redlib/pull/552/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zmx = {
-      url = "github:neurosnap/zmx";
-      #url = "git+file:///home/mads/Documents/zmx";
-    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable-small";

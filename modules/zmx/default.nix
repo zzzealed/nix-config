@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = [ inputs.zmx.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+  environment.systemPackages = [ pkgs.unstable.zmx ];
 }
