@@ -80,6 +80,7 @@ in
           "*.env.*" = "deny";
           "*.env.example" = "allow";
           "*config.php" = "deny";
+          "*config.php.bak" = "deny";
           "example.config.php" = "allow";
         };
         "edit" = "deny";
