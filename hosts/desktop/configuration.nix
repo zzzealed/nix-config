@@ -110,9 +110,9 @@
     wooting-udev-rules
     unstable.librepods
     unstable.webtorrent_desktop
-    unstable.stremio-linux-shell
     android-tools
     scrcpy
+    kdePackages.ark
   ];
 
   # xdg.mime
