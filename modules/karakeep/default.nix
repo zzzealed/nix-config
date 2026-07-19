@@ -1,5 +1,8 @@
 { pkgs, config, ... }:
 {
+  # TEMP TEMP TEMP TEMP
+  nixpkgs.config.permittedInsecurePackages = [ "pnpm-9.15.9" ];
+
   age.secrets."karakeep_environment-file".file = ../../secrets/karakeep_environment-file.age;
 
   services.karakeep = {
