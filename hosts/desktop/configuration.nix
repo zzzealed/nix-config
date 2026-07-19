@@ -60,7 +60,7 @@
     ../../modules/zmx
     ../../modules/nix-index-database
     ../../modules/teamspeak/client.nix
-    # ../../modules/opendeck
+    ../../modules/opendeck
     ../../modules/i2p
   ];
 
