@@ -60,4 +60,7 @@ in
   firewatch-keyart =
     f "2560x1600.jpg" "https://www.camposanto.com/external/wallpapers/keyart/2560x1600.jpg"
       "sha256-8z50mTnKboS0cvfxQEF++khy2caQ7XwYj1HMU2oPHtE=";
+  skull-knight =
+    f "wallhaven-9dl5y1.png" "https://w.wallhaven.cc/full/9d/wallhaven-9dl5y1.png"
+      "sha256-+AZ3fi+EDoLcR1V40m4qKqE4OaPEjeiteMEv8Kx9NzU=";
 }
