@@ -100,16 +100,11 @@
     kdePackages.dolphin
     krita
     kdePackages.kdenlive
-    rpcs3
     unstable.ryubing
     gparted
-    calibre
     unstable.servo
     hollywood
-    usbutils
     wooting-udev-rules
-    unstable.librepods
-    unstable.webtorrent_desktop
     android-tools
     scrcpy
     kdePackages.ark
