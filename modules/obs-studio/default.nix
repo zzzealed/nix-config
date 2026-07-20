@@ -4,12 +4,12 @@
     enable = true;
     package = (
       pkgs.obs-studio.override {
-        cudaSupport = true;
+        cudaSupport = false;
+        browserSupport = false; # For now
       }
     );
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
-      obs-backgroundremoval
       obs-pipewire-audio-capture
       obs-vkcapture
     ];
