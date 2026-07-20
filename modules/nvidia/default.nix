@@ -12,7 +12,7 @@
     enable32Bit = true;
     extraPackages = with pkgs; [ nvidia-vaapi-driver ];
   };
-  nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.cudaSupport = lib.mkDefault false;
   hardware.nvidia = {
     # See: https://github.com/lutris/docs/blob/master/InstallingDrivers.md#nvidia-3
     modesetting.enable = true;

@@ -107,6 +107,7 @@ in
 
   # Use proprietary drivers
   hardware.nvidia.open = false;
+  nixpkgs.config.cudaSupport = true;
 
   # shit11
   #services.xserver.enable = true;
