@@ -38,10 +38,7 @@
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    teapot = {
-      url = "github:amaanq/teapot";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    teapot.url = "github:amaanq/teapot";
     redlib = {
       #url = "github:redlib-org/redlib";
       url = "github:redlib-org/redlib/pull/552/head";
