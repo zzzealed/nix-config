@@ -19,7 +19,7 @@
     ../../modules/fish
     ../../modules/nh
     ../../modules/rclone
-    ../../modules/rclone/mnt-hbd.nix
+    # ../../modules/rclone/mnt-hbd.nix
     ../../modules/steam
     ../../modules/obs-studio
     ../../modules/localsend
@@ -108,6 +108,7 @@
     android-tools
     scrcpy
     kdePackages.ark
+    webtorrent_desktop
   ];
 
   # xdg.mime
