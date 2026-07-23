@@ -11,12 +11,14 @@
     torrentingPort = 41775;
     webuiPort = 1337;
     extraArgs = [ "--confirm-legal-notice" ];
+
     # https://github.com/qbittorrent/qBittorrent/wiki/Explanation-of-Options-in-qBittorrent
     serverConfig = {
       LegalNotice.Accepted = true;
       BitTorrent.Session = {
         Interface = "wg_proton-2";
         PerformanceWarning = true;
+        DisableAutoTMMByDefault = false;
       };
       Preferences = {
         General.StatusbarExternalIPDisplayed = true;
