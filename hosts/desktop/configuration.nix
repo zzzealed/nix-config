@@ -62,6 +62,8 @@
     ../../modules/teamspeak/client.nix
     ../../modules/opendeck
     ../../modules/i2p
+    ../../modules/sunshine
+    # ../../modules/moonlight # Unstable
   ];
 
   # Home manager modules
