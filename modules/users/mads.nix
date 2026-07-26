@@ -15,7 +15,7 @@
       "vault"
       "vault2"
       "media"
-      "qbittorrent"
+      "uinput"
     ];
     hashedPasswordFile = config.age.secrets."mads-password".path;
     linger = true;
