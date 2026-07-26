@@ -49,7 +49,7 @@ in
     opacity.popups = 0.90;
 
     # Default theme is dark
-    image = lib.mkDefault wallpapers.skull-knight;
+    image = lib.mkDefault wallpapers.marathon.dark;
     base16Scheme = lib.mkDefault dark-scheme;
     polarity = lib.mkDefault "dark";
     icons.dark = lib.mkDefault "Papirus-Dark";
@@ -60,7 +60,7 @@ in
   specialisation.light-theme.configuration = {
     environment.etc."specialisation".text = "light-theme"; # https://github.com/nix-community/nh#specialisations-support
     stylix = {
-      image = lib.mkForce wallpapers.skull-knight;
+      image = lib.mkForce wallpapers.marathon.light;
       base16Scheme = lib.mkForce light-scheme;
       polarity = lib.mkForce "light";
       icons.light = lib.mkForce "Papirus-Light";

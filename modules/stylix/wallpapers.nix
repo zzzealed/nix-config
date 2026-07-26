@@ -63,4 +63,12 @@ in
   skull-knight =
     f "wallhaven-9dl5y1.png" "https://w.wallhaven.cc/full/9d/wallhaven-9dl5y1.png"
       "sha256-+AZ3fi+EDoLcR1V40m4qKqE4OaPEjeiteMEv8Kx9NzU=";
+  marathon = {
+    light =
+      f "wallhaven-1pgegw.png" "https://w.wallhaven.cc/full/1p/wallhaven-1pgegw.png"
+        "sha256-1FvkiMTVzwgG2A7r1nx8QGT5XgDn5+10SxqZRDJqmuU=";
+    dark =
+      f "wallhaven-zydjdv.png" "https://w.wallhaven.cc/full/zy/wallhaven-zydjdv.png"
+        "sha256-cu+Y2A7uPid7F4fXw2lKAN+QuTsq8gDrBZmxhNs3cnk=";
+  };
 }
