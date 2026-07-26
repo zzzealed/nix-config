@@ -81,6 +81,12 @@
               keyword = ",nix-config";
               url = "https://github.com/zzzealed/nix-config";
             }
+            {
+              name = "Sunshine";
+              tags = [ ];
+              keyword = ",sunshine";
+              url = "https://localhost:47990";
+            }
           ];
         };
         extensions = {
