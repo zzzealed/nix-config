@@ -313,10 +313,6 @@
                       title = "FMHY";
                     }
                     {
-                      url = "https://pivot-to-ai.com/feed";
-                      title = "PivotToAI";
-                    }
-                    {
                       url = "https://richardlewis.substack.com/feed";
                       title = "Richard Lewis Substack";
                     }
