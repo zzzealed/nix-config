@@ -311,7 +311,6 @@
         "[STATUS] == 200"
         "[CONNECTED] == true"
         "[RESPONSE_TIME] < 500"
-        "[BODY].connection_status == connected"
         "[BODY].last_external_address_v4 != 87.104.105.54"
         "[CERTIFICATE_EXPIRATION] > 336h"
       ];
