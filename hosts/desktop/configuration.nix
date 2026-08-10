@@ -8,6 +8,7 @@
     ../../modules/ly # Display manager
     ../../modules/niri # Compositor
     ../../modules/pipewire # Audio
+    ../../modules/playerctl
     ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix # Network
     ../../modules/networking/nameservers.nix
