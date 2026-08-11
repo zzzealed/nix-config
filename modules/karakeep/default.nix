@@ -7,7 +7,7 @@
 
   services.karakeep = {
     enable = true;
-    package = pkgs.karakeep;
+    package = pkgs.unstable.karakeep;
     environmentFile = config.age.secrets."karakeep_environment-file".path;
     extraEnvironment = {
       NEXTAUTH_URL = "https://karakeep.l.zzzealed.com";
