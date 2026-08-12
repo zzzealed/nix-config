@@ -18,6 +18,8 @@ let
       typescript
       yaml-language-server
       zls
+      # MCPs
+      unstable.mcp-nixos
     ];
     # This is the best I cared to come up with
     text = ''
@@ -25,6 +27,7 @@ let
       mkdir -p "$HOME/.local/share/opencode"
       mkdir -p "$HOME/.local/state/opencode"
       mkdir -p "$HOME/.cache/opencode"
+      mkdir -p "$HOME/.cache/mcp-nixos"
 
       exec bwrap \
         --dev /dev \
@@ -41,31 +44,44 @@ let
         --bind "/run/user/$UID/zmx" "/run/user/$UID/zmx" \
         --bind "$HOME/.config/helix" "$HOME/.config/helix" \
         --bind "$HOME/.cache/helix" "$HOME/.cache/helix" \
+        --bind "$HOME/.cache/mcp-nixos" "$HOME/.cache/mcp-nixos" \
         --ro-bind "$HOME/nix-config" "$HOME/nix-config" \
         --ro-bind "$HOME/Documents" "$HOME/Documents" \
         --setenv OPENCODE_DISABLE_CHANNEL_DB 1 \
+        --setenv NIX_SSL_CERT_FILE /run/current-system/etc/ssl/certs/ca-certificates.crt \
         opencode "$@"
     '';
   };
 in
 {
+  programs.mcp = {
+    enable = true;
+    servers = {
+      mcp-nixos = {
+        command = "mcp-nixos";
+      };
+    };
+  };
   programs.opencode = {
     enable = true;
     package = opencode-bubblewrapped;
-    enableMcpIntegration = false;
+    enableMcpIntegration = true;
     # Writes to ~/.config/opencode/AGENTS.md
     context = ''
       - Please read `./AGENTS.md`
       - See your abilities in `~/nix-config/modules/opencode/home.nix`.
         - In short; you have no write for the most part. Don't suggest editing a file.
       - I use [NixOS with Nix](https://github.com/NixOS/nix), see `~/nix-config/nix.nix`-file.
-      - I use [Helix editor](https://github.com/helix-editor/helix), see `~/nix-config/modules/helix/home.nix`-file.
-        - My config is in `~/nix-config/modules/helix/config/`-dir.
-      - I use [zmx](https://github.com/neurosnap/zmx), see `~/nix-config/modules/zmx/default.nix`-file.
-      - I use [Fish shell](https://github.com/fish-shell/fish-shell), see `~/nix-config/modules/fish/default.nix`-file.
-        - My config is in `~/nix-config/modules/fish/config/`-dir.
     '';
     settings = {
+      mcp = {
+        mcp-nixos = {
+          type = "local";
+          command = [ "mcp-nixos" ];
+          enabled = true;
+          timeout = 30000;
+        };
+      };
       model = "opencode/qwen3.6-plus-free";
       small_model = "opencode/deepseek-v4-flash-free";
       default_agent = "plan";
@@ -116,8 +132,11 @@ in
           "~/.local/state/opencode" = "allow";
           "~/.cache/opencode" = "allow";
           "~/.cache/nix" = "allow";
+          "~/.cache/mcp-nixos" = "allow";
           "~/nix-config" = "allow";
         };
+        "mcp-nixos_nix" = "allow";
+        "mcp-nixos_nix_versions" = "allow";
       };
       provider = {
         # https://raw.githubusercontent.com/maruf009sultan/g4f-working/refs/heads/main/working/working_results.txt
