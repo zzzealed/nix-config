@@ -18,6 +18,7 @@
     autoStart = false;
     settings = {
       port = 47989;
+      output_name = "DP-1";
     };
   };
 }
