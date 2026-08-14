@@ -4,18 +4,22 @@ let
   root_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/rJS1hRE1N7E7B52yBPb1fkDwWaP6oYtF+3/ArdK8l root@nixos";
   root_pi-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzXNbSFzEjnQS+8D3guVv1UedC2E9EK0MZLaBDXMe+c root@example";
   root_vps-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQzGmZC5c7kFKe/GcHNNuvhF6uFOh8ZYG0H1mb6luL/ root@instance-20260423-1921";
+  root_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIuobzq8Njlr20TJoFmte0xp0/MppdafjSeG5XxwecSu root@laptop";
   decodingKeys = [
     root_desktop-nixos
     root_server-nixos
     root_pi-nixos
     root_vps-nixos
+    root_laptop-nixos
   ];
 
   mads_desktop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos";
   mads_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos";
+  mads_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIuobzq8Njlr20TJoFmte0xp0/MppdafjSeG5XxwecSu root@laptop";
   interactiveKeys = [
     mads_desktop-nixos
     mads_server-nixos
+    mads_laptop-nixos
   ];
 
   secrets = {
