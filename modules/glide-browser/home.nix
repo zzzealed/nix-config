@@ -181,10 +181,10 @@
       };
     };
   };
-  stylix.targets.glide-browser = {
-    profileNames = [ "mads" ];
-    enable = true;
-    colorTheme.enable = true;
-    #firefoxGnomeTheme.enable = true;
-  };
+  # stylix.targets.glide-browser = {
+  # profileNames = [ "mads" ];
+  # enable = true;
+  # colorTheme.enable = true;
+  #firefoxGnomeTheme.enable = true;
+  # };
 }
