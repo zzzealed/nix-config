@@ -15,9 +15,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      #url = "github:nix-community/stylix/release-26.05";
+      url = "github:nix-community/stylix/release-26.05";
       #url = "git+file:///home/mads/Documents/stylix";
-      url = "github:zzzealed/stylix/release-25.11";
+      # url = "github:zzzealed/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
@@ -86,6 +86,7 @@
         server-nixos = mkNixosConfig "server" "x86_64-linux" "l.zzzealed.com" "adb2c089";
         pi-nixos = mkNixosConfig "pi" "aarch64-linux" "l.zzzealed.com" "cf20a29f";
         vps-nixos = mkNixosConfig "vps" "x86_64-linux" "zzzealed.com" "2c363b2d";
+        laptop-nixos = mkNixosConfig "laptop" "x86_64-linux" "zzzealed.com" "";
       };
     };
 }
