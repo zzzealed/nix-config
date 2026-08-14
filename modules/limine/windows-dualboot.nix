@@ -6,4 +6,7 @@
       protocol: efi_chainload
       image_path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
   '';
+
+  # https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#System_time
+  time.hardwareClockInLocalTime = true;
 }

@@ -19,8 +19,6 @@
     ../../modules/cli-tools
     ../../modules/fish
     ../../modules/nh
-    ../../modules/rclone
-    # ../../modules/rclone/mnt-hbd.nix
     ../../modules/steam
     ../../modules/obs-studio
     ../../modules/localsend
@@ -64,7 +62,6 @@
     ../../modules/opendeck
     ../../modules/i2p
     ../../modules/sunshine
-    # ../../modules/moonlight # Unstable
   ];
 
   # Home manager modules
@@ -163,7 +160,6 @@
   powerManagement.cpuFreqGovernor = "performance";
   boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
   services.gvfs.enable = true;
-  time.hardwareClockInLocalTime = true; # https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows#System_time
   services.fstrim.enable = true;
   hardware.cpu.intel.updateMicrocode = true;
 
