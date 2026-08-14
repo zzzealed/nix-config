@@ -67,7 +67,7 @@
               networking = {
                 hostName = hostName;
                 domain = domain;
-                hostId = hostId;
+                hostId = hostId; # head -c 8 /etc/machine-id
               };
             }
             ./nix.nix
