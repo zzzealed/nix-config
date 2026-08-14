@@ -25,7 +25,7 @@ curl -L -O https://github.com/zzzealed/nix-config/archive/refs/heads/main.tar.gz
 ```
 2. Unzip with:
 ```sh
-tar -xzf nix-config-main.tar.gz
+tar -xzf main.tar.gz
 ```
 3. Enter shell: 
 ```sh
