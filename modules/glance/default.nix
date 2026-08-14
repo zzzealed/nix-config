@@ -305,10 +305,6 @@
                       title = "Mullvad";
                     }
                     {
-                      url = "https://www.lttlabs.com/blog/rss.xml";
-                      title = "LTT Labs";
-                    }
-                    {
                       url = "https://fmhy.net/feed.rss";
                       title = "FMHY";
                     }
@@ -347,18 +343,6 @@
                       title = "Ars Technica/Information Technology";
                     }
                     {
-                      url = "https://feeds.arstechnica.com/arstechnica/gadgets";
-                      title = "Ars Technica/Product News & Reviews";
-                    }
-                    {
-                      url = "https://feeds.arstechnica.com/arstechnica/tech-policy";
-                      title = "Ars Technica/Civilization & Discontents";
-                    }
-                    {
-                      url = "https://feeds.arstechnica.com/arstechnica/gaming";
-                      title = "Ars Technica/Gaming & Entertainment";
-                    }
-                    {
                       url = "https://iamesports.substack.com/feed";
                       title = "Thorin Substack";
                     }
@@ -366,6 +350,7 @@
                       url = "https://esportsadvocate.net/rss";
                       title = "The Esports Advocate";
                     }
+                    # av1.wiki
                     #{
                     #url = "https://wiki.x266.mov/blog/rss";
                     #title = "Codec Wiki";
@@ -401,6 +386,10 @@
                     {
                       url = "https://blog.tangled.org/feed.xml";
                       title = "Tangled";
+                    }
+                    {
+                      url = "https://www.citationneeded.news/rss";
+                      title = "Citation Needed";
                     }
                   ];
                 }
