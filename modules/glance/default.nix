@@ -346,10 +346,6 @@
                       url = "https://iamesports.substack.com/feed";
                       title = "Thorin Substack";
                     }
-                    {
-                      url = "https://esportsadvocate.net/rss";
-                      title = "The Esports Advocate";
-                    }
                     # av1.wiki
                     #{
                     #url = "https://wiki.x266.mov/blog/rss";
