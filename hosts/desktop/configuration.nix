@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   # Nix modules
   imports = [
     # Stack
     ../../modules/limine # Bootloader
     ../../modules/limine/windows-dualboot.nix
+    ../../modules/limine/secure-boot.nix
     ../../modules/ly # Display manager
     ../../modules/niri # Compositor
     ../../modules/pipewire # Audio
