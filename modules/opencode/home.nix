@@ -69,9 +69,9 @@ in
     # Writes to ~/.config/opencode/AGENTS.md
     context = ''
       - Please read `./AGENTS.md`
+      - Please read `./README.md`
       - See your abilities in `~/nix-config/modules/opencode/home.nix`.
         - In short; you have no write for the most part. Don't suggest editing a file.
-      - I use [NixOS with Nix](https://github.com/NixOS/nix), see `~/nix-config/nix.nix`-file.
     '';
     settings = {
       mcp = {
@@ -106,12 +106,12 @@ in
           "*" = "deny";
           # opencode
           "opencode *" = "ask";
-          # nix-shell
+          # nix
           "nix-shell" = "allow";
-          # nix flake
           "nix flake *" = "deny";
           "nix flake show *" = "allow";
           "nix flake check *" = "allow";
+          "nix eval *" = "allow";
           # misc.
           "man *" = "allow";
           "tail *" = "ask";
@@ -119,8 +119,8 @@ in
           # zmx
           "zmx *" = "deny";
           "zmx list *" = "allow";
-          "zmx history *" = "ask";
-          "zmx history * | tail *" = "ask";
+          "zmx history *" = "allow";
+          "zmx history * | tail *" = "allow";
         };
         "question" = "allow";
         "webfetch" = "allow";
@@ -138,31 +138,6 @@ in
         "mcp-nixos_nix" = "allow";
         "mcp-nixos_nix_versions" = "allow";
       };
-      provider = {
-        # https://raw.githubusercontent.com/maruf009sultan/g4f-working/refs/heads/main/working/working_results.txt
-        "g4f.anyprovider" = {
-          npm = "@ai-sdk/openai-compatible";
-          name = "GPT4Free";
-          options = {
-            "baseURL" = "https://g4f.l.zzzealed.com/api/anyprovider";
-            "apiKey" = "secret";
-          };
-          models = {
-            "glm-5.1".name = "glm-5.1";
-          };
-        };
-        "g4f.qwen" = {
-          npm = "@ai-sdk/openai-compatible";
-          name = "GPT4Free";
-          options = {
-            "baseURL" = "https://g4f.l.zzzealed.com/api/qwen";
-            "apiKey" = "secret";
-          };
-          models = {
-            "qwen3.5-max-2026-03-08".name = "qwen3.5-max-2026-03-08";
-          };
-        };
-      };
     };
     commands = {
       "test" = ''
@@ -171,9 +146,10 @@ in
         Usage: /test
       '';
       "tail" = ''
-        run `zmx history $1 | tail $2`.
-        $3
-        Usage: /tail <session_name> | tail -<lines> "<message>"
+        Template: Run this command to see the output of my shell.
+        Description: Tail zmx session's history.
+        Run: `zmx history $1 | tail $2`
+        Usage: /tail <session_name> | tail -<lines>
       '';
     };
   };
