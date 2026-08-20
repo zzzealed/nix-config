@@ -4,7 +4,7 @@ let
   root_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/rJS1hRE1N7E7B52yBPb1fkDwWaP6oYtF+3/ArdK8l root@nixos";
   root_pi-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzXNbSFzEjnQS+8D3guVv1UedC2E9EK0MZLaBDXMe+c root@example";
   root_vps-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQzGmZC5c7kFKe/GcHNNuvhF6uFOh8ZYG0H1mb6luL/ root@instance-20260423-1921";
-  root_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIuobzq8Njlr20TJoFmte0xp0/MppdafjSeG5XxwecSu root@laptop";
+  root_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4tKknECJ43CH0oelw/zgEIfEGwqQjAxfsIEWr73SD9 root@nixos";
   decodingKeys = [
     root_desktop-nixos
     root_server-nixos
@@ -15,7 +15,7 @@ let
 
   mads_desktop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos";
   mads_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos";
-  mads_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIuobzq8Njlr20TJoFmte0xp0/MppdafjSeG5XxwecSu root@laptop";
+  mads_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSX+uG+W5BIhlcO+kd39ngmRVtOtJirGO5oBlkZuopO mads@nixos";
   interactiveKeys = [
     mads_desktop-nixos
     mads_server-nixos
@@ -27,7 +27,6 @@ let
     "searx-secret_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "glance-weather_location.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "glance-custom-api_kredslob_skrald.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "hbd-wireguard_config-1.age".publicKeys = decodingKeys ++ interactiveKeys;
     "porkbun-nginx_api_key.age".publicKeys = [
       root_server-nixos
       root_vps-nixos
@@ -43,7 +42,6 @@ let
     "changedetection-io_rss.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "glance-releases-token_github.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "server-nixos_ddclient_config.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "hbd-ftps_rclone-config.age".publicKeys = decodingKeys ++ interactiveKeys;
     "phone-nix_wireguard_config.age".publicKeys = interactiveKeys;
     "linus-password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "gatus_environment-file.age".publicKeys = [
@@ -55,11 +53,8 @@ let
     "harmonia_sign-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "github_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "hbd-wireguard_config-2.age".publicKeys = decodingKeys ++ interactiveKeys;
     "authelia_jwt-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "authelia_storage-encryption-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "hbd-1_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "hbd-2_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "authelia_oidc-hmac-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "authelia_oidc-issuer-private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
