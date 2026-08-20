@@ -4,23 +4,15 @@ let
   # I've watched "Age of Ultron"
   opencode-bubblewrapped = pkgs.writeShellApplication {
     name = "opencode";
-    runtimeInputs = with pkgs; [
-      bubblewrap
-      unstable.opencode
-      unstable.helix # For /editor
-      # LSPs
-      clang-tools
-      deno
-      nixd
-      intelephense
-      rust-analyzer
-      tinymist
-      typescript
-      yaml-language-server
-      zls
-      # MCPs
-      unstable.mcp-nixos
-    ];
+    runtimeInputs =
+      with pkgs;
+      (import ../lsp/pkgs.nix pkgs)
+      ++ [
+        bubblewrap
+        unstable.opencode
+        unstable.helix # For /editor
+        unstable.mcp-nixos
+      ];
     # This is the best I cared to come up with
     text = ''
       mkdir -p "$HOME/.config/opencode"
@@ -115,12 +107,11 @@ in
           # misc.
           "man *" = "allow";
           "tail *" = "ask";
+          "head *" = "ask";
           "rg *" = "allow";
           # zmx
           "zmx *" = "deny";
-          "zmx list *" = "allow";
           "zmx history *" = "allow";
-          "zmx history * | tail *" = "allow";
         };
         "question" = "allow";
         "webfetch" = "allow";
