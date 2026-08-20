@@ -3,7 +3,7 @@ let
   # Template for fetching
   f =
     name: url: hash:
-    pkgs.fetchurl { inherit url hash name; };
+    pkgs.fetchurl { inherit name url hash; };
 in
 {
 
