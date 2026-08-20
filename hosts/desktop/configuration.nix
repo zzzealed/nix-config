@@ -63,6 +63,7 @@
     ../../modules/opendeck
     ../../modules/i2p
     ../../modules/sunshine
+    ../../modules/lan-mouse
   ];
 
   # Home manager modules
