@@ -25,6 +25,7 @@
     ../../modules/nix-gc
     ../../modules/zmx
     ../../modules/nix-index-database
+    ../../modules/localsend
   ];
   home-manager.users.mads = {
     home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
