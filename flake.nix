@@ -52,6 +52,7 @@
       url = "github:Kitt3120/opendeck-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lan-mouse.url = "github:feschber/lan-mouse";
   };
 
   outputs =

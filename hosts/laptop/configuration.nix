@@ -48,6 +48,7 @@
       ../../modules/yazi/home.nix
       ../../modules/opencode/home.nix
       ../../modules/thunderbird/home.nix
+      ../../modules/lan-mouse/home.nix
     ];
   };
 

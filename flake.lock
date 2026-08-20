@@ -317,6 +317,25 @@
         "type": "github"
       }
     },
+    "lan-mouse": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1782656559,
+        "narHash": "sha256-i2xXiqLOnCNfwZnbrm1teVlTTA1HQ0IRVPXEiyiQtpU=",
+        "owner": "feschber",
+        "repo": "lan-mouse",
+        "rev": "392af44cbe06a7a591db86856ad6ed2aa83958d8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "feschber",
+        "repo": "lan-mouse",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -384,16 +403,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1787101114,
-        "narHash": "sha256-BA7sSNjLDuPGSOYBGpr6WQjke1MQ8AZpJ8GlYZM/mOc=",
-        "rev": "b18a4b905f8d028dc4476412e6d6891728695379",
-        "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.8045.b18a4b905f8d/nixexprs.tar.xz"
+        "lastModified": 1772963539,
+        "narHash": "sha256-9jVDGZnvCckTGdYT53d/EfznygLskyLQXYwJLKMPsZs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "9dcb002ca1690658be4a04645215baea8b95f31d",
+        "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-26.05",
-        "type": "indirect"
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-lib": {
@@ -452,6 +473,20 @@
       "original": {
         "id": "nixpkgs",
         "ref": "nixos-unstable-small",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1787101114,
+        "narHash": "sha256-BA7sSNjLDuPGSOYBGpr6WQjke1MQ8AZpJ8GlYZM/mOc=",
+        "rev": "b18a4b905f8d028dc4476412e6d6891728695379",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.8045.b18a4b905f8d/nixexprs.tar.xz"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-26.05",
         "type": "indirect"
       }
     },
@@ -528,7 +563,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "rust-overlay": "rust-overlay"
+        "rust-overlay": "rust-overlay_2"
       },
       "locked": {
         "lastModified": 1777298252,
@@ -550,10 +585,11 @@
         "agenix": "agenix",
         "glide": "glide",
         "home-manager": "home-manager",
+        "lan-mouse": "lan-mouse",
         "nix-index-database": "nix-index-database",
         "nix-minecraft": "nix-minecraft",
         "nixcord": "nixcord",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixpkgs-unstable-small": "nixpkgs-unstable-small",
         "nur": "nur",
@@ -564,6 +600,27 @@
       }
     },
     "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "lan-mouse",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773025773,
+        "narHash": "sha256-Wik8+xApNfldpUFjPmJkPdg0RrvUPSWGIZis+A/0N1w=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "3c06fdbbd36ff60386a1e590ee0cd52dcd1892bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
           "redlib",
