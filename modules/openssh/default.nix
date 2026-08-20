@@ -46,7 +46,7 @@
       Host 79.76.44.104 vps.zzzealed.com
         Port 2267
 
-      Host 192.168.0.133 laptop.zzzzealed.com
+      Host 192.168.0.133 laptop.zzzealed.com
         Port 2267
 
       Host *
