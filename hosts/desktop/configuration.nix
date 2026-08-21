@@ -94,6 +94,7 @@
       ../../modules/opencode/home.nix
       ../../modules/thunderbird/home.nix
       ../../modules/lan-mouse/home.nix
+      ../../modules/lan-mouse/desktop.nix
     ];
   };
 
