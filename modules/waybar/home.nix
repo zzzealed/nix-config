@@ -25,6 +25,7 @@
         margin-bottom = 0;
         modules-left = [
           "niri/workspaces"
+          "custom/hostname"
           "memory"
           "custom/wg-quick"
         ];
@@ -51,6 +52,12 @@
           interval = 1;
           format = "{:%d/%m/%Y %T}";
           tooltip-format = "{:%A, %B %e. %G at %r %Z}";
+        };
+
+        "custom/hostname" = {
+          exec = "hostname";
+          format = "{}";
+          interval = 600;
         };
 
         "custom/wg-quick" = {
