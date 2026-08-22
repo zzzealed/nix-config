@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
-  boot.loader.limine = {
-    enable = true;
-    package = pkgs.limine;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    limine = {
+      enable = true;
+      package = pkgs.limine;
+    };
   };
 }
