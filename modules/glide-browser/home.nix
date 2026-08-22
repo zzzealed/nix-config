@@ -91,25 +91,24 @@
         };
         extensions = {
           force = true;
-          #          packages = [
-          # I don't actually wanna install my extensions from NUR so this is just a list of the ones I use
-          # AdNauseam
-          # Augmented Steam
-          # Bitwarden
-          # Consent-O-Matic
-          # Dark Reader
-          # ff2mpv
-          # HLTV Fantasy Values
-          # Karakeep
-          # Nixpkgs PR Tracker
-          # Redirector
-          # Refined GitHub
-          # Return YouTube Dislike
-          # Search by Image
-          # SponsorBlock
-          # TWP
-          # Violentmonkey
-          #          ];
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            adnauseam
+            augmented-steam
+            bitwarden
+            danish-dictionary
+            darkreader
+            ff2mpv
+            multi-account-containers
+            proton-vpn
+            redirector
+            refined-github
+            return-youtube-dislikes
+            search-by-image
+            sponsorblock
+            translate-web-pages
+            violentmonkey
+          ];
+          # settings = {} # TODO
         };
         search = {
           force = true;
@@ -121,12 +120,12 @@
             };
             "NixOS package search" = {
               urls = [ { template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}"; } ];
-              icon = "https://search.nixos.org/images/nix-logo.png";
+              icon = "https://search.nixos.org/images/nixos-logomark-default-gradient-none.svg";
               definedAliases = [ "@nixpkgs" ];
             };
             "NixOS option search" = {
               urls = [ { template = "https://search.nixos.org/options?channel=unstable&query={searchTerms}"; } ];
-              icon = "https://search.nixos.org/images/nix-logo.png";
+              icon = "https://search.nixos.org/images/nixos-logomark-default-gradient-none.svg";
               definedAliases = [ "@nixopts" ];
             };
           };
