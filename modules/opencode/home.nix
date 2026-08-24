@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   # Bubblewrap OpenCode
   # I've watched "Age of Ultron"
@@ -58,6 +58,9 @@ in
     enable = true;
     package = opencode-bubblewrapped;
     enableMcpIntegration = true;
+    tui = {
+      theme = lib.mkForce "system"; # FIXME: Stylix doesn't detect system theme properly
+    };
     # Writes to ~/.config/opencode/AGENTS.md
     context = ''
       - Please read `./AGENTS.md`
