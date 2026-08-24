@@ -144,7 +144,8 @@ binds { // TODO: Actually look at these.
     Mod+D hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: Swaylock" { spawn "swaylock"; }
     Mod+N hotkey-overlay-title="Close a Notification: Dunst" { spawn "dunstctl" "close"; }
-    Mod+B hotkey-overlay-title="Open a Browser: Glide" { spawn "glide"; }
+    Mod+G hotkey-overlay-title="Open a Browser: Glide" { spawn "glide"; }
+    Mod+B hotkey-overlay-title="Open/close a bar: Waybar" { spawn "pkill" "-USR1" "waybar"; }
 
     XF86AudioPlay  allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioStop  allow-when-locked=true { spawn "playerctl" "stop"; }
