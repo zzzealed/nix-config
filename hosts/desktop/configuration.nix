@@ -42,7 +42,7 @@
     ../../modules/bash
     ../../modules/wireguard
     ../../modules/wireguard/wg_proton-1.nix
-    ../../modules/wireguard/wg_pi-3.nix
+    ../../modules/wireguard/wg_server-3.nix
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
