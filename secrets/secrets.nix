@@ -60,8 +60,8 @@ let
     "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "proton-1_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "proton-2_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "pi-3_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "pi-4_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+    "server-3_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "server-4_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
     "speedtest-tracker_app-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "samba-secrets.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
   };

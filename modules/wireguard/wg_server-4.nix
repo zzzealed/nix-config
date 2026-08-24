@@ -1,8 +1,8 @@
 { config, ... }:
 
 {
-  age.secrets."pi-4_private-key-file".file = ../../secrets/pi-4_private-key-file.age;
-  networking.wg-quick.interfaces.wg_pi-4 = {
+  age.secrets."server-4_private-key-file".file = ../../secrets/server-4_private-key-file.age;
+  networking.wg-quick.interfaces.wg_server-4 = {
     address = [ config.wireguard.allowedIPs.vps ];
     dns = [
       config.nameserver.server
@@ -21,6 +21,6 @@
         persistentKeepalive = 25;
       }
     ];
-    privateKeyFile = config.age.secrets."pi-4_private-key-file".path;
+    privateKeyFile = config.age.secrets."server-4_private-key-file".path;
   };
 }

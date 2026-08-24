@@ -18,20 +18,16 @@
     ../../modules/nix-gc
     ../../modules/nix-index-database
     # Services
-    ../../modules/wireguard
-    ../../modules/wireguard/server.nix
     ../../modules/samba-shares
     ../../modules/samba-shares/vault2-share.nix
   ];
 
-  home-manager.users.mads = {
-    imports = [
-      ../../modules/git/home.nix
-      ../../modules/helix/home.nix
-      ../../modules/navi/home.nix
-      ../../modules/btop/home.nix
-    ];
-  };
+  home-manager.users.mads.imports = [
+    ../../modules/git/home.nix
+    ../../modules/helix/home.nix
+    ../../modules/navi/home.nix
+    ../../modules/btop/home.nix
+  ];
 
   # Boot
   boot.loader = {

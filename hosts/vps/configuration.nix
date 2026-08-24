@@ -13,7 +13,7 @@
     # Services
     ../../modules/openssh
     ../../modules/wireguard
-    ../../modules/wireguard/wg_pi-4.nix
+    ../../modules/wireguard/wg_server-4.nix
     ../../modules/gatus
     ../../modules/gatus/gatus-public.nix
     ../../modules/nginx

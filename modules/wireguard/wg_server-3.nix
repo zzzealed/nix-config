@@ -1,7 +1,7 @@
 { config, ... }:
 {
-  age.secrets."pi-3_private-key-file".file = ../../secrets/pi-3_private-key-file.age;
-  networking.wg-quick.interfaces.wg_pi-3 = {
+  age.secrets."server-3_private-key-file".file = ../../secrets/server-3_private-key-file.age;
+  networking.wg-quick.interfaces.wg_server-3 = {
     address = [
       config.wireguard.allowedIPs.desktop
     ];
@@ -22,6 +22,6 @@
         persistentKeepalive = 25;
       }
     ];
-    privateKeyFile = config.age.secrets."proton-1_private-key-file".path;
+    privateKeyFile = config.age.secrets."server-3_private-key-file".path;
   };
 }
