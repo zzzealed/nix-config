@@ -98,6 +98,7 @@
             danish-dictionary
             darkreader
             ff2mpv
+            karakeep
             multi-account-containers
             proton-vpn
             redirector
