@@ -76,7 +76,7 @@
           clients = [
             {
               client_id = "forgejo";
-              # Generate with `authelia -c authelia crypto hash generate pbkdf2`
+              # Generate with `authelia -c authelia crypto hash generate pbkdf2 --random`
               client_secret = "$pbkdf2-sha512$310000$Z5XWq/yH3udVZn/gibDftA$F7NAXd7W/pxdm7iv//pZy7ODPTfDRsFMJWmja3fhIUi2iCva2Ni0DF9u3fOIf2li3qhWHKmKgvNeOYkzIKSb1A";
               redirect_uris = [ "https://git.zzzealed.com/user/oauth2/authelia/callback" ];
               scopes = [
@@ -112,6 +112,25 @@
                 "profile"
                 "groups"
               ];
+            }
+            {
+              client_id = "actual";
+              client_name = "Actual";
+              client_secret = "$pbkdf2-sha512$310000$twWU4R33DooHldY/eSwiGg$p2tJb1UiCYEnF6d7MEMqTlxPwywaydNQgZ5/Uuvkfa4PM/fuIU6DTzG7oXHrz/pNTMyaT6Vp1zYkhTejarcwTQ";
+              public = false;
+              require_pkce = false;
+              redirect_uris = [ "https://actual.l.zzzealed.com/openid/callback" ];
+              scopes = [
+                "openid"
+                "email"
+                "profile"
+                "groups"
+              ];
+              response_types = "code";
+              grant_types = "authorization_code";
+              access_token_signed_response_alg = "none";
+              userinfo_signed_response_alg = "none";
+              token_endpoint_auth_method = "client_secret_basic";
             }
           ];
         };

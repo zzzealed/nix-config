@@ -125,6 +125,11 @@
                       icon = "sh:pi-hole";
                     }
                     {
+                      title = "Actual";
+                      url = "https://actual.l.zzzealed.com";
+                      icon = "actual-budget";
+                    }
+                    {
                       title = "qBittorrent";
                       url = "https://qbit.l.zzzealed.com";
                       icon = "sh:qbittorrent";

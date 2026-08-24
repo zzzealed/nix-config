@@ -71,7 +71,6 @@ in
     ../../modules/harmonia
     ../../modules/github-runners
     ../../modules/redlib
-    ../../modules/speedtest-tracker
     ../../modules/pr-tracker
     ../../modules/pr-tracker/git.nix
     ../../modules/ollama
@@ -85,6 +84,7 @@ in
     # ../../modules/renovate/default.nix
     ../../modules/wireguard
     ../../modules/wireguard/server.nix
+    ../../modules/actual
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
