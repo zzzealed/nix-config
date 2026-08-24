@@ -64,6 +64,7 @@ let
     "server-4_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
     "speedtest-tracker_app-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "samba-secrets.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "wireguard_private-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 
   defaults = {
