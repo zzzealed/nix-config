@@ -33,7 +33,6 @@ in
     ../../modules/nh
     ../../modules/pipewire
     ../../modules/rclone
-    ../../modules/rclone/mnt-hbd.nix
     ../../modules/thermald
     ../../modules/zfs
     ../../modules/zfs/vault-pool.nix
@@ -84,20 +83,20 @@ in
     ../../modules/authelia
     ../../modules/teamspeak/server.nix
     # ../../modules/renovate/default.nix
+    ../../modules/wireguard
+    ../../modules/wireguard/server.nix
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
   ];
 
-  home-manager.users.mads = {
-    imports = [
-      ../../modules/git/home.nix
-      ../../modules/helix/home.nix
-      ../../modules/navi/home.nix
-      ../../modules/btop/home.nix
-      ../../modules/mpv/home.nix
-    ];
-  };
+  home-manager.users.mads.imports = [
+    ../../modules/git/home.nix
+    ../../modules/helix/home.nix
+    ../../modules/navi/home.nix
+    ../../modules/btop/home.nix
+    ../../modules/mpv/home.nix
+  ];
 
   # Packages
   environment.systemPackages = with pkgs; [
