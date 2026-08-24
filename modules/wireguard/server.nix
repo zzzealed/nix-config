@@ -1,5 +1,8 @@
 # https://git.ibsenware.org/nix-monorepo.git/tree/hosts/ahmed/wireguard-vpn/default.nix
 { pkgs, config, ... }:
+let
+  interface = "enp3s0";
+in
 {
 
   age.secrets."wireguard_private-key".file = ../../secrets/wireguard_private-key.age;
@@ -11,8 +14,8 @@
     listenPort = 51820;
 
     # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
-    postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/16 -d 192.168.0.0/24 -o enu1u1u1 -j MASQUERADE";
-    postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/16 -d 192.168.0.0/24 -o enu1u1u1 -j MASQUERADE";
+    postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/16 -d 192.168.0.0/24 -o ${interface} -j MASQUERADE";
+    postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/16 -d 192.168.0.0/24 -o ${interface} -j MASQUERADE";
 
     privateKeyFile = config.age.secrets.wireguard_private-key.path;
     peers = [
@@ -42,7 +45,7 @@
   # Forward packets from wireguard onto the LAN while also doing address translation.
   networking.nat = {
     enable = true;
-    externalInterface = "enu1u1u1";
+    externalInterface = interface;
     internalInterfaces = [ "wg0" ];
   };
 }
