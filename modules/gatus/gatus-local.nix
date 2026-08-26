@@ -352,6 +352,23 @@
         { type = "ntfy"; }
       ];
     }
+    {
+      name = "Actual";
+      group = "l.zzzealed.com";
+      url = "https://actual.l.zzzealed.com/health";
+      interval = "5m";
+      conditions = [
+        "[STATUS] == 200"
+        "[CONNECTED] == true"
+        "[RESPONSE_TIME] < 500"
+        "[BODY].status == UP"
+        "[CERTIFICATE_EXPIRATION] > 336h"
+      ];
+      alerts = [
+        { type = "discord"; }
+        { type = "ntfy"; }
+      ];
+    }
   ];
   services.nginx.virtualHosts."status.l.zzzealed.com" = {
     useACMEHost = "zzzealed.com";
