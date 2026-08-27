@@ -41,7 +41,6 @@ let
     "pihole-app_password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "changedetection-io_rss.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "glance-releases-token_github.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "server-nixos_ddclient_config.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "phone-nix_wireguard_config.age".publicKeys = interactiveKeys;
     "linus-password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "gatus_environment-file.age".publicKeys = [
@@ -49,22 +48,36 @@ let
       root_vps-nixos
     ]
     ++ interactiveKeys;
-    "vps-nixos_ddclient_config.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
     "harmonia_sign-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "github_nix-config_token-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "speedtest-tracker_app-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "samba-secrets.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+
+    # Authelia
     "authelia_jwt-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "authelia_storage-encryption-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "authelia_oidc-hmac-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "authelia_oidc-issuer-private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "proton-1_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "proton-2_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "server-3_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "server-4_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
-    "speedtest-tracker_app-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "samba-secrets.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "wireguard_private-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+
+    # ddclient
+    "server-nixos_ddclient_config.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "pi-nixos_ddclient_config.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    "vps-nixos_ddclient_config.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+
+    # Wireguard
+    "wireguard-server_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "desktop-server_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "pi-server_private-key-file.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    "vps-server_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+    "laptop-server_private-key-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
+    "phone-server_private-key-file.age".publicKeys = interactiveKeys;
+
+    # Proton VPN
+    "desktop-proton_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "server-proton_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "laptop-proton_private-key-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
   };
 
   defaults = {

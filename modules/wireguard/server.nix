@@ -1,51 +1,47 @@
 # https://git.ibsenware.org/nix-monorepo.git/tree/hosts/ahmed/wireguard-vpn/default.nix
-{ pkgs, config, ... }:
+{ config, ... }:
 let
-  interface = "enp3s0";
+  externalInterface = "enp3s0";
+  internalInterface = "wg0";
 in
 {
-
-  age.secrets."wireguard_private-key".file = ../../secrets/wireguard_private-key.age;
-
-  environment.systemPackages = [ pkgs.wireguard-tools ];
-
-  networking.wireguard.interfaces.wg0 = {
-    ips = [ "10.100.0.1/16" ];
-    listenPort = 51820;
-
-    # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
-    postSetup = "${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/16 -d 192.168.0.0/24 -o ${interface} -j MASQUERADE";
-    postShutdown = "${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/16 -d 192.168.0.0/24 -o ${interface} -j MASQUERADE";
-
-    privateKeyFile = config.age.secrets.wireguard_private-key.path;
-    peers = [
-      {
-        publicKey = "bmX/vHEwIteNYly02k79UtlaEsMYz4n8aabEY6eohUA=";
-        allowedIPs = [ config.wireguard.allowedIPs.phone ];
-      }
-      {
-        publicKey = "2yZDQkigD3u8+NNFbN4eP6VRB5A9qgZ/KjrF3qZCLBU=";
-        allowedIPs = [ config.wireguard.allowedIPs.desktop ];
-      }
-      {
-        publicKey = "oB0yJ8lGWSjpdnwRiuT7uHkN7Ri++G3K+2YmKbgzZGI=";
-        allowedIPs = [ config.wireguard.allowedIPs.vps ];
-      }
-      {
-        publicKey = "v4BfeaTce5+bjdmhSkbSCp3mPh/hy3GHNEFHU/ExY0Y=";
-        allowedIPs = [ config.wireguard.allowedIPs.laptop ];
-      }
-    ];
-  };
-
-  # Allow connections to the wireguard server. All clients need to connect to
-  # this port.
-  networking.firewall.allowedUDPPorts = [ config.networking.wireguard.interfaces.wg0.listenPort ];
-
   # Forward packets from wireguard onto the LAN while also doing address translation.
   networking.nat = {
     enable = true;
-    externalInterface = interface;
-    internalInterfaces = [ "wg0" ];
+    externalInterface = externalInterface;
+    internalInterfaces = [ internalInterface ];
   };
+
+  age.secrets."wireguard-server_private-key-file".file =
+    ../../secrets/wireguard-server_private-key-file.age;
+
+  networking.wireguard.interfaces.${internalInterface} = {
+    ips = [ config.wireguard.ip.server ];
+    listenPort = config.wireguard.serverPort;
+    privateKeyFile = config.age.secrets.wireguard-server_private-key-file.path;
+    peers = [
+      # Use `wg genkey | tee privatekey | wg pubkey > publickey`
+      {
+        publicKey = "dpqVyuEXtxNzOD71u4YZS2SIOYO7bjRtnudLqI4/Mls=";
+        allowedIPs = [ config.wireguard.ip.desktop ];
+      }
+      {
+        publicKey = "5GtPoPLLuDg7UtwjFf/MGNCMVuDQuXkhmmEoiHuAQEk=";
+        allowedIPs = [ config.wireguard.ip.pi ];
+      }
+      {
+        publicKey = "V394OFPPgENEJtPt4sBgXTsfxK4uJdL0fA5VEZm+Lz4=";
+        allowedIPs = [ config.wireguard.ip.vps ];
+      }
+      {
+        publicKey = "V0RHu8VbSOOfakSn28cYdqMwhSlbg1mkdAE2A+7LSSA=";
+        allowedIPs = [ config.wireguard.ip.laptop ];
+      }
+      {
+        publicKey = "mDqSq2R3ZN8eI7Jeh53w79QGNoE079rTC/8dI4uyoEs=";
+        allowedIPs = [ config.wireguard.ip.phone ];
+      }
+    ];
+  };
+  networking.firewall.allowedUDPPorts = [ config.wireguard.serverPort ];
 }
