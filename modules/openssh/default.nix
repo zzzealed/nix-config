@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  services.gnome.gcr-ssh-agent.enable = false;
   services.openssh = {
     enable = true;
     package = pkgs.openssh;
@@ -24,6 +25,7 @@
   };
   programs.ssh = {
     package = pkgs.openssh;
+    startAgent = true;
     extraConfig = ''
       host server.zzzealed.com
         Port 2267
