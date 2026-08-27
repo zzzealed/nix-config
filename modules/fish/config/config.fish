@@ -25,22 +25,22 @@ function rbld
 end
 function _rbld
     set host $argv[1]
-    command ssh -tA mads@server.l.zzzealed.com \
+    command ssh -tA mads@server.internal \
         "sudo -v && \
-        rsync --archive --info=progress2 --filter=':- .gitignore' mads@desktop.l.zzzealed.com:/home/mads/nix-config/ ~/nix-config/ && \
+        rsync --archive --info=progress2 --filter=':- .gitignore' mads@server.internal:/home/mads/nix-config/ ~/nix-config/ && \
         nh os $argv[2] ~/nix-config#$host $argv[3..]"
 end
 function rbld-server
     _rbld server-nixos $argv
 end
 function rbld-desktop
-    _rbld desktop-nixos $argv --target-host mads@desktop.l.zzzealed.com
+    _rbld desktop-nixos $argv --target-host mads@desktop.internal
 end
 function rbld-pi
-    _rbld pi-nixos $argv --target-host mads@pi.l.zzzealed.com
+    _rbld pi-nixos $argv --target-host mads@pi.internal
 end
 function rbld-vps
-    _rbld vps-nixos $argv --target-host mads@vps.zzzealed.com
+    _rbld vps-nixos $argv --target-host mads@vps.internal
 end
 function rbld-all
     echo server

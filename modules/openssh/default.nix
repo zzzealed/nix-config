@@ -25,28 +25,28 @@
   programs.ssh = {
     package = pkgs.openssh;
     extraConfig = ''
-      Host 192.168.0.118 server.l.zzzealed.com
+      host server.zzzealed.com
+        Port 2267
+        
+      host vps.zzzealed.com
         Port 2267
 
-      Host 192.168.0.151 pi.l.zzzealed.com
+      Host 10.100.0.1 server.internal
         Port 2267
 
-      Host 192.168.0.146 desktop.l.zzzealed.com
+      Host 10.100.0.2 desktop.internal
         Port 2267
 
-      Host 192.168.0.31 laptop2.l.zzzealed.com
+      Host 10.100.0.3 pi.internal
         Port 2267
 
-      Host 192.168.0.164 phone.l.zzzealed.com
+      Host 10.100.0.4 vps.internal
         Port 2267
 
-      Host 87.104.105.54 home.zzzealed.com
+      Host 10.100.0.5 laptop.internal
         Port 2267
 
-      Host 79.76.44.104 vps.zzzealed.com
-        Port 2267
-
-      Host 192.168.0.133 laptop.zzzealed.com
+      Host 10.100.0.6 phone.internal
         Port 2267
 
       Host *

@@ -2,7 +2,7 @@
 {
   age.secrets."samba-secrets".file = ../../secrets/samba-secrets.age;
   fileSystems."/mnt/vault2" = {
-    device = "//pi.l.zzzealed.com/vault2";
+    device = "//pi.internal/vault2";
     fsType = "cifs";
     options =
       let

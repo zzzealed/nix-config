@@ -2,7 +2,7 @@
 {
   age.secrets."samba-secrets".file = ../../secrets/samba-secrets.age;
   fileSystems."/mnt/home" = {
-    device = "//server.l.zzzealed.com/home";
+    device = "//server.internal/home";
     fsType = "cifs";
     options =
       let

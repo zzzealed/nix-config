@@ -2,7 +2,7 @@
 {
   age.secrets."samba-secrets".file = ../../secrets/samba-secrets.age;
   fileSystems."/mnt/qbittorrent" = {
-    device = "//server.l.zzzealed.com/qbittorrent";
+    device = "//server.internal/qbittorrent";
     fsType = "cifs";
     options =
       let

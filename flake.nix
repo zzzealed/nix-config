@@ -61,14 +61,14 @@
     inputs@{ ... }:
     let
       mkNixosConfig =
-        hostName: system: domain: hostId:
+        hostName: system: hostId:
         inputs.nixpkgs.lib.nixosSystem {
           system = system;
           modules = [
             {
               networking = {
                 hostName = hostName;
-                domain = domain;
+                domain = "internal";
                 hostId = hostId; # head -c 8 /etc/machine-id
               };
             }
@@ -84,11 +84,11 @@
     in
     {
       nixosConfigurations = {
-        desktop-nixos = mkNixosConfig "desktop" "x86_64-linux" "l.zzzealed.com" "19fa2096";
-        server-nixos = mkNixosConfig "server" "x86_64-linux" "l.zzzealed.com" "adb2c089";
-        pi-nixos = mkNixosConfig "pi" "aarch64-linux" "l.zzzealed.com" "cf20a29f";
-        vps-nixos = mkNixosConfig "vps" "x86_64-linux" "zzzealed.com" "2c363b2d";
-        laptop-nixos = mkNixosConfig "laptop" "x86_64-linux" "zzzealed.com" "4115249e";
+        desktop-nixos = mkNixosConfig "desktop" "x86_64-linux" "19fa2096";
+        server-nixos = mkNixosConfig "server" "x86_64-linux" "adb2c089";
+        pi-nixos = mkNixosConfig "pi" "aarch64-linux" "cf20a29f";
+        vps-nixos = mkNixosConfig "vps" "x86_64-linux" "2c363b2d";
+        laptop-nixos = mkNixosConfig "laptop" "x86_64-linux" "4115249e";
       };
     };
 }
