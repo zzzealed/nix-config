@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.home-assistant = {
     enable = true;
-    #openFirewall = true;
+    openFirewall = true;
     package = pkgs.home-assistant;
     customComponents = [
       pkgs.home-assistant-custom-components.auth_oidc
@@ -35,8 +35,7 @@
       http = {
         server_port = 8123;
         trusted_proxies = [
-          "::1"
-          "127.0.0.1"
+          "10.100.0.1"
         ];
         use_x_forwarded_for = true;
       };
@@ -46,19 +45,6 @@
       };
       frontend = { };
       api = { };
-    };
-  };
-  services.nginx.virtualHosts."ha.l.zzzealed.com" = {
-    useACMEHost = "zzzealed.com";
-    forceSSL = true;
-    locations = {
-      "/" = {
-        proxyPass = "http://[::1]:${toString config.services.home-assistant.config.http.server_port}";
-        proxyWebsockets = true;
-        extraConfig = ''
-          proxy_buffering off;
-        '';
-      };
     };
   };
 }
