@@ -1,9 +1,13 @@
 { config, pkgs, ... }:
 {
   imports = [ ./wireguard.nix ];
-
   # Block qBit from using other interfaces (I have no idea what I'm doing)
-  systemd.services.qbittorrent.serviceConfig.RestrictNetworkInterfaces = "wg_proton-2 lo";
+  systemd.services.qbittorrent.serviceConfig.RestrictNetworkInterfaces = "wg-proton lo";
+
+  systemd.services.qbittorrent = {
+    after = [ "wireguard-wg-proton.target" ];
+    requires = [ "wireguard-wg-proton.target" ];
+  };
 
   services.qbittorrent = {
     enable = true;
@@ -16,7 +20,7 @@
     serverConfig = {
       LegalNotice.Accepted = true;
       BitTorrent.Session = {
-        Interface = "wg_proton-2";
+        Interface = "wg-proton";
         PerformanceWarning = true;
         DisableAutoTMMByDefault = false;
       };
