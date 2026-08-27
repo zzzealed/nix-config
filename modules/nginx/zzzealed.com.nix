@@ -1,9 +1,6 @@
-{ config, ... }:
+{ inputs, config, ... }:
 let
-  website = builtins.fetchGit {
-    url = "https://codeberg.org/zzzealed/zzzealed.com";
-    rev = "b1727ac77f84f2c2429724e92e4752dc90a5a875";
-  };
+  website = inputs.zzzealed-com;
 in
 {
   age.secrets."porkbun-nginx_api_key".file = ../../secrets/porkbun-nginx_api_key.age;

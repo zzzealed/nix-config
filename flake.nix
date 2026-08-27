@@ -54,6 +54,14 @@
     };
     lan-mouse.url = "github:feschber/lan-mouse";
     sparkyfitness.url = "github:codewithcj/sparkyfitness";
+    zzzealed-com = {
+      url = "git+https://codeberg.org/zzzealed/zzzealed.com";
+      flake = false;
+    };
+    rotte-city = {
+      url = "git+https://codeberg.org/zzzealed/rotte.city";
+      flake = false;
+    };
   };
 
   outputs =

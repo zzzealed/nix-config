@@ -629,9 +629,27 @@
         "nur": "nur",
         "opendeck-nix": "opendeck-nix",
         "redlib": "redlib",
+        "rotte-city": "rotte-city",
         "sparkyfitness": "sparkyfitness",
         "stylix": "stylix",
-        "teapot": "teapot"
+        "teapot": "teapot",
+        "zzzealed-com": "zzzealed-com"
+      }
+    },
+    "rotte-city": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777930593,
+        "narHash": "sha256-IR7ywyDZBmBl/Zod5gTENpRlJVWqhisfl/I7EH43HJY=",
+        "ref": "refs/heads/main",
+        "rev": "25d4d6faefa686e51c1191bef8870d7bc5e62213",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://codeberg.org/zzzealed/rotte.city"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/zzzealed/rotte.city"
       }
     },
     "rust-overlay": {
@@ -902,6 +920,22 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "zzzealed-com": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780061484,
+        "narHash": "sha256-07LDWHB4L4E43X4idA0f2fyv+TjKSgZ2+/1JvhCgCnQ=",
+        "ref": "refs/heads/main",
+        "rev": "b1727ac77f84f2c2429724e92e4752dc90a5a875",
+        "revCount": 16,
+        "type": "git",
+        "url": "https://codeberg.org/zzzealed/zzzealed.com"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/zzzealed/zzzealed.com"
       }
     }
   },

@@ -1,9 +1,6 @@
-{ config, ... }:
+{ inputs, config, ... }:
 let
-  website = builtins.fetchGit {
-    url = "https://codeberg.org/zzzealed/rotte.city";
-    rev = "25d4d6faefa686e51c1191bef8870d7bc5e62213";
-  };
+  website = inputs.rotte-city;
 in
 {
   age.secrets."porkbun-nginx_api_key".file = ../../secrets/porkbun-nginx_api_key.age;
