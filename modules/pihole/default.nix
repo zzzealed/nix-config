@@ -16,11 +16,12 @@
       dns = {
         upstreams = [ "127.0.0.1#5335" ]; # Unbound instance
         hosts = [
-          "192.168.0.118 server.l.zzzealed.com"
-          "192.168.0.151 pi.l.zzzealed.com"
-          "192.168.0.146 desktop.l.zzzealed.com"
-          "192.168.0.31 laptop2.l.zzzealed.com"
-          "192.168.0.164 phone.l.zzzealed.com"
+          "10.100.0.1 server.internal"
+          "10.100.0.2 desktop.internal"
+          "10.100.0.3 pi.internal"
+          "10.100.0.4 vps.internal"
+          "10.100.0.5 laptop.internal"
+          "10.100.0.6 phone.internal"
         ];
         dnssec = true; # ## CHANGED, default = false
         listeningMode = "ALL"; # ## CHANGED, default = "LOCAL"
@@ -35,8 +36,9 @@
         etc_dnsmasq_d = true;
         # Wildcard local DNS route
         dnsmasq_lines = [
-          "address=/.l.zzzealed.com/192.168.0.118"
-          "server=/.l.zzzealed.com/" # empty server = don't forward, answer locally only
+          "address=/.l.zzzealed.com/10.100.0.1"
+          "server=/.l.zzzealed.com/"
+          "server=/.internal/"
         ];
       };
     };
