@@ -6,7 +6,7 @@
     settings = {
       server = {
         verbosity = 0;
-        interface = [ "0.0.0.0" ];
+        interface = [ "127.0.0.1" ];
         port = 5335;
         access-control = "192.168.0.0/16 allow";
         private-address = [

@@ -5,7 +5,7 @@
     package = pkgs.changedetection-io;
     behindProxy = true;
     #webDriverSupport = true;
-    listenAddress = "0.0.0.0";
+    listenAddress = "127.0.0.1";
     port = 5000;
   };
   #networking.firewall = { allowedTCPPorts = [ config.services.changedetection-io.port ]; };

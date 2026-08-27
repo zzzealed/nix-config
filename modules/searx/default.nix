@@ -6,7 +6,7 @@
     package = pkgs.searxng;
     settings = {
       server.port = 8609;
-      server.bind_address = "0.0.0.0";
+      server.bind_address = "127.0.0.1";
       server.secret_key = config.age.secrets."searx-secret_key".path;
       search.formats = [
         "html"

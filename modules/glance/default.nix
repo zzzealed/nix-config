@@ -12,7 +12,7 @@
     package = pkgs.glance;
     #openFirewall = true;
     settings = {
-      server.host = "0.0.0.0";
+      server.host = "127.0.0.1";
       server.port = 6789;
       theme = {
         disable-picker = false;
