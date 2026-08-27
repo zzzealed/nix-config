@@ -64,6 +64,12 @@
               url = "https://status.rotte.city";
             }
             {
+              name = "Router";
+              tags = [ ];
+              keyword = ",router";
+              url = "http://192.168.0.1";
+            }
+            {
               name = "JetKVM";
               tags = [ ];
               keyword = ",jetkvm";
