@@ -54,9 +54,6 @@ function rbld-all
 end
 
 ## Misc.
-function cat
-    command bat $argv
-end
 function cp
     command uutils-cp --verbose --interactive --progress $argv
 end

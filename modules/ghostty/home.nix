@@ -5,7 +5,6 @@
     package = pkgs.unstable.ghostty;
     enableBashIntegration = true;
     enableFishIntegration = true;
-    installBatSyntax = true;
     systemd.enable = true;
     settings = {
       font-feature = [
