@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  home.file.".config/waybar/wg-quick.sh" = {
-    source = ./config/wg-quick.sh;
-    executable = true;
-  };
   programs.waybar = {
     enable = true;
     package = pkgs.unstable.waybar;
@@ -27,7 +23,8 @@
           "niri/workspaces"
           "custom/hostname"
           "memory"
-          "custom/wg-quick"
+          "custom/wg-server"
+          "custom/wg-proton"
         ];
         modules-center = [ "niri/window" ];
         modules-right = [ "clock" ];
@@ -57,11 +54,25 @@
         "custom/hostname" = {
           exec = "hostname";
           format = "{}";
-          interval = 600;
+          interval = -1;
         };
 
-        "custom/wg-quick" = {
-          exec = "~/.config/waybar/wg-quick.sh";
+        "custom/wg-server" = {
+          exec = ''
+            if systemctl is-active --quiet "wg-quick-wg-server.service"; then
+              printf '%s\n' "wg-server: active"
+            fi
+          '';
+          format = "{}";
+          interval = 3;
+        };
+
+        "custom/wg-proton" = {
+          exec = ''
+            if systemctl is-active --quiet "wg-quick-wg-proton.service"; then
+              printf '%s\n' "wg-proton: active"
+            fi
+          '';
           format = "{}";
           interval = 3;
         };
