@@ -3,7 +3,7 @@
   options.nameserver = {
     server = lib.mkOption {
       type = lib.types.str;
-      default = "192.168.0.118"; # server w/ Pihole
+      default = "10.100.0.1"; # server w/ Pihole
     };
     secondary = lib.mkOption {
       type = lib.types.str;
