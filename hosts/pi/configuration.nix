@@ -17,9 +17,15 @@
     ../../modules/zfs
     ../../modules/nix-gc
     ../../modules/nix-index-database
+    ../../modules/bluetooth
     # Services
     ../../modules/samba-shares
     ../../modules/samba-shares/vault2-share.nix
+    ../../modules/ddclient
+    ../../modules/ddclient/pi.nix
+    ../../modules/wireguard
+    ../../modules/wireguard/pi-server.nix
+    ../../modules/home-assistant
   ];
 
   home-manager.users.mads.imports = [

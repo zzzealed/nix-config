@@ -22,6 +22,8 @@
     ../../modules/stylix
     ../../modules/bash
     ../../modules/wireguard
+    ../../modules/wireguard/laptop-server.nix
+    ../../modules/wireguard/laptop-proton.nix
     ../../modules/nix-gc
     ../../modules/zmx
     ../../modules/nix-index-database
@@ -38,7 +40,6 @@
       ../../modules/wpaperd/home.nix
       ../../modules/ghostty/home.nix
       ../../modules/fish/home.nix
-      ../../modules/bat/home.nix
       ../../modules/glide-browser/home.nix
       ../../modules/mpv/home.nix
       ../../modules/git/home.nix

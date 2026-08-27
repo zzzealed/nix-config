@@ -41,8 +41,8 @@
     ../../modules/navi
     ../../modules/bash
     ../../modules/wireguard
-    ../../modules/wireguard/wg_proton-1.nix
-    ../../modules/wireguard/wg_server-3.nix
+    ../../modules/wireguard/desktop-server.nix
+    ../../modules/wireguard/desktop-proton.nix
     ../../modules/prismlauncher
     ../../modules/ungoogled-chromium.nix
     ../../modules/python3.nix
@@ -80,7 +80,6 @@
       ../../modules/ghostty/home.nix # Terminal
       ../../modules/fish/home.nix # Shell
       # Everything else
-      ../../modules/bat/home.nix
       ../../modules/glide-browser/home.nix
       ../../modules/mpv/home.nix
       ../../modules/git/home.nix

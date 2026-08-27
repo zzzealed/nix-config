@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
+{ lib, pkgs, ... }:
 let
   wallpapers = import ../../modules/stylix/wallpapers.nix pkgs;
 in
@@ -41,8 +36,8 @@ in
     ../../modules/zmx
     ../../modules/nix-index-database
     # Services
-    ../../modules/home-assistant
     ../../modules/wireguard
+    ../../modules/wireguard/server.nix
     ../../modules/changedetection-io
     ../../modules/openssh
     ../../modules/scrutiny
@@ -64,7 +59,7 @@ in
     ../../modules/minecraft-server/mads-sp.nix
     ../../modules/minecraft-server/mads-sp-skyblock.nix
     ../../modules/ddclient
-    ../../modules/ddclient/home.zzzealed.com.nix
+    ../../modules/ddclient/server.nix
     ../../modules/forgejo
     ../../modules/endlessh
     ../../modules/teapot
@@ -82,9 +77,8 @@ in
     ../../modules/authelia
     ../../modules/teamspeak/server.nix
     # ../../modules/renovate/default.nix
-    ../../modules/wireguard
-    ../../modules/wireguard/server.nix
     ../../modules/actual
+    ../../modules/home-assistant/proxy.nix
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker

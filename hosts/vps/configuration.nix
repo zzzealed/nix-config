@@ -13,13 +13,13 @@
     # Services
     ../../modules/openssh
     ../../modules/wireguard
-    ../../modules/wireguard/wg_server-4.nix
+    ../../modules/wireguard/vps-server.nix
     ../../modules/gatus
     ../../modules/gatus/gatus-public.nix
     ../../modules/nginx
     ../../modules/nginx/rotte.city.nix
     ../../modules/ddclient
-    ../../modules/ddclient/vps.zzzealed.com.nix
+    ../../modules/ddclient/vps.nix
     ../../modules/endlessh
     ../../modules/fail2ban
   ];
