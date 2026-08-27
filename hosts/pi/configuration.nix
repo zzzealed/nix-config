@@ -35,6 +35,8 @@
     ../../modules/btop/home.nix
   ];
 
+  zramSwap.enable = true;
+
   # Boot
   boot.loader = {
     grub.enable = false;
