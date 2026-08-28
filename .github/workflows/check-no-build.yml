@@ -24,15 +24,8 @@ jobs:
     if: success()
     runs-on: [self-hosted, nix]
     steps:
-      - name: clone or update
-        run: |
-          repo=/var/lib/github-runner/server-nixos/nix-config
-          if [ -d "$repo/.git" ]; then
-            git -C "$repo" fetch origin main
-            git -C "$repo" reset --hard origin/main
-          else
-            git clone https://github.com/zzzealed/nix-config "$repo"
-          fi
+      - name: sync clone
+        run: sudo -n systemctl start nix-config-sync.service
 
   gatus-post:
     if: always()

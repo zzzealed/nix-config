@@ -1,6 +1,7 @@
 { ... }:
 {
   programs.git = {
-    enable = true; 
+    enable = true;
+    config.safe.directory = [ "/var/lib/nix-config" ];
   };
 }
