@@ -8,19 +8,19 @@ jobs:
   check-no-build:
     runs-on: [self-hosted, nix]
     steps:
-      - name: checkout
-        run: |
-          if [ -d .git ]; then
-            git fetch origin main
-            git reset --hard origin/main
-          else
-            git clone https://github.com/zzzealed/nix-config .
-          fi
+      - uses: ./.github/actions/sync-clone
+        with: { path: . }
       - name: check outputs without building
-        run: |
-          nix flake check --no-build \
-            --all-systems \
-            --log-format bar
+        run: nix flake check --no-build --all-systems --log-format bar
+
+  clone-or-update:
+    needs: [check-no-build]
+    if: success()
+    runs-on: [self-hosted, nix]
+    steps:
+      - uses: ./.github/actions/sync-clone
+        with: { path: /var/lib/github-runner/server-nixos/nix-config }
+
   gatus-post:
     if: always()
     needs: [check-no-build]

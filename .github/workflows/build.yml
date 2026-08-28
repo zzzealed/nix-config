@@ -8,14 +8,8 @@ jobs:
     runs-on: [self-hosted, nix]
     timeout-minutes: 1440 # 24 hours
     steps:
-      - name: checkout
-        run: |
-          if [ -d .git ]; then
-            git fetch origin main
-            git reset --hard origin/main
-          else
-            git clone https://github.com/zzzealed/nix-config .
-          fi
+      - uses: ./.github/actions/sync-clone
+        with: { path: . }
       - name: build server-nixos
         run: |
           nix build .#nixosConfigurations.server-nixos.config.system.build.toplevel \
@@ -30,19 +24,22 @@ jobs:
       fail-fast: false
     runs-on: [self-hosted, nix]
     steps:
-      - name: checkout
-        run: |
-          if [ -d .git ]; then
-            git fetch origin main
-            git reset --hard origin/main
-          else
-            git clone https://github.com/zzzealed/nix-config .
-          fi
+      - uses: ./.github/actions/sync-clone
+        with: { path: . }
       - name: build ${{ matrix.host }}
         run: |
           nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
             --log-format bar-with-logs \
             --out-link /var/lib/github-runner/server-nixos/gcroots/${{ matrix.host }}
+
+  clone-or-update:
+    needs: [build-server, build-rest]
+    if: success()
+    runs-on: [self-hosted, nix]
+    steps:
+      - uses: ./.github/actions/sync-clone
+        with: { path: /var/lib/github-runner/server-nixos/nix-config }
+
   gatus-post:
     if: always()
     needs: [build-server, build-rest]
