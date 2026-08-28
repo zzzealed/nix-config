@@ -2,13 +2,9 @@
 {
   services.ollama = {
     enable = true;
-    package = pkgs.ollama-cuda;
+    package = pkgs.unstable.ollama-cuda;
     port = 11434;
-    loadModels = [
-      "qwen3:0.6b"
-      "qwen3:1.7b"
-      "qwen2.5vl:3b"
-    ];
+    loadModels = [ ];
     syncModels = true;
   };
   services.nginx.virtualHosts."ollama.l.zzzealed.com" = {
