@@ -1,21 +1,18 @@
 # WireGuard Topology
 | Shape | Mermaid syntax | Meaning |
 |-------|----------------|---------|
-| Cloud | `@{ shape: cloud }` | public internet |
-| Rounded rectangle | `( )` | host / endpoint (server, vps, desktop, pi, phone, laptop) |
-| Hexagon | `{{ }}` | router / firewall |
-| Circle | `(( ))` | uncontrolled access (cell tower, public Wi-Fi) |
+| Rounded rectangle | `( )` | host |
+| Hexagon | `{{ }}` | router/firewall |
+| Circle | `(( ))` | uncontrolled access |
 | Solid edge | `---` | physical link |
-| Dashed edge | `-.->` | WireGuard tunnel (logical overlay) |
+| Dashed edge | `-.->` | WireGuard tunnel |
 
 | Keyword | Meaning |
 |---------|---------|
-| `IP` | WireGuard address (10.100.0.0/16 overlay) |
-| `server` | the WireGuard server every peer connects to |
-| `full` | AllowedIPs `0.0.0.0/0` — all traffic routed through home |
+| `IP` | WireGuard addresses 10.100.0.0/16 |
+| `server` | the WireGuard server/hub every peer connects to |
+| `full` | AllowedIPs `0.0.0.0/0` all traffic routed through home |
 | `split` | AllowedIPs `10.100.0.0/24` + `192.168.0.0/24` only |
-| `DDNS` | public dynamic-DNS A record → site's public IP |
-| `NAT-forward` | router port-forward (WAN port → host) |
 
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 300}}}%%
@@ -33,8 +30,8 @@ flowchart RL
         own_router{{"<b>router (own)</b><br/>DDNS: pi.zzzealed.com<br/>NAT-forward: tcp/2267"}}
     end
 
-    subgraph cloud["cloud"]
-        vps("vps<br/>IP: 10.100.0.4 (split)")
+    subgraph cloud["Oracle cloud - 10.0.0.0/24"]
+        vps("<b>vps</b><br/>IP: 10.100.0.4 (split)")
         vcn{{"<b>Oracle VCN+IGW</b><br/>DDNS: vps.zzzealed.com<br/>security lists: tcp/2267"}}
     end
 
