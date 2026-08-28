@@ -3,22 +3,34 @@
 [![.github/workflows/build.yml](https://github.com/zzzealed/nix-config/actions/workflows/build.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/build.yml)
 
 
-## File structure
-* [`modules/`](./modules/): Shared Nix modules and configuration that are imported individually per `hosts/foo/configuration.nix`.
+## File Structure (not exhaustive)
+```mermaid
+flowchart TD
+    flake["flake.nix"]
 
-* [`overlays/`](./overlays/): Shared [Nix overlays](https://wiki.nixos.org/wiki/Overlays) that are used globally if imported in `overlays/default.nix`.
+    flake --> hosts["hosts/"]
 
-* [`secrets/`](./secrets/): My [agenix](https://github.com/ryantm/agenix) secrets which are used in various modules, unlocked at rebuild with my host's SSH-keys in `/etc/ssh/`.
+    hosts --> server["server"]
+    hosts --> desktop["desktop"]
+    hosts --> pi["pi"]
+    hosts --> vps["vps"]
+    hosts --> laptop["laptop"]
 
-* [`templates/`](./templates/): Template files for various configs.
+    server --> server_cfg["configuration.nix"]
+    desktop --> desktop_cfg["configuration.nix"]
+    pi --> pi_cfg["configuration.nix"]
+    vps --> vps_cfg["configuration.nix"]
+    laptop --> laptop_cfg["configuration.nix"]
 
-* [`flake.nix`](./flake.nix): My [Nix flake](https://wiki.nixos.org/wiki/NixOS_system_configuration#Defining_NixOS_as_a_flake) that essentially acts as blueprint for my hosts. Taking in `inputs` like nixpkgs and passing everything on as the global configuration for my hosts.
+    server_cfg --> modules["modules/"]
+    desktop_cfg --> modules
+    pi_cfg --> modules
+    vps_cfg --> modules
+    laptop_cfg --> modules
+  
+```
 
-* [`nix.nix`](./nix.nix): Various Nix package-manager and settings.
-
-* [`shell.nix`](./shell.nix): A [Nix shell](https://wiki.nixos.org/wiki/Development_environment_with_nix-shell) to bootstrap flake-support.
-
-## Using
+## Usage
 1. Clone, or download the repository:
 ```sh
 curl -L -O https://github.com/zzzealed/nix-config/archive/refs/heads/main.tar.gz
@@ -36,7 +48,7 @@ cd nix-config-main && nix-shell
 sudo nixos-rebuild switch --flake .#desktop-nixos
 ```
 
-> NOTE: You need to use `nixos-generate-config` and replace `hosts/foo/hardware-configuration.nix`.
+> NOTE: You need to use `nixos-generate-config` and replace `./hosts/foo/hardware-configuration.nix`.
 
 > NOTE: You also need a valid SSH-key defined in `./secrets/secrets.nix` to decrypt any secrets.
 
