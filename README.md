@@ -3,12 +3,12 @@
 [![.github/workflows/build.yml](https://github.com/zzzealed/nix-config/actions/workflows/build.yml/badge.svg)](https://github.com/zzzealed/nix-config/actions/workflows/build.yml)
 
 
-## File Structure (not exhaustive)
+## Structure
 ```mermaid
 flowchart TD
-    flake["flake.nix"]
+    flake["./flake.nix"]
 
-    flake --> hosts["hosts/"]
+    flake --> hosts["./hosts/"]
 
     hosts --> server["server"]
     hosts --> desktop["desktop"]
@@ -22,13 +22,15 @@ flowchart TD
     vps --> vps_cfg["configuration.nix"]
     laptop --> laptop_cfg["configuration.nix"]
 
-    server_cfg --> modules["modules/"]
+    server_cfg --> modules["./modules/"]
     desktop_cfg --> modules
     pi_cfg --> modules
     vps_cfg --> modules
     laptop_cfg --> modules
   
 ```
+> [!NOTE]
+> NOT exhaustive, but a general overview.
 
 ## Usage
 1. Clone, or download the repository:
@@ -47,10 +49,11 @@ cd nix-config-main && nix-shell
 ```sh
 sudo nixos-rebuild switch --flake .#desktop-nixos
 ```
+> [!IMPORTANT]
+> You need to use `nixos-generate-config` and replace `./hosts/foo/hardware-configuration.nix`.
 
-> NOTE: You need to use `nixos-generate-config` and replace `./hosts/foo/hardware-configuration.nix`.
-
-> NOTE: You also need a valid SSH-key defined in `./secrets/secrets.nix` to decrypt any secrets.
+> [!IMPORTANT]
+> You also need a valid SSH-key defined in `./secrets/secrets.nix` to decrypt any secrets.
 
 ## To-do
 - [ ] Init: `services.octodns` blocker: nixos/nixpkgs#517510
