@@ -19,14 +19,6 @@ jobs:
       - name: check outputs without building
         run: nix flake check --no-build --all-systems --log-format bar
 
-  clone-or-update:
-    needs: [check-no-build]
-    if: success()
-    runs-on: [self-hosted, nix]
-    steps:
-      - name: sync clone
-        run: sudo -n systemctl start nix-config-sync.service
-
   gatus-post:
     if: always()
     needs: [check-no-build]

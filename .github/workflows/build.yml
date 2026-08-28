@@ -44,13 +44,6 @@ jobs:
             --log-format bar-with-logs \
             --out-link /var/lib/github-runner/server-nixos/gcroots/${{ matrix.host }}
 
-  clone-or-update:
-    needs: [build-server, build-rest]   # check-no-build.yml: needs: [check-no-build]
-    if: success()
-    runs-on: [self-hosted, nix]
-    steps:
-      - name: sync clone
-        run: sudo -n systemctl start nix-config-sync.service
 
   gatus-post:
     if: always()

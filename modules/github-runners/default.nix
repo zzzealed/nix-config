@@ -19,36 +19,8 @@
   };
   nix.settings.allowed-users = [ "github-runner-server-nixos" ];
 
-  # Symlink gcroots + repo
+  # Symlink gcroots
   systemd.tmpfiles.rules = [
     "L+ /nix/var/nix/gcroots/github-runner - - - - /var/lib/github-runner/server-nixos/gcroots"
-    "d /var/lib/nix-config 0755 root root -"
-  ];
-
-  systemd.services.nix-config-sync = {
-    description = "Sync nix-config mirror";
-    path = [ pkgs.git ];
-    serviceConfig.Type = "oneshot";
-    script = ''
-      repo=/var/lib/nix-config
-      if [ -d "$repo/.git" ]; then
-        git -C "$repo" fetch origin main
-        git -C "$repo" reset --hard origin/main
-      else
-        git clone https://github.com/zzzealed/nix-config "$repo"
-      fi
-    '';
-  };
-
-  security.sudo.extraRules = [
-    {
-      users = [ "github-runner-server-nixos" ];
-      commands = [
-        {
-          command = "systemctl start nix-config-sync.service";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
   ];
 }
