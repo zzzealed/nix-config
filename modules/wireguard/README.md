@@ -24,7 +24,7 @@ flowchart RL
         isp_router{{"<b>router (ISP)</b><br/>DDNS: server.zzzealed.com<br/>NAT-forward: udp/51820, tcp/2267"}}
     end
 
-    subgraph apartment["apartment - 192.168.1.0/24"]
+    subgraph apartment["apartment - 192.168.8.0/24"]
         desktop("<b>desktop</b><br/>IP: 10.100.0.2 (full)")
         pi("<b>pi</b><br/>IP: 10.100.0.3 (split)")
         own_router{{"<b>router (own)</b><br/>DDNS: pi.zzzealed.com<br/>NAT-forward: tcp/2267"}}
