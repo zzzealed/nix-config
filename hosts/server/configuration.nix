@@ -119,7 +119,7 @@ in
   boot.kernelModules = [ "nvidia-uvm" ];
 
   # Networking
-  nameserver.server = "127.0.0.1"; # Override for this host
+  nameserver.primary = "127.0.0.1"; # Override for this host
   networking.interfaces.enp3s0.wakeOnLan.enable = true;
 
   # State

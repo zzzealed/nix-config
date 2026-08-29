@@ -1,18 +1,18 @@
 { lib, config, ... }:
 {
   options.nameserver = {
-    server = lib.mkOption {
+    primary = lib.mkOption {
       type = lib.types.str;
-      default = "10.100.0.1"; # server w/ Pihole
+      default = "1.1.1.1";
     };
     secondary = lib.mkOption {
       type = lib.types.str;
-      default = "1.1.1.1"; # Cloudflare
+      default = "1.0.0.1";
     };
   };
 
   config.networking.nameservers = [
-    config.nameserver.server
+    config.nameserver.primary
     config.nameserver.secondary
   ];
 }
