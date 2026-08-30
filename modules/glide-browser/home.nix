@@ -70,6 +70,12 @@
               url = "http://192.168.0.1";
             }
             {
+              name = "Router 2";
+              tags = [ ];
+              keyword = ",router2";
+              url = "http://192.168.8.1";
+            }
+            {
               name = "JetKVM";
               tags = [ ];
               keyword = ",jetkvm";
