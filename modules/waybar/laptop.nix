@@ -3,7 +3,7 @@
   programs.waybar.settings.mainBar = {
     modules-left = [ "battery" ];
     battery = {
-      format = "{capacity}%";
+      format = "{capacity}% PWR";
     };
   };
 }
