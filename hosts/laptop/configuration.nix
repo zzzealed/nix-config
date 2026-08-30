@@ -34,6 +34,7 @@
     home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
     imports = [
       ../../modules/waybar/home.nix
+      ../../modules/waybar/laptop.nix
       ../../modules/fuzzel/home.nix
       ../../modules/dunst/home.nix
       ../../modules/swaylock/home.nix

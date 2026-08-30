@@ -22,7 +22,6 @@
         modules-left = [
           "niri/workspaces"
           "custom/hostname"
-          "memory"
           "custom/wg-server"
           "custom/wg-proton"
         ];
@@ -39,10 +38,6 @@
           format = "{index}";
           disable-click = true;
           current-only = true;
-        };
-
-        memory = {
-          format = "{percentage}% RAM";
         };
 
         clock = {

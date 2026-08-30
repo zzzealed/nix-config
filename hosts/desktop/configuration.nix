@@ -72,6 +72,7 @@
     imports = [
       # Stack
       ../../modules/waybar/home.nix # Bar
+      ../../modules/waybar/desktop.nix
       #../../modules/ashell/home.nix
       ../../modules/fuzzel/home.nix # Launcher
       ../../modules/dunst/home.nix # Notifications
