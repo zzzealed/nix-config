@@ -26,9 +26,16 @@
   programs.ssh = {
     package = pkgs.openssh;
     extraConfig = ''
+      Host *
+        IdentityFile ~/.ssh/id_ed25519_sk
+        IdentityAgent none
+        AddKeysToAgent yes
+        SetEnv TERM=xterm-256color
+        SendEnv COLORTERM TERM_PROGRAM TERM_PROGRAM_VERSION
+
       host server.zzzealed.com
         Port 2267
-        
+
       host vps.zzzealed.com
         Port 2267
 
@@ -52,13 +59,6 @@
 
       Host 10.100.0.6 phone.internal
         Port 2267
-
-      Host *
-        IdentityAgent none
-        IdentityFile ~/.ssh/id_ed25519_sk
-        AddKeysToAgent yes
-        SetEnv TERM=xterm-256color
-        SendEnv COLORTERM TERM_PROGRAM TERM_PROGRAM_VERSION
     '';
   };
 }
