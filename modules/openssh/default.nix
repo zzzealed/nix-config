@@ -25,7 +25,6 @@
   };
   programs.ssh = {
     package = pkgs.openssh;
-    startAgent = true;
     extraConfig = ''
       host server.zzzealed.com
         Port 2267
@@ -55,6 +54,7 @@
         Port 2267
 
       Host *
+        IdentityAgent none
         IdentityFile ~/.ssh/id_ed25519_sk
         AddKeysToAgent yes
         SetEnv TERM=xterm-256color
