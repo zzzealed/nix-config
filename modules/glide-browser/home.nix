@@ -121,7 +121,48 @@
             translate-web-pages
             violentmonkey
           ];
-          # settings = {} # TODO
+          settings = {
+            "redirector@einaregilsson.com" = {
+              force = true;
+              settings = {
+                redirects = [
+                  {
+                    description = "nixos.wiki -> wiki.nixos.org";
+                    exampleUrl = "https://nixos.wiki/Flakes";
+                    includePattern = "^https?://(www\\.)?nixos\\.wiki/(.*)$";
+                    excludePattern = "";
+                    redirectUrl = "https://wiki.nixos.org/$2";
+                    patternType = "R";
+                    processMatches = "noProcessing";
+                    disabled = false;
+                    appliesTo = [ "main_frame" ];
+                  }
+                  {
+                    description = "reddit.com -> reddit.l.zzzealed.com";
+                    exampleUrl = "https://reddit.com/r/homelab";
+                    includePattern = "^https?://(www\\.)?reddit\\.com/(.*)$";
+                    excludePattern = "";
+                    redirectUrl = "https://reddit.l.zzzealed.com/$2";
+                    patternType = "R";
+                    processMatches = "noProcessing";
+                    disabled = false;
+                    appliesTo = [ "main_frame" ];
+                  }
+                  {
+                    description = "x.com -> twitter.l.zzzealed.com";
+                    exampleUrl = "https://x.com/RLDailyShop";
+                    includePattern = "^https?://(www\\.)?x\\.com/(.*)$";
+                    excludePattern = "";
+                    redirectUrl = "https://twitter.l.zzzealed.com/$2";
+                    patternType = "R";
+                    processMatches = "noProcessing";
+                    disabled = false;
+                    appliesTo = [ "main_frame" ];
+                  }
+                ];
+              };
+            };
+          };
         };
         search = {
           force = true;
