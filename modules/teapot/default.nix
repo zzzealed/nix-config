@@ -16,6 +16,7 @@
       publicPort = 443; # `null` just removes the option from the config lol
       https = true;
     };
+    # TODO: `/var/lib/teapot/sessions.jsonl` -> agenix+symlink?
     #openFirewall = true;
   };
   services.nginx.virtualHosts."twitter.l.zzzealed.com" = {
