@@ -1,8 +1,8 @@
 # Interactive shell initialisation
 set fish_greeting # Disable greeting
 
-# Vim mode
-set -g fish_key_bindings fish_vi_key_bindings
+# Helix mode ah ah ahhhh
+set -g fish_key_bindings fish_helix_key_bindings
 
 # Set $EDITOR
 set -gx EDITOR hx
@@ -36,17 +36,13 @@ function za
     zmx a $argv fish
 end
 
-## Custom
-# TIP: use like `duration *.mkv */*.mkv | sort -V`
+# NOTE: use like `duration *.mkv */*.mkv | sort -V`
 function duration
     for f in $argv
         printf "%s - %s\n" \
             (ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 -sexagesimal "$f") \
             (path basename "$f")
     end
-end
-function bangers
-    command mpv /mnt/vault/Videos/Memes/bangers.m3u8 --directory-mode=ignore
 end
 function hash_url
     command nix-prefetch-url $argv | xargs nix hash convert --hash-algo sha256

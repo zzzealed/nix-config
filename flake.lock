@@ -25,6 +25,22 @@
         "type": "github"
       }
     },
+    "autosave-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1603384753,
+        "narHash": "sha256-yxA8wgzdS7SyKLoNTWN87ShsBfPKUflbOu4Y0jS2G3I=",
+        "ref": "refs/heads/master",
+        "rev": "744c3ee61d2f0a8e9bb4e308dec6897215ae4704",
+        "revCount": 6,
+        "type": "git",
+        "url": "https://gist.github.com/2f71a97fb85ed42146f6d9f522bc34ef"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://gist.github.com/2f71a97fb85ed42146f6d9f522bc34ef"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -143,6 +159,22 @@
       "original": {
         "owner": "rafaelmardojai",
         "repo": "firefox-gnome-theme",
+        "type": "github"
+      }
+    },
+    "fish-helix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782120100,
+        "narHash": "sha256-JqN4IbLpJFBJKNE6haZH2iFSMrLFdVh+Hbl840+xbfU=",
+        "owner": "sshilovsky",
+        "repo": "fish-helix",
+        "rev": "c9487ea37dafee157cefb8a89c145bc98d21fd6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sshilovsky",
+        "repo": "fish-helix",
         "type": "github"
       }
     },
@@ -617,6 +649,8 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "autosave-lua": "autosave-lua",
+        "fish-helix": "fish-helix",
         "glide": "glide",
         "home-manager": "home-manager",
         "lan-mouse": "lan-mouse",

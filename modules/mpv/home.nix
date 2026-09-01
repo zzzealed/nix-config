@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  home.file.".config/mpv" = {
-    source = ./config;
-    recursive = true;
+  home.file = {
+    ".config/mpv" = {
+      source = ./config;
+      recursive = true;
+    };
+    ".config/mpv/scripts/autosave.lua".source = "${inputs.autosave-lua}/autosave.lua";
   };
+
   programs.mpv = {
     enable = true;
     package = pkgs.unstable.mpv.override {

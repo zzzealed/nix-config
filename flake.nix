@@ -62,6 +62,14 @@
       url = "git+https://codeberg.org/zzzealed/rotte.city";
       flake = false;
     };
+    fish-helix = {
+      url = "github:sshilovsky/fish-helix";
+      flake = false;
+    };
+    autosave-lua = {
+      url = "git+https://gist.github.com/2f71a97fb85ed42146f6d9f522bc34ef";
+      flake = false;
+    };
   };
 
   outputs =
@@ -76,8 +84,8 @@
             {
               networking = {
                 hostName = hostName;
-                domain = "internal";
-                hostId = hostId; # head -c 8 /etc/machine-id
+                domain = "internal"; # https://en.wikipedia.org/wiki/.internal
+                hostId = hostId; # `head -c 8 /etc/machine-id`
               };
             }
             ./nix.nix
