@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = [ pkgs.yubioath-flutter ];
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 
   security.pam.services = {
     login.u2fAuth = true;
