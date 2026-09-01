@@ -1,19 +1,22 @@
 { pkgs, ... }:
 {
-  services.pcscd.enable = true;
   environment.systemPackages = [ pkgs.yubioath-flutter ];
 
   security.pam.services = {
     login.u2fAuth = true;
     sudo.u2fAuth = true;
+    # swaylock.u2fAuth = true;
+    swaylock = { }; # idk
   };
 
+  # Lock on disconnect
+  # this barely works and also sucks ass
   services.udev.extraRules = ''
-        ACTION=="remove",\
-         ENV{ID_BUS}=="usb",\
-         ENV{ID_MODEL_ID}=="0407",\
-         ENV{ID_VENDOR_ID}=="1050",\
-         ENV{ID_VENDOR}=="Yubico",\
-         RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+    ACTION=="remove",\
+     ENV{ID_BUS}=="usb",\
+     ENV{ID_MODEL_ID}=="0407",\
+     ENV{ID_VENDOR_ID}=="1050",\
+     ENV{ID_VENDOR}=="Yubico",\
+     RUN+="${pkgs.util-linux}/bin/runuser -u mads -- ${pkgs.coreutils}/bin/env XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 ${pkgs.swaylock}/bin/swaylock"
   '';
 }

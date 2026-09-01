@@ -29,6 +29,7 @@
     ../../modules/nix-index-database
     ../../modules/localsend
     ../../modules/lan-mouse
+    ../../modules/yubikey
   ];
   home-manager.users.mads = {
     home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
@@ -54,6 +55,7 @@
       ../../modules/thunderbird/home.nix
       ../../modules/lan-mouse/home.nix
       ../../modules/lan-mouse/laptop.nix
+      ../../modules/gpg/home.nix
     ];
   };
 

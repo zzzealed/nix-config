@@ -3,7 +3,10 @@ let
   wallpapers = import ../stylix/wallpapers.nix pkgs;
 in
 {
-  programs.swaylock.enable = true;
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock;
+  };
   stylix = {
     targets.swaylock = {
       image = {

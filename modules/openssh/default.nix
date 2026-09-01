@@ -5,7 +5,7 @@
     enable = true;
     package = pkgs.openssh;
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
       PermitRootLogin = "prohibit-password";
       X11Forwarding = true;
       LogLevel = "VERBOSE";
@@ -33,6 +33,9 @@
       host vps.zzzealed.com
         Port 2267
 
+      host pi.zzzealed.com
+        Port 2267
+
       Host 10.100.0.1 server.internal
         Port 2267
 
@@ -52,6 +55,8 @@
         Port 2267
 
       Host *
+        IdentityFile ~/.ssh/id_ed25519_sk
+        AddKeysToAgent yes
         SetEnv TERM=xterm-256color
         SendEnv COLORTERM TERM_PROGRAM TERM_PROGRAM_VERSION
     '';
