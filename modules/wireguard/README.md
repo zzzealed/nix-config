@@ -11,7 +11,7 @@
 |---------|---------|
 | `IP` | WireGuard addresses 10.100.0.0/16 |
 | `server` | the WireGuard server/hub every peer connects to |
-| `full` | AllowedIPs `0.0.0.0/0` all traffic routed through home |
+| `full` | AllowedIPs `0.0.0.0/0` + `::/0` all traffic routed through home |
 | `split` | AllowedIPs `10.100.0.0/24` + `192.168.0.0/24` (+ `192.168.8.0/24`) only |
 
 ```mermaid

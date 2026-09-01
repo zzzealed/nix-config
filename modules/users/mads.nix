@@ -20,10 +20,12 @@
     hashedPasswordFile = config.age.secrets."mads-password".path;
     linger = true;
     openssh.authorizedKeys.keys = [
+      # desktop
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos"
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILs0p41BcB+MRmx+KiGBZPfig6uAaANF6kkrqaZbDP8jAAAACHNzaDptYWRz mads@desktop"
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIDDp1+E2UPenRpOrfDIYmaV+W1f1xPu2l5hWYzPZBOmQAAAAEHNzaDptYWRzLWRlc2t0b3A= mads@desktop"
+      # laptop
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSX+uG+W5BIhlcO+kd39ngmRVtOtJirGO5oBlkZuopO mads@nixos"
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIBOdX2Z81DIP53+UhoFhrBrZYpKxCggmIg4LY9TJ6T5tAAAACHNzaDptYWRz mads@laptop"
+      # server
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos"
     ];
   };
