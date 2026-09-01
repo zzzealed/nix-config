@@ -12,7 +12,7 @@
 | `IP` | WireGuard addresses 10.100.0.0/16 |
 | `server` | the WireGuard server/hub every peer connects to |
 | `full` | AllowedIPs `0.0.0.0/0` all traffic routed through home |
-| `split` | AllowedIPs `10.100.0.0/24` + `192.168.0.0/24` only |
+| `split` | AllowedIPs `10.100.0.0/24` + `192.168.0.0/24` (+ `192.168.8.0/24`) only |
 
 ```mermaid
 %%{init: {"flowchart": {"wrappingWidth": 300}}}%%
@@ -25,7 +25,7 @@ flowchart RL
     end
 
     subgraph apartment["apartment - 192.168.8.0/24"]
-        desktop("<b>desktop</b><br/>IP: 10.100.0.2 (full)")
+        desktop("<b>desktop</b><br/>IP: 10.100.0.2 (split)")
         pi("<b>pi</b><br/>IP: 10.100.0.3 (split)")
         own_router{{"<b>router (own)</b><br/>DDNS: pi.zzzealed.com<br/>NAT-forward: tcp/2267"}}
     end
