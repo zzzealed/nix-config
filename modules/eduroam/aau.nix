@@ -22,7 +22,7 @@ in
         phase2-auth = "mschapv2";
         identity = "$AAU_LAPTOP_USER";
         password = "$AAU_LAPTOP_PASS";
-        ca-cert = ./aau_wi-fi_root_ca.crt;
+        ca-cert = "${./aau_wi-fi_root_ca.crt}";
         altsubject-matches = "DNS:wifi.aau.dk";
       };
       ipv4.method = "auto";
