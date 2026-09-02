@@ -64,6 +64,7 @@
     ../../modules/i2p
     ../../modules/sunshine
     ../../modules/lan-mouse
+    ../../modules/openconnect
   ];
 
   # Home manager modules
