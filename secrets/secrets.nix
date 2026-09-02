@@ -78,6 +78,8 @@ let
     "desktop-proton_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "server-proton_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "laptop-proton_private-key-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
+
+    "eduroam-environment-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
   };
 
   defaults = {
