@@ -632,11 +632,11 @@
     },
     "nixpkgs-unstable-small": {
       "locked": {
-        "lastModified": 1788422941,
-        "narHash": "sha256-PLmXCDQdW0vyu7vKJTW0dcBGPEh/gQN6l+PtA3xWGRo=",
-        "rev": "a718ac06264a6eb180294b577aa9067c3f69e7e8",
+        "lastModified": 1788456250,
+        "narHash": "sha256-JpcvMPLk/7nwhKNMiUX7JiPQR+fF1UjqVfB+CDFfveI=",
+        "rev": "1cbdaeda5d3b5a9c2b97fec74cc0f15ce4d3fba8",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable-small/nixos-26.11pre1066735.a718ac06264a/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable-small/nixos-26.11pre1066940.1cbdaeda5d3b/nixexprs.tar.xz"
       },
       "original": {
         "id": "nixpkgs",
@@ -646,11 +646,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1788297115,
-        "narHash": "sha256-hpYgDbj2qNnk+GufyhrQ5mBnrLMvOazIaXw1DyO/BK4=",
-        "rev": "a3116115851d68b8952a2a4221cc25a84e56b532",
+        "lastModified": 1788405554,
+        "narHash": "sha256-z3ACU3NTAstjK+JNjW0zmIH2Q0GYo2pgGfJddesv7Xo=",
+        "rev": "a5cc6f2c37bf518436dc8d1c288ccd0c43c2f4c4",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.8846.a3116115851d/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.8954.a5cc6f2c37bf/nixexprs.tar.xz"
       },
       "original": {
         "id": "nixpkgs",
@@ -736,11 +736,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788454718,
-        "narHash": "sha256-OoQDoPr2Aq9bcMIWQSswX+9q+oQIkBhUAYAcOannacY=",
+        "lastModified": 1788476081,
+        "narHash": "sha256-Q9e5C1pt6Qy8D/FQy8fL4Nue7Mj+zNek3XNm8FYTd4w=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "8914c3ff8b11019935b7e417a2f2ad4bd6231dbb",
+        "rev": "fa92058c8ea8dd6de6a67b339d979ee716d82ac5",
         "type": "github"
       },
       "original": {
@@ -924,11 +924,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1788449830,
-        "narHash": "sha256-sszpUBBO7o6TAHNYCCqho86IIgkpK3EH4IBdrolY6nM=",
+        "lastModified": 1788475533,
+        "narHash": "sha256-l9+6Nc6Pb5L71SS3cimF2X1dFXiWdyKuzL0phTnGGq0=",
         "owner": "codewithcj",
         "repo": "sparkyfitness",
-        "rev": "d77d3e29b7e869c48d1e8fc558c120b32f2ed56c",
+        "rev": "e13b1771fdd6617cd98617c726a006d6edeb493d",
         "type": "github"
       },
       "original": {
