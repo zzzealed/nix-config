@@ -132,5 +132,7 @@
         laptop-nixos = mkNixosConfig "laptop" "x86_64-linux" "4115249e";
       };
       nixOnDroidConfigurations.phone-droid = mkNixOnDroidConfig "phone" "aarch64-linux";
+      packages.aarch64-linux.nix-on-droid-proot-static =
+        inputs.nix-on-droid.packages.aarch64-linux.prootTermux-aarch64;
     };
 }
