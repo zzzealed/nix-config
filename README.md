@@ -66,3 +66,5 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] More `pkgs.navi` docs
 - [ ] `services.*`: Unique ports?
 - [ ] Just rawdog dnsmasq instead of Pihole
+- [ ] Replace Agenix interactive keys with _sk variants
+- [ ] `home.nix` -> `hm.nix` & `<other>.hm.nix`
