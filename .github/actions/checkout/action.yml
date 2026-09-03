@@ -1,0 +1,13 @@
+name: checkout
+description: Fetch or reset nix-config
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        if [ -d .git ]; then
+          git fetch origin main
+          git reset --hard origin/main
+        else
+          git clone https://github.com/zzzealed/nix-config .
+        fi

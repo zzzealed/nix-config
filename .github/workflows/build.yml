@@ -8,20 +8,13 @@ jobs:
     runs-on: [self-hosted, nix]
     timeout-minutes: 1440 # 24 hours
     steps:
-      - name: checkout
-        run: |
-          if [ -d .git ]; then
-            git fetch origin main
-            git reset --hard origin/main
-          else
-            git clone https://github.com/zzzealed/nix-config .
-          fi
+      - uses: zzzealed/nix-config/.github/actions/checkout@main
       - name: build server-nixos
         run: |
           nix build .#nixosConfigurations.server-nixos.config.system.build.toplevel \
             --log-format bar \
             --out-link /var/lib/github-runner/server-nixos/gcroots/server-nixos
-  build-rest:
+  build-hosts:
     needs: build-server
     timeout-minutes: 1440 # 24 hours
     strategy:
@@ -30,28 +23,35 @@ jobs:
       fail-fast: false
     runs-on: [self-hosted, nix]
     steps:
-      - name: checkout
-        run: |
-          if [ -d .git ]; then
-            git fetch origin main
-            git reset --hard origin/main
-          else
-            git clone https://github.com/zzzealed/nix-config .
-          fi
+      - uses: zzzealed/nix-config/.github/actions/checkout@main
       - name: build ${{ matrix.host }}
         run: |
           nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
             --log-format bar-with-logs \
             --out-link /var/lib/github-runner/server-nixos/gcroots/${{ matrix.host }}
 
+  build-phone:
+    needs: build-server
+    runs-on: [self-hosted, nix]
+    timeout-minutes: 1440 # 24 hours
+    steps:
+      - uses: zzzealed/nix-config/.github/actions/checkout@main
+      - name: build phone-droid
+        run: |
+          nix build .#packages.aarch64-linux.nix-on-droid-proot-static \
+            --log-format bar-with-logs \
+            --out-link /var/lib/github-runner/server-nixos/gcroots/nix-on-droid-proot-static
+          nix build --impure .#nixOnDroidConfigurations.phone-droid.activationPackage \
+            --log-format bar-with-logs \
+            --out-link /var/lib/github-runner/server-nixos/gcroots/phone-droid
 
   gatus-post:
     if: always()
-    needs: [build-server, build-rest]
+    needs: [build-server, build-hosts, build-phone]
     runs-on: [self-hosted, nix]
     steps:
       - uses: ./.github/actions/report-status
         with:
           endpoint: github-com_actions-build-yml-workflow
-          status: ${{ needs.build-server.result == 'success' && needs.build-rest.result == 'success' }}
+          status: ${{ needs.build-server.result == 'success' && needs.build-hosts.result == 'success' && needs.build-phone.result == 'success' }}
           token: ${{ secrets.GATUS_GITHUB_TOKEN }}
