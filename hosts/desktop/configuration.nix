@@ -82,6 +82,7 @@
       ../../modules/ghostty/home.nix # Terminal
       ../../modules/fish/home.nix # Shell
       # Everything else
+      ../../modules/openssh/home.nix
       ../../modules/glide-browser/home.nix
       ../../modules/mpv/home.nix
       ../../modules/git/home.nix

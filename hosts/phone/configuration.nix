@@ -1,8 +1,18 @@
-{ lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 let
   cache = import ../../cache.nix;
 in
 {
+  environment.packages = with pkgs; [
+    gnutar
+    inetutils
+    man
+  ];
   home-manager = {
     backupFileExtension = "bak";
     useGlobalPkgs = true;
@@ -10,6 +20,7 @@ in
       home.stateVersion = "24.05";
       imports = [
         ../../modules/git/home.nix
+        ../../modules/openssh/home.nix
         ../../modules/helix/home.nix
       ];
       programs.helix.extraPackages = [ ];
@@ -18,9 +29,9 @@ in
 
   # nix-on-droid specifics
   nix = {
+    extraOptions = "experimental-features = nix-command flakes";
     substituters = lib.mkForce cache.substituters;
     trustedPublicKeys = lib.mkForce cache.trusted-public-keys;
-    extraOptions = "experimental-features = nix-command flakes";
   };
   environment.etcBackupExtension = ".bak";
   nix.registry.nixpkgs.flake = inputs.nixpkgs-24-05;

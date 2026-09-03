@@ -58,6 +58,7 @@
       ../../modules/lan-mouse/home.nix
       ../../modules/lan-mouse/laptop.nix
       ../../modules/gpg/home.nix
+      ../../modules/openssh/home.nix
     ];
   };
 

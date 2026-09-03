@@ -96,6 +96,7 @@ in
     ../../modules/navi/home.nix
     ../../modules/btop/home.nix
     ../../modules/mpv/home.nix
+    ../../modules/openssh/home.nix
   ];
 
   # Packages
