@@ -3,15 +3,18 @@ let
   wallpapers = import ../stylix/wallpapers.nix pkgs;
 in
 {
-  programs.swaylock = {
+  programs.swaylock.enable = true;
+
+  services.swayidle = {
     enable = true;
-    package = pkgs.swaylock;
+    events.lock = "${pkgs.swaylock}/bin/swaylock -efFkl";
   };
+
   stylix = {
     targets.swaylock = {
       image = {
         enable = true;
-        override = lib.mkForce "${wallpapers.phaethon}";
+        override = lib.mkForce "${wallpapers.nix-snowflake}";
       };
     };
   };
