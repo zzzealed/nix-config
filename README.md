@@ -15,18 +15,21 @@ flowchart TD
     hosts --> pi["pi"]
     hosts --> vps["vps"]
     hosts --> laptop["laptop"]
+    hosts --> phone["phone"]
 
     server --> server_cfg["configuration.nix"]
     desktop --> desktop_cfg["configuration.nix"]
     pi --> pi_cfg["configuration.nix"]
     vps --> vps_cfg["configuration.nix"]
     laptop --> laptop_cfg["configuration.nix"]
+    phone --> phone_cfg["configuration.nix"]
 
     server_cfg --> modules["./modules/"]
     desktop_cfg --> modules
     pi_cfg --> modules
     vps_cfg --> modules
     laptop_cfg --> modules
+    phone_cfg --> modules
   
 ```
 > [!NOTE]
