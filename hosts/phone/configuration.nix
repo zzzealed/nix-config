@@ -1,6 +1,6 @@
 { lib, inputs, ... }:
 let
-  cache = import ../../modules/cache.nix;
+  cache = import ../../cache.nix;
 in
 {
   home-manager = {
