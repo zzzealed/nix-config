@@ -4,8 +4,9 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05"; # 26.05
     #nixpkgs.url = "git+file:///home/mads/Documents/nixpkgs";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # Input pinned in `flake.lock`
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
+    nixpkgs-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05"; # 26.05
       inputs.nixpkgs.follows = "nixpkgs";
@@ -70,32 +71,56 @@
       url = "git+https://gist.github.com/2f71a97fb85ed42146f6d9f522bc34ef";
       flake = false;
     };
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs-24-05";
+    };
   };
 
   outputs =
     # Bind all inputs from above to `inputs` attr
     inputs@{ ... }:
     let
+      specialArgs = { inherit inputs; };
+
       mkNixosConfig =
         hostName: system: hostId:
         inputs.nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system specialArgs;
           modules = [
+            {
+              nixpkgs.config.allowUnfree = true;
+              nix.settings = {
+                experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
+                inherit (import ./cache.nix) substituters trusted-public-keys;
+              };
+            }
             {
               networking = {
                 hostName = hostName;
-                domain = "internal"; # https://en.wikipedia.org/wiki/.internal
-                hostId = hostId; # `head -c 8 /etc/machine-id`
+                domain = "internal";
+                hostId = hostId;
               };
             }
-            ./nix.nix
             ./secrets
             ./overlays
             (./hosts + "/${hostName}/configuration.nix")
             (./hosts + "/${hostName}/hardware-configuration.nix")
           ];
-          # https://wiki.nixos.org/wiki/NixOS_system_configuration#Accessing_flake_inputs
-          specialArgs = { inherit inputs; };
+        };
+
+      mkNixOnDroidConfig =
+        hostName: system:
+        inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = import inputs.nixpkgs-24-05 {
+            inherit system;
+            overlays = [ inputs.nix-on-droid.overlays.default ];
+          };
+          modules = [ (./hosts + "/${hostName}/configuration.nix") ];
+          extraSpecialArgs = specialArgs;
         };
     in
     {
@@ -106,5 +131,6 @@
         vps-nixos = mkNixosConfig "vps" "x86_64-linux" "2c363b2d";
         laptop-nixos = mkNixosConfig "laptop" "x86_64-linux" "4115249e";
       };
+      nixOnDroidConfigurations.phone-droid = mkNixOnDroidConfig "phone" "aarch64-linux";
     };
 }
