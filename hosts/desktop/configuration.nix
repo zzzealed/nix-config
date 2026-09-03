@@ -16,6 +16,7 @@
     # Everything else
     ../../modules/yt-dlp.nix
     ../../modules/libreoffice.nix
+    ../../modules/users
     ../../modules/users/mads.nix
     ../../modules/cli-tools
     ../../modules/fish

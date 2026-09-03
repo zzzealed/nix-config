@@ -10,6 +10,7 @@
     ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
+    ../../modules/users
     ../../modules/users/mads.nix
     ../../modules/cli-tools
     ../../modules/fish
