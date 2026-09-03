@@ -15,7 +15,6 @@
     ../../modules/cli-tools
     ../../modules/fish
     ../../modules/nh
-    ../../modules/git
     ../../modules/bluetooth
     ../../modules/home-manager
     ../../modules/openssh

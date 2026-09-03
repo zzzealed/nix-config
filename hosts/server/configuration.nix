@@ -21,7 +21,6 @@ in
     ../../modules/users/mads.nix
     ../../modules/users/linus.nix
     ../../modules/cli-tools
-    ../../modules/git
     ../../modules/home-manager
     ../../modules/ffmpeg
     ../../modules/nvidia

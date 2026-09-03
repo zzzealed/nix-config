@@ -25,7 +25,6 @@
     ../../modules/obs-studio
     ../../modules/localsend
     ../../modules/tidal
-    ../../modules/git
     ../../modules/wine
     ../../modules/bluetooth
     ../../modules/home-manager

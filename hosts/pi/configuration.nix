@@ -6,7 +6,6 @@
     ../../modules/users/groups.nix
     ../../modules/users/mads.nix
     ../../modules/cli-tools
-    ../../modules/git
     ../../modules/home-manager
     ../../modules/bash
     ../../modules/networking/firewall.nix
