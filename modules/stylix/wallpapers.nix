@@ -71,4 +71,7 @@ in
       f "wallhaven-zydjdv.png" "https://w.wallhaven.cc/full/zy/wallhaven-zydjdv.png"
         "sha256-cu+Y2A7uPid7F4fXw2lKAN+QuTsq8gDrBZmxhNs3cnk=";
   };
+  nix-snowflake =
+    f "wallhaven-o5ky29.png" "https://w.wallhaven.cc/full/o5/wallhaven-o5ky29.png"
+      "sha256-M4Q5/Sm5ZVOe324V9pEF9497M0VpcQMPTJHOwW2ZQmg=";
 }
