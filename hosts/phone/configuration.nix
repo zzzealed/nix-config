@@ -19,7 +19,7 @@ in
   # nix-on-droid specifics
   nix = {
     substituters = lib.mkForce cache.substituters;
-    trustedPublicKeys = lib.mkForce cache.trustedPublicKeys;
+    trustedPublicKeys = lib.mkForce cache.trusted-public-keys;
     extraOptions = "experimental-features = nix-command flakes";
   };
   environment.etcBackupExtension = ".bak";
