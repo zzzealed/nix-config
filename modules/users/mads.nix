@@ -28,6 +28,8 @@
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIOSTxFTLIO/9SlnsxFs3WHeaiX24orXfUyVJJhTN829zAAAAD3NzaDptYWRzLWxhcHRvcA== mads@laptop"
       # server
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos"
+      # phone
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAjVJSt549ILg+pVz7g+tiOT0dGBg/VWZL9+UGjFz8rr nix-on-droid@localhost"
     ];
   };
   nix.settings.trusted-users = [ "mads" ]; # Needed for remote rebuilds
