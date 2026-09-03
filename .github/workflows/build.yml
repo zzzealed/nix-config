@@ -38,7 +38,7 @@ jobs:
       - uses: zzzealed/nix-config/.github/actions/checkout@main
       - name: build phone-droid
         run: |
-          nix build .#packages.aarch64-linux.nix-on-droid-proot-static \
+          nix build .#legacyPackages.aarch64-linux.nix-on-droid-proot-static \
             --log-format bar-with-logs \
             --out-link /var/lib/github-runner/server-nixos/gcroots/nix-on-droid-proot-static
           nix build --impure .#nixOnDroidConfigurations.phone-droid.activationPackage \
