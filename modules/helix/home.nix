@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.helix = {
     enable = true;
-    package = pkgs.unstable.helix;
+    package = pkgs.helix;
     defaultEditor = true;
-    extraPackages = import ../lsp/pkgs.nix pkgs;
+    extraPackages = lib.mkDefault (import ../lsp/pkgs.nix pkgs);
   };
   home.file.".config/helix" = {
     source = ./config;
