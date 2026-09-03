@@ -1,4 +1,3 @@
-{ ... }:
 {
   substituters = [
     "https://cache.l.zzzealed.com"
