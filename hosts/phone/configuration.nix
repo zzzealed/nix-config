@@ -12,6 +12,7 @@ in
     gnutar
     inetutils
     man
+    inputs.agenix.packages.aarch64-linux.default
   ];
   home-manager = {
     backupFileExtension = "bak";

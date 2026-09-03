@@ -16,10 +16,12 @@ let
   mads_desktop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos";
   mads_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos";
   mads_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSX+uG+W5BIhlcO+kd39ngmRVtOtJirGO5oBlkZuopO mads@nixos";
+  nix-on-droid_phone-droid = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAjVJSt549ILg+pVz7g+tiOT0dGBg/VWZL9+UGjFz8rr nix-on-droid@localhost";
   interactiveKeys = [
     mads_desktop-nixos
     mads_server-nixos
     mads_laptop-nixos
+    nix-on-droid_phone-droid
   ];
 
   secrets = {
