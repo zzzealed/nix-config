@@ -24,7 +24,7 @@ end
 #    command rm --verbose --interactive=once
 #end
 function rm
-    command echo use Gomi!
+    command echo "use `gomi`!"
 end
 function gomi
     command gomi --verbose $argv
