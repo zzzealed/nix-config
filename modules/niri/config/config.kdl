@@ -122,13 +122,12 @@ gestures {
 }
 
 // Keybinds.
-binds { // TODO: Actually look at these.
+binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty" "+new-window"; }
     Mod+D hotkey-overlay-title="Run an Application: Fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: Swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: Swaylock" { spawn "swaylock" "-efFkl"; }
     Mod+N hotkey-overlay-title="Close a Notification: Dunst" { spawn "dunstctl" "close"; }
     Mod+G hotkey-overlay-title="Open a Browser: Glide" { spawn "glide"; }
     Mod+B hotkey-overlay-title="Open/close a bar: Waybar" { spawn "pkill" "-USR1" "waybar"; }
@@ -138,10 +137,10 @@ binds { // TODO: Actually look at these.
     XF86AudioNext  allow-when-locked=true { spawn "playerctl" "next"; }
     XF86AudioPrev  allow-when-locked=true { spawn "playerctl" "previous"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute allow-when-locked=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute allow-when-locked=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
