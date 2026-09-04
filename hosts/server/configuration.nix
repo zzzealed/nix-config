@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -115,8 +116,25 @@ in
   # Boot
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/disk/by-id/ata-Samsung_SSD_870_QVO_1TB_S5RRNF0W804580E";
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.kernelModules = [ "nvidia-uvm" ];
+
+  # Build
+  age.secrets."nix_builder_key".file = ../../secrets/nix_builder_key.age;
+  nix = {
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "nixremote@pi.internal:2267";
+        sshKey = config.age.secrets."nix_builder_key".path;
+        protocol = "ssh-ng";
+        systems = [ "aarch64-linux" ];
+        maxJobs = 1;
+        speedFactor = 2;
+        supportedFeatures = [ "big-parallel" ];
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUJ6WE5iU0Z6RWpuUVMrOEQzZ3VWdjFVZWRDMkU5RUswTVpMYUJEWE1lK2Mgcm9vdEBleGFtcGxlCg==";
+      }
+    ];
+  };
 
   # Networking
   nameserver.primary = "127.0.0.1"; # Override for this host

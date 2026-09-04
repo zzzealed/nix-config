@@ -5,6 +5,7 @@
     ../../modules/users
     ../../modules/users/groups.nix
     ../../modules/users/mads.nix
+    ../../modules/users/nixremote.nix
     ../../modules/cli-tools
     ../../modules/home-manager
     ../../modules/bash
