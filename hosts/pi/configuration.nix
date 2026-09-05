@@ -26,6 +26,7 @@
     ../../modules/wireguard
     ../../modules/wireguard/pi-server.nix
     ../../modules/home-assistant
+    ../../modules/earlyoom
   ];
 
   home-manager.users.mads.imports = [
@@ -33,6 +34,13 @@
     ../../modules/btop/home.nix
   ];
 
+  # Swap
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8192;
+    }
+  ];
   zramSwap.enable = true;
 
   # Boot

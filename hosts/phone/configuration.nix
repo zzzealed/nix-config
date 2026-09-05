@@ -13,6 +13,7 @@ in
     inetutils
     man
     inputs.agenix.packages.aarch64-linux.default
+    fastfetchMinimal
   ];
   home-manager = {
     backupFileExtension = "bak";

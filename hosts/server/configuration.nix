@@ -119,6 +119,7 @@ in
   boot.kernelModules = [ "nvidia-uvm" ];
 
   # Build
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   age.secrets."nix_builder_key".file = ../../secrets/nix_builder_key.age;
   nix = {
     distributedBuilds = true;
@@ -130,7 +131,7 @@ in
         systems = [ "aarch64-linux" ];
         maxJobs = 1;
         speedFactor = 2;
-        supportedFeatures = [ "big-parallel" ];
+        supportedFeatures = [ ];
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUJ6WE5iU0Z6RWpuUVMrOEQzZ3VWdjFVZWRDMkU5RUswTVpMYUJEWE1lK2Mgcm9vdEBleGFtcGxlCg==";
       }
     ];
