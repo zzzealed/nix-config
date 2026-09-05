@@ -133,6 +133,6 @@
       };
       nixOnDroidConfigurations.phone-droid = mkNixOnDroidConfig "phone" "aarch64-linux";
       legacyPackages.aarch64-linux.nix-on-droid-proot-static =
-        inputs.nix-on-droid.packages.aarch64-linux.prootTermux-aarch64;
+        inputs.nix-on-droid.packages.x86_64-linux.prootTermux-aarch64;
     };
 }
