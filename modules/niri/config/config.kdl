@@ -1,3 +1,5 @@
+include optional=true "host.kdl"
+
 input {
     keyboard {
         xkb {
@@ -24,23 +26,6 @@ input {
     }
     focus-follows-mouse max-scroll-amount="0%" // Focus window where my mouse is at, and don't scroll from mouse movement
     warp-mouse-to-focus mode="center-xy-always" // Warp mouse to center of focused windows
-}
-
-// This is confusing.
-// Left monitor
-output "HDMI-A-1" {
-    mode "1920x1080@60"
-    scale 1
-    transform "normal"
-    position x=0 y=0
-}
-// Middle monitor
-output "DP-1" {
-    mode "1920x1080@240"
-    scale 1
-    transform "normal"
-    position x=1920 y=0
-    focus-at-startup
 }
 
 // Let something like swaybg, or in my case wpaperd, place a wallpaper

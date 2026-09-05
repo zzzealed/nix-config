@@ -69,7 +69,10 @@
 
   # Home manager modules
   home-manager.users.mads = {
-    home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
+    home.file = {
+      ".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
+      ".config/niri/host.kdl".source = ../../modules/niri/config/desktop.kdl;
+    };
     imports = [
       # Stack
       ../../modules/waybar/home.nix # Bar
