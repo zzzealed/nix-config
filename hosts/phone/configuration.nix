@@ -11,14 +11,15 @@ in
   imports = [
     ../../modules/vim
     ../../modules/bash
-    ../../modules/cli-tools
   ];
-  environment.packages = with pkgs; [
-    gnutar
-    man
-    inputs.agenix.packages.aarch64-linux.default
-    iputils
-  ];
+  environment.packages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages
+    ++ (with pkgs; [
+      gnutar
+      man
+      inputs.agenix.packages.aarch64-linux.default
+      iputils
+    ]);
   home-manager = {
     backupFileExtension = "bak";
     useGlobalPkgs = true;

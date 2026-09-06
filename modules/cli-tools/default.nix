@@ -1,10 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    ./tree.nix
-    ./fastfetch.nix
-    ./ripgrep.nix
-    ./uutils-coreutils.nix
-    ./gomi.nix
+  packages = with pkgs; [
+    fastfetch
+    gomi
+    ripgrep
+    tree
+    uutils-coreutils
   ];
 }

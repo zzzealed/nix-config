@@ -20,7 +20,6 @@ in
     ../../modules/users/groups.nix
     ../../modules/users/mads.nix
     ../../modules/users/linus.nix
-    ../../modules/cli-tools
     ../../modules/home-manager
     ../../modules/ffmpeg
     ../../modules/nvidia
@@ -101,10 +100,12 @@ in
   ];
 
   # Packages
-  environment.systemPackages = with pkgs; [
-    dig
-    unstable.kcc
-  ];
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages
+    ++ (with pkgs; [
+      dig
+      unstable.kcc
+    ]);
 
   # Use proprietary drivers
   hardware.nvidia.open = false;

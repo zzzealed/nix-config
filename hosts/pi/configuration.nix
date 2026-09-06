@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Nix modules
   imports = [
@@ -6,7 +6,6 @@
     ../../modules/users/groups.nix
     ../../modules/users/mads.nix
     ../../modules/users/nixremote.nix
-    ../../modules/cli-tools
     ../../modules/home-manager
     ../../modules/bash
     ../../modules/networking/firewall.nix
@@ -33,6 +32,9 @@
     ../../modules/git/home.nix
     ../../modules/btop/home.nix
   ];
+
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
 
   # Swap
   swapDevices = [

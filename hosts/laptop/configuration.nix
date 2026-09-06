@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/limine
@@ -12,7 +12,6 @@
     ../../modules/networking/nameservers.nix
     ../../modules/users
     ../../modules/users/mads.nix
-    ../../modules/cli-tools
     ../../modules/fish
     ../../modules/nh
     ../../modules/bluetooth
@@ -62,6 +61,9 @@
       ../../modules/libreoffice/home.nix
     ];
   };
+
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
 
   # State
   system.stateVersion = "26.05";

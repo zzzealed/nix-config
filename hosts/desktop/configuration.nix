@@ -16,7 +16,6 @@
     # Everything else
     ../../modules/users
     ../../modules/users/mads.nix
-    ../../modules/cli-tools
     ../../modules/fish
     ../../modules/nh
     ../../modules/steam
@@ -102,21 +101,23 @@
   };
 
   # Packages
-  environment.systemPackages = with pkgs; [
-    ntfs3g
-    kdePackages.dolphin
-    krita
-    kdePackages.kdenlive
-    unstable.ryubing
-    gparted
-    unstable.servo
-    hollywood
-    wooting-udev-rules
-    android-tools
-    scrcpy
-    kdePackages.ark
-    webtorrent_desktop
-  ];
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages
+    ++ (with pkgs; [
+      ntfs3g
+      kdePackages.dolphin
+      krita
+      kdePackages.kdenlive
+      unstable.ryubing
+      gparted
+      unstable.servo
+      hollywood
+      wooting-udev-rules
+      android-tools
+      scrcpy
+      kdePackages.ark
+      webtorrent_desktop
+    ]);
 
   # xdg.mime
   xdg.mime = {

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/users
@@ -29,6 +29,9 @@
     ../../modules/git/home.nix
     ../../modules/btop/home.nix
   ];
+
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
 
   # Workaround for https://github.com/NixOS/nix/issues/8502
   services.logrotate.checkConfig = false;
