@@ -13,7 +13,7 @@ in
     ++ (with pkgs; [
       gnutar
       man
-      inputs.agenix.packages.aarch64-linux.default
+      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
       iputils
     ]);
   home-manager = {
@@ -40,7 +40,7 @@ in
     trustedPublicKeys = lib.mkForce cache.trusted-public-keys;
   };
   environment.etcBackupExtension = ".bak";
-  nix.registry.nixpkgs.flake = inputs.nixpkgs-24-05;
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
   time.timeZone = "Europe/Copenhagen";
   environment.etc."resolv.conf".text = lib.mkForce ''
     nameserver 10.100.0.1

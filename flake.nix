@@ -6,7 +6,6 @@
     #nixpkgs.url = "git+file:///home/mads/Documents/nixpkgs";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
-    nixpkgs-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05"; # 26.05
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,8 +73,8 @@
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs = {
-        nixpkgs.follows = "nixpkgs-24-05";
-        home-manager.follows = "home-manager"; # fuck it we ball
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
       };
     };
   };
@@ -118,7 +117,7 @@
       mkNixOnDroidConfig =
         hostName: system:
         inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import inputs.nixpkgs-24-05 {
+          pkgs = import inputs.nixpkgs {
             inherit system;
             overlays = [ inputs.nix-on-droid.overlays.default ];
           };
