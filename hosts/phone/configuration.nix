@@ -48,9 +48,16 @@ in
     nameserver 1.0.0.1
   '';
 
+  # https://github.com/nix-community/nix-on-droid/issues/519#issuecomment-4318425537
   build.activation.zzUnfuckProot = ''
     cp -v /data/data/com.termux.nix/files/usr/bin/proot-static /data/data/com.termux.nix/files/usr/bin/.proot-static.new
   '';
+
+  # This is hacky
+  user = {
+    uid = 10346;
+    gid = 10346;
+  };
 
   # Read the changelog before changing this value
   system.stateVersion = "24.05";

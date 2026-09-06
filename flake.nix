@@ -11,7 +11,10 @@
       url = "github:nix-community/home-manager/release-26.05"; # 26.05
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager-25-11.url = "github:nix-community/home-manager/release-25.11";
+    home-manager-25-11 = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-25-11";
+    };
     nur = {
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
