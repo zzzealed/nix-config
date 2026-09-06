@@ -87,6 +87,7 @@
       ../../modules/niri/home.nix
       ../../modules/stylix/home.nix
       ../../modules/btop/home.nix
+      ../../modules/btop/cuda.nix
       ../../modules/legcord/home.nix
       ../../modules/yazi/home.nix
       ../../modules/opencode/home.nix

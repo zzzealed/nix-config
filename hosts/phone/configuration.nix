@@ -31,7 +31,6 @@ in
         ../../modules/btop/home.nix
       ];
       programs.helix.extraPackages = [ ];
-      programs.btop.package = pkgs.btop;
     };
   };
 

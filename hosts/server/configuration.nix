@@ -93,6 +93,7 @@ in
     ../../modules/helix/home.nix
     ../../modules/navi/home.nix
     ../../modules/btop/home.nix
+    ../../modules/btop/cuda.nix
     ../../modules/mpv/home.nix
     ../../modules/openssh/home.nix
     ../../modules/chromium/home.nix
