@@ -8,10 +8,6 @@ let
   cache = import ../../cache.nix;
 in
 {
-  imports = [
-    ../../modules/vim
-    ../../modules/bash
-  ];
   environment.packages =
     (import ../../modules/cli-tools { inherit pkgs; }).packages
     ++ (with pkgs; [
@@ -26,6 +22,8 @@ in
     config = {
       home.stateVersion = "24.05";
       imports = [
+        ../../modules/bash/home.nix
+        ../../modules/vim/home.nix
         ../../modules/git/home.nix
         ../../modules/openssh/home.nix
         ../../modules/helix/home.nix

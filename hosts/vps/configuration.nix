@@ -6,7 +6,6 @@
     ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
-    ../../modules/bash
     ../../modules/nh
     ../../modules/nix-gc
     ../../modules/nix-index-database
@@ -28,6 +27,7 @@
   home-manager.users.mads.imports = [
     ../../modules/git/home.nix
     ../../modules/btop/home.nix
+    ../../modules/bash/home.nix
   ];
 
   environment.systemPackages =

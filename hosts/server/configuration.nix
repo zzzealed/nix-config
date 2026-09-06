@@ -27,7 +27,6 @@ in
     ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
     ../../modules/locale
-    ../../modules/bash
     ../../modules/nh
     ../../modules/pipewire
     ../../modules/rclone
@@ -97,6 +96,7 @@ in
     ../../modules/openssh/home.nix
     ../../modules/chromium/home.nix
     ../../modules/yt-dlp/home.nix
+    ../../modules/bash/home.nix
   ];
 
   # Packages

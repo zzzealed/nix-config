@@ -36,7 +36,6 @@
     ../../modules/locale
     ../../modules/stylix
     ../../modules/navi
-    ../../modules/bash
     ../../modules/wireguard
     ../../modules/wireguard/desktop-server.nix
     ../../modules/wireguard/desktop-proton.nix
@@ -97,6 +96,7 @@
       ../../modules/yt-dlp/home.nix
       ../../modules/libreoffice/home.nix
       ../../modules/chromium/home.nix
+      ../../modules/bash/home.nix
     ];
   };
 

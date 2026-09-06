@@ -19,7 +19,6 @@
     ../../modules/openssh
     ../../modules/locale
     ../../modules/stylix
-    ../../modules/bash
     ../../modules/wireguard
     ../../modules/wireguard/laptop-server.nix
     ../../modules/wireguard/laptop-proton.nix
@@ -59,6 +58,7 @@
       ../../modules/gpg/home.nix
       ../../modules/openssh/home.nix
       ../../modules/libreoffice/home.nix
+      ../../modules/bash/home.nix
     ];
   };
 
