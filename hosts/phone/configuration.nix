@@ -25,7 +25,7 @@ in
         ../../modules/bash/home.nix
         ../../modules/vim/home.nix
         ../../modules/git/home.nix
-        ../../modules/openssh/home.nix
+        ../../modules/openssh/home-25-11.nix
         ../../modules/helix/home.nix
         ../../modules/btop/home.nix
       ];

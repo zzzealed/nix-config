@@ -11,10 +11,7 @@
       url = "github:nix-community/home-manager/release-26.05"; # 26.05
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager-25-11 = {
-      url = "github:nix-community/home-manager/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs-25-11";
-    };
+    home-manager-25-11.url = "github:nix-community/home-manager/release-25.11";
     nur = {
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -76,10 +73,10 @@
       flake = false;
     };
     nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
+      url = "github:nix-community/nix-on-droid/prerelease-25.11";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs-25-11";
+        home-manager.follows = "home-manager-25-11";
       };
     };
   };
