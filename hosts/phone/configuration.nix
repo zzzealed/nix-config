@@ -40,7 +40,7 @@ in
     trustedPublicKeys = lib.mkForce cache.trusted-public-keys;
   };
   environment.etcBackupExtension = ".bak";
-  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  nix.registry.nixpkgs.flake = inputs.nixpkgs-25-11;
   time.timeZone = "Europe/Copenhagen";
   environment.etc."resolv.conf".text = lib.mkForce ''
     nameserver 10.100.0.1

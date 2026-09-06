@@ -6,9 +6,14 @@
     #nixpkgs.url = "git+file:///home/mads/Documents/nixpkgs";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable-small.url = "nixpkgs/nixos-unstable-small";
+    nixpkgs-25-11.url = "nixpkgs/nixos-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05"; # 26.05
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager-25-11 = {
+      url = "github:nix-community/home-manager/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-25-11";
     };
     nur = {
       url = "github:nix-community/nur";
@@ -117,7 +122,7 @@
       mkNixOnDroidConfig =
         hostName: system:
         inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import inputs.nixpkgs {
+          pkgs = import inputs.nixpkgs-25-11 {
             inherit system;
             overlays = [ inputs.nix-on-droid.overlays.default ];
           };
@@ -136,5 +141,7 @@
       nixOnDroidConfigurations.phone-droid = mkNixOnDroidConfig "phone" "aarch64-linux";
       legacyPackages.aarch64-linux.nix-on-droid-proot-static =
         inputs.nix-on-droid.packages.x86_64-linux.prootTermux-aarch64;
+      checks.aarch64-linux.phone-droid =
+        (mkNixOnDroidConfig "phone" "aarch64-linux").config.build.activationPackage;
     };
 }
