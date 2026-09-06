@@ -14,8 +14,6 @@
     ../../modules/networking/networkmanager.nix # Network
     ../../modules/networking/nameservers.nix
     # Everything else
-    ../../modules/yt-dlp.nix
-    ../../modules/libreoffice.nix
     ../../modules/users
     ../../modules/users/mads.nix
     ../../modules/cli-tools
@@ -44,9 +42,6 @@
     ../../modules/wireguard/desktop-server.nix
     ../../modules/wireguard/desktop-proton.nix
     ../../modules/prismlauncher
-    ../../modules/ungoogled-chromium.nix
-    ../../modules/python3.nix
-    ../../modules/streamlink.nix
     #../../modules/virt-manager
     ../../modules/mysql
     #../../modules/locale/espanol.nix
@@ -54,8 +49,6 @@
     ../../modules/thermald
     ../../modules/yubikey
     ../../modules/xdg-portal
-    ../../modules/tokei.nix
-    ../../modules/tealdeer.nix
     ../../modules/nix-gc
     ../../modules/zmx
     ../../modules/nix-index-database
@@ -101,6 +94,9 @@
       ../../modules/lan-mouse/home.nix
       ../../modules/lan-mouse/desktop.nix
       ../../modules/gpg/home.nix
+      ../../modules/yt-dlp/home.nix
+      ../../modules/libreoffice/home.nix
+      ../../modules/chromium/home.nix
     ];
   };
 

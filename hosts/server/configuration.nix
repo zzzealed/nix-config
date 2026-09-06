@@ -16,7 +16,6 @@ in
 
   # Nix modules
   imports = [
-    ../../modules/yt-dlp.nix
     ../../modules/users
     ../../modules/users/groups.nix
     ../../modules/users/mads.nix
@@ -30,8 +29,6 @@ in
     ../../modules/networking/nameservers.nix
     ../../modules/locale
     ../../modules/bash
-    ../../modules/ungoogled-chromium.nix
-    ../../modules/python3.nix
     ../../modules/nh
     ../../modules/pipewire
     ../../modules/rclone
@@ -98,6 +95,8 @@ in
     ../../modules/btop/home.nix
     ../../modules/mpv/home.nix
     ../../modules/openssh/home.nix
+    ../../modules/chromium/home.nix
+    ../../modules/yt-dlp/home.nix
   ];
 
   # Packages

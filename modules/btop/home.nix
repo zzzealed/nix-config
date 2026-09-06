@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.btop = {
     enable = true;
-    package = pkgs.btop.override { cudaSupport = true; };
+    package = lib.mkDefault pkgs.btop.override { cudaSupport = true; };
   };
 }

@@ -8,12 +8,16 @@ let
   cache = import ../../cache.nix;
 in
 {
+  imports = [
+    ../../modules/vim
+    ../../modules/bash
+    ../../modules/cli-tools
+  ];
   environment.packages = with pkgs; [
     gnutar
-    inetutils
     man
     inputs.agenix.packages.aarch64-linux.default
-    fastfetch
+    iputils
   ];
   home-manager = {
     backupFileExtension = "bak";
@@ -24,8 +28,10 @@ in
         ../../modules/git/home.nix
         ../../modules/openssh/home.nix
         ../../modules/helix/home.nix
+        ../../modules/btop/home.nix
       ];
       programs.helix.extraPackages = [ ];
+      programs.btop.package = pkgs.btop;
     };
   };
 

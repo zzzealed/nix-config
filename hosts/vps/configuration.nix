@@ -10,6 +10,7 @@
     ../../modules/nh
     ../../modules/nix-gc
     ../../modules/nix-index-database
+    ../../modules/home-manager
     # Services
     ../../modules/openssh
     ../../modules/wireguard
@@ -22,6 +23,11 @@
     ../../modules/ddclient/vps.nix
     ../../modules/endlessh
     ../../modules/fail2ban
+  ];
+
+  home-manager.users.mads.imports = [
+    ../../modules/git/home.nix
+    ../../modules/btop/home.nix
   ];
 
   # Workaround for https://github.com/NixOS/nix/issues/8502
