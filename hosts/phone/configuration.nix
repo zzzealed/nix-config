@@ -48,6 +48,10 @@ in
     nameserver 1.0.0.1
   '';
 
+  build.activation.zzUnfuckProot = ''
+    cp -v /data/data/com.termux.nix/files/usr/bin/proot-static /data/data/com.termux.nix/files/usr/bin/.proot-static.new
+  '';
+
   # Read the changelog before changing this value
   system.stateVersion = "24.05";
 }
