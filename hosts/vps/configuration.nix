@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/users
@@ -6,10 +6,10 @@
     ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
-    ../../modules/bash
     ../../modules/nh
     ../../modules/nix-gc
     ../../modules/nix-index-database
+    ../../modules/home-manager
     # Services
     ../../modules/openssh
     ../../modules/wireguard
@@ -23,6 +23,15 @@
     ../../modules/endlessh
     ../../modules/fail2ban
   ];
+
+  home-manager.users.mads.imports = [
+    ../../modules/git/home.nix
+    ../../modules/btop/home.nix
+    ../../modules/bash/home.nix
+  ];
+
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
 
   # Workaround for https://github.com/NixOS/nix/issues/8502
   services.logrotate.checkConfig = false;

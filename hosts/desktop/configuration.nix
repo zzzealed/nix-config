@@ -14,11 +14,8 @@
     ../../modules/networking/networkmanager.nix # Network
     ../../modules/networking/nameservers.nix
     # Everything else
-    ../../modules/yt-dlp.nix
-    ../../modules/libreoffice.nix
     ../../modules/users
     ../../modules/users/mads.nix
-    ../../modules/cli-tools
     ../../modules/fish
     ../../modules/nh
     ../../modules/steam
@@ -39,14 +36,10 @@
     ../../modules/locale
     ../../modules/stylix
     ../../modules/navi
-    ../../modules/bash
     ../../modules/wireguard
     ../../modules/wireguard/desktop-server.nix
     ../../modules/wireguard/desktop-proton.nix
     ../../modules/prismlauncher
-    ../../modules/ungoogled-chromium.nix
-    ../../modules/python3.nix
-    ../../modules/streamlink.nix
     #../../modules/virt-manager
     ../../modules/mysql
     #../../modules/locale/espanol.nix
@@ -54,8 +47,6 @@
     ../../modules/thermald
     ../../modules/yubikey
     ../../modules/xdg-portal
-    ../../modules/tokei.nix
-    ../../modules/tealdeer.nix
     ../../modules/nix-gc
     ../../modules/zmx
     ../../modules/nix-index-database
@@ -69,7 +60,10 @@
 
   # Home manager modules
   home-manager.users.mads = {
-    home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
+    home.file = {
+      ".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
+      ".config/niri/host.kdl".source = ../../modules/niri/config/desktop.kdl;
+    };
     imports = [
       # Stack
       ../../modules/waybar/home.nix # Bar
@@ -91,6 +85,7 @@
       ../../modules/niri/home.nix
       ../../modules/stylix/home.nix
       ../../modules/btop/home.nix
+      ../../modules/btop/cuda.nix
       ../../modules/legcord/home.nix
       ../../modules/yazi/home.nix
       ../../modules/opencode/home.nix
@@ -98,25 +93,31 @@
       ../../modules/lan-mouse/home.nix
       ../../modules/lan-mouse/desktop.nix
       ../../modules/gpg/home.nix
+      ../../modules/yt-dlp/home.nix
+      ../../modules/libreoffice/home.nix
+      ../../modules/chromium/home.nix
+      ../../modules/bash/home.nix
     ];
   };
 
   # Packages
-  environment.systemPackages = with pkgs; [
-    ntfs3g
-    kdePackages.dolphin
-    krita
-    kdePackages.kdenlive
-    unstable.ryubing
-    gparted
-    unstable.servo
-    hollywood
-    wooting-udev-rules
-    android-tools
-    scrcpy
-    kdePackages.ark
-    webtorrent_desktop
-  ];
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages
+    ++ (with pkgs; [
+      ntfs3g
+      kdePackages.dolphin
+      krita
+      kdePackages.kdenlive
+      unstable.ryubing
+      gparted
+      unstable.servo
+      hollywood
+      wooting-udev-rules
+      android-tools
+      scrcpy
+      kdePackages.ark
+      webtorrent_desktop
+    ]);
 
   # xdg.mime
   xdg.mime = {

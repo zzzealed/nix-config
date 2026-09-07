@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: zzzealed/nix-config/.github/actions/checkout@main
       - name: check outputs without building
-        run: nix flake check --no-build --all-systems --log-format bar
+        run: nix flake check --no-build --all-systems --log-format bar --impure
 
   gatus-post:
     if: always()

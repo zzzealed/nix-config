@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/limine
@@ -12,7 +12,6 @@
     ../../modules/networking/nameservers.nix
     ../../modules/users
     ../../modules/users/mads.nix
-    ../../modules/cli-tools
     ../../modules/fish
     ../../modules/nh
     ../../modules/bluetooth
@@ -20,7 +19,6 @@
     ../../modules/openssh
     ../../modules/locale
     ../../modules/stylix
-    ../../modules/bash
     ../../modules/wireguard
     ../../modules/wireguard/laptop-server.nix
     ../../modules/wireguard/laptop-proton.nix
@@ -60,8 +58,13 @@
       ../../modules/lan-mouse/laptop.nix
       ../../modules/gpg/home.nix
       ../../modules/openssh/home.nix
+      ../../modules/libreoffice/home.nix
+      ../../modules/bash/home.nix
     ];
   };
+
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
 
   # State
   system.stateVersion = "26.05";
