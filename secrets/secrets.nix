@@ -55,7 +55,11 @@ let
     "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "speedtest-tracker_app-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "samba-secrets.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "samba-secrets.age".publicKeys = [
+      root_desktop-nixos
+      root_laptop-nixos
+    ]
+    ++ interactiveKeys;
 
     # Authelia
     "authelia_jwt-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
