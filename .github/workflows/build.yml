@@ -11,15 +11,15 @@ jobs:
       - uses: zzzealed/nix-config/.github/actions/checkout@main
       - name: build server-nixos
         run: |
-          nix build .#nixosConfigurations.server-nixos.config.system.build.toplevel \
+          nix build .#nixosConfigurations.server.config.system.build.toplevel \
             --log-format bar \
-            --out-link /var/lib/github-runner/server-nixos/gcroots/server-nixos
+            --out-link /var/lib/github-runner/server-nixos/gcroots/server
   build-hosts:
     needs: build-server
     timeout-minutes: 1440 # 24 hours
     strategy:
       matrix:
-        host: [desktop-nixos, pi-nixos, vps-nixos, laptop-nixos]
+        host: [desktop, pi, vps, laptop]
       fail-fast: false
     runs-on: [self-hosted, nix]
     steps:
@@ -41,9 +41,9 @@ jobs:
           nix build .#legacyPackages.aarch64-linux.nix-on-droid-proot-static \
             --log-format bar-with-logs \
             --out-link /var/lib/github-runner/server-nixos/gcroots/nix-on-droid-proot-static
-          nix build --impure .#nixOnDroidConfigurations.phone-droid.activationPackage \
+          nix build --impure .#nixOnDroidConfigurations.phone.activationPackage \
             --log-format bar-with-logs \
-            --out-link /var/lib/github-runner/server-nixos/gcroots/phone-droid
+            --out-link /var/lib/github-runner/server-nixos/gcroots/phone
 
   gatus-post:
     if: always()
