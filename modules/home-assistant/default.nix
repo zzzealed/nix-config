@@ -5,7 +5,8 @@
     openFirewall = true;
     package = pkgs.home-assistant;
     customComponents = [
-      pkgs.home-assistant-custom-components.auth_oidc
+      # PIECE OF SHITTTTT
+      # pkgs.home-assistant-custom-components.auth_oidc
     ];
     extraComponents = [
       # Components required to complete the onboarding
@@ -32,6 +33,9 @@
       ];
     config = {
       default_config = { };
+      "automation ui" = "!include automations.yaml";
+      "scene ui" = "!include scenes.yaml";
+      "script ui" = "!include scripts.yaml";
       http = {
         server_port = 8123;
         trusted_proxies = [
@@ -39,10 +43,10 @@
         ];
         use_x_forwarded_for = true;
       };
-      auth_oidc = {
-        client_id = "homeassistant";
-        discovery_url = "https://auth.l.zzzealed.com/.well-known/openid-configuration";
-      };
+      # auth_oidc = {
+      # client_id = "homeassistant";
+      # discovery_url = "https://auth.l.zzzealed.com/.well-known/openid-configuration";
+      # };
       frontend = { };
       api = { };
     };
