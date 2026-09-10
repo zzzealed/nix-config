@@ -294,7 +294,7 @@
           "home-manager"
         ],
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ]
       },
       "locked": {
@@ -662,11 +662,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1788921488,
-        "narHash": "sha256-JLopN/XSodSsJIZ7v7tEjpPZ+QXc883s3HoUIxHD8Io=",
-        "rev": "6aefcda9401be8acc2b74244fb3b37520ea1f0a8",
+        "lastModified": 1789009968,
+        "narHash": "sha256-68Lf9xkbHO3VecGRDpxFAsYCU/Lx2fySxqueRanA8BE=",
+        "rev": "d58a46e3bc02d91ebe04667f8397752a749c0024",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.9440.6aefcda9401b/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.9498.d58a46e3bc02/nixexprs.tar.xz"
       },
       "original": {
         "id": "nixpkgs",
@@ -736,11 +736,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789051093,
-        "narHash": "sha256-ZREcrGp1p3zIeIkfG5tbi88625eraeSCH89h+w4FbhE=",
+        "lastModified": 1789062653,
+        "narHash": "sha256-lFiCX8alnuHcRFotxUxMbC67R8oqEsdiaZ7BiPuQU6o=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "1b18fc07eeec1314a9ece0388993181ef2bc3cad",
+        "rev": "628558344feeea71e7571ba6574f75118f943815",
         "type": "github"
       },
       "original": {
