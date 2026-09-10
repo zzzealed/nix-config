@@ -12,6 +12,7 @@
     key = config.age.secrets."syncthing-key".path;
     cert = config.age.secrets."syncthing-cert".path;
     openDefaultPorts = true; # Not actually webui's port
+    guiAddress = "0.0.0.0:8384";
     settings = {
       gui = {
         user = "mads";
