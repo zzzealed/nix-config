@@ -99,6 +99,12 @@
               keyword = ",sunshine";
               url = "https://localhost:47990";
             }
+            {
+              name = "Syncthing";
+              tags = [ ];
+              keyword = ",syncthing";
+              url = "http://127.0.0.1:8384";
+            }
           ];
         };
         extensions = {
