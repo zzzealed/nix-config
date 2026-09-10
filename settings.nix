@@ -1,4 +1,9 @@
 {
+  allowUnfree = true;
+  experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   substituters = [
     "https://cache.l.zzzealed.com"
     "https://cache.nixos.org"

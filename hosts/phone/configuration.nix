@@ -4,9 +4,6 @@
   inputs,
   ...
 }:
-let
-  cache = import ../../cache.nix;
-in
 {
   environment.packages =
     (import ../../modules/cli-tools { inherit pkgs; }).packages
@@ -34,13 +31,7 @@ in
   };
 
   # nix-on-droid specifics
-  nix = {
-    extraOptions = "experimental-features = nix-command flakes";
-    substituters = lib.mkForce cache.substituters;
-    trustedPublicKeys = lib.mkForce cache.trusted-public-keys;
-  };
   environment.etcBackupExtension = ".bak";
-  nix.registry.nixpkgs.flake = inputs.nixpkgs-25-11;
   time.timeZone = "Europe/Copenhagen";
   environment.etc."resolv.conf".text = lib.mkForce ''
     nameserver 10.100.0.1

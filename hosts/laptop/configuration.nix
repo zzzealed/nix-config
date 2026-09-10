@@ -32,6 +32,7 @@
     ../../modules/eduroam/aau.nix
     ../../modules/syncthing
     ../../modules/samba-mounts/vault-mount.nix
+    ../../modules/gparted
   ];
   home-manager.users.mads = {
     home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;

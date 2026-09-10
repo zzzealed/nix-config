@@ -56,6 +56,7 @@
     ../../modules/lan-mouse
     ../../modules/openconnect
     ../../modules/syncthing
+    ../../modules/gparted
   ];
 
   # Home manager modules
@@ -108,7 +109,6 @@
       krita
       kdePackages.kdenlive
       unstable.ryubing
-      gparted
       unstable.servo
       hollywood
       wooting-udev-rules

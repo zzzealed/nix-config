@@ -85,63 +85,100 @@
   };
 
   outputs =
-    # Bind all inputs from above to `inputs` attr
-    inputs@{ ... }:
+    inputs@{
+      nixpkgs,
+      nixpkgs-25-11,
+      nix-on-droid,
+      ...
+    }:
     let
+      settings = import ./settings.nix;
       specialArgs = { inherit inputs; };
-
-      mkNixosConfig =
-        hostName: system: hostId:
-        inputs.nixpkgs.lib.nixosSystem {
-          inherit system specialArgs;
-          modules = [
-            {
-              nixpkgs.config.allowUnfree = true;
-              nix.settings = {
-                experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-                inherit (import ./cache.nix) substituters trusted-public-keys;
-              };
-            }
-            {
-              networking = {
-                hostName = hostName;
-                domain = "internal";
-                hostId = hostId;
-              };
-            }
-            ./secrets
-            ./overlays
-            (./hosts + "/${hostName}/configuration.nix")
-            (./hosts + "/${hostName}/hardware-configuration.nix")
-          ];
-        };
-
-      mkNixOnDroidConfig =
-        hostName: system:
-        inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import inputs.nixpkgs-25-11 {
-            inherit system;
-            overlays = [ inputs.nix-on-droid.overlays.default ];
-          };
-          modules = [ (./hosts + "/${hostName}/configuration.nix") ];
-          extraSpecialArgs = specialArgs;
-        };
-    in
-    {
-      nixosConfigurations = {
-        desktop-nixos = mkNixosConfig "desktop" "x86_64-linux" "19fa2096";
-        server-nixos = mkNixosConfig "server" "x86_64-linux" "adb2c089";
-        pi-nixos = mkNixosConfig "pi" "aarch64-linux" "cf20a29f";
-        vps-nixos = mkNixosConfig "vps" "x86_64-linux" "2c363b2d";
-        laptop-nixos = mkNixosConfig "laptop" "x86_64-linux" "4115249e";
+      commonModule = {
+        nix.settings = { inherit (settings) experimental-features substituters trusted-public-keys; };
+        nixpkgs.config = { inherit (settings) allowUnfree; };
       };
-      nixOnDroidConfigurations.phone-droid = mkNixOnDroidConfig "phone" "aarch64-linux";
+    in
+    rec {
+      nixosConfigurations =
+        nixpkgs.lib.mapAttrs
+          (
+            hostName:
+            { system, hostId }:
+            nixpkgs.lib.nixosSystem {
+              inherit system specialArgs;
+              modules = [
+                commonModule
+                (./hosts + "/${hostName}/configuration.nix")
+                (./hosts + "/${hostName}/hardware-configuration.nix")
+                {
+                  networking = {
+                    inherit hostName hostId;
+                    domain = "internal";
+                  };
+                }
+                ./secrets
+                ./overlays
+              ];
+            }
+          )
+          {
+            desktop = {
+              system = "x86_64-linux";
+              hostId = "19fa2096";
+            };
+            server = {
+              system = "x86_64-linux";
+              hostId = "adb2c089";
+            };
+            pi = {
+              system = "aarch64-linux";
+              hostId = "cf20a29f";
+            };
+            vps = {
+              system = "x86_64-linux";
+              hostId = "2c363b2d";
+            };
+            laptop = {
+              system = "x86_64-linux";
+              hostId = "4115249e";
+            };
+          };
+
+      nixOnDroidConfigurations =
+        nixpkgs.lib.mapAttrs
+          (
+            hostName:
+            { system }:
+            nix-on-droid.lib.nixOnDroidConfiguration {
+              pkgs = import nixpkgs-25-11 {
+                inherit system;
+                overlays = [ nix-on-droid.overlays.default ];
+                config = { inherit (settings) allowUnfree; };
+              };
+              extraSpecialArgs = specialArgs;
+              modules = [
+                (./hosts + "/${hostName}/configuration.nix")
+                {
+                  nix = {
+                    extraOptions = "experimental-features = ${nixpkgs.lib.concatStringsSep " " settings.experimental-features}";
+                    substituters = nixpkgs.lib.mkForce settings.substituters;
+                    trustedPublicKeys = nixpkgs.lib.mkForce settings.trusted-public-keys;
+                    registry.nixpkgs.flake = nixpkgs-25-11;
+                  };
+                }
+              ];
+            }
+          )
+          {
+            phone = {
+              system = "aarch64-linux";
+            };
+          };
+
       legacyPackages.aarch64-linux.nix-on-droid-proot-static =
-        inputs.nix-on-droid.packages.x86_64-linux.prootTermux-aarch64;
-      checks.aarch64-linux.phone-droid =
-        (mkNixOnDroidConfig "phone" "aarch64-linux").config.build.activationPackage;
+        nix-on-droid.packages.x86_64-linux.prootTermux-aarch64;
+
+      checks.aarch64-linux.phone = nixOnDroidConfigurations.phone.config.build.activationPackage;
     };
 }
