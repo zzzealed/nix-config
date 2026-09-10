@@ -36,7 +36,7 @@
     };
     glide = {
       url = "github:glide-browser/glide.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
       inputs.home-manager.follows = "home-manager";
     };
     nixcord = {
