@@ -83,6 +83,14 @@ let
 
     "eduroam-environment-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
     "nix_builder_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+
+    # Syncthing
+    "syncthing/server-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "syncthing/server-cert.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "syncthing/desktop-key.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "syncthing/desktop-cert.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "syncthing/laptop-key.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
+    "syncthing/laptop-cert.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
   };
 
   defaults = {

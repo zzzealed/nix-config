@@ -30,9 +30,10 @@
     ../../modules/yubikey
     ../../modules/openconnect
     ../../modules/eduroam/aau.nix
+    ../../modules/syncthing
   ];
   home-manager.users.mads = {
-    home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
+    home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;
     imports = [
       ../../modules/waybar/home.nix
       ../../modules/waybar/laptop.nix

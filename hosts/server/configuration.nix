@@ -47,7 +47,6 @@ in
     ../../modules/radicale
     ../../modules/samba-shares
     ../../modules/samba-shares/vault-share.nix
-    ../../modules/samba-shares/home-share.nix
     ../../modules/samba-shares/qbittorrent-share.nix
     ../../modules/pihole
     ../../modules/unbound
@@ -81,6 +80,7 @@ in
     # ../../modules/renovate/default.nix
     ../../modules/actual
     ../../modules/home-assistant/proxy.nix
+    ../../modules/syncthing
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker

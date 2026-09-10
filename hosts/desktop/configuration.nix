@@ -30,7 +30,6 @@
     ../../modules/bitwarden
     ../../modules/samba-mounts/vault-mount.nix
     ../../modules/samba-mounts/vault2-mount.nix
-    ../../modules/samba-mounts/home-mount.nix
     ../../modules/samba-mounts/qbittorrent-mount.nix
     ../../modules/openssh
     ../../modules/locale
@@ -56,19 +55,19 @@
     ../../modules/sunshine
     ../../modules/lan-mouse
     ../../modules/openconnect
+    ../../modules/syncthing
   ];
 
   # Home manager modules
   home-manager.users.mads = {
     home.file = {
-      ".config/mpv/host.conf".source = ../../modules/mpv/config/desktop-nixos.conf;
+      ".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;
       ".config/niri/host.kdl".source = ../../modules/niri/config/desktop.kdl;
     };
     imports = [
       # Stack
       ../../modules/waybar/home.nix # Bar
       ../../modules/waybar/desktop.nix
-      #../../modules/ashell/home.nix
       ../../modules/fuzzel/home.nix # Launcher
       ../../modules/dunst/home.nix # Notifications
       ../../modules/swaylock/home.nix # Lock screen
