@@ -26,16 +26,6 @@
         "kindle".id = "6WV3W3S-BUQVI4S-575SGUP-65JXNQX-43ASGG3-CRO74AS-DPEQ7XJ-6NERLAK"; # Via KOReader plugin
       };
       folders = {
-        "mpv-watch-later" = {
-          label = "MPV watch-later files";
-          path = "~/.local/state/mpv/watch_later";
-          devices = [
-            "server"
-            "desktop"
-            "laptop"
-            "phone"
-          ];
-        };
         "aau" = {
           label = "AAU";
           path = "~/Documents/AAU";
@@ -54,6 +44,61 @@
             "desktop"
             "laptop"
             "kindle"
+          ];
+        };
+        "fish" = {
+          label = "Fish state";
+          path = "~/.local/share/fish";
+          devices = [
+            "server"
+            "desktop"
+            "laptop"
+          ];
+        };
+        "gomi" = {
+          label = "Gomi trash";
+          path = "~/.local/share/Trash";
+          devices = [
+            "server"
+            "desktop"
+            "laptop"
+          ];
+        };
+        "mpv" = {
+          label = "MPV watch-later files";
+          path = "~/.local/state/mpv/watch_later";
+          devices = [
+            "server"
+            "desktop"
+            "laptop"
+            "phone"
+          ];
+        };
+        "nix-config" = {
+          label = "nix-config";
+          path = "~/nix-config";
+          devices = [
+            "server"
+            "desktop"
+            "laptop"
+            "phone"
+          ];
+        };
+        "opencode" = {
+          label = "OpenCode state";
+          path = "~/.local/share/opencode/";
+          devices = [
+            "server"
+            "desktop"
+            "laptop"
+          ];
+        };
+        "opendeck" = {
+          label = "OpenDeck config";
+          path = "~/.config/opendeck";
+          devices = [
+            "server"
+            "desktop"
           ];
         };
       };

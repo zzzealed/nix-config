@@ -4,3 +4,8 @@
 
 [core]
 	editor = hx
+	filemode = false
+
+[safe]
+	directory = /storage/emulated/0/Documents/nix-config
+	directory = /sdcard/Documents/nix-config
