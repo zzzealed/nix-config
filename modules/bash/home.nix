@@ -2,9 +2,13 @@
 {
   programs.bash = {
     enable = true;
-    initExtra = "set -o vi";
+    initExtra = ''
+      set -o vi
+       nod() {
+        nix-on-droid "$@" --flake /sdcard/Documents/nix-config/.#phone
+      }
+    '';
     shellAliases = {
-      "nod" = "nix-on-droid switch --flake .#phone-droid";
       "rsync" = "rsync --verbose --archive --progress --human-readable";
     };
   };
