@@ -5,35 +5,26 @@
 
 ## Structure
 ```mermaid
-flowchart TD
-    flake["./flake.nix"]
+---
+config:
+  flowchart:
+    nodeSpacing: 25
+    rankSpacing: 25
+---
+flowchart LR
+    flake["flake.nix"]
 
-    flake --> hosts["./hosts/"]
+    flake --> hosts["hosts/"]
 
-    hosts --> server["server"]
-    hosts --> desktop["desktop"]
-    hosts --> pi["pi"]
-    hosts --> vps["vps"]
-    hosts --> laptop["laptop"]
-    hosts --> phone["phone"]
+    hosts --> server["server/configuration.nix"]
+    hosts --> desktop["desktop/configuration.nix"]
 
-    server --> server_cfg["configuration.nix"]
-    desktop --> desktop_cfg["configuration.nix"]
-    pi --> pi_cfg["configuration.nix"]
-    vps --> vps_cfg["configuration.nix"]
-    laptop --> laptop_cfg["configuration.nix"]
-    phone --> phone_cfg["configuration.nix"]
-
-    server_cfg --> modules["./modules/"]
-    desktop_cfg --> modules
-    pi_cfg --> modules
-    vps_cfg --> modules
-    laptop_cfg --> modules
-    phone_cfg --> modules
+    server --> modules["modules/"]
+    desktop --> modules
   
 ```
 > [!NOTE]
-> NOT exhaustive, but a general overview.
+> NOT exhaustive.
 
 ## Usage
 1. Clone, or download the repository:
@@ -48,15 +39,15 @@ tar -xzf main.tar.gz
 ```sh
 cd nix-config-main && nix-shell
 ```
-4. Rebuild and switch with a host's (eg. "desktop-nixos") configuration:
+4. Rebuild and switch with a host's (eg. desktop's) configuration:
 ```sh
-sudo nixos-rebuild switch --flake .#desktop-nixos
+sudo nixos-rebuild switch --flake .#desktop
 ```
 > [!IMPORTANT]
-> You need to use `nixos-generate-config` and replace `./hosts/foo/hardware-configuration.nix`.
+> You need to use `nixos-generate-config` and replace [hosts/](/hosts/)*foo*/hardware-configuration.nix.
 
 > [!IMPORTANT]
-> You also need a valid SSH-key defined in `./secrets/secrets.nix` to decrypt any secrets.
+> You also need a valid SSH-key defined in [secrets/secrets.nix](/secrets/secrets.nix) to decrypt any secrets.
 
 ## To-do
 - [ ] Init: `services.octodns` blocker: nixos/nixpkgs#517510
@@ -69,5 +60,5 @@ sudo nixos-rebuild switch --flake .#desktop-nixos
 - [ ] More `pkgs.navi` docs
 - [ ] `services.*`: Unique ports?
 - [ ] Just rawdog dnsmasq instead of Pihole
-- [ ] Replace Agenix interactive keys with _sk variants
+- [x] Replace Agenix interactive keys with _sk variants
 - [ ] `home.nix` -> `hm.nix` & `<other>.hm.nix`
