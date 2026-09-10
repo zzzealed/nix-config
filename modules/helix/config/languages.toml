@@ -102,3 +102,9 @@ auto-format = true
 name = "jsonc"
 formatter = { command = 'prettierd', args = [".jsonc"] }
 auto-format = true
+
+[[language]]
+name = "age"
+scope = "source.age"
+file-types = ["age"]
+auto-format = false
