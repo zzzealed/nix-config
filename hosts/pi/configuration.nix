@@ -17,6 +17,8 @@
     ../../modules/nix-gc
     ../../modules/nix-index-database
     ../../modules/bluetooth
+    ../../modules/pipewire
+    ../../modules/pipewire/system.nix
     # Services
     ../../modules/samba-shares
     ../../modules/samba-shares/vault2-share.nix
