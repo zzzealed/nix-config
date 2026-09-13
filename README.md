@@ -56,9 +56,9 @@ sudo nixos-rebuild switch --flake .#desktop
 - [ ] Init: `base24-scheme` blocker: nix-community/stylix#252
 - [ ] Switch hosts `server`, `pi` to `boot.loader.limine`
 - [ ] Make all files+dirs kebab-case
-- [ ] Disable password SSH and add agent
 - [ ] More `pkgs.navi` docs
 - [ ] `services.*`: Unique ports?
 - [ ] Just rawdog dnsmasq instead of Pihole
-- [x] Replace Agenix interactive keys with _sk variants
 - [ ] `home.nix` -> `hm.nix` & `<other>.hm.nix`
+- [ ] `hostName`.interal @ pihole, `hostname`.lan otherwise
+- [ ] `<name>.l.zzzealed.com` -> `<name>.i.zzzealed.com`
