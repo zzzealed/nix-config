@@ -62,3 +62,4 @@ sudo nixos-rebuild switch --flake .#desktop
 - [ ] `home.nix` -> `hm.nix` & `<other>.hm.nix`
 - [ ] `hostName`.interal @ pihole, `hostname`.lan otherwise
 - [ ] `<name>.l.zzzealed.com` -> `<name>.i.zzzealed.com`
+- [ ] `/var/lib/<service>` -> `/vault/<service>` bindmount
