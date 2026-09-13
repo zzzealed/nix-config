@@ -10,7 +10,9 @@
       };
       events = {
         "on-discharging-critical" = "notify-send -u critical 'Low battery!'";
-        "on-charging" = "notify-send -u normal 'Charging'";
+        # Not released yet:
+        # "on-discharging" = "notify-send -u critical 'Discharging'";
+        # "on-charging" = "notify-send -u critical 'Charging'";
       };
     };
   };
