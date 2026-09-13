@@ -1,8 +1,8 @@
-{ config, ... }:
+{ hosts, config, ... }:
 {
   age.secrets."samba-secrets".file = ../../secrets/samba-secrets.age;
   fileSystems."/mnt/vault2" = {
-    device = "//192.168.8.102/vault2";
+    device = "//${hosts.pi.lanIp}/vault2";
     fsType = "cifs";
     options =
       let

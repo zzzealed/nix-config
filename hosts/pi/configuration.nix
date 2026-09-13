@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   # Nix modules
   imports = [
@@ -10,6 +10,7 @@
     ../../modules/networking/firewall.nix
     ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
+    ../../modules/networking/lan-profile.nix
     ../../modules/openssh
     ../../modules/nh
     ../../modules/zfs

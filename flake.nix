@@ -95,6 +95,7 @@
       settings = import ./settings.nix;
       specialArgs = { inherit inputs; };
       commonModule = {
+        _module.args.hosts = import ./hosts/meta.nix;
         nix.settings = { inherit (settings) experimental-features substituters trusted-public-keys; };
         nixpkgs.config = { inherit (settings) allowUnfree; };
       };

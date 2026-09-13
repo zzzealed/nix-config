@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ hosts, pkgs, ... }:
 {
   services.home-assistant = {
     enable = true;
@@ -39,14 +39,14 @@
       http = {
         server_port = 8123;
         trusted_proxies = [
-          "10.100.0.1"
+          hosts.server.wgIp
         ];
         use_x_forwarded_for = true;
+        # };
+        # auth_oidc = {
+        # client_id = "homeassistant";
+        # discovery_url = "https://auth.l.zzzealed.com/.well-known/openid-configuration";
       };
-      # auth_oidc = {
-      # client_id = "homeassistant";
-      # discovery_url = "https://auth.l.zzzealed.com/.well-known/openid-configuration";
-      # };
       frontend = { };
       api = { };
     };
