@@ -3,7 +3,7 @@
   services.home-assistant = {
     enable = true;
     openFirewall = true;
-    package = pkgs.home-assistant;
+    package = pkgs.unstable.home-assistant;
     customComponents = [
       # PIECE OF SHITTTTT
       # pkgs.home-assistant-custom-components.auth_oidc
