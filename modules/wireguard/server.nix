@@ -1,15 +1,14 @@
 # https://git.ibsenware.org/nix-monorepo.git/tree/hosts/ahmed/wireguard-vpn/default.nix
-{ config, ... }:
+{ hosts, config, ... }:
 let
-  externalInterface = "enp3s0";
   internalInterface = "wg0";
 in
 {
   # Forward packets from wireguard onto the LAN while also doing address translation.
   networking.nat = {
     enable = true;
-    externalInterface = externalInterface;
-    internalInterfaces = [ internalInterface ];
+    externalInterface = hosts.server.iface;
+    internalInterfaces = [ "wg0" ];
   };
 
   age.secrets."wireguard-server_private-key-file".file =
