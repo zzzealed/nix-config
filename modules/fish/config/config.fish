@@ -7,7 +7,23 @@ set -g fish_key_bindings fish_helix_key_bindings
 # Set $EDITOR
 set -gx EDITOR hx
 
-## Misc.
+# ZMX autoattach
+if status is-interactive; and type -q zmx; and test -z "$ZMX_SESSION"
+    set name (if type -q petname; petname -w 2; else; __zmx_next_session_name; end)
+    env ZMX_SESSION_PREFIX=$name SHELL=fish zmx a
+end
+
+# https://zmx.sh/#fish
+functions -c fish_prompt _original_fish_prompt 2>/dev/null
+
+function fish_prompt --description 'Write out the prompt'
+    if set -q ZMX_SESSION
+        echo -n "[$ZMX_SESSION] "
+    end
+    _original_fish_prompt
+end
+
+# Aliases
 function cp
     command uutils-cp --verbose --interactive --progress $argv
 end
@@ -31,9 +47,6 @@ function gomi
 end
 function rsync
     command rsync --verbose --archive --progress --human-readable $argv
-end
-function za
-    zmx a $argv fish
 end
 
 # NOTE: use like `duration *.mkv */*.mkv | sort -V`

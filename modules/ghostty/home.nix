@@ -13,7 +13,7 @@
         "-dlig"
       ];
       font-size = 16;
-      command = "fish --init-command 'zmx list'";
+      command = "fish";
       notify-on-command-finish = "always";
       notify-on-command-finish-action = [
         "bell"
