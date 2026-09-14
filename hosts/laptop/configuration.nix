@@ -31,7 +31,8 @@
     ../../modules/openconnect
     ../../modules/eduroam/aau.nix
     ../../modules/syncthing
-    ../../modules/samba-mounts/vault-mount.nix
+    ../../modules/samba/vault-mount.nix
+    ../../modules/samba/vault2-mount.nix
     ../../modules/gparted
   ];
   home-manager.users.mads = {

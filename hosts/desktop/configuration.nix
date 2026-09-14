@@ -28,9 +28,8 @@
     ../../modules/ffmpeg
     ../../modules/nvidia
     ../../modules/bitwarden
-    ../../modules/samba-mounts/vault-mount.nix
-    ../../modules/samba-mounts/vault2-mount.nix
-    ../../modules/samba-mounts/qbittorrent-mount.nix
+    ../../modules/samba/vault-mount.nix
+    ../../modules/samba/vault2-mount.nix
     ../../modules/openssh
     ../../modules/locale
     ../../modules/stylix

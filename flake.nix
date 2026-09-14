@@ -93,9 +93,9 @@
     }:
     let
       settings = import ./settings.nix;
-      specialArgs = { inherit inputs; };
+      hosts = import ./hosts/meta.nix;
+      specialArgs = { inherit inputs hosts; };
       commonModule = {
-        _module.args.hosts = import ./hosts/meta.nix;
         nix.settings = { inherit (settings) experimental-features substituters trusted-public-keys; };
         nixpkgs.config = { inherit (settings) allowUnfree; };
       };
@@ -105,7 +105,7 @@
         nixpkgs.lib.mapAttrs
           (
             hostName:
-            { system, hostId }:
+            { system }:
             nixpkgs.lib.nixosSystem {
               inherit system specialArgs;
               modules = [
@@ -114,8 +114,17 @@
                 (./hosts + "/${hostName}/hardware-configuration.nix")
                 {
                   networking = {
-                    inherit hostName hostId;
-                    domain = "internal";
+                    inherit hostName;
+                    domain = "lan";
+                    hostId = hosts.${hostName}.hostId;
+                    hosts = {
+                      "${hosts.server.lanIp}" = [ "server.lan" ];
+                      "${hosts.desktop.lanIp}" = [ "desktop.lan" ];
+                      "${hosts.pi.lanIp}" = [ "pi.lan" ];
+                      "${hosts.vps.lanIp}" = [ "vps.lan" ];
+                      "${hosts.laptop.lanIp}" = [ "laptop.lan" ];
+                      "${hosts.phone.lanIp}" = [ "phone.lan" ];
+                    };
                   };
                 }
                 ./secrets
@@ -124,26 +133,11 @@
             }
           )
           {
-            desktop = {
-              system = "x86_64-linux";
-              hostId = "19fa2096";
-            };
-            server = {
-              system = "x86_64-linux";
-              hostId = "adb2c089";
-            };
-            pi = {
-              system = "aarch64-linux";
-              hostId = "cf20a29f";
-            };
-            vps = {
-              system = "x86_64-linux";
-              hostId = "2c363b2d";
-            };
-            laptop = {
-              system = "x86_64-linux";
-              hostId = "4115249e";
-            };
+            desktop.system = "x86_64-linux";
+            server.system = "x86_64-linux";
+            pi.system = "aarch64-linux";
+            vps.system = "x86_64-linux";
+            laptop.system = "x86_64-linux";
           };
 
       nixOnDroidConfigurations =
@@ -172,9 +166,7 @@
             }
           )
           {
-            phone = {
-              system = "aarch64-linux";
-            };
+            phone.system = "aarch64-linux";
           };
 
       legacyPackages.aarch64-linux.nix-on-droid-proot-static =

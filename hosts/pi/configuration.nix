@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   # Nix modules
   imports = [
@@ -14,14 +14,15 @@
     ../../modules/openssh
     ../../modules/nh
     ../../modules/zfs
+    ../../modules/zfs/vault2-pool.nix
     ../../modules/nix-gc
     ../../modules/nix-index-database
     ../../modules/bluetooth
     ../../modules/pipewire
     ../../modules/pipewire/system.nix
     # Services
-    ../../modules/samba-shares
-    ../../modules/samba-shares/vault2-share.nix
+    ../../modules/samba
+    ../../modules/samba/vault2-share.nix
     ../../modules/ddclient
     ../../modules/ddclient/pi.nix
     ../../modules/wireguard

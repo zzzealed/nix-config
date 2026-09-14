@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  hosts,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -7,7 +12,7 @@
   environment.systemPackages = [ pkgs.home-manager ];
   home-manager = {
     useGlobalPkgs = true; # Apparently deprecated?
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs hosts; };
     backupFileExtension = "bak";
     users.mads.home.stateVersion = "24.11";
   };

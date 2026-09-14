@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  hosts,
+  config,
+  pkgs,
+  ...
+}:
 {
   services.pihole-web = {
     enable = true;
@@ -16,12 +21,12 @@
       dns = {
         upstreams = [ "127.0.0.1#5335" ]; # Unbound instance
         hosts = [
-          "10.100.0.1 server.internal"
-          "10.100.0.2 desktop.internal"
-          "10.100.0.3 pi.internal"
-          "10.100.0.4 vps.internal"
-          "10.100.0.5 laptop.internal"
-          "10.100.0.6 phone.internal"
+          "${hosts.server.wgIp} server.internal"
+          "${hosts.desktop.wgIp} desktop.internal"
+          "${hosts.pi.wgIp} pi.internal"
+          "${hosts.vps.wgIp} vps.internal"
+          "${hosts.laptop.wgIp} laptop.internal"
+          "${hosts.phone.wgIp} phone.internal"
         ];
         dnssec = true; # ## CHANGED, default = false
         listeningMode = "ALL"; # ## CHANGED, default = "LOCAL"

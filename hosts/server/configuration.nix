@@ -45,13 +45,11 @@ in
     ../../modules/scrutiny
     ../../modules/vaultwarden
     ../../modules/radicale
-    ../../modules/samba-shares
-    ../../modules/samba-shares/vault-share.nix
-    ../../modules/samba-shares/qbittorrent-share.nix
+    ../../modules/samba
+    ../../modules/samba/vault-share.nix
     ../../modules/pihole
     ../../modules/unbound
     ../../modules/searx
-    ../../modules/glance
     ../../modules/karakeep
     ../../modules/rust-gameserver
     ../../modules/nginx

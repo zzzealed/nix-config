@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ hosts, pkgs, ... }:
 {
   programs.ssh = {
     enable = true;
@@ -22,12 +22,20 @@
       "server.zzzealed.com".Port = 2267;
       "vps.zzzealed.com".Port = 2267;
       "pi.zzzealed.com".Port = 2267;
-      "10.100.0.1 server.internal".Port = 2267;
-      "10.100.0.2 desktop.internal".Port = 2267;
-      "10.100.0.3 pi.internal".Port = 2267;
-      "10.100.0.4 vps.internal".Port = 2267;
-      "10.100.0.5 laptop.internal".Port = 2267;
-      "10.100.0.6 phone.internal".Port = 2267;
+
+      "${hosts.server.lanIp} server.lan".Port = 2267;
+      "${hosts.desktop.lanIp} desktop.lan".Port = 2267;
+      "${hosts.pi.lanIp} pi.lan".Port = 2267;
+      "${hosts.vps.lanIp} vps.lan".Port = 2267;
+      "${hosts.laptop.lanIp} laptop.lan".Port = 2267;
+      "${hosts.phone.lanIp} phone.lan".Port = 2267;
+
+      "${hosts.server.wgIp} server.internal".Port = 2267;
+      "${hosts.desktop.wgIp} desktop.internal".Port = 2267;
+      "${hosts.pi.wgIp} pi.internal".Port = 2267;
+      "${hosts.vps.wgIp} vps.internal".Port = 2267;
+      "${hosts.laptop.wgIp} laptop.internal".Port = 2267;
+      "${hosts.phone.wgIp} phone.lan".Port = 2267;
     };
   };
 }

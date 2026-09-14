@@ -60,6 +60,4 @@ sudo nixos-rebuild switch --flake .#desktop
 - [ ] `services.*`: Unique ports?
 - [ ] Just rawdog dnsmasq instead of Pihole
 - [ ] `home.nix` -> `hm.nix` & `<other>.hm.nix`
-- [ ] `hostName`.interal @ pihole, `hostname`.lan otherwise
 - [ ] `<name>.l.zzzealed.com` -> `<name>.i.zzzealed.com`
-- [ ] `/var/lib/<service>` -> `/vault/<service>` bindmount
