@@ -12,6 +12,7 @@
     };
     profiles."mads" = {
       isDefault = true;
+      feedAccounts."Feeds" = { };
     };
   };
 
