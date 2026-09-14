@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # NOTE: remember to run `smbpasswd` on share host
   services.samba = {
     enable = true;
     package = pkgs.samba;

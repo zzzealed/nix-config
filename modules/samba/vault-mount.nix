@@ -1,8 +1,8 @@
 { config, ... }:
 {
   age.secrets."samba-secrets".file = ../../secrets/samba-secrets.age;
-  fileSystems."/mnt/qbittorrent" = {
-    device = "//server.internal/qbittorrent";
+  fileSystems."/vault" = {
+    device = "//server.internal/vault";
     fsType = "cifs";
     options =
       let
