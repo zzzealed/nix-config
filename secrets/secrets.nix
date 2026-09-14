@@ -27,8 +27,6 @@ let
   secrets = {
     "mads-password.age".publicKeys = decodingKeys ++ interactiveKeys;
     "searx-secret_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "glance-weather_location.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "glance-custom-api_kredslob_skrald.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "porkbun-nginx_api_key.age".publicKeys = [
       root_server-nixos
       root_vps-nixos
@@ -42,7 +40,6 @@ let
     "changedetection-io_api_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "pihole-app_password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "changedetection-io_rss.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "glance-releases-token_github.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "phone-nix_wireguard_config.age".publicKeys = interactiveKeys;
     "linus-password.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "gatus_environment-file.age".publicKeys = [
