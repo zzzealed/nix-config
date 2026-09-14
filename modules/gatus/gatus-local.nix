@@ -337,22 +337,6 @@
       ];
     }
     {
-      name = "Glance";
-      group = "l.zzzealed.com";
-      url = "https://glance.l.zzzealed.com/api/healthz";
-      interval = "5m";
-      conditions = [
-        "[STATUS] == 200"
-        "[CONNECTED] == true"
-        "[RESPONSE_TIME] < 500"
-        "[CERTIFICATE_EXPIRATION] > 336h"
-      ];
-      alerts = [
-        { type = "discord"; }
-        { type = "ntfy"; }
-      ];
-    }
-    {
       name = "Actual";
       group = "l.zzzealed.com";
       url = "https://actual.l.zzzealed.com/health";
