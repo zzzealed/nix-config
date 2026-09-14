@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  imports = [ ./bind.nix ];
   services.forgejo = {
     enable = true;
     package = pkgs.forgejo;

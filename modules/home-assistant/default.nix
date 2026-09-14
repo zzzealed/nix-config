@@ -1,5 +1,10 @@
 { hosts, pkgs, ... }:
 {
+  systemd.services.home-assistant = {
+    # fail cleanly instead of initializing into an unmounted dir
+    unitConfig.RequiresMountsFor = "/var/lib/hass";
+  };
+  imports = [ ./bind.nix ];
   services.home-assistant = {
     enable = true;
     openFirewall = true;

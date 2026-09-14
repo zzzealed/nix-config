@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  imports = [ ./bind.nix ];
   services.radicale = {
     enable = true;
     package = pkgs.radicale;

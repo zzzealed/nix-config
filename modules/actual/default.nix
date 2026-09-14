@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  imports = [ ./bind.nix ];
   services.actual = {
     enable = true;
     package = pkgs.actual-server;

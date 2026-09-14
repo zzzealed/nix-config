@@ -1,10 +1,10 @@
 { pkgs, config, ... }:
 {
+  imports = [ ./bind.nix ];
   services.vaultwarden = {
     enable = true;
     package = pkgs.vaultwarden;
     dbBackend = "sqlite";
-    #backupDir = ""; # TODO: vault?
     config = {
       DOMAIN = "https://vault.l.zzzealed.com";
       SIGNUPS_ALLOWED = false;

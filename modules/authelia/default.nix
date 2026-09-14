@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  imports = [ ./bind.nix ];
   age.secrets."authelia_jwt-secret-file" = {
     file = ../../secrets/authelia_jwt-secret-file.age;
     owner = "authelia-main";

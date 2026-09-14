@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./wireguard.nix ];
+  imports = [
+    ./wireguard.nix
+    ./bind.nix
+  ];
   # Block qBit from using other interfaces (I have no idea what I'm doing)
   systemd.services.qbittorrent.serviceConfig.RestrictNetworkInterfaces = "wg-proton lo";
 

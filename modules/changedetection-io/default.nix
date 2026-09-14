@@ -1,5 +1,6 @@
 { pkgs, config, ... }:
 {
+  imports = [ ./bind.nix ];
   services.changedetection-io = {
     enable = true;
     package = pkgs.changedetection-io;

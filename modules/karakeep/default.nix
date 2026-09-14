@@ -2,6 +2,8 @@
 {
   age.secrets."karakeep_environment-file".file = ../../secrets/karakeep_environment-file.age;
 
+  imports = [ ./bind.nix ];
+
   services.karakeep = {
     enable = true;
     package = pkgs.unstable.karakeep;
