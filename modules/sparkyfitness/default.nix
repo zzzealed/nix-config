@@ -4,9 +4,9 @@
   services.sparkyfitness = {
     enable = true;
     frontendUrl = "https://fitness.l.zzzealed.com";
-    environmentFile = 
+    environmentFile = ;
   };
-  services.nginx.virtualHosts."glance.l.zzzealed.com" = {
+  services.nginx.virtualHosts."sparky.l.zzzealed.com" = {
     useACMEHost = "zzzealed.com";
     forceSSL = true;
     locations = {
