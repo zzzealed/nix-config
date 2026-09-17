@@ -9,8 +9,8 @@ set -gx EDITOR hx
 
 # ZMX autoattach
 if status is-interactive; and type -q zmx; and test -z "$ZMX_SESSION"
-    set name (if type -q petname; petname -w 2; else; __zmx_next_session_name; end)
-    env ZMX_SESSION_PREFIX=$name SHELL=fish zmx a
+    set name (if type -q petname; petname --words 1 --letters 6; else; __zmx_next_session_name; end)
+    env SHELL=fish zmx a $name
 end
 
 # https://zmx.sh/#fish
