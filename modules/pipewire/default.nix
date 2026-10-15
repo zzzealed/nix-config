@@ -9,7 +9,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-
   # make pipewire realtime-capable
   security.rtkit.enable = true;
 }
