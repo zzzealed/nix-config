@@ -61,3 +61,4 @@ sudo nixos-rebuild switch --flake .#desktop
 - [ ] Just rawdog dnsmasq instead of Pihole
 - [ ] `home.nix` -> `hm.nix` & `<other>.hm.nix`
 - [ ] `<name>.l.zzzealed.com` -> `<name>.i.zzzealed.com`
+- [ ] services/`proxy.nix`+`monitor.nix`+`mount.nix`
