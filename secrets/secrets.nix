@@ -92,6 +92,9 @@ let
     "syncthing/desktop-cert.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "syncthing/laptop-key.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
     "syncthing/laptop-cert.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
+
+    # Paperless
+    "paperless/password-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
   };
 
   defaults = {
