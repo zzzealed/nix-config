@@ -1,73 +1,42 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/limine
-    ../../modules/limine/windows-dualboot.nix
-    ../../modules/ly
-    ../../modules/niri
-    ../../modules/pipewire
-    ../../modules/playerctl
     ../../modules/networking/firewall.nix
-    ../../modules/networking/networkmanager.nix
+    # ../../modules/networking/networkmanager.nix
     ../../modules/networking/nameservers.nix
     ../../modules/users
     ../../modules/users/mads.nix
     ../../modules/fish
     ../../modules/nh
-    ../../modules/bluetooth
     ../../modules/home-manager
     ../../modules/openssh
     ../../modules/locale
-    ../../modules/stylix
-    ../../modules/wireguard
-    ../../modules/wireguard/laptop-server.nix
-    ../../modules/wireguard/laptop-proton.nix
     ../../modules/nix-gc
     ../../modules/zmx
     ../../modules/nix-index-database
-    ../../modules/localsend
-    ../../modules/lan-mouse
-    ../../modules/yubikey
-    ../../modules/openconnect
-    ../../modules/eduroam/aau.nix
-    ../../modules/syncthing
-    ../../modules/samba/vault-mount.nix
-    ../../modules/samba/vault2-mount.nix
-    ../../modules/gparted
   ];
   home-manager.users.mads = {
     home.file.".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;
     imports = [
-      ../../modules/waybar/home.nix
-      ../../modules/waybar/laptop.nix
-      ../../modules/fuzzel/home.nix
-      ../../modules/dunst/home.nix
-      ../../modules/swaylock/home.nix
-      ../../modules/wpaperd/home.nix
-      ../../modules/ghostty/home.nix
       ../../modules/fish/home.nix
-      ../../modules/glide-browser/home.nix
       ../../modules/mpv/home.nix
       ../../modules/git/home.nix
       ../../modules/helix/home.nix
-      ../../modules/niri/home.nix
-      ../../modules/stylix/home.nix
-      ../../modules/btop/home.nix
-      ../../modules/legcord/home.nix
-      ../../modules/yazi/home.nix
       ../../modules/opencode/home.nix
-      ../../modules/thunderbird/home.nix
-      ../../modules/lan-mouse/home.nix
-      ../../modules/lan-mouse/laptop.nix
-      ../../modules/gpg/home.nix
       ../../modules/openssh/home.nix
-      ../../modules/libreoffice/home.nix
       ../../modules/bash/home.nix
     ];
   };
 
   environment.systemPackages =
-    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
+    (import ../../modules/cli-tools { inherit pkgs; }).packages
+    ++ (with pkgs; [
+      gcc
+    ]);
+
+  # WSL
+  wsl.enable = true;
+  wsl.defaultUser = "mads";
 
   # State
   system.stateVersion = "26.05";
