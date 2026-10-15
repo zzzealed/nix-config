@@ -183,7 +183,7 @@
               definedAliases = [ "@nixopts" ];
             };
           };
-          default = "SearXNG";
+          default = "ddg";
         };
         settings = {
           force = true;
