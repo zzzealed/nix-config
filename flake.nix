@@ -82,6 +82,14 @@
         home-manager.follows = "home-manager-25-11";
       };
     };
+    xwayland-satellite = {
+      url = "github:supreeeme/xwayland-satellite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -89,6 +97,7 @@
       nixpkgs,
       nixpkgs-25-11,
       nix-on-droid,
+      nixos-wsl,
       ...
     }:
     let
@@ -105,13 +114,15 @@
         nixpkgs.lib.mapAttrs
           (
             hostName:
-            { system }:
+            {
+              system,
+              modules ? [ ],
+            }:
             nixpkgs.lib.nixosSystem {
               inherit system specialArgs;
               modules = [
                 commonModule
                 (./hosts + "/${hostName}/configuration.nix")
-                (./hosts + "/${hostName}/hardware-configuration.nix")
                 {
                   networking = {
                     inherit hostName;
@@ -129,15 +140,37 @@
                 }
                 ./secrets
                 ./overlays
-              ];
+              ]
+              ++ modules;
             }
           )
           {
-            desktop.system = "x86_64-linux";
-            server.system = "x86_64-linux";
-            pi.system = "aarch64-linux";
-            vps.system = "x86_64-linux";
-            laptop.system = "x86_64-linux";
+            desktop = {
+              system = "x86_64-linux";
+              modules = [
+                nixos-wsl.nixosModules.default
+                { wsl.enable = true; }
+              ];
+            };
+            server = {
+              system = "x86_64-linux";
+              modules = [ ./hosts/server/hardware-configuration.nix ];
+            };
+            pi = {
+              system = "aarch64-linux";
+              modules = [ ./hosts/pi/hardware-configuration.nix ];
+            };
+            vps = {
+              system = "x86_64-linux";
+              modules = [ ./hosts/vps/hardware-configuration.nix ];
+            };
+            laptop = {
+              system = "x86_64-linux";
+              modules = [
+                nixos-wsl.nixosModules.default
+                { wsl.enable = true; }
+              ];
+            };
           };
 
       nixOnDroidConfigurations =
