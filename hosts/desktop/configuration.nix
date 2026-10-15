@@ -1,100 +1,40 @@
 { pkgs, ... }:
 {
-  # Nix modules
+  wsl.defaultUser = "mads";
+
   imports = [
-    # Stack
-    ../../modules/limine # Bootloader
-    ../../modules/limine/windows-dualboot.nix
-    ../../modules/limine/secure-boot.nix
-    ../../modules/ly # Display manager
-    ../../modules/niri # Compositor
-    ../../modules/pipewire # Audio
-    ../../modules/playerctl
-    ../../modules/networking/firewall.nix
-    ../../modules/networking/networkmanager.nix # Network
-    ../../modules/networking/nameservers.nix
-    # Everything else
     ../../modules/users
     ../../modules/users/mads.nix
     ../../modules/fish
     ../../modules/nh
-    ../../modules/steam
-    ../../modules/obs-studio
-    ../../modules/localsend
-    ../../modules/tidal
-    ../../modules/wine
-    ../../modules/bluetooth
     ../../modules/home-manager
     ../../modules/ffmpeg
-    ../../modules/nvidia
-    ../../modules/bitwarden
-    ../../modules/samba/vault-mount.nix
-    ../../modules/samba/vault2-mount.nix
     ../../modules/openssh
     ../../modules/locale
-    ../../modules/stylix
     ../../modules/navi
-    ../../modules/wireguard
-    ../../modules/wireguard/desktop-server.nix
-    ../../modules/wireguard/desktop-proton.nix
-    ../../modules/prismlauncher
-    #../../modules/virt-manager
     ../../modules/mysql
-    #../../modules/locale/espanol.nix
-    ../../modules/earlyoom
-    ../../modules/thermald
-    ../../modules/yubikey
-    ../../modules/xdg-portal
     ../../modules/nix-gc
     ../../modules/zmx
     ../../modules/nix-index-database
-    ../../modules/teamspeak/client.nix
-    ../../modules/opendeck
-    ../../modules/i2p
-    ../../modules/sunshine
-    ../../modules/lan-mouse
-    ../../modules/openconnect
-    ../../modules/syncthing
-    ../../modules/gparted
   ];
 
   # Home manager modules
   home-manager.users.mads = {
     home.file = {
       ".config/mpv/host.conf".source = ../../modules/mpv/config/desktop.conf;
-      ".config/niri/host.kdl".source = ../../modules/niri/config/desktop.kdl;
     };
     imports = [
-      # Stack
-      ../../modules/waybar/home.nix # Bar
-      ../../modules/waybar/desktop.nix
-      ../../modules/fuzzel/home.nix # Launcher
-      ../../modules/dunst/home.nix # Notifications
-      ../../modules/swaylock/home.nix # Lock screen
-      ../../modules/wpaperd/home.nix # Wallpaper
-      ../../modules/ghostty/home.nix # Terminal
       ../../modules/fish/home.nix # Shell
-      # Everything else
       ../../modules/openssh/home.nix
-      ../../modules/glide-browser/home.nix
       ../../modules/mpv/home.nix
       ../../modules/git/home.nix
       ../../modules/helix/home.nix
       ../../modules/navi/home.nix
-      ../../modules/niri/home.nix
-      ../../modules/stylix/home.nix
-      ../../modules/btop/home.nix
-      ../../modules/btop/cuda.nix
       ../../modules/legcord/home.nix
       ../../modules/yazi/home.nix
       ../../modules/opencode/home.nix
-      ../../modules/thunderbird/home.nix
-      ../../modules/lan-mouse/home.nix
-      ../../modules/lan-mouse/desktop.nix
       ../../modules/gpg/home.nix
       ../../modules/yt-dlp/home.nix
-      ../../modules/libreoffice/home.nix
-      ../../modules/chromium/home.nix
       ../../modules/bash/home.nix
     ];
   };
@@ -103,70 +43,11 @@
   environment.systemPackages =
     (import ../../modules/cli-tools { inherit pkgs; }).packages
     ++ (with pkgs; [
-      ntfs3g
-      kdePackages.dolphin
-      krita
-      kdePackages.kdenlive
-      unstable.ryubing
       unstable.servo
       hollywood
-      wooting-udev-rules
-      android-tools
-      scrcpy
-      kdePackages.ark
-      webtorrent_desktop
     ]);
 
-  # xdg.mime
-  xdg.mime = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = "org.kde.dolphin.desktop";
-      "text/html" = "glide-browser.desktop";
-      "x-scheme-handler/http" = "glide-browser.desktop";
-      "x-scheme-handler/https" = "glide-browser.desktop";
-      "x-scheme-handler/about" = "glide-browser.desktop";
-      "image/jpeg" = "mpv.desktop";
-      "image/png" = "mpv.desktop";
-      "image/gif" = "mpv.desktop";
-      "image/webp" = "mpv.desktop";
-      "image/svg+xml" = "mpv.desktop";
-      "video/mp4" = "mpv.desktop";
-      "video/mkv" = "mpv.desktop";
-      "video/webm" = "mpv.desktop";
-      "video/avi" = "mpv.desktop";
-      "video/mov" = "mpv.desktop";
-      "video/x-matroska" = "mpv.desktop";
-    };
-  };
-
-  # Boot
-  boot.supportedFilesystems = [ "ntfs" ];
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  # Secondary SSD
-  fileSystems."/mnt/Samsung" = {
-    device = "/dev/disk/by-uuid/EEA23721A236EE29";
-    fsType = "ntfs-3g";
-    options = [
-      "rw"
-      "uid=1000"
-    ];
-  };
-
-  # GPU
-  #services.xserver.enable = true;
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
-  hardware.nvidia.open = true;
-
-  # Random
-  powerManagement.cpuFreqGovernor = "performance";
-  boot.kernelParams = [ "nvidia.NVreg_EnableMSI=0" ];
-  services.gvfs.enable = true;
-  services.fstrim.enable = true;
-  hardware.cpu.intel.updateMicrocode = true;
+  #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # State
   system.stateVersion = "24.11";
