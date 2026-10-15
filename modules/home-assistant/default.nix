@@ -9,9 +9,9 @@
     enable = true;
     openFirewall = true;
     package = pkgs.unstable.home-assistant;
-    customComponents = [
+    customComponents = with pkgs; [
       # PIECE OF SHITTTTT
-      # pkgs.home-assistant-custom-components.auth_oidc
+      # home-assistant-custom-components.auth_oidc
     ];
     extraComponents = [
       # Components required to complete the onboarding
@@ -29,6 +29,7 @@
       "cast"
       "apple_tv"
       # "yale" # aiounittest-1.5.0 not supported for interpreter python3.14
+      "bthome"
     ];
     extraPackages =
       python3Packages: with python3Packages; [
