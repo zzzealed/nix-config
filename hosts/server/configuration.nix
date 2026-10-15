@@ -79,6 +79,7 @@ in
     ../../modules/actual
     ../../modules/home-assistant/proxy.nix
     ../../modules/syncthing
+    ../../modules/paperless
     ## Compose2Nix
     ../../modules/gpt4free_docker
     ../../modules/chrome_docker
