@@ -12,6 +12,7 @@
       man
       inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
       iputils
+      wakeonlan
     ]);
   home-manager = {
     backupFileExtension = "bak";
