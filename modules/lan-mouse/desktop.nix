@@ -9,7 +9,7 @@
       {
         position = "left";
         hostname = "laptop";
-        ips = [ "192.168.0.133" ];
+        ips = [ "192.168.8.102" ];
         activate_on_startup = true;
       }
     ];

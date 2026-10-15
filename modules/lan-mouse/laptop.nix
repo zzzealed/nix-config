@@ -9,7 +9,7 @@
       {
         position = "right";
         hostname = "desktop";
-        ips = [ "192.168.0.146" ];
+        ips = [ "192.168.8.100" ];
         activate_on_startup = true;
       }
     ];
