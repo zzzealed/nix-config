@@ -37,7 +37,7 @@ let
         --bind "$HOME/.config/helix" "$HOME/.config/helix" \
         --bind "$HOME/.cache/helix" "$HOME/.cache/helix" \
         --bind "$HOME/.cache/mcp-nixos" "$HOME/.cache/mcp-nixos" \
-        --ro-bind "$HOME/nix-config" "$HOME/nix-config" \
+        --ro-bind "/mnt/c/Users/mads/nix-config" "$HOME/nix-config" \
         --ro-bind "$HOME/Documents" "$HOME/Documents" \
         --setenv OPENCODE_DISABLE_CHANNEL_DB 1 \
         --setenv NIX_SSL_CERT_FILE /run/current-system/etc/ssl/certs/ca-certificates.crt \
@@ -76,8 +76,8 @@ in
           timeout = 30000;
         };
       };
-      model = "opencode/qwen3.6-plus-free";
-      small_model = "opencode/deepseek-v4-flash-free";
+      model = "opencode/mimo-v2.6-flash-free";
+      small_model = "opencode/deepseek-v4.1-flash-free";
       default_agent = "plan";
       autoshare = false;
       autoupdate = "notify";
