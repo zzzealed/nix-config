@@ -25,6 +25,10 @@ in
         allowedIPs = [ config.wireguard.ip.desktop ];
       }
       {
+        publicKey = "XMCJMtafOPYB7AfeagRsBwLeSiQwlLG9ROSTRKb0cnc=";
+        allowedIPs = [ config.wireguard.ip.desktop ];
+      }
+      {
         publicKey = "5GtPoPLLuDg7UtwjFf/MGNCMVuDQuXkhmmEoiHuAQEk=";
         allowedIPs = [ config.wireguard.ip.pi ];
       }
