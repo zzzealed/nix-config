@@ -53,11 +53,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable-small";
     };
-    opendeck-nix = {
-      url = "github:Kitt3120/opendeck-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    lan-mouse.url = "github:feschber/lan-mouse";
     sparkyfitness.url = "github:codewithcj/sparkyfitness";
     zzzealed-com = {
       url = "git+https://codeberg.org/zzzealed/zzzealed.com";
@@ -81,10 +76,6 @@
         nixpkgs.follows = "nixpkgs-25-11";
         home-manager.follows = "home-manager-25-11";
       };
-    };
-    xwayland-satellite = {
-      url = "github:supreeeme/xwayland-satellite";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
