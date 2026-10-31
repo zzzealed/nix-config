@@ -19,23 +19,12 @@
           "TERM_PROGRAM_VERSION"
         ];
       };
-      "server.zzzealed.com".Port = 2267;
-      "vps.zzzealed.com".Port = 2267;
-      "pi.zzzealed.com".Port = 2267;
+      "*.lan".Port = 2267;
+      "*.internal".Port = 2267;
 
-      "${hosts.server.lanIp} server.lan".Port = 2267;
-      "${hosts.desktop.lanIp} desktop.lan".Port = 2267;
-      "${hosts.pi.lanIp} pi.lan".Port = 2267;
-      "${hosts.vps.lanIp} vps.lan".Port = 2267;
-      "${hosts.laptop.lanIp} laptop.lan".Port = 2267;
-      "${hosts.phone.lanIp} phone.lan".Port = 2267;
-
-      "${hosts.server.wgIp} server.internal".Port = 2267;
-      "${hosts.desktop.wgIp} desktop.internal".Port = 2267;
-      "${hosts.pi.wgIp} pi.internal".Port = 2267;
-      "${hosts.vps.wgIp} vps.internal".Port = 2267;
-      "${hosts.laptop.wgIp} laptop.internal".Port = 2267;
-      "${hosts.phone.wgIp} phone.lan".Port = 2267;
+      "srv1.zzzealed.com".Port = 2267;
+      "vps1.zzzealed.com".Port = 2267;
+      "rpi1.zzzealed.com".Port = 2267;
     };
   };
 }

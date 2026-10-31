@@ -1,4 +1,5 @@
 {
+  lib,
   hosts,
   config,
   pkgs,
@@ -20,14 +21,10 @@
       # From: https://github.com/pi-hole/FTL/blob/master/test/pihole.toml
       dns = {
         upstreams = [ "127.0.0.1#5335" ]; # Unbound instance
-        hosts = [
-          "${hosts.server.wgIp} server.internal"
-          "${hosts.desktop.wgIp} desktop.internal"
-          "${hosts.pi.wgIp} pi.internal"
-          "${hosts.vps.wgIp} vps.internal"
-          "${hosts.laptop.wgIp} laptop.internal"
-          "${hosts.phone.wgIp} phone.internal"
-        ];
+        # Map all hosts Wireguard IP to their name+.internal
+        hosts = lib.mapAttrsToList (name: host: "${host.wgIp} ${name}.internal") (
+          lib.filterAttrs (_: host: host ? wgIp) hosts
+        );
         dnssec = true; # ## CHANGED, default = false
         listeningMode = "ALL"; # ## CHANGED, default = "LOCAL"
         cnameRecords = [ ];
@@ -40,11 +37,16 @@
       misc = {
         etc_dnsmasq_d = true;
         # Wildcard local DNS route
-        dnsmasq_lines = [
-          "address=/.l.zzzealed.com/10.100.0.1"
-          "server=/.l.zzzealed.com/"
-          "server=/.internal/"
-        ];
+        dnsmasq_lines =
+          (lib.mapAttrsToList (name: _: "address=/.${name}.zzzealed.com/${hosts.srv1.wgIp}") (
+            lib.filterAttrs (_: host: host ? wgIp) hosts
+          ))
+          ++ [
+            "server=/.internal/"
+            # TODO: drop both `.l` lines once every vhost is renamed off `.l.`
+            "address=/.l.zzzealed.com/${hosts.srv1.wgIp}"
+            "server=/.l.zzzealed.com/"
+          ];
       };
     };
     lists = [

@@ -1,0 +1,43 @@
+{ pkgs, ... }:
+{
+  imports = [
+    ../../modules/users
+    ../../modules/users/mads.nix
+    ../../modules/networking/firewall.nix
+    ../../modules/networking/networkmanager.nix
+    ../../modules/networking/nameservers.nix
+    ../../modules/nh
+    ../../modules/nix-gc
+    ../../modules/nix-index-database
+    ../../modules/home-manager
+    ../../modules/zmx
+    # Services
+    ../../modules/openssh
+    ../../modules/wireguard
+    ../../modules/wireguard/client.nix
+    ../../modules/gatus
+    ../../modules/gatus/gatus-public.nix
+    ../../modules/nginx
+    ../../modules/nginx/rotte.city.nix
+    ../../modules/octodns
+    ../../modules/endlessh
+    ../../modules/fail2ban
+    ../../modules/syncthing
+  ];
+
+  home-manager.users.mads.imports = [
+    ../../modules/git/home.nix
+    ../../modules/btop/home.nix
+    ../../modules/bash/home.nix
+  ];
+
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
+
+  # Workaround for https://github.com/NixOS/nix/issues/8502
+  services.logrotate.checkConfig = false;
+
+  boot.tmp.cleanOnBoot = true;
+  zramSwap.enable = true;
+  system.stateVersion = "23.11";
+}

@@ -19,15 +19,11 @@
           "TERM_PROGRAM_VERSION"
         ];
       };
-      "server.zzzealed.com".port = 2267;
-      "vps.zzzealed.com".port = 2267;
-      "pi.zzzealed.com".port = 2267;
-      "10.100.0.1 server.internal".port = 2267;
-      "10.100.0.2 desktop.internal".port = 2267;
-      "10.100.0.3 pi.internal".port = 2267;
-      "10.100.0.4 vps.internal".port = 2267;
-      "10.100.0.5 laptop.internal".port = 2267;
-      "10.100.0.6 phone.internal".port = 2267;
+      "*.internal".port = 2267;
+
+      "srv1.zzzealed.com".port = 2267;
+      "vps1.zzzealed.com".port = 2267;
+      "rpi1.zzzealed.com".port = 2267;
     };
   };
 }

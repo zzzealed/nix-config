@@ -1,7 +1,7 @@
 { hosts, config, ... }:
 let
   host = hosts.${config.networking.hostName};
-  router = hosts.routers.${host.router};
+  router = hosts.${host.router};
 in
 {
   networking.networkmanager.ensureProfiles.profiles."lan" = {
@@ -12,7 +12,7 @@ in
     };
     ipv4 = {
       method = "manual";
-      addresses = host.lanIp + router.subnet;
+      addresses = host.lanIp + "/24";
       gateway = router.lanIp;
     };
   };

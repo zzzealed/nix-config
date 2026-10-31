@@ -1,0 +1,60 @@
+{ pkgs, ... }:
+{
+  # Nix modules
+  imports = [
+    ../../modules/users
+    ../../modules/users/groups.nix
+    ../../modules/users/mads.nix
+    ../../modules/users/nixremote.nix
+    ../../modules/home-manager
+    ../../modules/networking/firewall.nix
+    ../../modules/networking/networkmanager.nix
+    ../../modules/networking/nameservers.nix
+    ../../modules/networking/lan-profile.nix
+    ../../modules/openssh
+    ../../modules/nh
+    ../../modules/zfs
+    ../../modules/zfs/vault2-pool.nix
+    ../../modules/nix-gc
+    ../../modules/nix-index-database
+    ../../modules/bluetooth
+    ../../modules/pipewire
+    ../../modules/pipewire/system.nix
+    ../../modules/zmx
+    # Services
+    ../../modules/samba
+    ../../modules/samba/vault2-share.nix
+    ../../modules/octodns
+    ../../modules/wireguard/client.nix
+    ../../modules/home-assistant
+    ../../modules/earlyoom
+    ../../modules/syncthing
+  ];
+
+  home-manager.users.mads.imports = [
+    ../../modules/git/home.nix
+    ../../modules/btop/home.nix
+    ../../modules/bash/home.nix
+  ];
+
+  environment.systemPackages =
+    (import ../../modules/cli-tools { inherit pkgs; }).packages ++ (with pkgs; [ ]);
+
+  # Swap
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8192;
+    }
+  ];
+  zramSwap.enable = true;
+
+  # Boot
+  boot.loader = {
+    grub.enable = false;
+    generic-extlinux-compatible.enable = true;
+  };
+
+  # State
+  system.stateVersion = "24.05";
+}
