@@ -18,7 +18,7 @@ in
     openDefaultPorts = true; # Not actually webui's port
     guiAddress = "127.0.0.1:8384";
     settings = {
-      options.urAccepted = "-1";
+      options.urAccepted = -1;
       gui = {
         user = "mads";
         # `mkpasswd --method=bcrypt`
