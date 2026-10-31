@@ -45,7 +45,7 @@
     ../../modules/pihole
     ../../modules/unbound
     # ../../modules/searx
-    ../../modules/degoog
+    # ../../modules/degoog
     ../../modules/karakeep
     ../../modules/rust-gameserver
     ../../modules/nginx
