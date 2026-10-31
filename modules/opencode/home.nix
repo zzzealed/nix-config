@@ -45,7 +45,7 @@ let
         --bind "$HOME/.config/helix" "$HOME/.config/helix" \
         --bind "$HOME/.cache/helix" "$HOME/.cache/helix" \
         --bind "$HOME/.cache/mcp-nixos" "$HOME/.cache/mcp-nixos" \
-        --ro-bind "/mnt/c/Users/mads/nix-config" "/mnt/c/Users/mads/nix-config" \
+        --ro-bind "$HOME/nix-config" "$HOME/nix-config" \
         --setenv OPENCODE_DISABLE_CHANNEL_DB 1 \
         --setenv OPENCODE_DISABLE_FFF 1 \
         --setenv NIX_SSL_CERT_FILE /run/current-system/etc/ssl/certs/ca-certificates.crt \
@@ -115,6 +115,8 @@ in
           # misc.
           "man *" = "allow";
           "rg *" = "allow";
+          "grep *" = "allow";
+          "ls *" = "allow";
           # zmx
           "zmx history *" = "allow";
         };
@@ -129,7 +131,7 @@ in
           "~/.cache/opencode" = "allow";
           "~/.cache/nix" = "allow";
           "~/.cache/mcp-nixos" = "allow";
-          "/mnt/c/Users/mads/nix-config" = "allow";
+          "~/nix-config" = "allow";
         };
         "mcp-nixos_nix" = "allow";
         "mcp-nixos_nix_versions" = "allow";
