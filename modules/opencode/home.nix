@@ -12,6 +12,10 @@ let
         unstable.opencode
         unstable.helix # For /editor
         unstable.mcp-nixos
+
+        # Misc;
+        dig
+        ripgrep
       ];
     # This is the best I cared to come up with
     text = ''
@@ -21,6 +25,9 @@ let
       mkdir -p "$HOME/.cache/opencode"
       mkdir -p "$HOME/.cache/mcp-nixos"
 
+      # get CWD
+      cwd=$(cd "$PWD" && pwd -P)
+
       exec bwrap \
         --dev /dev \
         --proc /proc \
@@ -28,6 +35,7 @@ let
         --ro-bind /nix /nix \
         --ro-bind /run/current-system /run/current-system \
         --ro-bind /etc/resolv.conf /etc/resolv.conf \
+        --ro-bind "$cwd" "$cwd" \
         --bind "$HOME/.config/opencode" "$HOME/.config/opencode" \
         --bind "$HOME/.local/share/opencode" "$HOME/.local/share/opencode" \
         --bind "$HOME/.local/state/opencode" "$HOME/.local/state/opencode" \
@@ -37,9 +45,9 @@ let
         --bind "$HOME/.config/helix" "$HOME/.config/helix" \
         --bind "$HOME/.cache/helix" "$HOME/.cache/helix" \
         --bind "$HOME/.cache/mcp-nixos" "$HOME/.cache/mcp-nixos" \
-        --ro-bind "/mnt/c/Users/mads/nix-config" "$HOME/nix-config" \
-        --ro-bind "$HOME/Documents" "$HOME/Documents" \
+        --ro-bind "/mnt/c/Users/mads/nix-config" "/mnt/c/Users/mads/nix-config" \
         --setenv OPENCODE_DISABLE_CHANNEL_DB 1 \
+        --setenv OPENCODE_DISABLE_FFF 1 \
         --setenv NIX_SSL_CERT_FILE /run/current-system/etc/ssl/certs/ca-certificates.crt \
         opencode "$@"
     '';
@@ -59,12 +67,12 @@ in
     package = opencode-bubblewrapped;
     enableMcpIntegration = true;
     tui = {
-      theme = lib.mkForce "system"; # FIXME: Stylix doesn't detect system theme properly
+      theme = lib.mkForce "system";
     };
     # Writes to ~/.config/opencode/AGENTS.md
     context = ''
       - Please read `./README.md`
-      - See your abilities in `~/nix-config/modules/opencode/home.nix`.
+      - See your abilities in `/mnt/c/Users/mads/nix-config/modules/opencode/home.nix`.
         - In short; you have no write for the most part. Don't suggest editing a file.
     '';
     settings = {
@@ -76,8 +84,8 @@ in
           timeout = 30000;
         };
       };
-      model = "opencode/mimo-v2.6-flash-free";
-      small_model = "opencode/deepseek-v4.1-flash-free";
+      model = "opencode/deepseek-v4.1-flash-free";
+      small_model = "opencode/big-pickle";
       default_agent = "plan";
       autoshare = false;
       autoupdate = "notify";
@@ -97,9 +105,7 @@ in
         "glob" = "allow";
         "grep" = "allow";
         "bash" = {
-          "*" = "deny";
-          # opencode
-          "opencode *" = "ask";
+          "*" = "ask";
           # nix
           "nix-shell" = "allow";
           "nix flake *" = "deny";
@@ -108,11 +114,8 @@ in
           "nix eval *" = "allow";
           # misc.
           "man *" = "allow";
-          "tail *" = "ask";
-          "head *" = "ask";
           "rg *" = "allow";
           # zmx
-          "zmx *" = "deny";
           "zmx history *" = "allow";
         };
         "question" = "allow";
@@ -126,7 +129,7 @@ in
           "~/.cache/opencode" = "allow";
           "~/.cache/nix" = "allow";
           "~/.cache/mcp-nixos" = "allow";
-          "~/nix-config" = "allow";
+          "/mnt/c/Users/mads/nix-config" = "allow";
         };
         "mcp-nixos_nix" = "allow";
         "mcp-nixos_nix_versions" = "allow";
