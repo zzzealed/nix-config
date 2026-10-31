@@ -5,7 +5,7 @@
     initExtra = ''
       set -o vi
        nod() {
-        nix-on-droid "$@" --flake /sdcard/Documents/nix-config/.#phone
+        nix-on-droid "$@" --flake /sdcard/nix-config/.#phone1
       }
       zmx ls
     '';
