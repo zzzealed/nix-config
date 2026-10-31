@@ -1,6 +1,7 @@
-{ config, lib, ... }:
+{ config, hosts, ... }:
 {
   networking.wg-quick.interfaces.wg-server = {
+    address = [ hosts.${config.networking.hostName}.wgIp ];
     autostart = true;
     dns = [
       "10.100.0.1"
@@ -10,11 +11,16 @@
     peers = [
       {
         publicKey = "ShK/VV+el3nb6oGqpDIhJIVLgDQMucTASV6gGeIMwyw=";
-        endpoint = "wg.zzzealed.com:${toString config.wireguard.serverPort}";
+        endpoint = "wg.zzzealed.com:${toString hosts.srv1.wgPort}";
         persistentKeepalive = 25;
-        # Split hosts use 10.100.0.0/24 + 192.168.0.0/24
-        allowedIPs = config.wireguard.clientAllowedIPs;
+        allowedIPs = [
+          hosts.srv1.wgSubnet
+          hosts.router1.lanSubnet
+        ];
       }
     ];
+    privateKeyFile = config.age.secrets."private-key-file".path;
   };
+  age.secrets."private-key-file".file =
+    ../../secrets/wireguard-server/${config.networking.hostName}_private-key-file.age;
 }
