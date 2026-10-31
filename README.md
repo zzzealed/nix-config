@@ -74,3 +74,4 @@ sudo nixos-rebuild switch --flake .#desktop1
 - [ ] Init: `services.syncthing.relay`
 - [ ] Update `wireguard-topology.md`
 - [ ] `meta.nix`: SSH pub keys
+- [ ] SSH agent
