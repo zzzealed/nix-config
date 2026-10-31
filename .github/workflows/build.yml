@@ -4,22 +4,22 @@ on:
     paths:
       - "flake.lock"
 jobs:
-  build-server:
+  build-srv1:
     runs-on: [self-hosted, nix]
     timeout-minutes: 1440 # 24 hours
     steps:
       - uses: zzzealed/nix-config/.github/actions/checkout@main
-      - name: build server-nixos
+      - name: build srv1
         run: |
-          nix build .#nixosConfigurations.server.config.system.build.toplevel \
+          nix build .#nixosConfigurations.srv1.config.system.build.toplevel \
             --log-format bar \
-            --out-link /var/lib/github-runner/server-nixos/gcroots/server
+            --out-link /var/lib/github-runner/srv1/gcroots/srv1
   build-hosts:
-    needs: build-server
+    needs: build-srv1
     timeout-minutes: 1440 # 24 hours
     strategy:
       matrix:
-        host: [desktop, pi, vps, laptop]
+        host: [desktop1, rpi1, vps1, laptop1]
       fail-fast: false
     runs-on: [self-hosted, nix]
     steps:
@@ -28,30 +28,30 @@ jobs:
         run: |
           nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel \
             --log-format bar-with-logs \
-            --out-link /var/lib/github-runner/server-nixos/gcroots/${{ matrix.host }}
+            --out-link /var/lib/github-runner/srv1/gcroots/${{ matrix.host }}
 
-  build-phone:
-    needs: build-server
+  build-phone1:
+    needs: build-srv1
     runs-on: [self-hosted, nix]
     timeout-minutes: 1440 # 24 hours
     steps:
       - uses: zzzealed/nix-config/.github/actions/checkout@main
-      - name: build phone-droid
+      - name: build phone1
         run: |
           nix build .#legacyPackages.aarch64-linux.nix-on-droid-proot-static \
             --log-format bar-with-logs \
-            --out-link /var/lib/github-runner/server-nixos/gcroots/nix-on-droid-proot-static
-          nix build --impure .#nixOnDroidConfigurations.phone.activationPackage \
+            --out-link /var/lib/github-runner/srv1/gcroots/nix-on-droid-proot-static
+          nix build --impure .#nixOnDroidConfigurations.phone1.activationPackage \
             --log-format bar-with-logs \
-            --out-link /var/lib/github-runner/server-nixos/gcroots/phone
+            --out-link /var/lib/github-runner/srv1/gcroots/phone
 
   gatus-post:
     if: always()
-    needs: [build-server, build-hosts, build-phone]
+    needs: [build-srv1, build-hosts, build-phone1]
     runs-on: [self-hosted, nix]
     steps:
       - uses: ./.github/actions/report-status
         with:
           endpoint: github-com_actions-build-yml-workflow
-          status: ${{ needs.build-server.result == 'success' && needs.build-hosts.result == 'success' && needs.build-phone.result == 'success' }}
+          status: ${{ needs.build-srv1.result == 'success' && needs.build-hosts.result == 'success' && needs.build-phone1.result == 'success' }}
           token: ${{ secrets.GATUS_GITHUB_TOKEN }}
