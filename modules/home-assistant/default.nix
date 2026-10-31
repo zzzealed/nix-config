@@ -1,7 +1,7 @@
 { hosts, pkgs, ... }:
 {
   systemd.services.home-assistant = {
-    # fail cleanly instead of initializing into an unmounted dir
+    # Fail cleanly instead of initializing into an unmounted dir
     unitConfig.RequiresMountsFor = "/var/lib/hass";
   };
   imports = [ ./bind.nix ];
@@ -30,6 +30,7 @@
       "apple_tv"
       # "yale" # aiounittest-1.5.0 not supported for interpreter python3.14
       "bthome"
+      "ibeacon"
     ];
     extraPackages =
       python3Packages: with python3Packages; [
@@ -45,7 +46,7 @@
       http = {
         server_port = 8123;
         trusted_proxies = [
-          hosts.server.wgIp
+          hosts.srv1.wgIp
         ];
         use_x_forwarded_for = true;
         # };
