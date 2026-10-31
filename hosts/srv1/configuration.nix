@@ -73,7 +73,7 @@
     ../../modules/actual
     ../../modules/home-assistant/proxy.nix
     ../../modules/syncthing
-    ../../modules/paperless
+    # ../../modules/paperless
     ../../modules/octodns
     ## Compose2Nix
     ../../modules/gpt4free_docker
