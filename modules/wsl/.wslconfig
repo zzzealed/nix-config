@@ -1,0 +1,14 @@
+[general]
+instanceIdleTimeout=-1
+
+[experimental]
+autoMemoryReclaim=gradual
+hostAddressLoopback=true
+
+[wsl2]
+memory=6GB
+swap=8GB
+networkingMode=mirrored
+firewall=true
+dnsTunneling=true
+autoProxy=true
