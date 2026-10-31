@@ -15,7 +15,6 @@
         unstable.mpvScripts.webtorrent-mpv-hook
         unstable.mpvScripts.sponsorblock-minimal
         unstable.mpvScripts.mpris
-        unstable.mpvScripts.manga-reader
         nur.repos.zeal.playlist-dir-conf
       ];
     };
