@@ -20,7 +20,7 @@ let
   '';
 in
 {
-  home.activation.exportWindowsConfigs = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+  home.activation.exportWindowsConfigs = lib.hm.dag.entryAfter [ "linkGeneration" ] (
     lib.concatStringsSep "\n" [
       (copyDir "${wslHome}/.config/mpv" "${winAppData}/mpv")
 
