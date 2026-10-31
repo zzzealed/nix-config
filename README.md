@@ -16,11 +16,11 @@ flowchart LR
 
     flake --> hosts["hosts/"]
 
-    hosts --> server["server/configuration.nix"]
-    hosts --> desktop["desktop/configuration.nix"]
+    hosts --> srv1["srv1/configuration.nix"]
+    hosts --> desktop1["desktop1/configuration.nix"]
 
-    server --> modules["modules/"]
-    desktop --> modules
+    srv1 --> modules["modules/"]
+    desktop1 --> modules
   
 ```
 > [!NOTE]
@@ -39,9 +39,9 @@ tar -xzf main.tar.gz
 ```sh
 cd nix-config-main && nix-shell
 ```
-4. Rebuild and switch with a host's (eg. desktop's) configuration:
+4. Rebuild and switch with a host's (eg. desktop1's) configuration:
 ```sh
-sudo nixos-rebuild switch --flake .#desktop
+sudo nixos-rebuild switch --flake .#desktop1
 ```
 > [!IMPORTANT]
 > You need to use `nixos-generate-config` and replace [hosts/](/hosts/)*foo*/hardware-configuration.nix.
@@ -50,15 +50,27 @@ sudo nixos-rebuild switch --flake .#desktop
 > You also need a valid SSH-key defined in [secrets/secrets.nix](/secrets/secrets.nix) to decrypt any secrets.
 
 ## To-do
-- [ ] Init: `services.octodns` blocker: nixos/nixpkgs#517510
 - [ ] Init: `services.crowdsec` blocker: nixos/nixpkgs#535319
 - [ ] Init: `sops.secrets` blocker: mic92/sops-nix#970
-- [ ] Init: `base24-scheme` blocker: nix-community/stylix#252
 - [ ] Switch hosts `server`, `pi` to `boot.loader.limine`
 - [ ] Make all files+dirs kebab-case
 - [ ] More `pkgs.navi` docs
 - [ ] `services.*`: Unique ports?
 - [ ] Just rawdog dnsmasq instead of Pihole
 - [ ] `home.nix` -> `hm.nix` & `<other>.hm.nix`
-- [ ] `<name>.l.zzzealed.com` -> `<name>.i.zzzealed.com`
 - [ ] services/`proxy.nix`+`monitor.nix`+`mount.nix`
+- [ ] WSL: symlinks
+- [ ] `secrets/`: New SSH-keys+host keys 
+- [ ] `secrets/`: Consistent naming+formatting
+- [ ] USB Wireguard config
+- [ ] Syncthing Linux configs to Windows
+- [ ] TOR-bridge @ vps1
+- [ ] `rpi1`: MPD + HA
+- [ ] Zigbee HA setup
+- [ ] `router2` -> OpenWRT
+- [ ] Bump `flake.lock`
+- [ ] Init: `services.rss-bridge`
+- [ ] Home-Assistant; offline/require zpool unlock?
+- [ ] Init: `services.syncthing.relay`
+- [ ] Update `wireguard-topology.md`
+- [ ] `meta.nix`: SSH pub keys
