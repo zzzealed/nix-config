@@ -4,23 +4,23 @@ let
   root_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/rJS1hRE1N7E7B52yBPb1fkDwWaP6oYtF+3/ArdK8l root@nixos";
   root_pi-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzXNbSFzEjnQS+8D3guVv1UedC2E9EK0MZLaBDXMe+c root@example";
   root_vps-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQzGmZC5c7kFKe/GcHNNuvhF6uFOh8ZYG0H1mb6luL/ root@instance-20260423-1921";
-  root_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4tKknECJ43CH0oelw/zgEIfEGwqQjAxfsIEWr73SD9 root@nixos";
+  root-laptop1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINh8PEKyI4xrOJRkybMGaol/hdoslINgfD/xWSQgajFb root@laptop1";
   decodingKeys = [
     root_desktop-nixos
     root_server-nixos
     root_pi-nixos
     root_vps-nixos
-    root_laptop-nixos
+    root-laptop1
   ];
 
   mads_desktop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos";
   mads_server-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos";
-  mads_laptop-nixos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSX+uG+W5BIhlcO+kd39ngmRVtOtJirGO5oBlkZuopO mads@nixos";
+  mads-laptop1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOwP9zNVk9JV3bgnnZ+P1bBo3BAuBgZ2J/0Se4TDUPIc mads@laptop1";
   nix-on-droid_phone-droid = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAjVJSt549ILg+pVz7g+tiOT0dGBg/VWZL9+UGjFz8rr nix-on-droid@localhost";
   interactiveKeys = [
     mads_desktop-nixos
     mads_server-nixos
-    mads_laptop-nixos
+    mads-laptop1
     nix-on-droid_phone-droid
   ];
 
@@ -54,11 +54,6 @@ let
     "pr-tracker_github-token.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "karakeep_environment-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
     "speedtest-tracker_app-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "samba-secrets.age".publicKeys = [
-      root_desktop-nixos
-      root_laptop-nixos
-    ]
-    ++ interactiveKeys;
 
     # Authelia
     "authelia_jwt-secret-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
@@ -82,18 +77,13 @@ let
     ++ interactiveKeys;
     "wireguard-server/rpi1_private-key-file.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
     "wireguard-server/vps1_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
-    "wireguard-server/laptop1_private-key-file.age".publicKeys = [
-      root_laptop-nixos
-    ]
-    ++ interactiveKeys;
+    "wireguard-server/laptop1_private-key-file.age".publicKeys = interactiveKeys;
     "wireguard-server/phone1_private-key-file.age".publicKeys = interactiveKeys;
 
     # Proton VPN
     "desktop-proton_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
     "server-proton_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "laptop-proton_private-key-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
 
-    "eduroam-environment-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
     "nix_builder_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
 
     # Syncthing
@@ -105,8 +95,8 @@ let
     "syncthing/rpi1-cert.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
     "syncthing/vps1-key.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
     "syncthing/vps1-cert.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
-    "syncthing/laptop1-key.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
-    "syncthing/laptop1-cert.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
+    "syncthing/laptop1-key.age".publicKeys = [ root-laptop1 ] ++ interactiveKeys;
+    "syncthing/laptop1-cert.age".publicKeys = [ root-laptop1 ] ++ interactiveKeys;
 
     # Paperless
     "paperless/password-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
