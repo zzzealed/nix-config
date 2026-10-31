@@ -1,6 +1,0 @@
-{ ... }:
-{
-  services.wpaperd = {
-    enable = true;   
-  };
-}
