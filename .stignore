@@ -1,0 +1,4 @@
+(?d).git
+(?d)result
+(?d)result-*
+(?d).direnv
