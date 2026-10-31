@@ -1,6 +1,5 @@
 { ... }:
 {
-  boot.zfs.extraPools = [ "vault2" ];
-  boot.zfs.forceImportRoot = false; # Import with `sudo zpool import (-l) vault2`
+  boot.zfs.requestEncryptionCredentials = false;
   custom.zfs.bindMounts.pool = "vault2";
 }
