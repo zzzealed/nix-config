@@ -30,7 +30,7 @@
     teapot.url = "github:amaanq/teapot";
     redlib = {
       #url = "github:redlib-org/redlib";
-      url = "github:redlib-org/redlib/pull/552/head";
+      url = "github:EnkryptattuDev/redlib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
@@ -64,6 +64,15 @@
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    degoog = {
+      url = "github:degoog-org/degoog";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    glide = {
+      url = "github:glide-browser/glide.nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -103,14 +112,10 @@
                     inherit hostName;
                     domain = "lan";
                     hostId = hosts.${hostName}.hostId;
-                    hosts = {
-                      "${hosts.server.lanIp}" = [ "server.lan" ];
-                      "${hosts.desktop.lanIp}" = [ "desktop.lan" ];
-                      "${hosts.pi.lanIp}" = [ "pi.lan" ];
-                      "${hosts.vps.lanIp}" = [ "vps.lan" ];
-                      "${hosts.laptop.lanIp}" = [ "laptop.lan" ];
-                      "${hosts.phone.lanIp}" = [ "phone.lan" ];
-                    };
+                    # Map all host's IPs to a name+domain for the `/etc/hosts`-file
+                    hosts = nixpkgs.lib.mapAttrs' (
+                      name: host: nixpkgs.lib.nameValuePair host.lanIp [ "${name}.lan" ]
+                    ) hosts;
                   };
                 }
                 ./secrets
@@ -120,26 +125,26 @@
             }
           )
           {
-            desktop = {
+            desktop1 = {
               system = "x86_64-linux";
               modules = [
                 nixos-wsl.nixosModules.default
                 { wsl.enable = true; }
               ];
             };
-            server = {
+            srv1 = {
               system = "x86_64-linux";
-              modules = [ ./hosts/server/hardware-configuration.nix ];
+              modules = [ ./hosts/srv1/hardware-configuration.nix ];
             };
-            pi = {
+            rpi1 = {
               system = "aarch64-linux";
-              modules = [ ./hosts/pi/hardware-configuration.nix ];
+              modules = [ ./hosts/rpi1/hardware-configuration.nix ];
             };
-            vps = {
+            vps1 = {
               system = "x86_64-linux";
-              modules = [ ./hosts/vps/hardware-configuration.nix ];
+              modules = [ ./hosts/vps1/hardware-configuration.nix ];
             };
-            laptop = {
+            laptop1 = {
               system = "x86_64-linux";
               modules = [
                 nixos-wsl.nixosModules.default
@@ -174,12 +179,12 @@
             }
           )
           {
-            phone.system = "aarch64-linux";
+            phone1.system = "aarch64-linux";
           };
 
       legacyPackages.aarch64-linux.nix-on-droid-proot-static =
         nix-on-droid.packages.x86_64-linux.prootTermux-aarch64;
 
-      checks.aarch64-linux.phone = nixOnDroidConfigurations.phone.config.build.activationPackage;
+      checks.aarch64-linux.phone1 = nixOnDroidConfigurations.phone1.config.build.activationPackage;
     };
 }
