@@ -24,8 +24,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0bskvLTrkiFLQeS4K1uc8EwNGXrCcigrRZa/dPcycI mads@desktop-nixos"
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIDDp1+E2UPenRpOrfDIYmaV+W1f1xPu2l5hWYzPZBOmQAAAAEHNzaDptYWRzLWRlc2t0b3A= mads@desktop"
       # laptop
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICSX+uG+W5BIhlcO+kd39ngmRVtOtJirGO5oBlkZuopO mads@nixos"
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIOSTxFTLIO/9SlnsxFs3WHeaiX24orXfUyVJJhTN829zAAAAD3NzaDptYWRzLWxhcHRvcA== mads@laptop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOwP9zNVk9JV3bgnnZ+P1bBo3BAuBgZ2J/0Se4TDUPIc mads@laptop1"
       # server
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo+0J8abiPou6UWCuolKS0RriZ5zAYrgV2zdgIYTuQ5 mads@server-nixos"
       # phone
