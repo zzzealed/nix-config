@@ -30,11 +30,13 @@ let
     "porkbun-nginx_api_key.age".publicKeys = [
       root_server-nixos
       root_vps-nixos
+      root_pi-nixos
     ]
     ++ interactiveKeys;
     "porkbun-nginx_api_secret.age".publicKeys = [
       root_server-nixos
       root_vps-nixos
+      root_pi-nixos
     ]
     ++ interactiveKeys;
     "changedetection-io_api_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
@@ -70,12 +72,21 @@ let
     "vps-nixos_ddclient_config.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
 
     # Wireguard
-    "wireguard-server_private-key-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "desktop-server_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "pi-server_private-key-file.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
-    "vps-server_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
-    "laptop-server_private-key-file.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
-    "phone-server_private-key-file.age".publicKeys = interactiveKeys;
+    "wireguard-server/wireguard-server_private-key-file.age".publicKeys = [
+      root_server-nixos
+    ]
+    ++ interactiveKeys;
+    "wireguard-server/desktop1_private-key-file.age".publicKeys = [
+      root_desktop-nixos
+    ]
+    ++ interactiveKeys;
+    "wireguard-server/rpi1_private-key-file.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    "wireguard-server/vps1_private-key-file.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+    "wireguard-server/laptop1_private-key-file.age".publicKeys = [
+      root_laptop-nixos
+    ]
+    ++ interactiveKeys;
+    "wireguard-server/phone1_private-key-file.age".publicKeys = interactiveKeys;
 
     # Proton VPN
     "desktop-proton_private-key-file.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
@@ -86,12 +97,16 @@ let
     "nix_builder_key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
 
     # Syncthing
-    "syncthing/server-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "syncthing/server-cert.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
-    "syncthing/desktop-key.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "syncthing/desktop-cert.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
-    "syncthing/laptop-key.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
-    "syncthing/laptop-cert.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
+    "syncthing/srv1-key.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "syncthing/srv1-cert.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
+    "syncthing/desktop1-key.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "syncthing/desktop1-cert.age".publicKeys = [ root_desktop-nixos ] ++ interactiveKeys;
+    "syncthing/rpi1-key.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    "syncthing/rpi1-cert.age".publicKeys = [ root_pi-nixos ] ++ interactiveKeys;
+    "syncthing/vps1-key.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+    "syncthing/vps1-cert.age".publicKeys = [ root_vps-nixos ] ++ interactiveKeys;
+    "syncthing/laptop1-key.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
+    "syncthing/laptop1-cert.age".publicKeys = [ root_laptop-nixos ] ++ interactiveKeys;
 
     # Paperless
     "paperless/password-file.age".publicKeys = [ root_server-nixos ] ++ interactiveKeys;
