@@ -1,0 +1,15 @@
+---
+"":
+  - type: ALIAS
+    value: vps1.zzzealed.com.
+  - type: MX
+    values:
+      - preference: 10
+        exchange: fwd1.porkbun.com.
+      - preference: 20
+        exchange: fwd2.porkbun.com.
+  - type: TXT
+    value: "v=spf1 include:_spf.porkbun.com ~all"
+status:
+  type: CNAME
+  value: vps1.zzzealed.com.

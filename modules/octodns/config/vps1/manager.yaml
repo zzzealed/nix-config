@@ -1,0 +1,52 @@
+---
+providers:
+  config:
+    class: octodns.provider.yaml.YamlProvider
+    directory: /etc/octodns/zones
+    default_ttl: 600
+    enforce_order: False
+    escaped_semicolons: False
+  vps1:
+    class: octodns_ddns.DdnsSource
+    types:
+      - A
+    ttl: 600
+  porkbun:
+    class: octodns_porkbun.PorkbunProvider
+    api_key: env/PORKBUN_API_KEY
+    secret_key: env/PORKBUN_SECRET_KEY
+
+processors:
+  acme:
+    class: octodns.processor.acme.AcmeManagingProcessor
+  root-ns:
+    class: octodns.processor.filter.IgnoreRootNsFilter
+  own-zzzealed:
+    class: octodns.processor.filter.NameAllowlistFilter
+    allowlist:
+      - vps1
+  own-rotte:
+    class: octodns.processor.filter.NameAllowlistFilter
+    allowlist:
+      - ""
+      - status
+
+zones:
+  zzzealed.com.:
+    sources:
+      - vps1
+    processors:
+      - acme
+      - root-ns
+      - own-zzzealed
+    targets:
+      - porkbun
+  rotte.city.:
+    sources:
+      - config
+    processors:
+      - acme
+      - root-ns
+      - own-rotte
+    targets:
+      - porkbun

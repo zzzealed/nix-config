@@ -1,4 +1,10 @@
-{ inputs, config, ... }:
+{
+  hosts,
+  lib,
+  inputs,
+  config,
+  ...
+}:
 let
   website = inputs.zzzealed-com;
 in
@@ -30,9 +36,14 @@ in
   security.acme.certs."zzzealed.com" = {
     domain = "zzzealed.com";
     extraDomainNames = [
-      "*.zzzealed.com" # Public, set via Porkbun DNS
-      "*.l.zzzealed.com" # Local, set via Pihole
-    ];
+      "*.zzzealed.com"
+      "*.l.zzzealed.com" # FIXME: remove this
+    ] # Public, set via Porkbun DNS
+    # Local per-host wildcards, e.g. *.srv1.zzzealed.com — resolved via Pihole.
+    ++ (map (name: "*.${name}.zzzealed.com") (
+      builtins.attrNames (lib.filterAttrs (_: host: host ? wgIp) hosts)
+    ));
+
     dnsProvider = "porkbun"; # Provider of DNS-challenge
     dnsPropagationCheck = true;
     credentialFiles = {
