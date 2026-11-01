@@ -25,7 +25,7 @@
   desktop1 = {
     description = "Desktop PC";
     hostId = "19fa2096";
-    lanIp = "192.168.8.2";
+    lanIp = "192.168.8.100";
     iface = "eno2";
     router = "router2";
     wgIp = "10.100.0.2";
@@ -48,7 +48,7 @@
   laptop1 = {
     description = "Huawei laptop";
     hostId = "4115249e";
-    lanIp = "192.168.8.5";
+    lanIp = "192.168.8.107";
     iface = "";
     wgIp = "10.100.0.5";
   };

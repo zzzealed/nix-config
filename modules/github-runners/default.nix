@@ -2,10 +2,10 @@
 {
   age.secrets."github_nix-config_token-file".file = ../../secrets/github_nix-config_token-file.age;
   services.github-runners = {
-    server-nixos = {
+    srv1 = {
       enable = true;
       package = pkgs.github-runner;
-      name = "server-nixos";
+      name = "srv1";
       url = "https://github.com/zzzealed/nix-config";
       tokenFile = config.age.secrets."github_nix-config_token-file".path;
       extraPackages = with pkgs; [
@@ -17,10 +17,10 @@
       extraLabels = [ "nix" ];
     };
   };
-  nix.settings.allowed-users = [ "github-runner-server-nixos" ];
+  nix.settings.allowed-users = [ "github-runner-srv1" ];
 
   # Symlink gcroots
   systemd.tmpfiles.rules = [
-    "L+ /nix/var/nix/gcroots/github-runner - - - - /var/lib/github-runner/server-nixos/gcroots"
+    "L+ /nix/var/nix/gcroots/github-runner - - - - /var/lib/github-runner/srv1/gcroots"
   ];
 }
